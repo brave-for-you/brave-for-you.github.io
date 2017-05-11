@@ -1,0 +1,726 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hanz">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="今年三月,微软宣布 Edge 浏览器将支持CSS变量。 这个重要的 CSS 新功能，所有主要浏览器都已经支持了。本文全面的介绍如何使用它，你会发现原声 CSS 从此变得异常强大。1234567:root &amp;#123;--gutter: 1.5em;&amp;#125;@media (min-width: 30em)&amp;#123;  :root &amp;#123;--gutter: 2em;&amp;#125;&amp;#125">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS变量">
+<meta property="og:url" content="http://yoursite.com/2017/05/10/CSS变量/index.html">
+<meta property="og:site_name" content="Sakura">
+<meta property="og:description" content="今年三月,微软宣布 Edge 浏览器将支持CSS变量。 这个重要的 CSS 新功能，所有主要浏览器都已经支持了。本文全面的介绍如何使用它，你会发现原声 CSS 从此变得异常强大。1234567:root &amp;#123;--gutter: 1.5em;&amp;#125;@media (min-width: 30em)&amp;#123;  :root &amp;#123;--gutter: 2em;&amp;#125;&amp;#125">
+<meta property="og:updated_time" content="2017-05-10T14:38:16.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS变量">
+<meta name="twitter:description" content="今年三月,微软宣布 Edge 浏览器将支持CSS变量。 这个重要的 CSS 新功能，所有主要浏览器都已经支持了。本文全面的介绍如何使用它，你会发现原声 CSS 从此变得异常强大。1234567:root &amp;#123;--gutter: 1.5em;&amp;#125;@media (min-width: 30em)&amp;#123;  :root &amp;#123;--gutter: 2em;&amp;#125;&amp;#125">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":1},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/05/10/CSS变量/"/>
+
+
+
+
+
+  <title> CSS变量 | Sakura </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hanz">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Sakura</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle"></p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/10/CSS变量/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Sakura">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/img.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Sakura">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Sakura" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                CSS变量
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-10T22:35:05+08:00">
+                2017-05-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <ul>
+<li>今年三月,微软宣布 Edge 浏览器将支持CSS变量。</li>
+<li>这个重要的 CSS 新功能，所有主要浏览器都已经支持了。本文全面的介绍如何使用它，你会发现原声 CSS 从此变得异常强大。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">:root &#123;--gutter: 1.5em;&#125;</div><div class="line">@media (min-width: 30em)&#123;</div><div class="line">  :root &#123;--gutter: 2em;&#125;</div><div class="line">&#125;</div><div class="line">@media (min-width: 48em)&#123;</div><div class="line">  :root &#123;--gutter: 3em;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="变量的声明"><a href="#变量的声明" class="headerlink" title="变量的声明"></a>变量的声明</h2><hr>
+<ul>
+<li><p>声明变量的时候,变量名前面要加两根连词线(–)。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">body &#123;</div><div class="line">  --foo: #7F583F;</div><div class="line">  --bar: #F7EFD2;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>上面代码中，<code>body</code>选择器里面声明了两个变量；<code>--foo</code>和<code>--bar</code>。</p>
+</li>
+<li>它们与<code>color</code>、<code>font-size</code>等正式属性没有什么不同，只是没有默认含义。所以 CSS 变量（CSS variable）又叫做”CSS 自定义属性”（CSS custom properties）。因为变量与自定义的 CSS 属性其实是一回事。</li>
+<li>你可能会问，为什么选择两根连词线（<code>--</code>）表示变量？因为<code>$foo</code>被 Sass 用掉了，<code>@foo</code>被 Less 用掉了。为了不产生冲突，官方的 CSS 变量就改用两根连词线了。</li>
+<li><p>各种值都可以放入CSS变量中。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">:root&#123;</div><div class="line">  --main-color: #4d4e53;</div><div class="line">  --main-bg: rgb(255, 255, 255);</div><div class="line">  --logo-border-color: rebeccapurple;</div><div class="line"></div><div class="line">  --header-height: 68px;</div><div class="line">  --content-padding: 10px 20px;</div><div class="line"></div><div class="line">  --base-line-height: 1.428571429;</div><div class="line">  --transition-duration: .35s;</div><div class="line">  --external-link: &quot;external link&quot;;</div><div class="line">  --margin-top: calc(2vh + 20px);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>变量名大小写敏感，<code>--header-color</code>和<code>--Header-Color</code>是两个不同变量。</p>
+</li>
+</ul>
+<h2 id="var-函数"><a href="#var-函数" class="headerlink" title="var()函数"></a>var()函数</h2><hr>
+<ul>
+<li><p><code>var()</code>函数用于读取变量。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">a &#123;</div><div class="line">  color: var(--foo);</div><div class="line">  text-decoration-color: var(--bar);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p><code>var()</code>函数还可以使用第二个参数，表示变量的默认值。如果该变量不存在，就会使用这个默认值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">color: var(--foo, #7F583F);</div></pre></td></tr></table></figure>
+</li>
+<li><p>第二个参数不处理内部的逗号或空格，都会视作参数的一部分。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var(--font-stack, &quot;Roboto&quot;, &quot;Helvetica&quot;);</div><div class="line">var(--pad, 10px 15px 20px);</div></pre></td></tr></table></figure>
+</li>
+<li><p><code>var()</code>函数还可以用在变量的声明。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">:root &#123;</div><div class="line">  --primary-color: red;</div><div class="line">  --logo-text: var(--primary-color);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>注意，变量值只能用作属性值，不能用作属性名。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">.foo &#123;</div><div class="line">  --side: margin-top;</div><div class="line">  /* 无效 */</div><div class="line">  var(--side): 20px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>上面代码中，变量<code>--side</code>用作属性名，这是无效的。</p>
+</li>
+</ul>
+<h2 id="变量值的类型"><a href="#变量值的类型" class="headerlink" title="变量值的类型"></a>变量值的类型</h2><hr>
+<ul>
+<li><p>如果变量值是一个字符串，可以与其他字符串拼接。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">--bar: &apos;hello&apos;;</div><div class="line">--foo: var(--bar)&apos; world&apos;;</div></pre></td></tr></table></figure>
+</li>
+<li><p>利用这一点，可以debug（例子）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">body:after &#123;</div><div class="line">  content: &apos;--screen-category : &apos;var(--screen-category);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>如果变量值是数值，不能与数值单位直接连用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">.foo &#123;</div><div class="line">  --gap: 20;</div><div class="line">  /* 无效 */</div><div class="line">  margin-top: var(--gap)px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>上面的代码中，数值与单位直接写在一起，这是无效的。必须使用<code>calc()</code>函数，将他们连接。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.foo &#123;</div><div class="line">  --gap: 20;</div><div class="line">  margin-top: calc(var(--gap) * 1px);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>如果变量值带有单位，就不能写成字符串。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">/* 无效 */</div><div class="line">.foo &#123;</div><div class="line">  --foo: &apos;20px&apos;;</div><div class="line">  font-size: var(--foo);</div><div class="line">&#125;</div><div class="line"></div><div class="line">/* 有效 */</div><div class="line">.foo &#123;</div><div class="line">  --foo: 20px;</div><div class="line">  font-size: var(--foo);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><hr>
+<ul>
+<li>同一个CSS变量，可以在多个选择器内声明。读取的时候，优先级最高的声明生效。这与CSS的“层叠”（cascade）规则是一致的。</li>
+<li><p>下面是一个例子。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">  :root &#123; --color: blue; &#125;</div><div class="line">  div &#123; --color: green; &#125;</div><div class="line">  #alert &#123; --color: red; &#125;</div><div class="line">  * &#123; color: var(--color); &#125;</div><div class="line">&lt;/style&gt;</div><div class="line"></div><div class="line">&lt;p&gt;蓝色&lt;/p&gt;</div><div class="line">&lt;div&gt;绿色&lt;/div&gt;</div><div class="line">&lt;div id=&quot;alert&quot;&gt;红色&lt;/div&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>上面的代码中，三个选择器都声明了<code>--color</code>变量。不同元素读取这个变量的时候，会采用优先级最高的规则，因此三段文字的颜色是不一样的。</p>
+</li>
+<li><p>这就是说，变量的作用域就是它所在的选择器的有效范围。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">body &#123;</div><div class="line">  --foo: #7F583F;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.content &#123;</div><div class="line">  --bar: #F7EFD2;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>上面代码中，变量<code>--foo</code>的作用域是<code>body</code>选择器的生效范围，<code>--bar</code>的作用域是<code>.content</code>选择器的生效范围。</p>
+</li>
+<li>由于这个原因，全局的变量通常放在根元素<code>:root</code>里面，确保任何选择器都可以读取它们。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">:root &#123;</div><div class="line">  --main-color: #06c;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="响应式布局"><a href="#响应式布局" class="headerlink" title="响应式布局"></a>响应式布局</h2><hr>
+<ul>
+<li>CSS是动态的，页面的任何变化，都会导致采用的规则变化。</li>
+<li>利用这个特点，可以在响应式布局的<code>media</code>命令里面声明变量，使得不同的屏幕宽度有不同的变量值。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">body &#123;</div><div class="line">  --primary: #7F583F;</div><div class="line">  --secondary: #F7EFD2;</div><div class="line">&#125;</div><div class="line"></div><div class="line">a &#123;</div><div class="line">  color: var(--primary);</div><div class="line">  text-decoration-color: var(--secondary);</div><div class="line">&#125;</div><div class="line"></div><div class="line">@media screen and (min-width: 768px) &#123;</div><div class="line">  body &#123;</div><div class="line">    --primary:  #F7EFD2;</div><div class="line">    --secondary: #7F583F;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="兼容性处理"><a href="#兼容性处理" class="headerlink" title="兼容性处理"></a>兼容性处理</h2><hr>
+<ul>
+<li><p>对于不支持CSS变量的浏览器，可以采用下面的写法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">a &#123;</div><div class="line">  color: #7F583F;</div><div class="line">  color: var(--primary);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>也可以使用<code>@support</code>命令进行检测。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">@supports ( (--a: 0)) &#123;</div><div class="line">  /* supported */</div><div class="line">&#125;</div><div class="line"></div><div class="line">@supports ( not (--a: 0)) &#123;</div><div class="line">  /* not supported */</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="JavaScript操作"><a href="#JavaScript操作" class="headerlink" title="JavaScript操作"></a>JavaScript操作</h2><hr>
+<ul>
+<li><p>JavaScript也可以检测浏览器是否支持css变量。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">const isSupported =</div><div class="line">  window.CSS &amp;&amp;</div><div class="line">  window.CSS.supports &amp;&amp;</div><div class="line">  window.CSS.supports(&apos;--a&apos;, 0);</div><div class="line"></div><div class="line">if (isSupported) &#123;</div><div class="line">  /* supported */</div><div class="line">&#125; else &#123;</div><div class="line">  /* not supported */</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>JavaScript操作CSS变量的写法如下。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">// 设置变量</div><div class="line">document.body.style.setProperty(&apos;--primary&apos;, &apos;#7F583F&apos;);</div><div class="line"></div><div class="line">// 读取变量</div><div class="line">document.body.style.getPropertyValue(&apos;--primary&apos;).trim();</div><div class="line">// &apos;#7F583F&apos;</div><div class="line"></div><div class="line">// 删除变量</div><div class="line">document.body.style.removeProperty(&apos;--primary&apos;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>这意味着，JavaScript可以将任意值存入样式表，下面是一个监听事件的例子，事件信息被存入CSS变量。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">const docStyle = document.documentElement.style;</div><div class="line"></div><div class="line">document.addEventListener(&apos;mousemove&apos;, (e) =&gt; &#123;</div><div class="line">  docStyle.setProperty(&apos;--mouse-x&apos;, e.clientX);</div><div class="line">  docStyle.setProperty(&apos;--mouse-y&apos;, e.clientY);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>那些对CSS无用的信息，也可以放入CSS变量。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">--foo: if(x &gt; 5) this.width = 10;</div></pre></td></tr></table></figure>
+</li>
+<li><p>上面代码中，<code>--foo</code>的值在CSS中是无效语句，但是可以被JavaScript读取。</p>
+</li>
+<li><p>这意味着，可以把样式设置在CSS变量中，让JavaScript与CSS通信的一种途径。</p>
+<pre><code>（完）来源：阮一峰；
+</code></pre></li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/10/git命令/" rel="next" title="就是关于git啦">
+                <i class="fa fa-chevron-left"></i> 就是关于git啦
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/11/hello-world/" rel="prev" title="Hello World">
+                Hello World <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/img.jpg"
+               alt="Sakura" />
+          <p class="site-author-name" itemprop="name">Sakura</p>
+          <p class="site-description motion-element" itemprop="description">something for nothing!</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#变量的声明"><span class="nav-number">1.</span> <span class="nav-text">变量的声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#var-函数"><span class="nav-number">2.</span> <span class="nav-text">var()函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量值的类型"><span class="nav-number">3.</span> <span class="nav-text">变量值的类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作用域"><span class="nav-number">4.</span> <span class="nav-text">作用域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#响应式布局"><span class="nav-number">5.</span> <span class="nav-text">响应式布局</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#兼容性处理"><span class="nav-number">6.</span> <span class="nav-text">兼容性处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript操作"><span class="nav-number">7.</span> <span class="nav-text">JavaScript操作</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Sakura</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+      <!-- UY BEGIN -->
+      <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid="></script>
+      <!-- UY END -->
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
