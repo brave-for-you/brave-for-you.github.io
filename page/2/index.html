@@ -188,7 +188,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -198,7 +198,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -231,7 +231,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/10/CSS变量/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/15/ionic初级教程/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Sakura">
@@ -256,8 +256,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/05/10/CSS变量/" itemprop="url">
-                  CSS变量
+                <a class="post-title-link" href="/2017/05/15/ionic初级教程/" itemprop="url">
+                  ionic
                 </a>
               
             
@@ -271,10 +271,10 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-10T22:35:05+08:00">
-                2017-05-10
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-15T14:21:05+08:00">
+                2017-05-15
               </time>
             
 
@@ -311,116 +311,26 @@
       
         
           
-            <ul>
-<li>今年三月,微软宣布 Edge 浏览器将支持CSS变量。</li>
-<li>这个重要的 CSS 新功能，所有主要浏览器都已经支持了。本文全面的介绍如何使用它，你会发现原声 CSS 从此变得异常强大。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">:root &#123;--gutter: 1.5em;&#125;</div><div class="line">@media (min-width: 30em)&#123;</div><div class="line">  :root &#123;--gutter: 2em;&#125;</div><div class="line">&#125;</div><div class="line">@media (min-width: 48em)&#123;</div><div class="line">  :root &#123;--gutter: 3em;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="变量的声明"><a href="#变量的声明" class="headerlink" title="变量的声明"></a>变量的声明</h2><hr>
-<ul>
-<li><p>声明变量的时候,变量名前面要加两根连词线(–)。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">body &#123;</div><div class="line">  --foo: #7F583F;</div><div class="line">  --bar: #F7EFD2;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>上面代码中，<code>body</code>选择器里面声明了两个变量；<code>--foo</code>和<code>--bar</code>。</p>
-</li>
-<li>它们与<code>color</code>、<code>font-size</code>等正式属性没有什么不同，只是没有默认含义。所以 CSS 变量（CSS variable）又叫做”CSS 自定义属性”（CSS custom properties）。因为变量与自定义的 CSS 属性其实是一回事。</li>
-<li>你可能会问，为什么选择两根连词线（<code>--</code>）表示变量？因为<code>$foo</code>被 Sass 用掉了，<code>@foo</code>被 Less 用掉了。为了不产生冲突，官方的 CSS 变量就改用两根连词线了。</li>
-<li><p>各种值都可以放入CSS变量中。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">:root&#123;</div><div class="line">  --main-color: #4d4e53;</div><div class="line">  --main-bg: rgb(255, 255, 255);</div><div class="line">  --logo-border-color: rebeccapurple;</div><div class="line"></div><div class="line">  --header-height: 68px;</div><div class="line">  --content-padding: 10px 20px;</div><div class="line"></div><div class="line">  --base-line-height: 1.428571429;</div><div class="line">  --transition-duration: .35s;</div><div class="line">  --external-link: &quot;external link&quot;;</div><div class="line">  --margin-top: calc(2vh + 20px);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>变量名大小写敏感，<code>--header-color</code>和<code>--Header-Color</code>是两个不同变量。</p>
-</li>
-</ul>
-<h2 id="var-函数"><a href="#var-函数" class="headerlink" title="var()函数"></a>var()函数</h2><hr>
-<ul>
-<li><p><code>var()</code>函数用于读取变量。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">a &#123;</div><div class="line">  color: var(--foo);</div><div class="line">  text-decoration-color: var(--bar);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p><code>var()</code>函数还可以使用第二个参数，表示变量的默认值。如果该变量不存在，就会使用这个默认值。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">color: var(--foo, #7F583F);</div></pre></td></tr></table></figure>
-</li>
-<li><p>第二个参数不处理内部的逗号或空格，都会视作参数的一部分。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var(--font-stack, &quot;Roboto&quot;, &quot;Helvetica&quot;);</div><div class="line">var(--pad, 10px 15px 20px);</div></pre></td></tr></table></figure>
-</li>
-<li><p><code>var()</code>函数还可以用在变量的声明。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">:root &#123;</div><div class="line">  --primary-color: red;</div><div class="line">  --logo-text: var(--primary-color);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>注意，变量值只能用作属性值，不能用作属性名。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">.foo &#123;</div><div class="line">  --side: margin-top;</div><div class="line">  /* 无效 */</div><div class="line">  var(--side): 20px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>上面代码中，变量<code>--side</code>用作属性名，这是无效的。</p>
-</li>
-</ul>
-<h2 id="变量值的类型"><a href="#变量值的类型" class="headerlink" title="变量值的类型"></a>变量值的类型</h2><hr>
-<ul>
-<li><p>如果变量值是一个字符串，可以与其他字符串拼接。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">--bar: &apos;hello&apos;;</div><div class="line">--foo: var(--bar)&apos; world&apos;;</div></pre></td></tr></table></figure>
-</li>
-<li><p>利用这一点，可以debug（例子）。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">body:after &#123;</div><div class="line">  content: &apos;--screen-category : &apos;var(--screen-category);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>如果变量值是数值，不能与数值单位直接连用。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">.foo &#123;</div><div class="line">  --gap: 20;</div><div class="line">  /* 无效 */</div><div class="line">  margin-top: var(--gap)px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>上面的代码中，数值与单位直接写在一起，这是无效的。必须使用<code>calc()</code>函数，将他们连接。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.foo &#123;</div><div class="line">  --gap: 20;</div><div class="line">  margin-top: calc(var(--gap) * 1px);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>如果变量值带有单位，就不能写成字符串。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">/* 无效 */</div><div class="line">.foo &#123;</div><div class="line">  --foo: &apos;20px&apos;;</div><div class="line">  font-size: var(--foo);</div><div class="line">&#125;</div><div class="line"></div><div class="line">/* 有效 */</div><div class="line">.foo &#123;</div><div class="line">  --foo: 20px;</div><div class="line">  font-size: var(--foo);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><hr>
-<ul>
-<li>同一个CSS变量，可以在多个选择器内声明。读取的时候，优先级最高的声明生效。这与CSS的“层叠”（cascade）规则是一致的。</li>
-<li><p>下面是一个例子。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">  :root &#123; --color: blue; &#125;</div><div class="line">  div &#123; --color: green; &#125;</div><div class="line">  #alert &#123; --color: red; &#125;</div><div class="line">  * &#123; color: var(--color); &#125;</div><div class="line">&lt;/style&gt;</div><div class="line"></div><div class="line">&lt;p&gt;蓝色&lt;/p&gt;</div><div class="line">&lt;div&gt;绿色&lt;/div&gt;</div><div class="line">&lt;div id=&quot;alert&quot;&gt;红色&lt;/div&gt;</div></pre></td></tr></table></figure>
-</li>
-<li><p>上面的代码中，三个选择器都声明了<code>--color</code>变量。不同元素读取这个变量的时候，会采用优先级最高的规则，因此三段文字的颜色是不一样的。</p>
-</li>
-<li><p>这就是说，变量的作用域就是它所在的选择器的有效范围。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">body &#123;</div><div class="line">  --foo: #7F583F;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.content &#123;</div><div class="line">  --bar: #F7EFD2;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>上面代码中，变量<code>--foo</code>的作用域是<code>body</code>选择器的生效范围，<code>--bar</code>的作用域是<code>.content</code>选择器的生效范围。</p>
-</li>
-<li>由于这个原因，全局的变量通常放在根元素<code>:root</code>里面，确保任何选择器都可以读取它们。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">:root &#123;</div><div class="line">  --main-color: #06c;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="响应式布局"><a href="#响应式布局" class="headerlink" title="响应式布局"></a>响应式布局</h2><hr>
-<ul>
-<li>CSS是动态的，页面的任何变化，都会导致采用的规则变化。</li>
-<li>利用这个特点，可以在响应式布局的<code>media</code>命令里面声明变量，使得不同的屏幕宽度有不同的变量值。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">body &#123;</div><div class="line">  --primary: #7F583F;</div><div class="line">  --secondary: #F7EFD2;</div><div class="line">&#125;</div><div class="line"></div><div class="line">a &#123;</div><div class="line">  color: var(--primary);</div><div class="line">  text-decoration-color: var(--secondary);</div><div class="line">&#125;</div><div class="line"></div><div class="line">@media screen and (min-width: 768px) &#123;</div><div class="line">  body &#123;</div><div class="line">    --primary:  #F7EFD2;</div><div class="line">    --secondary: #7F583F;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="兼容性处理"><a href="#兼容性处理" class="headerlink" title="兼容性处理"></a>兼容性处理</h2><hr>
-<ul>
-<li><p>对于不支持CSS变量的浏览器，可以采用下面的写法。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">a &#123;</div><div class="line">  color: #7F583F;</div><div class="line">  color: var(--primary);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>也可以使用<code>@support</code>命令进行检测。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">@supports ( (--a: 0)) &#123;</div><div class="line">  /* supported */</div><div class="line">&#125;</div><div class="line"></div><div class="line">@supports ( not (--a: 0)) &#123;</div><div class="line">  /* not supported */</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="JavaScript操作"><a href="#JavaScript操作" class="headerlink" title="JavaScript操作"></a>JavaScript操作</h2><hr>
-<ul>
-<li><p>JavaScript也可以检测浏览器是否支持css变量。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">const isSupported =</div><div class="line">  window.CSS &amp;&amp;</div><div class="line">  window.CSS.supports &amp;&amp;</div><div class="line">  window.CSS.supports(&apos;--a&apos;, 0);</div><div class="line"></div><div class="line">if (isSupported) &#123;</div><div class="line">  /* supported */</div><div class="line">&#125; else &#123;</div><div class="line">  /* not supported */</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>JavaScript操作CSS变量的写法如下。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">// 设置变量</div><div class="line">document.body.style.setProperty(&apos;--primary&apos;, &apos;#7F583F&apos;);</div><div class="line"></div><div class="line">// 读取变量</div><div class="line">document.body.style.getPropertyValue(&apos;--primary&apos;).trim();</div><div class="line">// &apos;#7F583F&apos;</div><div class="line"></div><div class="line">// 删除变量</div><div class="line">document.body.style.removeProperty(&apos;--primary&apos;);</div></pre></td></tr></table></figure>
-</li>
-<li><p>这意味着，JavaScript可以将任意值存入样式表，下面是一个监听事件的例子，事件信息被存入CSS变量。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">const docStyle = document.documentElement.style;</div><div class="line"></div><div class="line">document.addEventListener(&apos;mousemove&apos;, (e) =&gt; &#123;</div><div class="line">  docStyle.setProperty(&apos;--mouse-x&apos;, e.clientX);</div><div class="line">  docStyle.setProperty(&apos;--mouse-y&apos;, e.clientY);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-</li>
-<li><p>那些对CSS无用的信息，也可以放入CSS变量。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">--foo: if(x &gt; 5) this.width = 10;</div></pre></td></tr></table></figure>
-</li>
-<li><p>上面代码中，<code>--foo</code>的值在CSS中是无效语句，但是可以被JavaScript读取。</p>
-</li>
-<li><p>这意味着，可以把样式设置在CSS变量中，让JavaScript与CSS通信的一种途径。</p>
-<pre><code>（完）来源：阮一峰；
-</code></pre></li>
-</ul>
-
+            <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>Ionic应用程序主要通过Ionic命令行实用程序（“CLI”）创建和开发，并使用Cordova构建和部署为本机应用程序。这意味着我们需要安装几个实用程序才能开发。</p>
+<h2 id="安装Ionic"><a href="#安装Ionic" class="headerlink" title="安装Ionic"></a>安装Ionic</h2><h3 id="Ionic-CLI和Cordova"><a href="#Ionic-CLI和Cordova" class="headerlink" title="Ionic CLI和Cordova"></a>Ionic CLI和Cordova</h3><p>要创建Ionic项目，您需要安装最新版本的CLI和Cordova。在您这样做之前，您将需要一个最新版本的Node.js. 下载 Node.js 6或更高版本的安装程序，然后继续安装Ionic CLI和Cordova进行本机应用程序开发：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g ionic cordova</div></pre></td></tr></table></figure>
+<pre><code>您可能需要在这些命令前添加“sudo”，以便在全局安装这些实用程序
+</code></pre><p>完成安装后就可以创建第一个应用程序了;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ionic start cutePuppyPics</div></pre></td></tr></table></figure>
+<pre><code>据说这个应用程序几秒就装好了,我这里等了十来分钟......(可能电脑原因);
+</code></pre><p>如果要使用Ionic，请添加-v1。要将应用程序运行cd到创建的目录中，然后ionic serve在浏览器中运行命令以测试该应用程序！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd cutePuppyPics</div><div class="line">ionic serve</div></pre></td></tr></table></figure>
+<p>到这里已经基本上有了一个ionic的小案例模板了,在浏览器中可以模拟手机端进行测试;</p>
+<h2 id="打包0-0"><a href="#打包0-0" class="headerlink" title="打包0.0"></a>打包0.0</h2><p>将ionic项目完成之后,需要将它进行打包发布出去;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ionic run android --prod --release</div><div class="line"># or</div><div class="line">ionic build android --prod --release</div></pre></td></tr></table></figure></p>
+<p>这将使您的应用程序的代码缩小为Ionic的来源，并从APK中删除任何调试功能。通常在将应用部署到Google Play商店时使用。(官方文档中是这样的,但是在我实际使用中这样是错误的代码,在我这边实际使用的时候需要在ionic后面加上cordova);</p>
+<p>这一步结束后,文件夹中会创建一个apk文件,这个文件只能在本机的环境下去使用,不能发布出去;</p>
+<h3 id="签署Android-APK"><a href="#签署Android-APK" class="headerlink" title="签署Android APK"></a>签署Android APK</h3><h4 id="生成签名文件"><a href="#生成签名文件" class="headerlink" title="生成签名文件"></a>生成签名文件</h4><p>如果您要在Google Play商店中发布，必须签署APK文件。为此，必须创建一个新的证书/密钥库。<br>让我们使用JDK附带的keytool命令生成你的私钥：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">keytool -genkey -v -keystore my-release-key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias my-alias</div><div class="line"></div><div class="line">keytool -genkey -v -keystore demo.keystore -alias demo.keystore -keyalg RSA -validity 20000</div></pre></td></tr></table></figure>
+<pre><code>注意：确保将此文件保存在某个地方，如果丢失，您将无法向应用程序提交更新！
+</code></pre><h4 id="签名APK"><a href="#签名APK" class="headerlink" title="签名APK"></a>签名APK</h4><p>要签署未签名的APK，请运行JDK中还包含的jarsigner工具：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.jsk android-release-unsigned.apk alias_name</div><div class="line"></div><div class="line">jarsigner -verbose -keystore /yourpath/demo.keystore -signedjar demo_signed.apk demo.apk demo.keystore</div></pre></td></tr></table></figure></p>
+<hr>
+<pre><code>签名完成后就可以生成可以发布的APk文件了0.0;
+</code></pre>
           
         
       
@@ -453,7 +363,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -496,8 +406,8 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">5</span>
-                <span class="site-state-item-name">Artikel</span>
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">posts</span>
               </a>
             </div>
           
@@ -549,7 +459,7 @@
 
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
