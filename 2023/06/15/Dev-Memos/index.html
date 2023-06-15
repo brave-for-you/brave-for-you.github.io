@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="一些代码片段记录。 加解密加密1234567compileStr(code) &amp;#123;    let c &#x3D; String.fromCharCode(code.charCodeAt(0) + code.length)    for(let i&#x3D;1;i&lt;code.length;i++) &amp;#123;        c +&#x3D; String.fromCharCode(code.charCode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Dev-Memos">
+<meta property="og:url" content="https://github.zzp0322.cn/2023/06/15/Dev-Memos/index.html">
+<meta property="og:site_name" content="Ron&#39;s Notes">
+<meta property="og:description" content="一些代码片段记录。 加解密加密1234567compileStr(code) &amp;#123;    let c &#x3D; String.fromCharCode(code.charCodeAt(0) + code.length)    for(let i&#x3D;1;i&lt;code.length;i++) &amp;#123;        c +&#x3D; String.fromCharCode(code.charCode">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-06-15T02:29:07.000Z">
+<meta property="article:modified_time" content="2023-06-15T02:45:25.521Z">
+<meta property="article:author" content="Ron.">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Dev-Memos</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="https://github.com/brave-for-you">Projects</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://github.zzp0322.cn/2023/06/15/Dev-Memos/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://github.zzp0322.cn/2023/06/15/Dev-Memos/&text=Dev-Memos"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://github.zzp0322.cn/2023/06/15/Dev-Memos/&title=Dev-Memos"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://github.zzp0322.cn/2023/06/15/Dev-Memos/&is_video=false&description=Dev-Memos"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Dev-Memos&body=Check out this article: https://github.zzp0322.cn/2023/06/15/Dev-Memos/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://github.zzp0322.cn/2023/06/15/Dev-Memos/&title=Dev-Memos"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://github.zzp0322.cn/2023/06/15/Dev-Memos/&title=Dev-Memos"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://github.zzp0322.cn/2023/06/15/Dev-Memos/&title=Dev-Memos"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://github.zzp0322.cn/2023/06/15/Dev-Memos/&title=Dev-Memos"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://github.zzp0322.cn/2023/06/15/Dev-Memos/&name=Dev-Memos&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://github.zzp0322.cn/2023/06/15/Dev-Memos/&t=Dev-Memos"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A0%E8%A7%A3%E5%AF%86"><span class="toc-number">1.</span> <span class="toc-text">加解密</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A0%E5%AF%86"><span class="toc-number">1.1.</span> <span class="toc-text">加密</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%AF%86"><span class="toc-number">1.2.</span> <span class="toc-text">解密</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%80%92%E8%AE%A1%E6%97%B6"><span class="toc-number">2.</span> <span class="toc-text">倒计时</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#09-59-20"><span class="toc-number">2.1.</span> <span class="toc-text">09:59:20</span></a></li></ol></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Dev-Memos
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Ron.</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2023-06-15T02:29:07.000Z" class="dt-published" itemprop="datePublished">2023-06-15</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p>一些代码片段记录。</p>
+<h2 id="加解密"><a href="#加解密" class="headerlink" title="加解密"></a>加解密</h2><h3 id="加密"><a href="#加密" class="headerlink" title="加密"></a>加密</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">compileStr</span>(<span class="params">code</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> c = <span class="title class_">String</span>.<span class="title function_">fromCharCode</span>(code.<span class="title function_">charCodeAt</span>(<span class="number">0</span>) + code.<span class="property">length</span>)</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">1</span>;i&lt;code.<span class="property">length</span>;i++) &#123;</span><br><span class="line">        c += <span class="title class_">String</span>.<span class="title function_">fromCharCode</span>(code.<span class="title function_">charCodeAt</span>(i) + code.<span class="title function_">charCodeAt</span>(i-<span class="number">1</span>))</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">escape</span>(c)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="解密"><a href="#解密" class="headerlink" title="解密"></a>解密</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">unCompileStr</span>(<span class="params">str</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> code = <span class="built_in">unescape</span>(str)</span><br><span class="line">    <span class="keyword">let</span> c = <span class="title class_">String</span>.<span class="title function_">fromCharCode</span>(code.<span class="title function_">charCodeAt</span>(<span class="number">0</span>) - code.<span class="property">length</span>)</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">1</span>;i&lt;code.<span class="property">length</span>;i++) &#123;</span><br><span class="line">        c += <span class="title class_">String</span>.<span class="title function_">fromCharCode</span>(code.<span class="title function_">charCodeAt</span>(i) - c.<span class="title function_">charCodeAt</span>(i-<span class="number">1</span>))</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> c</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="倒计时"><a href="#倒计时" class="headerlink" title="倒计时"></a>倒计时</h2><h3 id="09-59-20"><a href="#09-59-20" class="headerlink" title="09:59:20"></a>09:59:20</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// timeStamp为毫秒</span></span><br><span class="line"><span class="title function_">handleSetTimeerFn</span>(<span class="params">timeStamp</span>) &#123;</span><br><span class="line">	<span class="keyword">let</span> timer = <span class="literal">null</span></span><br><span class="line">	<span class="keyword">let</span> t = timeStamp</span><br><span class="line">	<span class="keyword">let</span> h = <span class="number">0</span></span><br><span class="line">	<span class="keyword">let</span> m = <span class="number">0</span></span><br><span class="line">	<span class="keyword">let</span> s = <span class="number">0</span></span><br><span class="line">	h = <span class="title class_">Math</span>.<span class="title function_">floor</span>(t/(<span class="number">60</span>*<span class="number">60</span>))</span><br><span class="line">	h&lt;<span class="number">10</span>&amp;&amp;(h=<span class="string">&quot;0&quot;</span>+h)</span><br><span class="line">	m = <span class="title class_">Math</span>.<span class="title function_">floor</span>(t/<span class="number">60</span>%<span class="number">60</span>)</span><br><span class="line">	m&lt;<span class="number">10</span>&amp;&amp;(m=<span class="string">&quot;0&quot;</span>+m)</span><br><span class="line">	s = <span class="title class_">Math</span>.<span class="title function_">floor</span>(t%<span class="number">60</span>)</span><br><span class="line">	<span class="keyword">let</span> _thisTemp = <span class="variable language_">this</span></span><br><span class="line">	timer = <span class="built_in">setInterval</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">		s--</span><br><span class="line">		s&lt;<span class="number">10</span>&amp;&amp;(s=<span class="string">&quot;0&quot;</span>+s)</span><br><span class="line">		<span class="keyword">if</span>(s.<span class="property">length</span>&gt;=<span class="number">3</span>) &#123;</span><br><span class="line">			s = <span class="number">59</span></span><br><span class="line">			m = (<span class="title class_">Number</span>(m)-<span class="number">1</span>)</span><br><span class="line">			m&lt;<span class="number">10</span>&amp;&amp;(m=<span class="string">&quot;0&quot;</span>+m)</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(m.<span class="property">length</span>&gt;=<span class="number">3</span>) &#123;</span><br><span class="line">			m = <span class="number">59</span></span><br><span class="line">			h = (<span class="title class_">Number</span>(h)-<span class="number">1</span>)</span><br><span class="line">			h&lt;<span class="number">10</span>&amp;&amp;(h=<span class="string">&quot;0&quot;</span>+h)</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(h.<span class="property">length</span>&gt;=<span class="number">3</span>) &#123;</span><br><span class="line">			h = <span class="string">&quot;00&quot;</span></span><br><span class="line">			m = <span class="string">&quot;00&quot;</span></span><br><span class="line">			s = <span class="string">&quot;00&quot;</span></span><br><span class="line">			<span class="built_in">clearInterval</span>(timer)</span><br><span class="line">		&#125;</span><br><span class="line">		_thisTemp.<span class="property">timerStr</span> = (h + <span class="string">&quot;:&quot;</span> + m + <span class="string">&quot;:&quot;</span> + s)</span><br><span class="line">	&#125;,<span class="number">1000</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/about/">About</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+          <li><a target="_blank" rel="noopener" href="https://github.com/brave-for-you">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A0%E8%A7%A3%E5%AF%86"><span class="toc-number">1.</span> <span class="toc-text">加解密</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A0%E5%AF%86"><span class="toc-number">1.1.</span> <span class="toc-text">加密</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%AF%86"><span class="toc-number">1.2.</span> <span class="toc-text">解密</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%80%92%E8%AE%A1%E6%97%B6"><span class="toc-number">2.</span> <span class="toc-text">倒计时</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#09-59-20"><span class="toc-number">2.1.</span> <span class="toc-text">09:59:20</span></a></li></ol></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://github.zzp0322.cn/2023/06/15/Dev-Memos/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://github.zzp0322.cn/2023/06/15/Dev-Memos/&text=Dev-Memos"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://github.zzp0322.cn/2023/06/15/Dev-Memos/&title=Dev-Memos"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://github.zzp0322.cn/2023/06/15/Dev-Memos/&is_video=false&description=Dev-Memos"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Dev-Memos&body=Check out this article: https://github.zzp0322.cn/2023/06/15/Dev-Memos/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://github.zzp0322.cn/2023/06/15/Dev-Memos/&title=Dev-Memos"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://github.zzp0322.cn/2023/06/15/Dev-Memos/&title=Dev-Memos"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://github.zzp0322.cn/2023/06/15/Dev-Memos/&title=Dev-Memos"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://github.zzp0322.cn/2023/06/15/Dev-Memos/&title=Dev-Memos"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://github.zzp0322.cn/2023/06/15/Dev-Memos/&name=Dev-Memos&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://github.zzp0322.cn/2023/06/15/Dev-Memos/&t=Dev-Memos"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2023
+    Ron.
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="https://github.com/brave-for-you">Projects</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
