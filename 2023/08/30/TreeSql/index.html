@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="树状表Sql 树状表Sql左右值(lft, rgt)查询很好用，但是新增删除时需要操作执行整个表的内容，存储失败时难以回滚，还会有并发冲突的问题，只适合内容稳定修改较少的表类型  新增123456789101112131415161718192021222324252627282930&#x2F;&#x2F; +----+-------------+-------+--------+-----+-----+-----">
+<meta property="og:type" content="article">
+<meta property="og:title" content="树状表Sql">
+<meta property="og:url" content="https://github.zzp0322.cn/2023/08/30/TreeSql/index.html">
+<meta property="og:site_name" content="Ron&#39;s Notes">
+<meta property="og:description" content="树状表Sql 树状表Sql左右值(lft, rgt)查询很好用，但是新增删除时需要操作执行整个表的内容，存储失败时难以回滚，还会有并发冲突的问题，只适合内容稳定修改较少的表类型  新增123456789101112131415161718192021222324252627282930&#x2F;&#x2F; +----+-------------+-------+--------+-----+-----+-----">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-08-30T07:00:00.000Z">
+<meta property="article:modified_time" content="2023-08-30T07:03:13.927Z">
+<meta property="article:author" content="Ron.">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>树状表Sql</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="https://github.com/brave-for-you">Projects</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2023/06/15/Dev-Memos/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://github.zzp0322.cn/2023/08/30/TreeSql/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://github.zzp0322.cn/2023/08/30/TreeSql/&text=树状表Sql"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://github.zzp0322.cn/2023/08/30/TreeSql/&title=树状表Sql"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://github.zzp0322.cn/2023/08/30/TreeSql/&is_video=false&description=树状表Sql"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=树状表Sql&body=Check out this article: https://github.zzp0322.cn/2023/08/30/TreeSql/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://github.zzp0322.cn/2023/08/30/TreeSql/&title=树状表Sql"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://github.zzp0322.cn/2023/08/30/TreeSql/&title=树状表Sql"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://github.zzp0322.cn/2023/08/30/TreeSql/&title=树状表Sql"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://github.zzp0322.cn/2023/08/30/TreeSql/&title=树状表Sql"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://github.zzp0322.cn/2023/08/30/TreeSql/&name=树状表Sql&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://github.zzp0322.cn/2023/08/30/TreeSql/&t=树状表Sql"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A0%91%E7%8A%B6%E8%A1%A8Sql"><span class="toc-number">1.</span> <span class="toc-text">树状表Sql</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A6%E5%8F%B3%E5%80%BC-lft-rgt"><span class="toc-number">1.1.</span> <span class="toc-text">左右值(lft, rgt)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B0%E5%A2%9E"><span class="toc-number">1.1.1.</span> <span class="toc-text">新增</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4"><span class="toc-number">1.1.2.</span> <span class="toc-text">删除</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.1.3.</span> <span class="toc-text">查询</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E6%89%80%E6%9C%89%E5%AD%90%E5%AD%99"><span class="toc-number">1.1.3.1.</span> <span class="toc-text">查询所有子孙</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E4%B8%8B%E5%B1%9E%E6%80%BB%E6%95%B0"><span class="toc-number">1.1.3.2.</span> <span class="toc-text">查询下属总数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E4%B8%80%E7%BA%A7%E4%B8%8B%E5%B1%9E"><span class="toc-number">1.1.3.3.</span> <span class="toc-text">查询一级下属</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E7%A5%96%E9%93%BE%E8%B7%AF%E5%BE%84"><span class="toc-number">1.1.3.4.</span> <span class="toc-text">查询祖链路径</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E5%90%8E%E8%BD%AC%E6%88%90%E6%A0%91%E7%BB%93%E6%9E%84"><span class="toc-number">1.1.3.5.</span> <span class="toc-text">查询后转成树结构</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%AF%E5%BE%84%E5%80%BC%EF%BC%881-x2F-2-x2F-3-x2F-4-x2F-5-x2F-6-x2F-%E2%80%A6%EF%BC%89"><span class="toc-number">1.2.</span> <span class="toc-text">路径值（1&#x2F;2&#x2F;3&#x2F;4&#x2F;5&#x2F;6&#x2F;…）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2-1"><span class="toc-number">1.2.1.</span> <span class="toc-text">查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E5%90%8E%E8%BD%AC%E6%A0%91%E7%8A%B6"><span class="toc-number">1.2.2.</span> <span class="toc-text">查询后转树状</span></a></li></ol></li></ol></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        树状表Sql
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Ron.</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2023-08-30T07:00:00.000Z" class="dt-published" itemprop="datePublished">2023-08-30</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p>树状表Sql</p>
+<h1 id="树状表Sql"><a href="#树状表Sql" class="headerlink" title="树状表Sql"></a>树状表Sql</h1><h2 id="左右值-lft-rgt"><a href="#左右值-lft-rgt" class="headerlink" title="左右值(lft, rgt)"></a>左右值(lft, rgt)</h2><pre><code>查询很好用，但是新增删除时需要操作执行整个表的内容，存储失败时难以回滚，还会有并发冲突的问题，只适合内容稳定修改较少的表类型
+</code></pre>
+<h3 id="新增"><a href="#新增" class="headerlink" title="新增"></a>新增</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// +----+-------------+-------+--------+-----+-----+----------+-------------+</span></span><br><span class="line"><span class="comment">// | id | name        | value | type   | lft | rgt | parentId | valuePrefix |</span></span><br><span class="line"><span class="comment">// +----+-------------+-------+--------+-----+-----+----------+-------------+</span></span><br><span class="line"><span class="comment">// |  1 | SYSTEM_NAME | 0     | system |   1 |  28 | NULL     | sys:        |</span></span><br><span class="line"><span class="comment">// |  2 | 系统维护    | 0     | menu   |   2 |  21 |        1 | sys:0:      |</span></span><br><span class="line"><span class="comment">// |  3 | 人员管理    | 1     | page   |  22 |  27 |        1 | sys:0:      |</span></span><br><span class="line"><span class="comment">// |  4 | 组织管理    | 0     | page   |   3 |   4 |        2 | sys:0:0:    |</span></span><br><span class="line"><span class="comment">// |  5 | 角色管理    | 1     | page   |   5 |  10 |        2 | sys:0:0:    |</span></span><br><span class="line"><span class="comment">// |  6 | 权限管理    | 2     | page   |  11 |  16 |        2 | sys:0:0:    |</span></span><br><span class="line"><span class="comment">// |  7 | 操作日志    | 3     | page   |  17 |  18 |        2 | sys:0:0:    |</span></span><br><span class="line"><span class="comment">// |  8 | 系统设置    | 4     | page   |  19 |  20 |        2 | sys:0:0:    |</span></span><br><span class="line"><span class="comment">// |  9 | 新增        | 0     | button |   6 |   7 |        5 | sys:0:0:1:  |</span></span><br><span class="line"><span class="comment">// | 10 | 新增        | 0     | button |  12 |  13 |        6 | sys:0:0:2:  |</span></span><br><span class="line"><span class="comment">// | 11 | 编辑        | 1     | button |   8 |   9 |        5 | sys:0:0:1:  |</span></span><br><span class="line"><span class="comment">// | 12 | 编辑        | 1     | button |  14 |  15 |        6 | sys:0:0:2:  |</span></span><br><span class="line"><span class="comment">// | 13 | 新增        | 0     | button |  23 |  24 |        3 | sys:0:1:    |</span></span><br><span class="line"><span class="comment">// | 14 | 编辑        | 1     | button |  25 |  26 |        3 | sys:0:1:    |</span></span><br><span class="line"><span class="comment">// +----+-------------+-------+--------+-----+-----+----------+-------------+</span></span><br><span class="line">SET <span class="meta">@lft</span> := <span class="number">7</span>;<span class="comment">/*新部门的左值*/</span></span><br><span class="line">SET <span class="meta">@rgt</span> := <span class="number">8</span>;<span class="comment">/*新部门的右值*/</span></span><br><span class="line">SET <span class="meta">@level</span> := <span class="number">5</span>;<span class="comment">/*新部门的层级*/</span></span><br><span class="line">begin;</span><br><span class="line"><span class="comment">/*将插入的后续边缘的节点左右数+2*/</span></span><br><span class="line">UPDATE department SET lft=lft+<span class="number">2</span> WHERE lft &gt; <span class="meta">@lft</span>;</span><br><span class="line">UPDATE department SET rgt=rgt+<span class="number">2</span> WHERE rgt &gt;= <span class="meta">@lft</span>;</span><br><span class="line"><span class="comment">/*插入数据*/</span></span><br><span class="line">INSERT INTO <span class="title function_">department</span><span class="params">(name,lft,rgt,level)</span> VALUES(<span class="string">&#x27;新部门&#x27;</span>,<span class="meta">@lft</span>,<span class="meta">@rgt</span>,level);</span><br><span class="line"><span class="comment">/*新增影响行数为0时，必须回滚*/</span></span><br><span class="line">commit;</span><br><span class="line"><span class="comment">/*rollback;*/</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">SET <span class="meta">@lft</span> := <span class="number">7</span>;<span class="comment">/*要删除的节点左值*/</span></span><br><span class="line">SET <span class="meta">@rgt</span> := <span class="number">8</span>;<span class="comment">/*要删除的节点右值*/</span></span><br><span class="line">begin;</span><br><span class="line">UPDATE department SET lft=lft-<span class="number">2</span> WHERE lft &gt; <span class="meta">@lft</span>;</span><br><span class="line">UPDATE department SET rgt=rgt-<span class="number">2</span> WHERE rgt &gt; <span class="meta">@lft</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*删除节点*/</span></span><br><span class="line">DELETE FROM department WHERE lft=<span class="meta">@lft</span> AND rgt=<span class="meta">@rgt</span>;</span><br><span class="line"><span class="comment">/*删除影响行数为0时，必须回滚*/</span></span><br><span class="line">commit;</span><br><span class="line"><span class="comment">/*rollback*/</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h3><h4 id="查询所有子孙"><a href="#查询所有子孙" class="headerlink" title="查询所有子孙"></a>查询所有子孙</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SET <span class="meta">@lft</span> := <span class="number">9</span>;</span><br><span class="line">SET <span class="meta">@rgt</span> := <span class="number">18</span>;</span><br><span class="line">SELECT * FROM department WHERE lft BETWEEN <span class="meta">@lft</span> AND <span class="meta">@rgt</span> ORDER BY lft ASC;</span><br><span class="line"><span class="comment">// `SELECT user_name FROM temp_pro_user WHERE lft &gt;= @lft AND lft &lt;= @rgt ORDER BY lft ASC`;</span></span><br><span class="line"><span class="comment">/*例子中用BETWEEN将被查部门本身也查了出来。实际中可以用大于小于*/</span></span><br></pre></td></tr></table></figure>
+<h4 id="查询下属总数"><a href="#查询下属总数" class="headerlink" title="查询下属总数"></a>查询下属总数</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 总数 = (右值 - 左值 - 1) / 2</span></span><br></pre></td></tr></table></figure>
+<h4 id="查询一级下属"><a href="#查询一级下属" class="headerlink" title="查询一级下属"></a>查询一级下属</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SET <span class="meta">@level</span> := <span class="number">2</span>;<span class="comment">/*总经理的level*/</span></span><br><span class="line">SET <span class="meta">@lft</span> := <span class="number">2</span>;<span class="comment">/*总经理的左值*/</span></span><br><span class="line">SET <span class="meta">@rgt</span> := <span class="number">19</span>;<span class="comment">/*总经理的右值*/</span></span><br><span class="line"></span><br><span class="line">SELECT * FROM department WHERE lft &gt; <span class="meta">@lft</span> AND rgt &lt; <span class="meta">@rgt</span> <span class="type">AND</span> <span class="variable">level</span> <span class="operator">=</span> <span class="meta">@level</span>+<span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="查询祖链路径"><a href="#查询祖链路径" class="headerlink" title="查询祖链路径"></a>查询祖链路径</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SET <span class="meta">@lft</span> := <span class="number">3</span>;<span class="comment">/*产品部左值*/</span></span><br><span class="line">SET <span class="meta">@rgt</span> := <span class="number">8</span>;<span class="comment">/*产品部右值*/</span></span><br><span class="line"></span><br><span class="line">SELECT * FROM department WHERE lft &lt; <span class="meta">@lft</span> AND rgt &gt; <span class="meta">@rgt</span> ORDER BY lft ASC;</span><br></pre></td></tr></table></figure>
+<h4 id="查询后转成树结构"><a href="#查询后转成树结构" class="headerlink" title="查询后转成树结构"></a>查询后转成树结构</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> list = [<span class="comment">//模拟sql查出来的列表。</span></span><br><span class="line">    &#123;<span class="attr">id</span>:<span class="number">1</span>,<span class="attr">name</span>:<span class="string">&#x27;root&#x27;</span>,<span class="attr">lft</span>:<span class="number">1</span>,<span class="attr">rgt</span>:<span class="number">8</span>,<span class="attr">level</span>:<span class="number">1</span>&#125;,</span><br><span class="line">    &#123;<span class="attr">id</span>:<span class="number">2</span>,<span class="attr">name</span>:<span class="string">&#x27;child&#x27;</span>,<span class="attr">lft</span>:<span class="number">2</span>,<span class="attr">rgt</span>:<span class="number">7</span>,<span class="attr">level</span>:<span class="number">2</span>&#125;,</span><br><span class="line">    &#123;<span class="attr">id</span>:<span class="number">3</span>,<span class="attr">name</span>:<span class="string">&#x27;grandson&#x27;</span>,<span class="attr">lft</span>:<span class="number">3</span>,<span class="attr">rgt</span>:<span class="number">4</span>,<span class="attr">level</span>:<span class="number">3</span>&#125;,</span><br><span class="line">    &#123;<span class="attr">id</span>:<span class="number">4</span>,<span class="attr">name</span>:<span class="string">&#x27;grandson2&#x27;</span>,<span class="attr">lft</span>:<span class="number">5</span>,<span class="attr">rgt</span>:<span class="number">6</span>,<span class="attr">level</span>:<span class="number">3</span>&#125;</span><br><span class="line">];</span><br><span class="line"><span class="keyword">let</span> rights = [] <span class="comment">/*类似于一个栈结构（后进先出）*/</span></span><br><span class="line"><span class="keyword">let</span> mp = &#123;&#125;</span><br><span class="line"><span class="comment">//list.sort((a,b) =&gt; a.lft - b.lft)//如果你在sql中没有进行排序，需要在这里给他排序。</span></span><br><span class="line">list.<span class="title function_">forEach</span>(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(rights.<span class="property">length</span> &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">while</span>(rights[rights.<span class="property">length</span>-<span class="number">1</span>] &lt; item.<span class="property">rgt</span>) &#123;</span><br><span class="line">            rights.<span class="title function_">splice</span>(-<span class="number">1</span>, <span class="number">1</span>)<span class="comment">//从rights末尾去除</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> _level = rights.<span class="property">length</span>;</span><br><span class="line">    item.<span class="property">_level</span> = _level;</span><br><span class="line">    mp[_level] = item.<span class="property">id</span></span><br><span class="line">    item.<span class="property">parent_id</span> = _level - <span class="number">1</span> <span class="keyword">in</span> mp ? mp[_level - <span class="number">1</span>] : <span class="literal">null</span>;<span class="comment">//计算出上级部门编号</span></span><br><span class="line">    item.<span class="property">is_leaf</span> = item.<span class="property">lft</span> === item.<span class="property">rgt</span> - <span class="number">1</span>;<span class="comment">//判断是否叶子部门</span></span><br><span class="line">    rights.<span class="title function_">push</span>(item.<span class="property">rgt</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">/*上级部门计算出来了，和存parent_id的效果就一样了，后面只需要递归即可*/</span></span><br><span class="line"><span class="comment">/*递归函数 示例*/</span></span><br><span class="line"><span class="keyword">let</span> <span class="title function_">recursive</span> = (<span class="params">_list, parent_id = <span class="literal">null</span></span>) =&gt; &#123;</span><br><span class="line">    <span class="keyword">let</span> _tree = [];</span><br><span class="line">    _list.<span class="title function_">forEach</span>(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(item.<span class="property">parent_id</span> === parent_id) &#123;</span><br><span class="line">            <span class="keyword">let</span> childs = <span class="title function_">recursive</span>(_list, item.<span class="property">id</span>)</span><br><span class="line">            _tree.<span class="title function_">push</span>(&#123;</span><br><span class="line">                ...item,</span><br><span class="line">                <span class="attr">children</span>: childs.<span class="property">length</span> &gt; <span class="number">0</span> ? childs : (item.<span class="property">isLeaf</span> ? <span class="literal">null</span> : [])</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">return</span> _tree</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">recursive</span>(list))</span><br></pre></td></tr></table></figure>
+
+<h2 id="路径值（1-x2F-2-x2F-3-x2F-4-x2F-5-x2F-6-x2F-…）"><a href="#路径值（1-x2F-2-x2F-3-x2F-4-x2F-5-x2F-6-x2F-…）" class="headerlink" title="路径值（1&#x2F;2&#x2F;3&#x2F;4&#x2F;5&#x2F;6&#x2F;…）"></a>路径值（1&#x2F;2&#x2F;3&#x2F;4&#x2F;5&#x2F;6&#x2F;…）</h2><pre><code>查询难度低，需要拼接path内容，存储基本不会出现并发冲突
+</code></pre>
+<h3 id="查询-1"><a href="#查询-1" class="headerlink" title="查询"></a>查询</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// +----+----------+------------+</span></span><br><span class="line"><span class="comment">// | id | userName | path       |</span></span><br><span class="line"><span class="comment">// +----+----------+------------+</span></span><br><span class="line"><span class="comment">// |  1 | Admin    | 0          |</span></span><br><span class="line"><span class="comment">// |  2 | Ron      | 0/1        |</span></span><br><span class="line"><span class="comment">// |  3 | Ron0     | 0/1/2      |</span></span><br><span class="line"><span class="comment">// |  4 | Bio      | 0/1        |</span></span><br><span class="line"><span class="comment">// |  5 | Ron1     | 0/1/2      |</span></span><br><span class="line"><span class="comment">// |  6 | Bio0     | 0/1/4      |</span></span><br><span class="line"><span class="comment">// |  7 | Bio00    | 0/1/4/6    |</span></span><br><span class="line"><span class="comment">// |  8 | Bio000   | 0/1/4/6/7  |</span></span><br><span class="line"><span class="comment">// +----+----------+------------+</span></span><br><span class="line"><span class="comment">// 查询所有子结构内容(当前id: 2)</span></span><br><span class="line">const <span class="meta">@userPath</span> = user.path + <span class="string">&#x27;/&#x27;</span> + user.id + <span class="string">&#x27;%&#x27;</span></span><br><span class="line">SELECT name FROM TABLENAME WHERE path like <span class="meta">@userPath</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 查询所有父结构内容(当前id: 8)</span></span><br><span class="line">const <span class="meta">@pathArr</span> = user.path.split(<span class="string">&#x27;/&#x27;</span>)</span><br><span class="line">SELECT name FROM TABLENAME WHERE id IN <span class="meta">@pathArr</span></span><br></pre></td></tr></table></figure>
+<h3 id="查询后转树状"><a href="#查询后转树状" class="headerlink" title="查询后转树状"></a>查询后转树状</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*递归函数 示例*/</span></span><br><span class="line"><span class="keyword">let</span> <span class="title function_">recursive</span> = (<span class="params">_list, path = <span class="number">0</span></span>) =&gt; &#123;</span><br><span class="line">    <span class="keyword">let</span> _tree = [];</span><br><span class="line">    _list.<span class="title function_">forEach</span>(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(item.<span class="property">path</span> === path) &#123;</span><br><span class="line">            <span class="keyword">let</span> childs = <span class="title function_">recursive</span>(_list, (path + <span class="string">&#x27;/&#x27;</span> + item.<span class="property">id</span>))</span><br><span class="line">            _tree.<span class="title function_">push</span>(&#123;</span><br><span class="line">                ...item,</span><br><span class="line">                <span class="attr">children</span>: childs.<span class="property">length</span> &gt; <span class="number">0</span> ? childs : (item.<span class="property">isLeaf</span> ? <span class="literal">null</span> : [])</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">return</span> _tree</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">recursive</span>(list))</span><br></pre></td></tr></table></figure>
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/about/">About</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+          <li><a target="_blank" rel="noopener" href="https://github.com/brave-for-you">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A0%91%E7%8A%B6%E8%A1%A8Sql"><span class="toc-number">1.</span> <span class="toc-text">树状表Sql</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A6%E5%8F%B3%E5%80%BC-lft-rgt"><span class="toc-number">1.1.</span> <span class="toc-text">左右值(lft, rgt)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B0%E5%A2%9E"><span class="toc-number">1.1.1.</span> <span class="toc-text">新增</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4"><span class="toc-number">1.1.2.</span> <span class="toc-text">删除</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.1.3.</span> <span class="toc-text">查询</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E6%89%80%E6%9C%89%E5%AD%90%E5%AD%99"><span class="toc-number">1.1.3.1.</span> <span class="toc-text">查询所有子孙</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E4%B8%8B%E5%B1%9E%E6%80%BB%E6%95%B0"><span class="toc-number">1.1.3.2.</span> <span class="toc-text">查询下属总数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E4%B8%80%E7%BA%A7%E4%B8%8B%E5%B1%9E"><span class="toc-number">1.1.3.3.</span> <span class="toc-text">查询一级下属</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E7%A5%96%E9%93%BE%E8%B7%AF%E5%BE%84"><span class="toc-number">1.1.3.4.</span> <span class="toc-text">查询祖链路径</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E5%90%8E%E8%BD%AC%E6%88%90%E6%A0%91%E7%BB%93%E6%9E%84"><span class="toc-number">1.1.3.5.</span> <span class="toc-text">查询后转成树结构</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%AF%E5%BE%84%E5%80%BC%EF%BC%881-x2F-2-x2F-3-x2F-4-x2F-5-x2F-6-x2F-%E2%80%A6%EF%BC%89"><span class="toc-number">1.2.</span> <span class="toc-text">路径值（1&#x2F;2&#x2F;3&#x2F;4&#x2F;5&#x2F;6&#x2F;…）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2-1"><span class="toc-number">1.2.1.</span> <span class="toc-text">查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E5%90%8E%E8%BD%AC%E6%A0%91%E7%8A%B6"><span class="toc-number">1.2.2.</span> <span class="toc-text">查询后转树状</span></a></li></ol></li></ol></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://github.zzp0322.cn/2023/08/30/TreeSql/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://github.zzp0322.cn/2023/08/30/TreeSql/&text=树状表Sql"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://github.zzp0322.cn/2023/08/30/TreeSql/&title=树状表Sql"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://github.zzp0322.cn/2023/08/30/TreeSql/&is_video=false&description=树状表Sql"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=树状表Sql&body=Check out this article: https://github.zzp0322.cn/2023/08/30/TreeSql/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://github.zzp0322.cn/2023/08/30/TreeSql/&title=树状表Sql"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://github.zzp0322.cn/2023/08/30/TreeSql/&title=树状表Sql"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://github.zzp0322.cn/2023/08/30/TreeSql/&title=树状表Sql"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://github.zzp0322.cn/2023/08/30/TreeSql/&title=树状表Sql"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://github.zzp0322.cn/2023/08/30/TreeSql/&name=树状表Sql&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://github.zzp0322.cn/2023/08/30/TreeSql/&t=树状表Sql"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2023
+    Ron.
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="https://github.com/brave-for-you">Projects</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
