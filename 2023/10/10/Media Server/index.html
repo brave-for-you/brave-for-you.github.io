@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="关于推流、拉流命令行控制及开发依赖&#x2F;&#x2F; 后管地址 127.0.0.1:8000&#x2F;admin&#x2F;&#x2F;&#x2F; 接口：http:&#x2F;&#x2F;127.0.0.1:8000&#x2F;api&#x2F;server &#x2F;&#x2F; 性能线程监控&#x2F;&#x2F; 接口：http:&#x2F;&#x2F;127.0.0.1:8000&#x2F;api&#x2F;streams &#x2F;&#x2F; 查询推">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Media Server">
+<meta property="og:url" content="https://github.zzp0322.cn/2023/10/10/Media%20Server/index.html">
+<meta property="og:site_name" content="Ron&#39;s Notes">
+<meta property="og:description" content="关于推流、拉流命令行控制及开发依赖&#x2F;&#x2F; 后管地址 127.0.0.1:8000&#x2F;admin&#x2F;&#x2F;&#x2F; 接口：http:&#x2F;&#x2F;127.0.0.1:8000&#x2F;api&#x2F;server &#x2F;&#x2F; 性能线程监控&#x2F;&#x2F; 接口：http:&#x2F;&#x2F;127.0.0.1:8000&#x2F;api&#x2F;streams &#x2F;&#x2F; 查询推">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-10-10T10:00:00.000Z">
+<meta property="article:modified_time" content="2023-10-16T07:39:51.236Z">
+<meta property="article:author" content="Ron.">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Media Server</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="https://github.com/brave-for-you">Projects</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/2023/10/16/Raspberry%20pi/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2023/08/30/TreeSql/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://github.zzp0322.cn/2023/10/10/Media%20Server/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://github.zzp0322.cn/2023/10/10/Media%20Server/&text=Media Server"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://github.zzp0322.cn/2023/10/10/Media%20Server/&title=Media Server"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://github.zzp0322.cn/2023/10/10/Media%20Server/&is_video=false&description=Media Server"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Media Server&body=Check out this article: https://github.zzp0322.cn/2023/10/10/Media%20Server/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://github.zzp0322.cn/2023/10/10/Media%20Server/&title=Media Server"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://github.zzp0322.cn/2023/10/10/Media%20Server/&title=Media Server"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://github.zzp0322.cn/2023/10/10/Media%20Server/&title=Media Server"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://github.zzp0322.cn/2023/10/10/Media%20Server/&title=Media Server"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://github.zzp0322.cn/2023/10/10/Media%20Server/&name=Media Server&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://github.zzp0322.cn/2023/10/10/Media%20Server/&t=Media Server"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ffmpeg-shell-x2F-cmd"><span class="toc-number">1.</span> <span class="toc-text">ffmpeg(shell&#x2F;cmd)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4"><span class="toc-number">1.1.</span> <span class="toc-text">基础命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RTMP%E5%8D%8F%E8%AE%AE%E6%8E%A8%E6%B5%81"><span class="toc-number">1.2.</span> <span class="toc-text">RTMP协议推流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ffmpeg%E6%9C%AC%E5%9C%B0"><span class="toc-number">1.3.</span> <span class="toc-text">ffmpeg本地</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#win%E5%91%BD%E4%BB%A4%E6%8E%A7%E5%88%B6"><span class="toc-number">2.</span> <span class="toc-text">win命令控制</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Media Server
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Ron.</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2023-10-10T10:00:00.000Z" class="dt-published" itemprop="datePublished">2023-10-10</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p>关于推流、拉流命令行控制及开发依赖<br>&#x2F;&#x2F; 后管地址 127.0.0.1:8000&#x2F;admin&#x2F;<br>&#x2F;&#x2F; 接口：<a target="_blank" rel="noopener" href="http://127.0.0.1:8000/api/server">http://127.0.0.1:8000/api/server</a> &#x2F;&#x2F; 性能线程监控<br>&#x2F;&#x2F; 接口：<a target="_blank" rel="noopener" href="http://127.0.0.1:8000/api/streams">http://127.0.0.1:8000/api/streams</a> &#x2F;&#x2F; 查询推流列表</p>
+<h2 id="ffmpeg-shell-x2F-cmd"><a href="#ffmpeg-shell-x2F-cmd" class="headerlink" title="ffmpeg(shell&#x2F;cmd)"></a>ffmpeg(shell&#x2F;cmd)</h2><h3 id="基础命令"><a href="#基础命令" class="headerlink" title="基础命令"></a>基础命令</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">dshow可以用来抓取摄像头、采集卡、麦克风等，vfwcap主要用来采集摄像头类设备，gdigrab则是抓取Windows窗口程序</span></span><br><span class="line">ffmpeg -list_devices true -f dshow -i dummy # 查询可用dshow设备</span><br><span class="line"></span><br><span class="line">-f vfwcap -i &quot;0&quot; # 启用摄像头</span><br><span class="line">-f gdigrab -i desktop 启用桌面录制 -f gdigrab -i title=&quot;&quot; # 启用应用录制</span><br><span class="line">-f dshow -i video=&quot;&quot; 指定video设备 -f dshow -i audio=&quot;&quot; # 指定audio设备</span><br><span class="line">-re -stream_loop -1 # 重复</span><br><span class="line">-vcodec libx264 -preset ultrafast # video指定解码配置 </span><br><span class="line">-acodec libmp3lame -ar 44100 -ac 1 # audio指定解码配置</span><br><span class="line">-c:v libx264 -preset ultrafast  # vfwcap摄像头使用video配置</span><br></pre></td></tr></table></figure>
+<h3 id="RTMP协议推流"><a href="#RTMP协议推流" class="headerlink" title="RTMP协议推流"></a>RTMP协议推流</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">重复推流test.mp4至rtmp接口</span></span><br><span class="line">ffmpeg -re -stream_loop -1 -i test.mp4 -vcodec libx264 -preset ultrafast -f flv rtmp://localhost:1935/stream/test</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">摄像头推流至rtmp接口（不包含acodec）</span></span><br><span class="line">ffmpeg -f vfwcap  -i &quot;0&quot; -c:v libx264 -preset ultrafast -f flv rtmp://localhost:1935/media/home</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">桌面desktop推流至rtmp接口（不包含acodec）</span></span><br><span class="line">ffmpeg -f gdigrab -i desktop -vcodec libx264 -preset ultrafast -f flv rtmp://localhost:1935/media/home</span><br></pre></td></tr></table></figure>
+<h3 id="ffmpeg本地"><a href="#ffmpeg本地" class="headerlink" title="ffmpeg本地"></a>ffmpeg本地</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">从视频中提取音频</span></span><br><span class="line">ffmpeg.exe -i aa.mp4 -vn -c:a copy output.aac</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-vn 表示去掉视频， -c:a copy表示不改变音频编码，直接拷贝。</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">进行指定时间截图</span></span><br><span class="line">ffmpeg.exe -ss 0:8:34 -i 二狗子.mp4 -vframes 1 -q:v 2 output.jpg</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-vframes1表示只截取一帧， -q:v2表示输出的图片质量，通常范围在1到5之间（1 为最高质量）</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">为音频添加封面</span></span><br><span class="line">ffmpeg -loop 1 -i cover.jpg -i input.mp3 -c:v libx264 -c:a aac -b:a 192k -shortest output.mp4</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">以上命令中，有两个输入文件，一个是封面图片 cover.jpg，另一个是音频文件 input.mp3。-loop1参数表示图片无限循环，  -shortest参数表示音频文件结束时，输出视频也随之结束。</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">MP4 转 M3U8</span></span><br><span class="line">ffmpeg -i input.mp4 -c:v libx264 -c:a aac -strict -2 -f hls -hlslistsize 2 -hls_time 15 output.m3u8</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">该命令将 input.mp4 视频文件每15秒生成一个 ts 文件，并最后生成一个 m3u8 文件，m3u8 文件则作为 ts 的索引文件。</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">屏幕录制并保存成文件</span></span><br><span class="line">ffmpeg -f gdigrab -i desktop eguid.mp4</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">转流（rtsp转rtmp为例）</span></span><br><span class="line">ffmpeg -i rtsp://184.72.239.149/vod/mp4://BigBuckBunny_175k.mov -rtsp_transport tcp -vcodec h264 -acodec aac -f flv rtmp://localhost:1935/rtmp/eguid</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">拉流</span></span><br><span class="line">ffmpeg -i rtmp://eguid.cc:1935/rtmp/eguid -vcodec h264 -f flv -acodec aac -ac 2 eguid.flv</span><br></pre></td></tr></table></figure>
+
+<h2 id="win命令控制"><a href="#win命令控制" class="headerlink" title="win命令控制"></a>win命令控制</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">命令前+start新开命令窗口执行</span></span><br><span class="line">tasklist # 查询所有进程</span><br><span class="line">tasklist /fi &quot;imagename eq ffmpeg.exe&quot; # 根据名字查询进程</span><br><span class="line">taskkill /f /im ffmpeg.exe # 根据进程名结束进程</span><br><span class="line">taskkill /pid 13044 -f # 根据pid值结束进程</span><br></pre></td></tr></table></figure>
+
+
+
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/about/">About</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+          <li><a target="_blank" rel="noopener" href="https://github.com/brave-for-you">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ffmpeg-shell-x2F-cmd"><span class="toc-number">1.</span> <span class="toc-text">ffmpeg(shell&#x2F;cmd)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4"><span class="toc-number">1.1.</span> <span class="toc-text">基础命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RTMP%E5%8D%8F%E8%AE%AE%E6%8E%A8%E6%B5%81"><span class="toc-number">1.2.</span> <span class="toc-text">RTMP协议推流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ffmpeg%E6%9C%AC%E5%9C%B0"><span class="toc-number">1.3.</span> <span class="toc-text">ffmpeg本地</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#win%E5%91%BD%E4%BB%A4%E6%8E%A7%E5%88%B6"><span class="toc-number">2.</span> <span class="toc-text">win命令控制</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://github.zzp0322.cn/2023/10/10/Media%20Server/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://github.zzp0322.cn/2023/10/10/Media%20Server/&text=Media Server"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://github.zzp0322.cn/2023/10/10/Media%20Server/&title=Media Server"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://github.zzp0322.cn/2023/10/10/Media%20Server/&is_video=false&description=Media Server"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Media Server&body=Check out this article: https://github.zzp0322.cn/2023/10/10/Media%20Server/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://github.zzp0322.cn/2023/10/10/Media%20Server/&title=Media Server"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://github.zzp0322.cn/2023/10/10/Media%20Server/&title=Media Server"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://github.zzp0322.cn/2023/10/10/Media%20Server/&title=Media Server"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://github.zzp0322.cn/2023/10/10/Media%20Server/&title=Media Server"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://github.zzp0322.cn/2023/10/10/Media%20Server/&name=Media Server&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://github.zzp0322.cn/2023/10/10/Media%20Server/&t=Media Server"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2023
+    Ron.
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="https://github.com/brave-for-you">Projects</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="关于Raspberry 初次使用注意以及基本内容，待完善… 系统烧录123451. 解压下载的系统压缩文件，得到img镜像文件2. 将SD使用卡托或者读卡器后，连上电脑3. 解压并运行win32diskimager工具（需要先格式化SD卡）4. 在软件中选择img（镜像）文件，“Device”下选择SD的盘符，然后选择“Write”# 然后就开始安装系统了，根据你的SD速度，安装过程有快有慢。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Raspberry pi">
+<meta property="og:url" content="https://github.zzp0322.cn/2023/10/16/Raspberry%20pi/index.html">
+<meta property="og:site_name" content="Ron&#39;s Notes">
+<meta property="og:description" content="关于Raspberry 初次使用注意以及基本内容，待完善… 系统烧录123451. 解压下载的系统压缩文件，得到img镜像文件2. 将SD使用卡托或者读卡器后，连上电脑3. 解压并运行win32diskimager工具（需要先格式化SD卡）4. 在软件中选择img（镜像）文件，“Device”下选择SD的盘符，然后选择“Write”# 然后就开始安装系统了，根据你的SD速度，安装过程有快有慢。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-10-16T07:00:00.000Z">
+<meta property="article:modified_time" content="2023-10-16T07:42:45.968Z">
+<meta property="article:author" content="Ron.">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Raspberry pi</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="https://github.com/brave-for-you">Projects</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2023/10/10/Media%20Server/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://github.zzp0322.cn/2023/10/16/Raspberry%20pi/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://github.zzp0322.cn/2023/10/16/Raspberry%20pi/&text=Raspberry pi"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://github.zzp0322.cn/2023/10/16/Raspberry%20pi/&title=Raspberry pi"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://github.zzp0322.cn/2023/10/16/Raspberry%20pi/&is_video=false&description=Raspberry pi"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Raspberry pi&body=Check out this article: https://github.zzp0322.cn/2023/10/16/Raspberry%20pi/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://github.zzp0322.cn/2023/10/16/Raspberry%20pi/&title=Raspberry pi"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://github.zzp0322.cn/2023/10/16/Raspberry%20pi/&title=Raspberry pi"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://github.zzp0322.cn/2023/10/16/Raspberry%20pi/&title=Raspberry pi"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://github.zzp0322.cn/2023/10/16/Raspberry%20pi/&title=Raspberry pi"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://github.zzp0322.cn/2023/10/16/Raspberry%20pi/&name=Raspberry pi&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://github.zzp0322.cn/2023/10/16/Raspberry%20pi/&t=Raspberry pi"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E7%83%A7%E5%BD%95"><span class="toc-number">1.</span> <span class="toc-text">系统烧录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A6%96%E6%AC%A1%E5%BC%80%E6%9C%BA"><span class="toc-number">2.</span> <span class="toc-text">首次开机</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E8%B4%A6%E5%8F%B7"><span class="toc-number">2.1.</span> <span class="toc-text">关于账号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E5%85%A5%E5%90%8E%E7%95%8C%E9%9D%A2%E6%93%8D%E4%BD%9C"><span class="toc-number">2.2.</span> <span class="toc-text">进入后界面操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E5%87%A0%E4%B8%AA%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">2.3.</span> <span class="toc-text">关于几个常用命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E6%9C%BA%E6%B3%A8%E6%84%8F"><span class="toc-number">3.</span> <span class="toc-text">关机注意</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Raspberry pi
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Ron.</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2023-10-16T07:00:00.000Z" class="dt-published" itemprop="datePublished">2023-10-16</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p>关于Raspberry 初次使用注意以及基本内容，待完善…</p>
+<h2 id="系统烧录"><a href="#系统烧录" class="headerlink" title="系统烧录"></a>系统烧录</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. 解压下载的系统压缩文件，得到img镜像文件</span><br><span class="line">2. 将SD使用卡托或者读卡器后，连上电脑</span><br><span class="line">3. 解压并运行win32diskimager工具（需要先格式化SD卡）</span><br><span class="line">4. 在软件中选择img（镜像）文件，“Device”下选择SD的盘符，然后选择“Write”</span><br><span class="line"># 然后就开始安装系统了，根据你的SD速度，安装过程有快有慢。</span><br></pre></td></tr></table></figure>
+
+<h2 id="首次开机"><a href="#首次开机" class="headerlink" title="首次开机"></a>首次开机</h2><h3 id="关于账号"><a href="#关于账号" class="headerlink" title="关于账号"></a>关于账号</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">用户名：pi</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">密码：yahboom / raspberry</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">root用户原始系统是没有开启的，自己设置密码就可以</span></span><br><span class="line">sudo passwd root # 输入两次密码确认</span><br><span class="line">sudo passwd --unlock root # 解锁root用户</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">切换root：</span></span><br><span class="line">su # 确认后输入密码</span><br></pre></td></tr></table></figure>
+<h3 id="进入后界面操作"><a href="#进入后界面操作" class="headerlink" title="进入后界面操作"></a>进入后界面操作</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">打开树莓派系统下的命令行终端（Ctrl+Alt+T）</span></span><br><span class="line"></span><br><span class="line">ifconfig # 查看我们的ip地址</span><br><span class="line"></span><br><span class="line">sudo raspi-config # 进入到树莓派系统配置界面</span><br></pre></td></tr></table></figure>
+<h3 id="关于几个常用命令"><a href="#关于几个常用命令" class="headerlink" title="关于几个常用命令"></a>关于几个常用命令</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看操作系统版本</span></span><br><span class="line">cat /proc/version</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看主板版本</span></span><br><span class="line">cat /proc/cpuinfo</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看SD存储卡剩余空间</span></span><br><span class="line">df -h</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看ip地址</span></span><br><span class="line">ifconfig</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">压缩</span></span><br><span class="line">tar –zcvf  filename.tar.gz dirname</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">解压</span></span><br><span class="line">tar –zxvf filename.tar.gz</span><br></pre></td></tr></table></figure>
+
+<h2 id="关机注意"><a href="#关机注意" class="headerlink" title="关机注意"></a>关机注意</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">不能直接拔掉电源，会造成树莓派数据无法及时保存而丢失</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">可以按需选择相关的终端命令操作</span></span><br><span class="line">sudo poweroff # 关闭电源</span><br><span class="line">sudo shutdown -h now # 立刻关机</span><br><span class="line">sudo shutdown -r now # 立刻重启</span><br><span class="line">sudo reboot # 重启</span><br><span class="line">sudo shutdown -h +2 # 2分钟之后关机</span><br></pre></td></tr></table></figure>
+
+
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/about/">About</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+          <li><a target="_blank" rel="noopener" href="https://github.com/brave-for-you">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E7%83%A7%E5%BD%95"><span class="toc-number">1.</span> <span class="toc-text">系统烧录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A6%96%E6%AC%A1%E5%BC%80%E6%9C%BA"><span class="toc-number">2.</span> <span class="toc-text">首次开机</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E8%B4%A6%E5%8F%B7"><span class="toc-number">2.1.</span> <span class="toc-text">关于账号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E5%85%A5%E5%90%8E%E7%95%8C%E9%9D%A2%E6%93%8D%E4%BD%9C"><span class="toc-number">2.2.</span> <span class="toc-text">进入后界面操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E5%87%A0%E4%B8%AA%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">2.3.</span> <span class="toc-text">关于几个常用命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E6%9C%BA%E6%B3%A8%E6%84%8F"><span class="toc-number">3.</span> <span class="toc-text">关机注意</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://github.zzp0322.cn/2023/10/16/Raspberry%20pi/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://github.zzp0322.cn/2023/10/16/Raspberry%20pi/&text=Raspberry pi"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://github.zzp0322.cn/2023/10/16/Raspberry%20pi/&title=Raspberry pi"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://github.zzp0322.cn/2023/10/16/Raspberry%20pi/&is_video=false&description=Raspberry pi"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Raspberry pi&body=Check out this article: https://github.zzp0322.cn/2023/10/16/Raspberry%20pi/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://github.zzp0322.cn/2023/10/16/Raspberry%20pi/&title=Raspberry pi"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://github.zzp0322.cn/2023/10/16/Raspberry%20pi/&title=Raspberry pi"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://github.zzp0322.cn/2023/10/16/Raspberry%20pi/&title=Raspberry pi"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://github.zzp0322.cn/2023/10/16/Raspberry%20pi/&title=Raspberry pi"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://github.zzp0322.cn/2023/10/16/Raspberry%20pi/&name=Raspberry pi&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://github.zzp0322.cn/2023/10/16/Raspberry%20pi/&t=Raspberry pi"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2023
+    Ron.
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="https://github.com/brave-for-you">Projects</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
