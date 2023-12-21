@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="关于Python的服务端框架-Django(有大量的基础服务内容，可创建多模块分配)。当前使用环境：python –version 3.11.1、pip –version 23.3.1。 安装Django 及 其他依赖包123pip install django # 框架依赖包 version 4.2.7pip install django-cors-headers # 处理跨域的依赖包pip i">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Django">
+<meta property="og:url" content="https://github.zzp0322.cn/2023/11/10/Django/index.html">
+<meta property="og:site_name" content="Ron&#39;s Notes">
+<meta property="og:description" content="关于Python的服务端框架-Django(有大量的基础服务内容，可创建多模块分配)。当前使用环境：python –version 3.11.1、pip –version 23.3.1。 安装Django 及 其他依赖包123pip install django # 框架依赖包 version 4.2.7pip install django-cors-headers # 处理跨域的依赖包pip i">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-11-10T00:00:00.000Z">
+<meta property="article:modified_time" content="2023-11-21T02:17:12.716Z">
+<meta property="article:author" content="Ron.">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Django</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="https://github.com/brave-for-you">Projects</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2023/10/16/Raspberry%20pi/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://github.zzp0322.cn/2023/11/10/Django/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://github.zzp0322.cn/2023/11/10/Django/&text=Django"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://github.zzp0322.cn/2023/11/10/Django/&title=Django"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://github.zzp0322.cn/2023/11/10/Django/&is_video=false&description=Django"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Django&body=Check out this article: https://github.zzp0322.cn/2023/11/10/Django/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://github.zzp0322.cn/2023/11/10/Django/&title=Django"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://github.zzp0322.cn/2023/11/10/Django/&title=Django"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://github.zzp0322.cn/2023/11/10/Django/&title=Django"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://github.zzp0322.cn/2023/11/10/Django/&title=Django"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://github.zzp0322.cn/2023/11/10/Django/&name=Django&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://github.zzp0322.cn/2023/11/10/Django/&t=Django"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Django-%E5%8F%8A-%E5%85%B6%E4%BB%96%E4%BE%9D%E8%B5%96%E5%8C%85"><span class="toc-number">1.</span> <span class="toc-text">安装Django 及 其他依赖包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%9D%E8%B5%96%E8%AE%B0%E5%BD%95"><span class="toc-number">2.</span> <span class="toc-text">依赖记录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE"><span class="toc-number">3.</span> <span class="toc-text">创建项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE"><span class="toc-number">4.</span> <span class="toc-text">基础配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%84%E7%90%86%E8%B7%A8%E5%9F%9F%E8%AE%BF%E9%97%AE"><span class="toc-number">4.1.</span> <span class="toc-text">处理跨域访问</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E5%88%9B%E5%BB%BA"><span class="toc-number">4.2.</span> <span class="toc-text">模块创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E6%B3%A8%E5%86%8C"><span class="toc-number">4.3.</span> <span class="toc-text">模块注册</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E9%85%8D%E7%BD%AE"><span class="toc-number">4.4.</span> <span class="toc-text">数据库配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Django%E6%A8%A1%E5%9E%8B"><span class="toc-number">4.5.</span> <span class="toc-text">Django模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E5%91%98%E9%85%8D%E7%BD%AE"><span class="toc-number">4.6.</span> <span class="toc-text">后台管理员配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E6%9C%8D%E5%8A%A1"><span class="toc-number">4.7.</span> <span class="toc-text">启动服务</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E9%85%8D%E7%BD%AE"><span class="toc-number">5.</span> <span class="toc-text">路由配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E8%A7%86%E5%9B%BE"><span class="toc-number">6.</span> <span class="toc-text">模块视图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%90%E8%B7%AF%E7%94%B1%E9%85%8D%E7%BD%AE"><span class="toc-number">6.1.</span> <span class="toc-text">子路由配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%90%E6%A8%A1%E5%9E%8B%E6%B3%A8%E5%86%8CAdmin"><span class="toc-number">6.2.</span> <span class="toc-text">子模型注册Admin</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%86%E5%9B%BE%E5%86%85%E5%AE%B9"><span class="toc-number">6.3.</span> <span class="toc-text">视图内容</span></a></li></ol></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Django
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Ron.</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2023-11-10T00:00:00.000Z" class="dt-published" itemprop="datePublished">2023-11-10</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p>关于Python的服务端框架-Django(有大量的基础服务内容，可创建多模块分配)。当前使用环境：python –version 3.11.1、pip –version 23.3.1。</p>
+<h2 id="安装Django-及-其他依赖包"><a href="#安装Django-及-其他依赖包" class="headerlink" title="安装Django 及 其他依赖包"></a>安装Django 及 其他依赖包</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip install django # 框架依赖包 version 4.2.7</span><br><span class="line">pip install django-cors-headers # 处理跨域的依赖包</span><br><span class="line">pip install pymysql # mysql模块依赖包</span><br></pre></td></tr></table></figure>
+<h2 id="依赖记录"><a href="#依赖记录" class="headerlink" title="依赖记录"></a>依赖记录</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">创建依赖记录</span></span><br><span class="line">pip freeze &gt; requirements.txt</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">依赖记录安装</span></span><br><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></table></figure>
+
+<h2 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Django-admin startproject templateName</span><br></pre></td></tr></table></figure>
+
+<h2 id="基础配置"><a href="#基础配置" class="headerlink" title="基础配置"></a>基础配置</h2><h3 id="处理跨域访问"><a href="#处理跨域访问" class="headerlink" title="处理跨域访问"></a>处理跨域访问</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 基础配置文件配置以下内容</span></span><br><span class="line">ALLOWED_HOSTS = [<span class="string">&#x27;*&#x27;</span>]</span><br><span class="line"></span><br><span class="line">CORS_ALLOW_CREDENTIALS = <span class="literal">True</span></span><br><span class="line">CORS_ORIGIN_ALLOW_ALL = <span class="literal">True</span></span><br><span class="line">CORS_ORIGIN_WHITELIST = (<span class="string">&#x27;http://localhost&#x27;</span>, <span class="string">&#x27;http://127.0.0.1&#x27;</span>, <span class="string">&#x27;http://0.0.0.0&#x27;</span>)</span><br><span class="line">SECURE_CROSS_ORIGIN_OPENER_POLICY = <span class="literal">None</span> <span class="comment"># 默认值为same-origin</span></span><br><span class="line"></span><br><span class="line">CORS_ALLOW_METHODS = (</span><br><span class="line">    <span class="string">&#x27;DELETE&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;GET&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;OPTIONS&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;PATCH&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;POST&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;PUT&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;VIEW&#x27;</span>,</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">CORS_ALLOW_HEADERS = (<span class="string">&#x27;*&#x27;</span>,)</span><br></pre></td></tr></table></figure>
+<h3 id="模块创建"><a href="#模块创建" class="headerlink" title="模块创建"></a>模块创建</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python manage.py startapp AppOne # 创建AppOne模块</span><br><span class="line">python manage.py startapp AppTwo # 创建AppTwo模块</span><br></pre></td></tr></table></figure>
+
+<h3 id="模块注册"><a href="#模块注册" class="headerlink" title="模块注册"></a>模块注册</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 模块创建完成后需要注册</span></span><br><span class="line">INSTALLED_APPS = [</span><br><span class="line">    <span class="string">&#x27;django.contrib.admin&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;django.contrib.auth&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;django.contrib.contenttypes&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;django.contrib.sessions&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;django.contrib.messages&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;django.contrib.staticfiles&#x27;</span>,</span><br><span class="line"></span><br><span class="line">    <span class="string">&#x27;AppOne.apps.ApponeConfig&#x27;</span>, <span class="comment">#注册AppOne</span></span><br><span class="line">    <span class="string">&#x27;AppTwo.apps.ApptwoConfig&#x27;</span>, <span class="comment">#注册AppTwo</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<h3 id="数据库配置"><a href="#数据库配置" class="headerlink" title="数据库配置"></a>数据库配置</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># __init__.py</span></span><br><span class="line"><span class="keyword">import</span> pymysql  <span class="comment"># 导入第三方模块，用来操作mysql数据库</span></span><br><span class="line">pymysql.install_as_MySQLdb()</span><br><span class="line"><span class="comment"># settings.py</span></span><br><span class="line">DATABASES = &#123;</span><br><span class="line">    <span class="string">&#x27;default&#x27;</span>: &#123;</span><br><span class="line">        <span class="comment"># django默认数据库</span></span><br><span class="line">        <span class="string">&#x27;ENGINE&#x27;</span>: <span class="string">&#x27;django.db.backends.sqlite3&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;NAME&#x27;</span>: BASE_DIR / <span class="string">&#x27;db.sqlite3&#x27;</span>,</span><br><span class="line">        <span class="comment"># mysql远程数据库</span></span><br><span class="line">        <span class="comment"># &#x27;ENGINE&#x27;: &#x27;django.db.backends.mysql&#x27;, # 更改为mysql</span></span><br><span class="line">        <span class="comment"># &#x27;NAME&#x27;: &#x27;example&#x27;, # testsql数据库名</span></span><br><span class="line">        <span class="comment"># &#x27;USER&#x27;: &#x27;example&#x27;, # 数据库的用户名</span></span><br><span class="line">        <span class="comment"># &#x27;PASSWORD&#x27;: &#x27;example123&#x27;, # 密码</span></span><br><span class="line">        <span class="comment"># &#x27;HOST&#x27;: &#x27;*.*.*.*&#x27;,</span></span><br><span class="line">        <span class="comment"># &#x27;PORT&#x27;: &#x27;3306&#x27;, # 端口号，默认为3306</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Django模型"><a href="#Django模型" class="headerlink" title="Django模型"></a>Django模型</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 定义AppOne的模型  /&gt;AppOne&gt;models.py</span></span><br><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> models</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create your models here.</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Book</span>(models.Model):</span><br><span class="line">    <span class="built_in">id</span> = models.AutoField(primary_key=<span class="literal">True</span>) <span class="comment"># id 会自动创建,可以手动写入</span></span><br><span class="line">    title = models.CharField(max_length=<span class="number">32</span>) <span class="comment"># 书籍名称</span></span><br><span class="line">    price = models.DecimalField(max_digits=<span class="number">5</span>, decimal_places=<span class="number">2</span>) <span class="comment"># 书籍价格</span></span><br><span class="line">    publish = models.CharField(max_length=<span class="number">32</span>) <span class="comment"># 出版社名称</span></span><br><span class="line">    pub_date = models.DateField() <span class="comment"># 出版时间</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python manage.py makemigrations AppOne # 映射AppOne的models</span><br><span class="line">python manage.py migrate 同步AppOne的models到数据库</span><br></pre></td></tr></table></figure>
+
+<h3 id="后台管理员配置"><a href="#后台管理员配置" class="headerlink" title="后台管理员配置"></a>后台管理员配置</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">需要先映射同步数据库</span></span><br><span class="line">python manage.py makemigrations 映射models</span><br><span class="line">python manage.py migrate 同步到数据库</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">创建超级用户</span></span><br><span class="line">python manage.py createsuperuser</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">http://ip:端口/admin/ 访问后台</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python manage.py runserver 0.0.0.0:5000 # 启动到局域网内5000端口</span><br><span class="line">python manage.py runserver 127.0.0.1:5000 # 启动到本地5000端口</span><br></pre></td></tr></table></figure>
+
+<h2 id="路由配置"><a href="#路由配置" class="headerlink" title="路由配置"></a>路由配置</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># urls.py</span></span><br><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path, include <span class="comment"># include用于多项目时分发</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> django.contrib <span class="keyword">import</span> admin</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">&#x27;admin/&#x27;</span>, admin.site.urls),</span><br><span class="line">    path(<span class="string">&quot;user/&quot;</span>, include(<span class="string">&quot;user.urls&quot;</span>)),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<h2 id="模块视图"><a href="#模块视图" class="headerlink" title="模块视图"></a>模块视图</h2><h3 id="子路由配置"><a href="#子路由配置" class="headerlink" title="子路由配置"></a>子路由配置</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># /&gt;AppOne&gt;urls.py</span></span><br><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path</span><br><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> re_path <span class="comment"># 用re_path 需要引入</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> AppOne <span class="keyword">import</span> views</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">&#x27;search/&#x27;</span>, views.searchUser), <span class="comment"># 普通路径</span></span><br><span class="line">    re_path(<span class="string">r&#x27;^index1/([0-9]&#123;4&#125;)/$&#x27;</span>, views.index1), <span class="comment"># 正则路径（无名分组）http://127.0.0.1:5000/user/index1/2023/</span></span><br><span class="line">    re_path(<span class="string">&quot;^index2/(?P&lt;year&gt;[0-9]&#123;4&#125;)/(?P&lt;month&gt;[0-9]&#123;2&#125;)/$&quot;</span>, views.index2), <span class="comment"># 正则路径（路由形参）http://127.0.0.1:5000/user/index2/2023/05/</span></span><br><span class="line">    <span class="comment"># r:代表的是原生字符串（raw）</span></span><br><span class="line">    <span class="comment"># ^:代表以什么开头</span></span><br><span class="line">    <span class="comment"># $:代表的是以什么结尾</span></span><br><span class="line">    <span class="comment"># /article/list/(year)/</span></span><br><span class="line">    <span class="comment"># 在正则表达式中定义一个变量，参数，就需要用（）进行捕获参数。</span></span><br><span class="line">    <span class="comment"># 给捕获的参数去一个名字，就可以使用&lt;&gt;,（?P&lt;year&gt;）</span></span><br><span class="line">    <span class="comment"># \d:代表是0-9之间的数字</span></span><br><span class="line">    <span class="comment"># &#123;4&#125;：代表的是这样的数字有4个。</span></span><br><span class="line">    <span class="comment"># 在我们的$符号前面有一个/，代表的是要以/结尾。</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<h3 id="子模型注册Admin"><a href="#子模型注册Admin" class="headerlink" title="子模型注册Admin"></a>子模型注册Admin</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># /&gt;AppOne&gt;admin.py</span></span><br><span class="line"><span class="keyword">from</span> django.contrib <span class="keyword">import</span> admin</span><br><span class="line"><span class="keyword">from</span> user.models <span class="keyword">import</span> Book</span><br><span class="line"> </span><br><span class="line"><span class="comment"># Register your models here.</span></span><br><span class="line">admin.site.register([Book])</span><br></pre></td></tr></table></figure>
+<h3 id="视图内容"><a href="#视图内容" class="headerlink" title="视图内容"></a>视图内容</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># /&gt;AppOne&gt;views.py</span></span><br><span class="line"><span class="keyword">from</span> django.shortcuts <span class="keyword">import</span> render</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create your views here.</span></span><br><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> HttpResponse, JsonResponse</span><br><span class="line"><span class="keyword">from</span> django.core <span class="keyword">import</span> serializers <span class="comment"># 格式化json serializers.serialize(&quot;json&quot;, models.Book.objects.all())</span></span><br><span class="line"><span class="keyword">from</span> user <span class="keyword">import</span> models</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">searchUser</span>(<span class="params">request</span>):</span><br><span class="line">    <span class="comment"># 请求接口返回示例</span></span><br><span class="line">    <span class="keyword">if</span> request.method == <span class="string">&quot;GET&quot;</span>:</span><br><span class="line">        <span class="comment"># GET</span></span><br><span class="line">        name = request.GET.get(<span class="string">&#x27;name&#x27;</span>)</span><br><span class="line">        <span class="keyword">return</span> HttpResponse(<span class="string">&quot;user：&quot;</span> + name)</span><br><span class="line">    <span class="keyword">elif</span> request.method == <span class="string">&quot;POST&quot;</span>:</span><br><span class="line">        <span class="comment"># POST</span></span><br><span class="line">        name = request.POST.get(<span class="string">&#x27;name&#x27;</span>)</span><br><span class="line">        <span class="keyword">return</span> HttpResponse(<span class="string">&quot;user：&quot;</span> + name)  <span class="comment"># 字符串作为返回内容</span></span><br><span class="line">    </span><br><span class="line"><span class="keyword">def</span> <span class="title function_">index1</span>(<span class="params">request, year</span>):</span><br><span class="line">    <span class="comment"># 请求接口返回示例</span></span><br><span class="line">    <span class="keyword">return</span> HttpResponse(year) <span class="comment"># 一个形参代表路径中一个分组的内容，按关键字对应匹配</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">index2</span>(<span class="params">request, year, month</span>):</span><br><span class="line">    <span class="comment"># 请求接口返回示例</span></span><br><span class="line">    <span class="keyword">return</span> HttpResponse(year + <span class="string">&#x27;-&#x27;</span> + month) <span class="comment"># 一个形参代表路径中一个分组的内容，按关键字对应匹配</span></span><br></pre></td></tr></table></figure>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/about/">About</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+          <li><a target="_blank" rel="noopener" href="https://github.com/brave-for-you">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Django-%E5%8F%8A-%E5%85%B6%E4%BB%96%E4%BE%9D%E8%B5%96%E5%8C%85"><span class="toc-number">1.</span> <span class="toc-text">安装Django 及 其他依赖包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%9D%E8%B5%96%E8%AE%B0%E5%BD%95"><span class="toc-number">2.</span> <span class="toc-text">依赖记录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE"><span class="toc-number">3.</span> <span class="toc-text">创建项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE"><span class="toc-number">4.</span> <span class="toc-text">基础配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%84%E7%90%86%E8%B7%A8%E5%9F%9F%E8%AE%BF%E9%97%AE"><span class="toc-number">4.1.</span> <span class="toc-text">处理跨域访问</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E5%88%9B%E5%BB%BA"><span class="toc-number">4.2.</span> <span class="toc-text">模块创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E6%B3%A8%E5%86%8C"><span class="toc-number">4.3.</span> <span class="toc-text">模块注册</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E9%85%8D%E7%BD%AE"><span class="toc-number">4.4.</span> <span class="toc-text">数据库配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Django%E6%A8%A1%E5%9E%8B"><span class="toc-number">4.5.</span> <span class="toc-text">Django模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E5%91%98%E9%85%8D%E7%BD%AE"><span class="toc-number">4.6.</span> <span class="toc-text">后台管理员配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E6%9C%8D%E5%8A%A1"><span class="toc-number">4.7.</span> <span class="toc-text">启动服务</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E9%85%8D%E7%BD%AE"><span class="toc-number">5.</span> <span class="toc-text">路由配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E8%A7%86%E5%9B%BE"><span class="toc-number">6.</span> <span class="toc-text">模块视图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%90%E8%B7%AF%E7%94%B1%E9%85%8D%E7%BD%AE"><span class="toc-number">6.1.</span> <span class="toc-text">子路由配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%90%E6%A8%A1%E5%9E%8B%E6%B3%A8%E5%86%8CAdmin"><span class="toc-number">6.2.</span> <span class="toc-text">子模型注册Admin</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%86%E5%9B%BE%E5%86%85%E5%AE%B9"><span class="toc-number">6.3.</span> <span class="toc-text">视图内容</span></a></li></ol></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://github.zzp0322.cn/2023/11/10/Django/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://github.zzp0322.cn/2023/11/10/Django/&text=Django"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://github.zzp0322.cn/2023/11/10/Django/&title=Django"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://github.zzp0322.cn/2023/11/10/Django/&is_video=false&description=Django"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Django&body=Check out this article: https://github.zzp0322.cn/2023/11/10/Django/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://github.zzp0322.cn/2023/11/10/Django/&title=Django"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://github.zzp0322.cn/2023/11/10/Django/&title=Django"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://github.zzp0322.cn/2023/11/10/Django/&title=Django"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://github.zzp0322.cn/2023/11/10/Django/&title=Django"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://github.zzp0322.cn/2023/11/10/Django/&name=Django&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://github.zzp0322.cn/2023/11/10/Django/&t=Django"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2023
+    Ron.
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="https://github.com/brave-for-you">Projects</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
