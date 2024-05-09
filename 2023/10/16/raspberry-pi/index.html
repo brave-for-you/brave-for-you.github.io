@@ -1,12 +1,14 @@
 <!DOCTYPE HTML>
-<html lang="en">
+<html lang="zh-CN">
 
 
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="Raspberry pi, Ron">
     <meta name="description" content="关于Raspberry 初次使用注意以及基本内容，持续完善中…
-系统烧录12345671. 解压下载的系统压缩文件，得到img镜像文件2. 将SD使用卡托或者读卡器后，连上电脑3. 解压并运行win32diskimager工具（需要先格式化">
+系统烧录    1. 解压下载的系统压缩文件，得到img镜像文件
+    2. 将SD使用卡托或者读卡器后，连上电脑
+    3. 解压并运行win32diskimager工具">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -86,7 +88,7 @@
       
       <i class="fas fa-home" style="zoom: 0.6;"></i>
       
-      <span>Index</span>
+      <span>首页</span>
     </a>
     
   </li>
@@ -97,7 +99,7 @@
       
       <i class="fas fa-tags" style="zoom: 0.6;"></i>
       
-      <span>Tags</span>
+      <span>标签</span>
     </a>
     
   </li>
@@ -108,7 +110,7 @@
       
       <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
       
-      <span>Categories</span>
+      <span>分类</span>
     </a>
     
   </li>
@@ -119,7 +121,7 @@
       
       <i class="fas fa-archive" style="zoom: 0.6;"></i>
       
-      <span>Archives</span>
+      <span>归档</span>
     </a>
     
   </li>
@@ -130,7 +132,7 @@
       
       <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
       
-      <span>About</span>
+      <span>关于</span>
     </a>
     
   </li>
@@ -141,7 +143,7 @@
       
       <i class="fas fa-comments" style="zoom: 0.6;"></i>
       
-      <span>Contact</span>
+      <span>留言板</span>
     </a>
     
   </li>
@@ -152,14 +154,14 @@
       
       <i class="fas fa-address-book" style="zoom: 0.6;"></i>
       
-      <span>Friends</span>
+      <span>友情链接</span>
     </a>
     
   </li>
   
   <li>
     <a href="#searchModal" class="modal-trigger waves-effect waves-light">
-      <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
     </a>
   </li>
   <li>
@@ -192,7 +194,7 @@
 			
 			    <i class="fa-fw fas fa-home"></i>
 			
-			Index
+			首页
 		</a>
           
         </li>
@@ -203,7 +205,7 @@
 			
 			    <i class="fa-fw fas fa-tags"></i>
 			
-			Tags
+			标签
 		</a>
           
         </li>
@@ -214,7 +216,7 @@
 			
 			    <i class="fa-fw fas fa-bookmark"></i>
 			
-			Categories
+			分类
 		</a>
           
         </li>
@@ -225,7 +227,7 @@
 			
 			    <i class="fa-fw fas fa-archive"></i>
 			
-			Archives
+			归档
 		</a>
           
         </li>
@@ -236,7 +238,7 @@
 			
 			    <i class="fa-fw fas fa-user-circle"></i>
 			
-			About
+			关于
 		</a>
           
         </li>
@@ -247,7 +249,7 @@
 			
 			    <i class="fa-fw fas fa-comments"></i>
 			
-			Contact
+			留言板
 		</a>
           
         </li>
@@ -258,7 +260,7 @@
 			
 			    <i class="fa-fw fas fa-address-book"></i>
 			
-			Friends
+			友情链接
 		</a>
           
         </li>
@@ -370,7 +372,7 @@
                 <div class="col s7">
                     
                           <div class="article-tag">
-                            <span class="chip bg-color">No tag</span>
+                            <span class="chip bg-color">无标签</span>
                           </div>
                     
                 </div>
@@ -382,12 +384,18 @@
             <div class="post-info">
                 
                 <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
                     2023-10-16
                 </div>
                 
 
                 
+                <!--添加作者信息-->
+                <div class="info-break-policy">
+                    
+                        <i class="fa fa-pencil"></i> 作者: Ron.
+                    
+                </div>
 
                 
 
@@ -405,24 +413,130 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>关于Raspberry 初次使用注意以及基本内容，持续完善中…</p>
-<h2 id="系统烧录"><a href="#系统烧录" class="headerlink" title="系统烧录"></a>系统烧录</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1. 解压下载的系统压缩文件，得到img镜像文件</span><br><span class="line">2. 将SD使用卡托或者读卡器后，连上电脑</span><br><span class="line">3. 解压并运行win32diskimager工具（需要先格式化SD卡）</span><br><span class="line">4. 在软件中选择img（镜像）文件，“Device”下选择SD的盘符，然后选择“Write”</span><br><span class="line"># 然后就开始安装系统了，根据你的SD速度，安装过程有快有慢。</span><br><span class="line"></span><br><span class="line">ps：树莓派官网提供的烧录工具选择更多点 https://www.raspberrypi.com/software/</span><br></pre></td></tr></table></figure>
+<h2 id="系统烧录"><a href="#系统烧录" class="headerlink" title="系统烧录"></a>系统烧录</h2><pre><code>    1. 解压下载的系统压缩文件，得到img镜像文件
+    2. 将SD使用卡托或者读卡器后，连上电脑
+    3. 解压并运行win32diskimager工具（需要先格式化SD卡）
+    4. 在软件中选择img（镜像）文件，“Device”下选择SD的盘符，然后选择“Write”
+    # 然后就开始安装系统了，根据你的SD速度，安装过程有快有慢。
 
-<h2 id="首次开机"><a href="#首次开机" class="headerlink" title="首次开机"></a>首次开机</h2><h3 id="关于账号"><a href="#关于账号" class="headerlink" title="关于账号"></a>关于账号</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">用户名：pi</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">密码：yahboom / raspberry</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">root用户原始系统是没有开启的，自己设置密码就可以</span></span><br><span class="line">sudo passwd root # 输入两次密码确认</span><br><span class="line">sudo passwd --unlock root # 解锁root用户</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">切换root：</span></span><br><span class="line">su # 确认后输入密码</span><br></pre></td></tr></table></figure>
-<h3 id="进入后界面操作"><a href="#进入后界面操作" class="headerlink" title="进入后界面操作"></a>进入后界面操作</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">打开树莓派系统下的命令行终端（Ctrl+Alt+T）</span></span><br><span class="line"></span><br><span class="line">ifconfig # 查看我们的ip地址</span><br><span class="line"></span><br><span class="line">sudo raspi-config # 进入到树莓派系统配置界面</span><br></pre></td></tr></table></figure>
-<h3 id="关于几个常用命令"><a href="#关于几个常用命令" class="headerlink" title="关于几个常用命令"></a>关于几个常用命令</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看操作系统版本</span></span><br><span class="line">cat /proc/version</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看主板版本</span></span><br><span class="line">cat /proc/cpuinfo</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看SD存储卡剩余空间</span></span><br><span class="line">df -h</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看ip地址</span></span><br><span class="line">ifconfig</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">压缩</span></span><br><span class="line">tar –zcvf  filename.tar.gz dirname</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">解压</span></span><br><span class="line">tar –zxvf filename.tar.gz</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Linux更改文件权限（递归子集）</span></span><br><span class="line">chmod -R 777 /home/test</span><br></pre></td></tr></table></figure>
+    ps：树莓派官网提供的烧录工具选择更多点 https://www.raspberrypi.com/software/
+</code></pre>
+<h2 id="首次开机"><a href="#首次开机" class="headerlink" title="首次开机"></a>首次开机</h2><h3 id="关于账号"><a href="#关于账号" class="headerlink" title="关于账号"></a>关于账号</h3><pre><code class="shell">    # 用户名：pi
+    # 密码：yahboom / raspberry
 
-<h2 id="关机注意"><a href="#关机注意" class="headerlink" title="关机注意"></a>关机注意</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">不能直接拔掉电源，会造成树莓派数据无法及时保存而丢失</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">可以按需选择相关的终端命令操作</span></span><br><span class="line">sudo poweroff # 关闭电源</span><br><span class="line">sudo shutdown -h now # 立刻关机</span><br><span class="line">sudo shutdown -r now # 立刻重启</span><br><span class="line">sudo reboot # 重启</span><br><span class="line">sudo shutdown -h +2 # 2分钟之后关机</span><br></pre></td></tr></table></figure>
+    # root用户原始系统是没有开启的，自己设置密码就可以
+    sudo passwd root # 输入两次密码确认
+    sudo passwd --unlock root # 解锁root用户
 
-<h2 id="关于pi安装问题"><a href="#关于pi安装问题" class="headerlink" title="关于pi安装问题"></a>关于pi安装问题</h2><h3 id="apt-get基本命令"><a href="#apt-get基本命令" class="headerlink" title="apt-get基本命令"></a>apt-get基本命令</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">apt-get可简写apt</span></span><br><span class="line">    # 更新源文件</span><br><span class="line">    sudo apt-get update</span><br><span class="line">    # 升级所有已安装的包</span><br><span class="line">    sudo apt-get upgrade</span><br><span class="line">    # 清理无用的包</span><br><span class="line">    sudo apt-get autoclean</span><br><span class="line">    # 检查是否有损坏的依赖</span><br><span class="line">    sudo apt-get check</span><br><span class="line">    # 安装 </span><br><span class="line">    sudo apt-get install _name_</span><br><span class="line">    # 移除</span><br><span class="line">    sudo apt-get remove _name_</span><br><span class="line">    # 删除包，包括配置文件</span><br><span class="line">    sudo apt-get remove _name_ --purge</span><br><span class="line">    # 删除包，包括包及其依赖的软件、配置文件</span><br><span class="line">    sudo apt-get autoremove _name_ --purge</span><br></pre></td></tr></table></figure>
-<h3 id="换源"><a href="#换源" class="headerlink" title="换源"></a>换源</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">下面两个源都可使用</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">deb https://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ buster main contrib non-free rpi</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">deb https://mirrors.ustc.edu.cn/raspbian/raspbian/ buster main contrib non-free rpi</span></span><br><span class="line"></span><br><span class="line">sudo nano /etc/apt/sources.list # 进入该配置文件更换源</span><br><span class="line"></span><br><span class="line">sudo apt update # 配置完成后执行该命令使生效</span><br></pre></td></tr></table></figure>
-<h3 id="安装mysql"><a href="#安装mysql" class="headerlink" title="安装mysql"></a>安装mysql</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">树莓派无法直接安装mysql，建议使用 mariadb-server-10.0 ，用法一致</span></span><br><span class="line">sudo apt-get install mariadb-server-10.0</span><br></pre></td></tr></table></figure>
-<h3 id="解决无密码可登录mysql的问题"><a href="#解决无密码可登录mysql的问题" class="headerlink" title="解决无密码可登录mysql的问题"></a>解决无密码可登录mysql的问题</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">进入mysql后执行</span></span><br><span class="line">SET password for &#x27;root&#x27;@&#x27;localhost&#x27;=password(&#x27;123456&#x27;); # 设置密码</span><br><span class="line">UPDATE user SET plugin=&#x27;mysql_native_password&#x27; WHERE user=&#x27;root&#x27;; # 修改root用户为校验密码</span><br><span class="line">exit;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">退出MySQL执行</span></span><br><span class="line">systemctl restart mysql # 重启mysql，执行后选择账户输入密码即可</span><br><span class="line"></span><br><span class="line">cd /etc/mysql # 配置文件下的bind-host改为0.0.0.0，允许任意远程登录</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">mysql内执行</span></span><br><span class="line">create user &#x27;example&#x27;@&#x27;%&#x27; identified by &#x27;example123&#x27;; # 创建用户</span><br><span class="line">grant all on example.* to &#x27;example&#x27;@&#x27;%&#x27;; # 指定访问数据库</span><br><span class="line">flush privileges; # 更新配置信息</span><br></pre></td></tr></table></figure>
-<h3 id="安装node"><a href="#安装node" class="headerlink" title="安装node"></a>安装node</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">下载nvm的包放入/home/pi(也就是~的指向路径)</span></span><br><span class="line">sudo nano ~/.bashrc</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">修改.bashrc文件在后面写入以下内容</span></span><br><span class="line">    export NVM_DIR=&quot;$HOME/.nvm/nvm-0.38.0&quot;</span><br><span class="line">    [ -s &quot;$NVM_DIR/nvm.sh&quot; ] &amp;&amp; \. &quot;$NVM_DIR/nvm.sh&quot;  # This loads nvm</span><br><span class="line">    [ -s &quot;$NVM_DIR/bash_completion&quot; ] &amp;&amp; \. &quot;$NVM_DIR/bash_completion&quot;  # This loads nvm bash_completion</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">执行命令更新配置</span></span><br><span class="line">source ~/.bashrc</span><br><span class="line"></span><br><span class="line">nvm install 16.19.0</span><br><span class="line">nvm install 14.21.2</span><br><span class="line">nvm install 8.17.0</span><br></pre></td></tr></table></figure>
+    # 切换root：
+    su # 确认后输入密码
+</code></pre>
+<h3 id="进入后界面操作"><a href="#进入后界面操作" class="headerlink" title="进入后界面操作"></a>进入后界面操作</h3><pre><code class="shell">    # 打开树莓派系统下的命令行终端（Ctrl+Alt+T）
+    
+    ifconfig # 查看我们的ip地址
 
-<h2 id="部署node项目（pm2）"><a href="#部署node项目（pm2）" class="headerlink" title="部署node项目（pm2）"></a>部署node项目（pm2）</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装pm2</span></span><br><span class="line">npm install pm2 -g</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看版本</span></span><br><span class="line">pm2 --version</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启动服务</span></span><br><span class="line">pm2 start app.js</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">停止服务</span></span><br><span class="line">pm2 stop app.js</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看服务状态</span></span><br><span class="line">pm2 monit</span><br><span class="line">pm2 list</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">同步进程</span></span><br><span class="line">pm2 save</span><br></pre></td></tr></table></figure>
+    sudo raspi-config # 进入到树莓派系统配置界面
+</code></pre>
+<h3 id="关于几个常用命令"><a href="#关于几个常用命令" class="headerlink" title="关于几个常用命令"></a>关于几个常用命令</h3><pre><code class="shell">    # 查看操作系统版本
+    cat /proc/version
 
+    # 查看主板版本
+    cat /proc/cpuinfo
 
+    # 查看SD存储卡剩余空间
+    df -h
 
+    # 查看ip地址
+    ifconfig
+
+    # 压缩
+    tar –zcvf  filename.tar.gz dirname
+    # 解压
+    tar –zxvf filename.tar.gz
+
+    # Linux更改文件权限（递归子集）
+    chmod -R 777 /home/test
+</code></pre>
+<h2 id="关机注意"><a href="#关机注意" class="headerlink" title="关机注意"></a>关机注意</h2><pre><code class="shell">    # 不能直接拔掉电源，会造成树莓派数据无法及时保存而丢失
+    # 可以按需选择相关的终端命令操作
+    sudo poweroff # 关闭电源
+    sudo shutdown -h now # 立刻关机
+    sudo shutdown -r now # 立刻重启
+    sudo reboot # 重启
+    sudo shutdown -h +2 # 2分钟之后关机
+</code></pre>
+<h2 id="关于pi安装问题"><a href="#关于pi安装问题" class="headerlink" title="关于pi安装问题"></a>关于pi安装问题</h2><h3 id="apt-get基本命令"><a href="#apt-get基本命令" class="headerlink" title="apt-get基本命令"></a>apt-get基本命令</h3><pre><code class="shell"># apt-get可简写apt
+    # 更新源文件
+    sudo apt-get update
+    # 升级所有已安装的包
+    sudo apt-get upgrade
+    # 清理无用的包
+    sudo apt-get autoclean
+    # 检查是否有损坏的依赖
+    sudo apt-get check
+    # 安装 
+    sudo apt-get install _name_
+    # 移除
+    sudo apt-get remove _name_
+    # 删除包，包括配置文件
+    sudo apt-get remove _name_ --purge
+    # 删除包，包括包及其依赖的软件、配置文件
+    sudo apt-get autoremove _name_ --purge
+</code></pre>
+<h3 id="换源"><a href="#换源" class="headerlink" title="换源"></a>换源</h3><pre><code class="shell">    # 下面两个源都可使用
+    # deb https://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ buster main contrib non-free rpi
+    # deb https://mirrors.ustc.edu.cn/raspbian/raspbian/ buster main contrib non-free rpi
+
+    sudo nano /etc/apt/sources.list # 进入该配置文件更换源
+
+    sudo apt update # 配置完成后执行该命令使生效
+</code></pre>
+<h3 id="安装mysql"><a href="#安装mysql" class="headerlink" title="安装mysql"></a>安装mysql</h3><pre><code class="shell">    # 树莓派无法直接安装mysql，建议使用 mariadb-server-10.0 ，用法一致
+    sudo apt-get install mariadb-server-10.0
+</code></pre>
+<h3 id="解决无密码可登录mysql的问题"><a href="#解决无密码可登录mysql的问题" class="headerlink" title="解决无密码可登录mysql的问题"></a>解决无密码可登录mysql的问题</h3><pre><code class="shell">    # 进入mysql后执行
+    SET password for &#39;root&#39;@&#39;localhost&#39;=password(&#39;123456&#39;); # 设置密码
+    UPDATE user SET plugin=&#39;mysql_native_password&#39; WHERE user=&#39;root&#39;; # 修改root用户为校验密码
+    exit;
+    # 退出MySQL执行
+    systemctl restart mysql # 重启mysql，执行后选择账户输入密码即可
+
+    cd /etc/mysql # 配置文件下的bind-host改为0.0.0.0，允许任意远程登录
+
+    # mysql内执行
+    create user &#39;example&#39;@&#39;%&#39; identified by &#39;example123&#39;; # 创建用户
+    grant all on example.* to &#39;example&#39;@&#39;%&#39;; # 指定访问数据库
+    flush privileges; # 更新配置信息
+</code></pre>
+<h3 id="安装node"><a href="#安装node" class="headerlink" title="安装node"></a>安装node</h3><pre><code class="shell">    # 下载nvm的包放入/home/pi(也就是~的指向路径)
+    sudo nano ~/.bashrc
+
+    # 修改.bashrc文件在后面写入以下内容
+        export NVM_DIR=&quot;$HOME/.nvm/nvm-0.38.0&quot;
+        [ -s &quot;$NVM_DIR/nvm.sh&quot; ] &amp;&amp; \. &quot;$NVM_DIR/nvm.sh&quot;  # This loads nvm
+        [ -s &quot;$NVM_DIR/bash_completion&quot; ] &amp;&amp; \. &quot;$NVM_DIR/bash_completion&quot;  # This loads nvm bash_completion
+
+    # 执行命令更新配置
+    source ~/.bashrc
+
+    nvm install 16.19.0
+    nvm install 14.21.2
+    nvm install 8.17.0
+</code></pre>
+<h2 id="部署node项目（pm2）"><a href="#部署node项目（pm2）" class="headerlink" title="部署node项目（pm2）"></a>部署node项目（pm2）</h2><pre><code class="shell">    # 安装pm2
+    npm install pm2 -g
+    # 查看版本
+    pm2 --version
+    # 启动服务
+    pm2 start app.js
+    # 停止服务
+    pm2 stop app.js
+    # 查看服务状态
+    pm2 monit
+    pm2 list
+    # 同步进程
+    pm2 save
+</code></pre>
 
                 
             </div>
@@ -435,7 +549,7 @@
             <div class="reprint__author">
                 <span class="reprint-meta" style="font-weight: bold;">
                     <i class="fas fa-user">
-                        Author:
+                        文章作者:
                     </i>
                 </span>
                 <span class="reprint-info">
@@ -445,7 +559,7 @@
             <div class="reprint__type">
                 <span class="reprint-meta" style="font-weight: bold;">
                     <i class="fas fa-link">
-                        Link:
+                        文章链接:
                     </i>
                 </span>
                 <span class="reprint-info">
@@ -455,13 +569,13 @@
             <div class="reprint__notice">
                 <span class="reprint-meta" style="font-weight: bold;">
                     <i class="fas fa-copyright">
-                        Reprint policy:
+                        版权声明:
                     </i>
                 </span>
                 <span class="reprint-info">
-                    All articles in this blog are used except for special statements
+                    本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
-                    reprint policy. If reproduced, please indicate source
+                    许可协议。转载请注明来源
                     <a href="/about" target="_blank">Ron.</a>
                     !
                 </span>
@@ -471,7 +585,7 @@
 
     <script async defer>
       document.addEventListener("copy", function (e) {
-        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
         M.toast({html: toastHTML})
       });
 
@@ -486,7 +600,7 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">No tag</span>
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -532,7 +646,7 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
                 <a href="/2023/11/10/django/">
                     <div class="card-image">
@@ -568,7 +682,7 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fas fa-chevron-right"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
                 <a href="/2023/10/10/media-server/">
@@ -633,7 +747,7 @@
     </div>
     <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
         <div class="toc-widget card" style="background-color: white;">
-            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
             <div id="toc-content"></div>
         </div>
     </div>
@@ -783,8 +897,8 @@
                 <span id="year">2022-2024</span>
             
             <a href="/about" target="_blank">Ron.</a>
-            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
-            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            |&nbsp;Powered by&nbsp;<a href="https://github.com/" target="_blank">Ron</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/" target="_blank">Ron</a>
             
             <br>
             
@@ -825,8 +939,8 @@
 <div id="searchModal" class="modal">
     <div class="modal-content">
         <div class="search-header">
-            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
-            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
                    class="search-input">
         </div>
         <div id="searchResult"></div>
@@ -971,14 +1085,6 @@ $(function () {
     
 
     <!-- 雪花特效 -->
-     
-        <script type="text/javascript">
-            // 只在桌面版网页启用特效
-            var windowWidth = $(window).width();
-            if (windowWidth > 768) {
-                document.write('<script type="text/javascript" src="/libs/others/snow.js"><\/script>');
-            }
-        </script>
     
 
     <!-- 鼠标星星特效 -->
@@ -1029,6 +1135,49 @@ $(function () {
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
 
+    <!-- 烟花 -->
+    
+        <canvas class="fireworks" style="position: fixed; left: 0; top: 0; z-index: 1; pointer-events: none;" ></canvas>
+        <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+        <script type="text/javascript" src="/js/fireworks.js"></script>
+    
+
+    <!-- 博客标签动态提示 -->
+    <script type="text/javascript">
+        var OriginTitile = document.title,st;
+        document.addEventListener("visibilitychange", function () {
+            document.hidden ? (document.title = "看不见我🙈~ 看不见我🙈~", clearTimeout(st)) : (document.title = "(๑•̀ㅂ•́) ✧被发现了～", st = setTimeout(function () {
+                document.title = OriginTitile
+            }, 3e3))
+        })
+    </script>
+    
+    <!-- 屏蔽网页源码 -->
+    <script type="text/javascript">
+        window.onload = function(){
+            // 屏蔽键盘事件
+            document.onkeydown = function (){
+                var e = window.event || arguments[0];
+                //F12
+                if(e.keyCode == 123){
+                    return false;
+                //Ctrl+Shift+I
+                }else if((e.ctrlKey) && (e.shiftKey) && (e.keyCode == 73)){
+                    return false;
+                //Shift+F10
+                }else if((e.shiftKey) && (e.keyCode == 121)){
+                    return false;
+                //Ctrl+U
+                }else if((e.ctrlKey) && (e.keyCode == 85)){
+                    return false;
+                }
+            };
+            // 屏蔽鼠标右键
+            document.oncontextmenu = function (){
+                return false;
+            }
+        }
+    </script>
 </body>
 
 </html>

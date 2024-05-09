@@ -1,12 +1,12 @@
 <!DOCTYPE HTML>
-<html lang="en">
+<html lang="zh-CN">
 
 
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="Django, Ron">
     <meta name="description" content="关于Python的服务端框架-Django(有大量的基础服务内容，可创建多模块分配)。当前使用环境：python –version 3.11.1、pip –version 23.3.1。
-安装Django 及 其他依赖包123pip ins">
+安装Django 及 其他依赖包pip instal">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -86,7 +86,7 @@
       
       <i class="fas fa-home" style="zoom: 0.6;"></i>
       
-      <span>Index</span>
+      <span>首页</span>
     </a>
     
   </li>
@@ -97,7 +97,7 @@
       
       <i class="fas fa-tags" style="zoom: 0.6;"></i>
       
-      <span>Tags</span>
+      <span>标签</span>
     </a>
     
   </li>
@@ -108,7 +108,7 @@
       
       <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
       
-      <span>Categories</span>
+      <span>分类</span>
     </a>
     
   </li>
@@ -119,7 +119,7 @@
       
       <i class="fas fa-archive" style="zoom: 0.6;"></i>
       
-      <span>Archives</span>
+      <span>归档</span>
     </a>
     
   </li>
@@ -130,7 +130,7 @@
       
       <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
       
-      <span>About</span>
+      <span>关于</span>
     </a>
     
   </li>
@@ -141,7 +141,7 @@
       
       <i class="fas fa-comments" style="zoom: 0.6;"></i>
       
-      <span>Contact</span>
+      <span>留言板</span>
     </a>
     
   </li>
@@ -152,14 +152,14 @@
       
       <i class="fas fa-address-book" style="zoom: 0.6;"></i>
       
-      <span>Friends</span>
+      <span>友情链接</span>
     </a>
     
   </li>
   
   <li>
     <a href="#searchModal" class="modal-trigger waves-effect waves-light">
-      <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
     </a>
   </li>
   <li>
@@ -192,7 +192,7 @@
 			
 			    <i class="fa-fw fas fa-home"></i>
 			
-			Index
+			首页
 		</a>
           
         </li>
@@ -203,7 +203,7 @@
 			
 			    <i class="fa-fw fas fa-tags"></i>
 			
-			Tags
+			标签
 		</a>
           
         </li>
@@ -214,7 +214,7 @@
 			
 			    <i class="fa-fw fas fa-bookmark"></i>
 			
-			Categories
+			分类
 		</a>
           
         </li>
@@ -225,7 +225,7 @@
 			
 			    <i class="fa-fw fas fa-archive"></i>
 			
-			Archives
+			归档
 		</a>
           
         </li>
@@ -236,7 +236,7 @@
 			
 			    <i class="fa-fw fas fa-user-circle"></i>
 			
-			About
+			关于
 		</a>
           
         </li>
@@ -247,7 +247,7 @@
 			
 			    <i class="fa-fw fas fa-comments"></i>
 			
-			Contact
+			留言板
 		</a>
           
         </li>
@@ -258,7 +258,7 @@
 			
 			    <i class="fa-fw fas fa-address-book"></i>
 			
-			Friends
+			友情链接
 		</a>
           
         </li>
@@ -370,7 +370,7 @@
                 <div class="col s7">
                     
                           <div class="article-tag">
-                            <span class="chip bg-color">No tag</span>
+                            <span class="chip bg-color">无标签</span>
                           </div>
                     
                 </div>
@@ -382,12 +382,18 @@
             <div class="post-info">
                 
                 <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
                     2023-11-10
                 </div>
                 
 
                 
+                <!--添加作者信息-->
+                <div class="info-break-policy">
+                    
+                        <i class="fa fa-pencil"></i> 作者: Ron.
+                    
+                </div>
 
                 
 
@@ -405,29 +411,162 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>关于Python的服务端框架-Django(有大量的基础服务内容，可创建多模块分配)。当前使用环境：python –version 3.11.1、pip –version 23.3.1。</p>
-<h2 id="安装Django-及-其他依赖包"><a href="#安装Django-及-其他依赖包" class="headerlink" title="安装Django 及 其他依赖包"></a>安装Django 及 其他依赖包</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip install django # 框架依赖包 version 4.2.7</span><br><span class="line">pip install django-cors-headers # 处理跨域的依赖包</span><br><span class="line">pip install pymysql # mysql模块依赖包</span><br></pre></td></tr></table></figure>
-<h2 id="依赖记录"><a href="#依赖记录" class="headerlink" title="依赖记录"></a>依赖记录</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">创建依赖记录</span></span><br><span class="line">pip freeze &gt; requirements.txt</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">依赖记录安装</span></span><br><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></table></figure>
+<h2 id="安装Django-及-其他依赖包"><a href="#安装Django-及-其他依赖包" class="headerlink" title="安装Django 及 其他依赖包"></a>安装Django 及 其他依赖包</h2><pre><code class="shell">pip install django # 框架依赖包 version 4.2.7
+pip install django-cors-headers # 处理跨域的依赖包
+pip install pymysql # mysql模块依赖包
+</code></pre>
+<h2 id="依赖记录"><a href="#依赖记录" class="headerlink" title="依赖记录"></a>依赖记录</h2><pre><code class="shell"># 创建依赖记录
+pip freeze &gt; requirements.txt
+# 依赖记录安装
+pip install -r requirements.txt
+</code></pre>
+<h2 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h2><pre><code class="shell">Django-admin startproject templateName
+</code></pre>
+<h2 id="基础配置"><a href="#基础配置" class="headerlink" title="基础配置"></a>基础配置</h2><h3 id="处理跨域访问"><a href="#处理跨域访问" class="headerlink" title="处理跨域访问"></a>处理跨域访问</h3><pre><code class="python"># 基础配置文件配置以下内容
+ALLOWED_HOSTS = [&#39;*&#39;]
 
-<h2 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Django-admin startproject templateName</span><br></pre></td></tr></table></figure>
+CORS_ALLOW_CREDENTIALS = True
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_WHITELIST = (&#39;http://localhost&#39;, &#39;http://127.0.0.1&#39;, &#39;http://0.0.0.0&#39;)
+SECURE_CROSS_ORIGIN_OPENER_POLICY = None # 默认值为same-origin
 
-<h2 id="基础配置"><a href="#基础配置" class="headerlink" title="基础配置"></a>基础配置</h2><h3 id="处理跨域访问"><a href="#处理跨域访问" class="headerlink" title="处理跨域访问"></a>处理跨域访问</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 基础配置文件配置以下内容</span></span><br><span class="line">ALLOWED_HOSTS = [<span class="string">&#x27;*&#x27;</span>]</span><br><span class="line"></span><br><span class="line">CORS_ALLOW_CREDENTIALS = <span class="literal">True</span></span><br><span class="line">CORS_ORIGIN_ALLOW_ALL = <span class="literal">True</span></span><br><span class="line">CORS_ORIGIN_WHITELIST = (<span class="string">&#x27;http://localhost&#x27;</span>, <span class="string">&#x27;http://127.0.0.1&#x27;</span>, <span class="string">&#x27;http://0.0.0.0&#x27;</span>)</span><br><span class="line">SECURE_CROSS_ORIGIN_OPENER_POLICY = <span class="literal">None</span> <span class="comment"># 默认值为same-origin</span></span><br><span class="line"></span><br><span class="line">CORS_ALLOW_METHODS = (</span><br><span class="line">    <span class="string">&#x27;DELETE&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;GET&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;OPTIONS&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;PATCH&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;POST&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;PUT&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;VIEW&#x27;</span>,</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">CORS_ALLOW_HEADERS = (<span class="string">&#x27;*&#x27;</span>,)</span><br></pre></td></tr></table></figure>
-<h3 id="模块创建"><a href="#模块创建" class="headerlink" title="模块创建"></a>模块创建</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python manage.py startapp AppOne # 创建AppOne模块</span><br><span class="line">python manage.py startapp AppTwo # 创建AppTwo模块</span><br></pre></td></tr></table></figure>
+CORS_ALLOW_METHODS = (
+    &#39;DELETE&#39;,
+    &#39;GET&#39;,
+    &#39;OPTIONS&#39;,
+    &#39;PATCH&#39;,
+    &#39;POST&#39;,
+    &#39;PUT&#39;,
+    &#39;VIEW&#39;,
+)
 
-<h3 id="模块注册"><a href="#模块注册" class="headerlink" title="模块注册"></a>模块注册</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 模块创建完成后需要注册</span></span><br><span class="line">INSTALLED_APPS = [</span><br><span class="line">    <span class="string">&#x27;django.contrib.admin&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;django.contrib.auth&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;django.contrib.contenttypes&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;django.contrib.sessions&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;django.contrib.messages&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;django.contrib.staticfiles&#x27;</span>,</span><br><span class="line"></span><br><span class="line">    <span class="string">&#x27;AppOne.apps.ApponeConfig&#x27;</span>, <span class="comment">#注册AppOne</span></span><br><span class="line">    <span class="string">&#x27;AppTwo.apps.ApptwoConfig&#x27;</span>, <span class="comment">#注册AppTwo</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+CORS_ALLOW_HEADERS = (&#39;*&#39;,)
+</code></pre>
+<h3 id="模块创建"><a href="#模块创建" class="headerlink" title="模块创建"></a>模块创建</h3><pre><code class="shell">python manage.py startapp AppOne # 创建AppOne模块
+python manage.py startapp AppTwo # 创建AppTwo模块
+</code></pre>
+<h3 id="模块注册"><a href="#模块注册" class="headerlink" title="模块注册"></a>模块注册</h3><pre><code class="python"># 模块创建完成后需要注册
+INSTALLED_APPS = [
+    &#39;django.contrib.admin&#39;,
+    &#39;django.contrib.auth&#39;,
+    &#39;django.contrib.contenttypes&#39;,
+    &#39;django.contrib.sessions&#39;,
+    &#39;django.contrib.messages&#39;,
+    &#39;django.contrib.staticfiles&#39;,
 
-<h3 id="数据库配置"><a href="#数据库配置" class="headerlink" title="数据库配置"></a>数据库配置</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># __init__.py</span></span><br><span class="line"><span class="keyword">import</span> pymysql  <span class="comment"># 导入第三方模块，用来操作mysql数据库</span></span><br><span class="line">pymysql.install_as_MySQLdb()</span><br><span class="line"><span class="comment"># settings.py</span></span><br><span class="line">DATABASES = &#123;</span><br><span class="line">    <span class="string">&#x27;default&#x27;</span>: &#123;</span><br><span class="line">        <span class="comment"># django默认数据库</span></span><br><span class="line">        <span class="string">&#x27;ENGINE&#x27;</span>: <span class="string">&#x27;django.db.backends.sqlite3&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;NAME&#x27;</span>: BASE_DIR / <span class="string">&#x27;db.sqlite3&#x27;</span>,</span><br><span class="line">        <span class="comment"># mysql远程数据库</span></span><br><span class="line">        <span class="comment"># &#x27;ENGINE&#x27;: &#x27;django.db.backends.mysql&#x27;, # 更改为mysql</span></span><br><span class="line">        <span class="comment"># &#x27;NAME&#x27;: &#x27;example&#x27;, # testsql数据库名</span></span><br><span class="line">        <span class="comment"># &#x27;USER&#x27;: &#x27;example&#x27;, # 数据库的用户名</span></span><br><span class="line">        <span class="comment"># &#x27;PASSWORD&#x27;: &#x27;example123&#x27;, # 密码</span></span><br><span class="line">        <span class="comment"># &#x27;HOST&#x27;: &#x27;*.*.*.*&#x27;,</span></span><br><span class="line">        <span class="comment"># &#x27;PORT&#x27;: &#x27;3306&#x27;, # 端口号，默认为3306</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Django模型"><a href="#Django模型" class="headerlink" title="Django模型"></a>Django模型</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 定义AppOne的模型  /&gt;AppOne&gt;models.py</span></span><br><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> models</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create your models here.</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Book</span>(models.Model):</span><br><span class="line">    <span class="built_in">id</span> = models.AutoField(primary_key=<span class="literal">True</span>) <span class="comment"># id 会自动创建,可以手动写入</span></span><br><span class="line">    title = models.CharField(max_length=<span class="number">32</span>) <span class="comment"># 书籍名称</span></span><br><span class="line">    price = models.DecimalField(max_digits=<span class="number">5</span>, decimal_places=<span class="number">2</span>) <span class="comment"># 书籍价格</span></span><br><span class="line">    publish = models.CharField(max_length=<span class="number">32</span>) <span class="comment"># 出版社名称</span></span><br><span class="line">    pub_date = models.DateField() <span class="comment"># 出版时间</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python manage.py makemigrations AppOne # 映射AppOne的models</span><br><span class="line">python manage.py migrate 同步AppOne的models到数据库</span><br></pre></td></tr></table></figure>
+    &#39;AppOne.apps.ApponeConfig&#39;, #注册AppOne
+    &#39;AppTwo.apps.ApptwoConfig&#39;, #注册AppTwo
+]
+</code></pre>
+<h3 id="数据库配置"><a href="#数据库配置" class="headerlink" title="数据库配置"></a>数据库配置</h3><pre><code class="python"># __init__.py
+import pymysql  # 导入第三方模块，用来操作mysql数据库
+pymysql.install_as_MySQLdb()
+# settings.py
+DATABASES = &#123;
+    &#39;default&#39;: &#123;
+        # django默认数据库
+        &#39;ENGINE&#39;: &#39;django.db.backends.sqlite3&#39;,
+        &#39;NAME&#39;: BASE_DIR / &#39;db.sqlite3&#39;,
+        # mysql远程数据库
+        # &#39;ENGINE&#39;: &#39;django.db.backends.mysql&#39;, # 更改为mysql
+        # &#39;NAME&#39;: &#39;example&#39;, # testsql数据库名
+        # &#39;USER&#39;: &#39;example&#39;, # 数据库的用户名
+        # &#39;PASSWORD&#39;: &#39;example123&#39;, # 密码
+        # &#39;HOST&#39;: &#39;*.*.*.*&#39;,
+        # &#39;PORT&#39;: &#39;3306&#39;, # 端口号，默认为3306
+    &#125;
+&#125;
+</code></pre>
+<h3 id="Django模型"><a href="#Django模型" class="headerlink" title="Django模型"></a>Django模型</h3><pre><code class="python"># 定义AppOne的模型  /&gt;AppOne&gt;models.py
+from django.db import models
 
-<h3 id="后台管理员配置"><a href="#后台管理员配置" class="headerlink" title="后台管理员配置"></a>后台管理员配置</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">需要先映射同步数据库</span></span><br><span class="line">python manage.py makemigrations 映射models</span><br><span class="line">python manage.py migrate 同步到数据库</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">创建超级用户</span></span><br><span class="line">python manage.py createsuperuser</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">http://ip:端口/admin/ 访问后台</span></span><br></pre></td></tr></table></figure>
+# Create your models here.
+class Book(models.Model):
+    id = models.AutoField(primary_key=True) # id 会自动创建,可以手动写入
+    title = models.CharField(max_length=32) # 书籍名称
+    price = models.DecimalField(max_digits=5, decimal_places=2) # 书籍价格
+    publish = models.CharField(max_length=32) # 出版社名称
+    pub_date = models.DateField() # 出版时间
+</code></pre>
+<pre><code class="shell">python manage.py makemigrations AppOne # 映射AppOne的models
+python manage.py migrate 同步AppOne的models到数据库
+</code></pre>
+<h3 id="后台管理员配置"><a href="#后台管理员配置" class="headerlink" title="后台管理员配置"></a>后台管理员配置</h3><pre><code class="shell"># 需要先映射同步数据库
+python manage.py makemigrations 映射models
+python manage.py migrate 同步到数据库
 
-<h3 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python manage.py runserver 0.0.0.0:5000 # 启动到局域网内5000端口</span><br><span class="line">python manage.py runserver 127.0.0.1:5000 # 启动到本地5000端口</span><br></pre></td></tr></table></figure>
+# 创建超级用户
+python manage.py createsuperuser
+# http://ip:端口/admin/ 访问后台
+</code></pre>
+<h3 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h3><pre><code class="shell">python manage.py runserver 0.0.0.0:5000 # 启动到局域网内5000端口
+python manage.py runserver 127.0.0.1:5000 # 启动到本地5000端口
+</code></pre>
+<h2 id="路由配置"><a href="#路由配置" class="headerlink" title="路由配置"></a>路由配置</h2><pre><code class="python"># urls.py
+from django.urls import path, include # include用于多项目时分发
 
-<h2 id="路由配置"><a href="#路由配置" class="headerlink" title="路由配置"></a>路由配置</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># urls.py</span></span><br><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path, include <span class="comment"># include用于多项目时分发</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> django.contrib <span class="keyword">import</span> admin</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">&#x27;admin/&#x27;</span>, admin.site.urls),</span><br><span class="line">    path(<span class="string">&quot;user/&quot;</span>, include(<span class="string">&quot;user.urls&quot;</span>)),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+from django.contrib import admin
 
-<h2 id="模块视图"><a href="#模块视图" class="headerlink" title="模块视图"></a>模块视图</h2><h3 id="子路由配置"><a href="#子路由配置" class="headerlink" title="子路由配置"></a>子路由配置</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># /&gt;AppOne&gt;urls.py</span></span><br><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path</span><br><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> re_path <span class="comment"># 用re_path 需要引入</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> AppOne <span class="keyword">import</span> views</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">&#x27;search/&#x27;</span>, views.searchUser), <span class="comment"># 普通路径</span></span><br><span class="line">    re_path(<span class="string">r&#x27;^index1/([0-9]&#123;4&#125;)/$&#x27;</span>, views.index1), <span class="comment"># 正则路径（无名分组）http://127.0.0.1:5000/user/index1/2023/</span></span><br><span class="line">    re_path(<span class="string">&quot;^index2/(?P&lt;year&gt;[0-9]&#123;4&#125;)/(?P&lt;month&gt;[0-9]&#123;2&#125;)/$&quot;</span>, views.index2), <span class="comment"># 正则路径（路由形参）http://127.0.0.1:5000/user/index2/2023/05/</span></span><br><span class="line">    <span class="comment"># r:代表的是原生字符串（raw）</span></span><br><span class="line">    <span class="comment"># ^:代表以什么开头</span></span><br><span class="line">    <span class="comment"># $:代表的是以什么结尾</span></span><br><span class="line">    <span class="comment"># /article/list/(year)/</span></span><br><span class="line">    <span class="comment"># 在正则表达式中定义一个变量，参数，就需要用（）进行捕获参数。</span></span><br><span class="line">    <span class="comment"># 给捕获的参数去一个名字，就可以使用&lt;&gt;,（?P&lt;year&gt;）</span></span><br><span class="line">    <span class="comment"># \d:代表是0-9之间的数字</span></span><br><span class="line">    <span class="comment"># &#123;4&#125;：代表的是这样的数字有4个。</span></span><br><span class="line">    <span class="comment"># 在我们的$符号前面有一个/，代表的是要以/结尾。</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<h3 id="子模型注册Admin"><a href="#子模型注册Admin" class="headerlink" title="子模型注册Admin"></a>子模型注册Admin</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># /&gt;AppOne&gt;admin.py</span></span><br><span class="line"><span class="keyword">from</span> django.contrib <span class="keyword">import</span> admin</span><br><span class="line"><span class="keyword">from</span> user.models <span class="keyword">import</span> Book</span><br><span class="line"> </span><br><span class="line"><span class="comment"># Register your models here.</span></span><br><span class="line">admin.site.register([Book])</span><br></pre></td></tr></table></figure>
-<h3 id="视图内容"><a href="#视图内容" class="headerlink" title="视图内容"></a>视图内容</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># /&gt;AppOne&gt;views.py</span></span><br><span class="line"><span class="keyword">from</span> django.shortcuts <span class="keyword">import</span> render</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create your views here.</span></span><br><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> HttpResponse, JsonResponse</span><br><span class="line"><span class="keyword">from</span> django.core <span class="keyword">import</span> serializers <span class="comment"># 格式化json serializers.serialize(&quot;json&quot;, models.Book.objects.all())</span></span><br><span class="line"><span class="keyword">from</span> user <span class="keyword">import</span> models</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">searchUser</span>(<span class="params">request</span>):</span><br><span class="line">    <span class="comment"># 请求接口返回示例</span></span><br><span class="line">    <span class="keyword">if</span> request.method == <span class="string">&quot;GET&quot;</span>:</span><br><span class="line">        <span class="comment"># GET</span></span><br><span class="line">        name = request.GET.get(<span class="string">&#x27;name&#x27;</span>)</span><br><span class="line">        <span class="keyword">return</span> HttpResponse(<span class="string">&quot;user：&quot;</span> + name)</span><br><span class="line">    <span class="keyword">elif</span> request.method == <span class="string">&quot;POST&quot;</span>:</span><br><span class="line">        <span class="comment"># POST</span></span><br><span class="line">        name = request.POST.get(<span class="string">&#x27;name&#x27;</span>)</span><br><span class="line">        <span class="keyword">return</span> HttpResponse(<span class="string">&quot;user：&quot;</span> + name)  <span class="comment"># 字符串作为返回内容</span></span><br><span class="line">    </span><br><span class="line"><span class="keyword">def</span> <span class="title function_">index1</span>(<span class="params">request, year</span>):</span><br><span class="line">    <span class="comment"># 请求接口返回示例</span></span><br><span class="line">    <span class="keyword">return</span> HttpResponse(year) <span class="comment"># 一个形参代表路径中一个分组的内容，按关键字对应匹配</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">index2</span>(<span class="params">request, year, month</span>):</span><br><span class="line">    <span class="comment"># 请求接口返回示例</span></span><br><span class="line">    <span class="keyword">return</span> HttpResponse(year + <span class="string">&#x27;-&#x27;</span> + month) <span class="comment"># 一个形参代表路径中一个分组的内容，按关键字对应匹配</span></span><br></pre></td></tr></table></figure>
+urlpatterns = [
+    path(&#39;admin/&#39;, admin.site.urls),
+    path(&quot;user/&quot;, include(&quot;user.urls&quot;)),
+]
+</code></pre>
+<h2 id="模块视图"><a href="#模块视图" class="headerlink" title="模块视图"></a>模块视图</h2><h3 id="子路由配置"><a href="#子路由配置" class="headerlink" title="子路由配置"></a>子路由配置</h3><pre><code class="python"># /&gt;AppOne&gt;urls.py
+from django.urls import path
+from django.urls import re_path # 用re_path 需要引入
+
+from AppOne import views
+
+urlpatterns = [
+    path(&#39;search/&#39;, views.searchUser), # 普通路径
+    re_path(r&#39;^index1/([0-9]&#123;4&#125;)/$&#39;, views.index1), # 正则路径（无名分组）http://127.0.0.1:5000/user/index1/2023/
+    re_path(&quot;^index2/(?P&lt;year&gt;[0-9]&#123;4&#125;)/(?P&lt;month&gt;[0-9]&#123;2&#125;)/$&quot;, views.index2), # 正则路径（路由形参）http://127.0.0.1:5000/user/index2/2023/05/
+    # r:代表的是原生字符串（raw）
+    # ^:代表以什么开头
+    # $:代表的是以什么结尾
+    # /article/list/(year)/
+    # 在正则表达式中定义一个变量，参数，就需要用（）进行捕获参数。
+    # 给捕获的参数去一个名字，就可以使用&lt;&gt;,（?P&lt;year&gt;）
+    # \d:代表是0-9之间的数字
+    # &#123;4&#125;：代表的是这样的数字有4个。
+    # 在我们的$符号前面有一个/，代表的是要以/结尾。
+]
+</code></pre>
+<h3 id="子模型注册Admin"><a href="#子模型注册Admin" class="headerlink" title="子模型注册Admin"></a>子模型注册Admin</h3><pre><code class="python"># /&gt;AppOne&gt;admin.py
+from django.contrib import admin
+from user.models import Book
+ 
+# Register your models here.
+admin.site.register([Book])
+</code></pre>
+<h3 id="视图内容"><a href="#视图内容" class="headerlink" title="视图内容"></a>视图内容</h3><pre><code class="python"># /&gt;AppOne&gt;views.py
+from django.shortcuts import render
+
+# Create your views here.
+from django.http import HttpResponse, JsonResponse
+from django.core import serializers # 格式化json serializers.serialize(&quot;json&quot;, models.Book.objects.all())
+from user import models
+import json
+def searchUser(request):
+    # 请求接口返回示例
+    if request.method == &quot;GET&quot;:
+        # GET
+        name = request.GET.get(&#39;name&#39;)
+        return HttpResponse(&quot;user：&quot; + name)
+    elif request.method == &quot;POST&quot;:
+        # POST
+        name = request.POST.get(&#39;name&#39;)
+        return HttpResponse(&quot;user：&quot; + name)  # 字符串作为返回内容
+    
+def index1(request, year):
+    # 请求接口返回示例
+    return HttpResponse(year) # 一个形参代表路径中一个分组的内容，按关键字对应匹配
+
+def index2(request, year, month):
+    # 请求接口返回示例
+    return HttpResponse(year + &#39;-&#39; + month) # 一个形参代表路径中一个分组的内容，按关键字对应匹配
+</code></pre>
 
                 
             </div>
@@ -440,7 +579,7 @@
             <div class="reprint__author">
                 <span class="reprint-meta" style="font-weight: bold;">
                     <i class="fas fa-user">
-                        Author:
+                        文章作者:
                     </i>
                 </span>
                 <span class="reprint-info">
@@ -450,7 +589,7 @@
             <div class="reprint__type">
                 <span class="reprint-meta" style="font-weight: bold;">
                     <i class="fas fa-link">
-                        Link:
+                        文章链接:
                     </i>
                 </span>
                 <span class="reprint-info">
@@ -460,13 +599,13 @@
             <div class="reprint__notice">
                 <span class="reprint-meta" style="font-weight: bold;">
                     <i class="fas fa-copyright">
-                        Reprint policy:
+                        版权声明:
                     </i>
                 </span>
                 <span class="reprint-info">
-                    All articles in this blog are used except for special statements
+                    本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
-                    reprint policy. If reproduced, please indicate source
+                    许可协议。转载请注明来源
                     <a href="/about" target="_blank">Ron.</a>
                     !
                 </span>
@@ -476,7 +615,7 @@
 
     <script async defer>
       document.addEventListener("copy", function (e) {
-        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
         M.toast({html: toastHTML})
       });
 
@@ -491,7 +630,7 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">No tag</span>
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -537,7 +676,7 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
                 <a href="/2023/12/21/drissionpage/">
                     <div class="card-image">
@@ -573,7 +712,7 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fas fa-chevron-right"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
                 <a href="/2023/10/16/raspberry-pi/">
@@ -638,7 +777,7 @@
     </div>
     <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
         <div class="toc-widget card" style="background-color: white;">
-            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
             <div id="toc-content"></div>
         </div>
     </div>
@@ -788,8 +927,8 @@
                 <span id="year">2022-2024</span>
             
             <a href="/about" target="_blank">Ron.</a>
-            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
-            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            |&nbsp;Powered by&nbsp;<a href="https://github.com/" target="_blank">Ron</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/" target="_blank">Ron</a>
             
             <br>
             
@@ -830,8 +969,8 @@
 <div id="searchModal" class="modal">
     <div class="modal-content">
         <div class="search-header">
-            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
-            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
                    class="search-input">
         </div>
         <div id="searchResult"></div>
@@ -976,14 +1115,6 @@ $(function () {
     
 
     <!-- 雪花特效 -->
-     
-        <script type="text/javascript">
-            // 只在桌面版网页启用特效
-            var windowWidth = $(window).width();
-            if (windowWidth > 768) {
-                document.write('<script type="text/javascript" src="/libs/others/snow.js"><\/script>');
-            }
-        </script>
     
 
     <!-- 鼠标星星特效 -->
@@ -1034,6 +1165,49 @@ $(function () {
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
 
+    <!-- 烟花 -->
+    
+        <canvas class="fireworks" style="position: fixed; left: 0; top: 0; z-index: 1; pointer-events: none;" ></canvas>
+        <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+        <script type="text/javascript" src="/js/fireworks.js"></script>
+    
+
+    <!-- 博客标签动态提示 -->
+    <script type="text/javascript">
+        var OriginTitile = document.title,st;
+        document.addEventListener("visibilitychange", function () {
+            document.hidden ? (document.title = "看不见我🙈~ 看不见我🙈~", clearTimeout(st)) : (document.title = "(๑•̀ㅂ•́) ✧被发现了～", st = setTimeout(function () {
+                document.title = OriginTitile
+            }, 3e3))
+        })
+    </script>
+    
+    <!-- 屏蔽网页源码 -->
+    <script type="text/javascript">
+        window.onload = function(){
+            // 屏蔽键盘事件
+            document.onkeydown = function (){
+                var e = window.event || arguments[0];
+                //F12
+                if(e.keyCode == 123){
+                    return false;
+                //Ctrl+Shift+I
+                }else if((e.ctrlKey) && (e.shiftKey) && (e.keyCode == 73)){
+                    return false;
+                //Shift+F10
+                }else if((e.shiftKey) && (e.keyCode == 121)){
+                    return false;
+                //Ctrl+U
+                }else if((e.ctrlKey) && (e.keyCode == 85)){
+                    return false;
+                }
+            };
+            // 屏蔽鼠标右键
+            document.oncontextmenu = function (){
+                return false;
+            }
+        }
+    </script>
 </body>
 
 </html>

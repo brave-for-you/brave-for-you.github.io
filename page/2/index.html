@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="分类, Ron">
+    <meta name="keywords" content="Ron">
     <meta name="description" content="Welcome to Ron&#39;s Notes.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>分类 | Ron</title>
+    <title>Ron</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
     <style>
@@ -52,8 +52,6 @@
 
 
 
-
-    
 
 
 
@@ -337,6 +335,7 @@
 
 </header>
 
+    
     <div class="bg-cover pd-header about-cover">
     <div class="container">
     <div class="row">
@@ -381,29 +380,87 @@
     </div>
 </div>
 
+
 <main class="content">
 
     
 
-<div id="category-cloud" class="container chip-container">
-    <div class="card">
-        <div class="card-content">
-            <div class="tag-title center-align">
-                <i class="fas fa-bookmark"></i>&nbsp;&nbsp;文章分类
+    
+
+    <!-- 所有文章卡片 -->
+    <article id="articles" class="container articles">
+        <div class="row article-row">
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2023/08/30/treesql/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="树状表Sql">
+                            
+                            <span class="card-title">树状表Sql</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                只记录了左右值和路径值的树型结构，个人感觉路径值更好用一点
+左右值(lft, rgt)查询很好用，但是新增删除时需要操作执行整个表的内容，存储失败时难以回滚，还会有并发冲突的问题，只适合内容稳定修改较少的表类型
+
+新增// +----+--
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-30
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                Ron.
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
             </div>
-            <div class="tag-chips">
-                
-                你目前还没有对文章进行分类.
-                
-            </div>
+              <!-- 隐藏某个文章 -->
+            
+        </div>
+    </article>
+
+</main>
+
+
+<div class="container paging">
+    <div class="row">
+        <div class="col s6 m4 l4">
+            
+            <a href="/"
+               class="left btn-floating btn-large waves-effect waves-light bg-color">
+                <i class="fas fa-angle-left"></i>
+            </a>
+            
+        </div>
+        <div class="page-info col m4 l4 hide-on-small-only">
+            <div class="center-align b-text-gray">2 / 2</div>
+        </div>
+        <div class="col s6 m4 l4">
+            
+            <a class="right btn-floating btn-large disabled">
+                <i class="fas fa-angle-right"></i>
+            </a>
+            
         </div>
     </div>
 </div>
 
 
-    
-
-</main>
 
 
     <footer class="page-footer bg-color">
