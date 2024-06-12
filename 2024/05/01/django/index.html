@@ -4,8 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Ron">
-    <meta name="description" content="Welcome to Ron&#39;s Notes.">
+    <meta name="keywords" content="Django, Ron">
+    <meta name="description" content="关于Python的服务端框架-Django(有大量的基础服务内容，可创建多模块分配)。当前使用环境：python –version 3.11.1、pip –version 23.3.1。
+安装Django 及 其他依赖包pip instal">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +18,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Ron</title>
+    <title>Django | Ron</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
     <style>
@@ -52,6 +53,8 @@
 
 
 
+
+    
 
 
 
@@ -336,129 +339,525 @@
 </header>
 
     
-    <div class="bg-cover pd-header about-cover">
-    <div class="container">
-    <div class="row">
-    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-        <div class="brand">
-            <div class="title center-align">
-                
-                Ron
-                
-            </div>
 
-            <div class="description center-align">
-                
-                <span id="subtitle"></span>
-                <script src="/libs/typed/typed.js"></script>
-                <script>
-                    var typed = new Typed("#subtitle", {
-                        strings: [ 
-                            
-                                "莫听穿林打叶声，何妨吟啸且徐行。竹杖芒鞋轻胜马，谁怕？一蓑烟雨任平生。料峭春风吹酒醒，微冷，山头斜照却相迎。回首向来萧瑟处，归去，也无风雨也无晴。",
-                            
-                        ],
-                        startDelay: 300,
-                        typeSpeed: 100,
-                        loop: false,
-                        backSpeed: 50,
-                        showCursor: true
-                    });
-                </script>
-                
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Django</h1>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
 
-<script>
-    $('.bg-cover').css('background-image', 'url(/medias/banner/0.jpg)');
-</script>
 
 
-    </div>
-</div>
-
-
-<main class="content">
+<main class="post-container content">
 
     
-
-    
-
-    <!-- 所有文章卡片 -->
-    <article id="articles" class="container articles">
-        <div class="row article-row">
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2024/05/01/raspberry-pi/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Raspberry pi">
-                            
-                            <span class="card-title">Raspberry pi</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                关于Raspberry 初次使用注意以及基本内容，持续完善中…
-系统烧录    1. 解压下载的系统压缩文件，得到img镜像文件
-    2. 将SD使用卡托或者读卡器后，连上电脑
-    3. 解压并运行win32diskimager工具
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-05-01
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                Ron.
-                                
-                            </span>
-                        </div>
-                    </div>
-
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
+                    
+                </div>
+                <div class="col s5 right-align">
                     
                 </div>
             </div>
-              <!-- 隐藏某个文章 -->
-            
-        </div>
-    </article>
 
-</main>
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-05-01
+                </div>
+                
+
+                
+                <!--添加作者信息-->
+                <div class="info-break-policy">
+                    
+                        <i class="fa fa-pencil"></i> 作者: Ron.
+                    
+                </div>
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>关于Python的服务端框架-Django(有大量的基础服务内容，可创建多模块分配)。当前使用环境：python –version 3.11.1、pip –version 23.3.1。</p>
+<h2 id="安装Django-及-其他依赖包"><a href="#安装Django-及-其他依赖包" class="headerlink" title="安装Django 及 其他依赖包"></a>安装Django 及 其他依赖包</h2><pre><code class="shell">pip install django # 框架依赖包 version 4.2.7
+pip install django-cors-headers # 处理跨域的依赖包
+pip install pymysql # mysql模块依赖包
+</code></pre>
+<h2 id="依赖记录"><a href="#依赖记录" class="headerlink" title="依赖记录"></a>依赖记录</h2><pre><code class="shell"># 创建依赖记录
+pip freeze &gt; requirements.txt
+# 依赖记录安装
+pip install -r requirements.txt
+</code></pre>
+<h2 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h2><pre><code class="shell">Django-admin startproject templateName
+</code></pre>
+<h2 id="基础配置"><a href="#基础配置" class="headerlink" title="基础配置"></a>基础配置</h2><h3 id="处理跨域访问"><a href="#处理跨域访问" class="headerlink" title="处理跨域访问"></a>处理跨域访问</h3><pre><code class="python"># 基础配置文件配置以下内容
+ALLOWED_HOSTS = [&#39;*&#39;]
+
+CORS_ALLOW_CREDENTIALS = True
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_WHITELIST = (&#39;http://localhost&#39;, &#39;http://127.0.0.1&#39;, &#39;http://0.0.0.0&#39;)
+SECURE_CROSS_ORIGIN_OPENER_POLICY = None # 默认值为same-origin
+
+CORS_ALLOW_METHODS = (
+    &#39;DELETE&#39;,
+    &#39;GET&#39;,
+    &#39;OPTIONS&#39;,
+    &#39;PATCH&#39;,
+    &#39;POST&#39;,
+    &#39;PUT&#39;,
+    &#39;VIEW&#39;,
+)
+
+CORS_ALLOW_HEADERS = (&#39;*&#39;,)
+</code></pre>
+<h3 id="模块创建"><a href="#模块创建" class="headerlink" title="模块创建"></a>模块创建</h3><pre><code class="shell">python manage.py startapp AppOne # 创建AppOne模块
+python manage.py startapp AppTwo # 创建AppTwo模块
+</code></pre>
+<h3 id="模块注册"><a href="#模块注册" class="headerlink" title="模块注册"></a>模块注册</h3><pre><code class="python"># 模块创建完成后需要注册
+INSTALLED_APPS = [
+    &#39;django.contrib.admin&#39;,
+    &#39;django.contrib.auth&#39;,
+    &#39;django.contrib.contenttypes&#39;,
+    &#39;django.contrib.sessions&#39;,
+    &#39;django.contrib.messages&#39;,
+    &#39;django.contrib.staticfiles&#39;,
+
+    &#39;AppOne.apps.ApponeConfig&#39;, #注册AppOne
+    &#39;AppTwo.apps.ApptwoConfig&#39;, #注册AppTwo
+]
+</code></pre>
+<h3 id="数据库配置"><a href="#数据库配置" class="headerlink" title="数据库配置"></a>数据库配置</h3><pre><code class="python"># __init__.py
+import pymysql  # 导入第三方模块，用来操作mysql数据库
+pymysql.install_as_MySQLdb()
+# settings.py
+DATABASES = &#123;
+    &#39;default&#39;: &#123;
+        # django默认数据库
+        &#39;ENGINE&#39;: &#39;django.db.backends.sqlite3&#39;,
+        &#39;NAME&#39;: BASE_DIR / &#39;db.sqlite3&#39;,
+        # mysql远程数据库
+        # &#39;ENGINE&#39;: &#39;django.db.backends.mysql&#39;, # 更改为mysql
+        # &#39;NAME&#39;: &#39;example&#39;, # testsql数据库名
+        # &#39;USER&#39;: &#39;example&#39;, # 数据库的用户名
+        # &#39;PASSWORD&#39;: &#39;example123&#39;, # 密码
+        # &#39;HOST&#39;: &#39;*.*.*.*&#39;,
+        # &#39;PORT&#39;: &#39;3306&#39;, # 端口号，默认为3306
+    &#125;
+&#125;
+</code></pre>
+<h3 id="Django模型"><a href="#Django模型" class="headerlink" title="Django模型"></a>Django模型</h3><pre><code class="python"># 定义AppOne的模型  /&gt;AppOne&gt;models.py
+from django.db import models
+
+# Create your models here.
+class Book(models.Model):
+    id = models.AutoField(primary_key=True) # id 会自动创建,可以手动写入
+    title = models.CharField(max_length=32) # 书籍名称
+    price = models.DecimalField(max_digits=5, decimal_places=2) # 书籍价格
+    publish = models.CharField(max_length=32) # 出版社名称
+    pub_date = models.DateField() # 出版时间
+</code></pre>
+<pre><code class="shell">python manage.py makemigrations AppOne # 映射AppOne的models
+python manage.py migrate 同步AppOne的models到数据库
+</code></pre>
+<h3 id="后台管理员配置"><a href="#后台管理员配置" class="headerlink" title="后台管理员配置"></a>后台管理员配置</h3><pre><code class="shell"># 需要先映射同步数据库
+python manage.py makemigrations 映射models
+python manage.py migrate 同步到数据库
+
+# 创建超级用户
+python manage.py createsuperuser
+# http://ip:端口/admin/ 访问后台
+</code></pre>
+<h3 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h3><pre><code class="shell">python manage.py runserver 0.0.0.0:5000 # 启动到局域网内5000端口
+python manage.py runserver 127.0.0.1:5000 # 启动到本地5000端口
+</code></pre>
+<h2 id="路由配置"><a href="#路由配置" class="headerlink" title="路由配置"></a>路由配置</h2><pre><code class="python"># urls.py
+from django.urls import path, include # include用于多项目时分发
+
+from django.contrib import admin
+
+urlpatterns = [
+    path(&#39;admin/&#39;, admin.site.urls),
+    path(&quot;user/&quot;, include(&quot;user.urls&quot;)),
+]
+</code></pre>
+<h2 id="模块视图"><a href="#模块视图" class="headerlink" title="模块视图"></a>模块视图</h2><h3 id="子路由配置"><a href="#子路由配置" class="headerlink" title="子路由配置"></a>子路由配置</h3><pre><code class="python"># /&gt;AppOne&gt;urls.py
+from django.urls import path
+from django.urls import re_path # 用re_path 需要引入
+
+from AppOne import views
+
+urlpatterns = [
+    path(&#39;search/&#39;, views.searchUser), # 普通路径
+    re_path(r&#39;^index1/([0-9]&#123;4&#125;)/$&#39;, views.index1), # 正则路径（无名分组）http://127.0.0.1:5000/user/index1/2023/
+    re_path(&quot;^index2/(?P&lt;year&gt;[0-9]&#123;4&#125;)/(?P&lt;month&gt;[0-9]&#123;2&#125;)/$&quot;, views.index2), # 正则路径（路由形参）http://127.0.0.1:5000/user/index2/2023/05/
+    # r:代表的是原生字符串（raw）
+    # ^:代表以什么开头
+    # $:代表的是以什么结尾
+    # /article/list/(year)/
+    # 在正则表达式中定义一个变量，参数，就需要用（）进行捕获参数。
+    # 给捕获的参数去一个名字，就可以使用&lt;&gt;,（?P&lt;year&gt;）
+    # \d:代表是0-9之间的数字
+    # &#123;4&#125;：代表的是这样的数字有4个。
+    # 在我们的$符号前面有一个/，代表的是要以/结尾。
+]
+</code></pre>
+<h3 id="子模型注册Admin"><a href="#子模型注册Admin" class="headerlink" title="子模型注册Admin"></a>子模型注册Admin</h3><pre><code class="python"># /&gt;AppOne&gt;admin.py
+from django.contrib import admin
+from user.models import Book
+ 
+# Register your models here.
+admin.site.register([Book])
+</code></pre>
+<h3 id="视图内容"><a href="#视图内容" class="headerlink" title="视图内容"></a>视图内容</h3><pre><code class="python"># /&gt;AppOne&gt;views.py
+from django.shortcuts import render
+
+# Create your views here.
+from django.http import HttpResponse, JsonResponse
+from django.core import serializers # 格式化json serializers.serialize(&quot;json&quot;, models.Book.objects.all())
+from user import models
+import json
+def searchUser(request):
+    # 请求接口返回示例
+    if request.method == &quot;GET&quot;:
+        # GET
+        name = request.GET.get(&#39;name&#39;)
+        return HttpResponse(&quot;user：&quot; + name)
+    elif request.method == &quot;POST&quot;:
+        # POST
+        name = request.POST.get(&#39;name&#39;)
+        return HttpResponse(&quot;user：&quot; + name)  # 字符串作为返回内容
+    
+def index1(request, year):
+    # 请求接口返回示例
+    return HttpResponse(year) # 一个形参代表路径中一个分组的内容，按关键字对应匹配
+
+def index2(request, year, month):
+    # 请求接口返回示例
+    return HttpResponse(year + &#39;-&#39; + month) # 一个形参代表路径中一个分组的内容，按关键字对应匹配
+</code></pre>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Ron.</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://github.zzp0322.cn/2024/05/01/django/">https://github.zzp0322.cn/2024/05/01/django/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Ron.</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
 
 
-<div class="container paging">
-    <div class="row">
-        <div class="col s6 m4 l4">
-            
-            <a href="/"
-               class="left btn-floating btn-large waves-effect waves-light bg-color">
-                <i class="fas fa-angle-left"></i>
-            </a>
-            
-        </div>
-        <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">2 / 2</div>
-        </div>
-        <div class="col s6 m4 l4">
-            
-            <a class="right btn-floating btn-large disabled">
-                <i class="fas fa-angle-right"></i>
-            </a>
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
             
         </div>
     </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2024/05/01/media-server/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Media Server">
+                        
+                        <span class="card-title">Media Server</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-05-01
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Ron.
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/05/01/drissionpage/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="DrissionPage">
+                        
+                        <span class="card-title">DrissionPage</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-05-01
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Ron.
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
 </div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
 
 
 

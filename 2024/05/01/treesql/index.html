@@ -4,8 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Ron">
-    <meta name="description" content="Welcome to Ron&#39;s Notes.">
+    <meta name="keywords" content="树状表Sql, Ron">
+    <meta name="description" content="只记录了左右值和路径值的树型结构，个人感觉路径值更好用一点
+左右值(lft, rgt)查询很好用，但是新增删除时需要操作执行整个表的内容，存储失败时难以回滚，还会有并发冲突的问题，只适合内容稳定修改较少的表类型
+
+新增// +----+--">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +20,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Ron</title>
+    <title>树状表Sql | Ron</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
     <style>
@@ -52,6 +55,8 @@
 
 
 
+
+    
 
 
 
@@ -336,129 +341,511 @@
 </header>
 
     
-    <div class="bg-cover pd-header about-cover">
-    <div class="container">
-    <div class="row">
-    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-        <div class="brand">
-            <div class="title center-align">
-                
-                Ron
-                
-            </div>
 
-            <div class="description center-align">
-                
-                <span id="subtitle"></span>
-                <script src="/libs/typed/typed.js"></script>
-                <script>
-                    var typed = new Typed("#subtitle", {
-                        strings: [ 
-                            
-                                "莫听穿林打叶声，何妨吟啸且徐行。竹杖芒鞋轻胜马，谁怕？一蓑烟雨任平生。料峭春风吹酒醒，微冷，山头斜照却相迎。回首向来萧瑟处，归去，也无风雨也无晴。",
-                            
-                        ],
-                        startDelay: 300,
-                        typeSpeed: 100,
-                        loop: false,
-                        backSpeed: 50,
-                        showCursor: true
-                    });
-                </script>
-                
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">树状表Sql</h1>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
 
-<script>
-    $('.bg-cover').css('background-image', 'url(/medias/banner/0.jpg)');
-</script>
 
 
-    </div>
-</div>
-
-
-<main class="content">
+<main class="post-container content">
 
     
-
-    
-
-    <!-- 所有文章卡片 -->
-    <article id="articles" class="container articles">
-        <div class="row article-row">
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2024/05/01/raspberry-pi/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Raspberry pi">
-                            
-                            <span class="card-title">Raspberry pi</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                关于Raspberry 初次使用注意以及基本内容，持续完善中…
-系统烧录    1. 解压下载的系统压缩文件，得到img镜像文件
-    2. 将SD使用卡托或者读卡器后，连上电脑
-    3. 解压并运行win32diskimager工具
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-05-01
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                Ron.
-                                
-                            </span>
-                        </div>
-                    </div>
-
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
+                    
+                </div>
+                <div class="col s5 right-align">
                     
                 </div>
             </div>
-              <!-- 隐藏某个文章 -->
-            
-        </div>
-    </article>
 
-</main>
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-05-01
+                </div>
+                
+
+                
+                <!--添加作者信息-->
+                <div class="info-break-policy">
+                    
+                        <i class="fa fa-pencil"></i> 作者: Ron.
+                    
+                </div>
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>只记录了左右值和路径值的树型结构，个人感觉路径值更好用一点</p>
+<h2 id="左右值-lft-rgt"><a href="#左右值-lft-rgt" class="headerlink" title="左右值(lft, rgt)"></a>左右值(lft, rgt)</h2><pre><code>查询很好用，但是新增删除时需要操作执行整个表的内容，存储失败时难以回滚，还会有并发冲突的问题，只适合内容稳定修改较少的表类型
+</code></pre>
+<h3 id="新增"><a href="#新增" class="headerlink" title="新增"></a>新增</h3><pre><code class="java">// +----+-------------+-------+--------+-----+-----+----------+-------------+
+// | id | name        | value | type   | lft | rgt | parentId | valuePrefix |
+// +----+-------------+-------+--------+-----+-----+----------+-------------+
+// |  1 | SYSTEM_NAME | 0     | system |   1 |  28 | NULL     | sys:        |
+// |  2 | 系统维护    | 0     | menu   |   2 |  21 |        1 | sys:0:      |
+// |  3 | 人员管理    | 1     | page   |  22 |  27 |        1 | sys:0:      |
+// |  4 | 组织管理    | 0     | page   |   3 |   4 |        2 | sys:0:0:    |
+// |  5 | 角色管理    | 1     | page   |   5 |  10 |        2 | sys:0:0:    |
+// |  6 | 权限管理    | 2     | page   |  11 |  16 |        2 | sys:0:0:    |
+// |  7 | 操作日志    | 3     | page   |  17 |  18 |        2 | sys:0:0:    |
+// |  8 | 系统设置    | 4     | page   |  19 |  20 |        2 | sys:0:0:    |
+// |  9 | 新增        | 0     | button |   6 |   7 |        5 | sys:0:0:1:  |
+// | 10 | 新增        | 0     | button |  12 |  13 |        6 | sys:0:0:2:  |
+// | 11 | 编辑        | 1     | button |   8 |   9 |        5 | sys:0:0:1:  |
+// | 12 | 编辑        | 1     | button |  14 |  15 |        6 | sys:0:0:2:  |
+// | 13 | 新增        | 0     | button |  23 |  24 |        3 | sys:0:1:    |
+// | 14 | 编辑        | 1     | button |  25 |  26 |        3 | sys:0:1:    |
+// +----+-------------+-------+--------+-----+-----+----------+-------------+
+SET @lft := 7;/*新部门的左值*/
+SET @rgt := 8;/*新部门的右值*/
+SET @level := 5;/*新部门的层级*/
+begin;
+/*将插入的后续边缘的节点左右数+2*/
+UPDATE department SET lft=lft+2 WHERE lft &gt; @lft;
+UPDATE department SET rgt=rgt+2 WHERE rgt &gt;= @lft;
+/*插入数据*/
+INSERT INTO department(name,lft,rgt,level) VALUES(&#39;新部门&#39;,@lft,@rgt,level);
+/*新增影响行数为0时，必须回滚*/
+commit;
+/*rollback;*/
+</code></pre>
+<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><pre><code class="java">SET @lft := 7;/*要删除的节点左值*/
+SET @rgt := 8;/*要删除的节点右值*/
+begin;
+UPDATE department SET lft=lft-2 WHERE lft &gt; @lft;
+UPDATE department SET rgt=rgt-2 WHERE rgt &gt; @lft;
+
+/*删除节点*/
+DELETE FROM department WHERE lft=@lft AND rgt=@rgt;
+/*删除影响行数为0时，必须回滚*/
+commit;
+/*rollback*/
+</code></pre>
+<h3 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h3><h4 id="查询所有子孙"><a href="#查询所有子孙" class="headerlink" title="查询所有子孙"></a>查询所有子孙</h4><pre><code class="java">SET @lft := 9;
+SET @rgt := 18;
+SELECT * FROM department WHERE lft BETWEEN @lft AND @rgt ORDER BY lft ASC;
+// `SELECT user_name FROM temp_pro_user WHERE lft &gt;= @lft AND lft &lt;= @rgt ORDER BY lft ASC`;
+/*例子中用BETWEEN将被查部门本身也查了出来。实际中可以用大于小于*/
+</code></pre>
+<h4 id="查询下属总数"><a href="#查询下属总数" class="headerlink" title="查询下属总数"></a>查询下属总数</h4><pre><code class="java">// 总数 = (右值 - 左值 - 1) / 2
+</code></pre>
+<h4 id="查询一级下属"><a href="#查询一级下属" class="headerlink" title="查询一级下属"></a>查询一级下属</h4><pre><code class="java">SET @level := 2;/*总经理的level*/
+SET @lft := 2;/*总经理的左值*/
+SET @rgt := 19;/*总经理的右值*/
+
+SELECT * FROM department WHERE lft &gt; @lft AND rgt &lt; @rgt AND level = @level+1;
+</code></pre>
+<h4 id="查询祖链路径"><a href="#查询祖链路径" class="headerlink" title="查询祖链路径"></a>查询祖链路径</h4><pre><code class="java">SET @lft := 3;/*产品部左值*/
+SET @rgt := 8;/*产品部右值*/
+
+SELECT * FROM department WHERE lft &lt; @lft AND rgt &gt; @rgt ORDER BY lft ASC;
+</code></pre>
+<h4 id="查询后转成树结构"><a href="#查询后转成树结构" class="headerlink" title="查询后转成树结构"></a>查询后转成树结构</h4><pre><code class="javascript">let list = [//模拟sql查出来的列表。
+    &#123;id:1,name:&#39;root&#39;,lft:1,rgt:8,level:1&#125;,
+    &#123;id:2,name:&#39;child&#39;,lft:2,rgt:7,level:2&#125;,
+    &#123;id:3,name:&#39;grandson&#39;,lft:3,rgt:4,level:3&#125;,
+    &#123;id:4,name:&#39;grandson2&#39;,lft:5,rgt:6,level:3&#125;
+];
+let rights = [] /*类似于一个栈结构（后进先出）*/
+let mp = &#123;&#125;
+//list.sort((a,b) =&gt; a.lft - b.lft)//如果你在sql中没有进行排序，需要在这里给他排序。
+list.forEach(item =&gt; &#123;
+    if(rights.length &gt; 0) &#123;
+        while(rights[rights.length-1] &lt; item.rgt) &#123;
+            rights.splice(-1, 1)//从rights末尾去除
+        &#125;
+    &#125;
+    let _level = rights.length;
+    item._level = _level;
+    mp[_level] = item.id
+    item.parent_id = _level - 1 in mp ? mp[_level - 1] : null;//计算出上级部门编号
+    item.is_leaf = item.lft === item.rgt - 1;//判断是否叶子部门
+    rights.push(item.rgt)
+&#125;)
+
+/*上级部门计算出来了，和存parent_id的效果就一样了，后面只需要递归即可*/
+/*递归函数 示例*/
+let recursive = (_list, parent_id = null) =&gt; &#123;
+    let _tree = [];
+    _list.forEach(item =&gt; &#123;
+        if(item.parent_id === parent_id) &#123;
+            let childs = recursive(_list, item.id)
+            _tree.push(&#123;
+                ...item,
+                children: childs.length &gt; 0 ? childs : (item.isLeaf ? null : [])
+            &#125;)
+        &#125;
+    &#125;)
+    return _tree
+&#125;
+console.log(recursive(list))
+</code></pre>
+<h2 id="路径值（1-x2F-2-x2F-3-x2F-4-x2F-5-x2F-6-x2F-…）"><a href="#路径值（1-x2F-2-x2F-3-x2F-4-x2F-5-x2F-6-x2F-…）" class="headerlink" title="路径值（1&#x2F;2&#x2F;3&#x2F;4&#x2F;5&#x2F;6&#x2F;…）"></a>路径值（1&#x2F;2&#x2F;3&#x2F;4&#x2F;5&#x2F;6&#x2F;…）</h2><pre><code>查询难度低，需要拼接path内容，存储基本不会出现并发冲突
+</code></pre>
+<h3 id="查询-1"><a href="#查询-1" class="headerlink" title="查询"></a>查询</h3><pre><code class="java">// +----+----------+------------+
+// | id | userName | path       |
+// +----+----------+------------+
+// |  1 | Admin    | 0          |
+// |  2 | Ron      | 0/1        |
+// |  3 | Ron0     | 0/1/2      |
+// |  4 | Bio      | 0/1        |
+// |  5 | Ron1     | 0/1/2      |
+// |  6 | Bio0     | 0/1/4      |
+// |  7 | Bio00    | 0/1/4/6    |
+// |  8 | Bio000   | 0/1/4/6/7  |
+// +----+----------+------------+
+// 查询所有子结构内容(当前id: 2)
+const @userPath = user.path + &#39;/&#39; + user.id + &#39;%&#39;
+SELECT name FROM TABLENAME WHERE path like @userPath
+
+// 查询所有父结构内容(当前id: 8)
+const @pathArr = user.path.split(&#39;/&#39;)
+SELECT name FROM TABLENAME WHERE id IN @pathArr
+</code></pre>
+<h3 id="查询后转树状"><a href="#查询后转树状" class="headerlink" title="查询后转树状"></a>查询后转树状</h3><pre><code class="javascript">/*递归函数 示例*/
+let recursive = (_list, path = 0) =&gt; &#123;
+    let _tree = [];
+    _list.forEach(item =&gt; &#123;
+        if(item.path === path) &#123;
+            let childs = recursive(_list, (path + &#39;/&#39; + item.id))
+            _tree.push(&#123;
+                ...item,
+                children: childs.length &gt; 0 ? childs : []
+            &#125;)
+        &#125;
+    &#125;)
+    return _tree
+&#125;
+console.log(recursive(list))
+</code></pre>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Ron.</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://github.zzp0322.cn/2024/05/01/treesql/">https://github.zzp0322.cn/2024/05/01/treesql/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Ron.</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
 
 
-<div class="container paging">
-    <div class="row">
-        <div class="col s6 m4 l4">
-            
-            <a href="/"
-               class="left btn-floating btn-large waves-effect waves-light bg-color">
-                <i class="fas fa-angle-left"></i>
-            </a>
-            
-        </div>
-        <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">2 / 2</div>
-        </div>
-        <div class="col s6 m4 l4">
-            
-            <a class="right btn-floating btn-large disabled">
-                <i class="fas fa-angle-right"></i>
-            </a>
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
             
         </div>
     </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2024/05/01/drissionpage/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="DrissionPage">
+                        
+                        <span class="card-title">DrissionPage</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-05-01
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Ron.
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/05/01/raspberry-pi/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Raspberry pi">
+                        
+                        <span class="card-title">Raspberry pi</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-05-01
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Ron.
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
 </div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
 
 
 

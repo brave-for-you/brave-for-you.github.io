@@ -4,8 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Ron">
-    <meta name="description" content="Welcome to Ron&#39;s Notes.">
+    <meta name="keywords" content="Raspberry pi, Ron">
+    <meta name="description" content="关于Raspberry 初次使用注意以及基本内容，持续完善中…
+系统烧录    1. 解压下载的系统压缩文件，得到img镜像文件
+    2. 将SD使用卡托或者读卡器后，连上电脑
+    3. 解压并运行win32diskimager工具">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +20,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Ron</title>
+    <title>Raspberry pi | Ron</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
     <style>
@@ -52,6 +55,8 @@
 
 
 
+
+    
 
 
 
@@ -336,129 +341,494 @@
 </header>
 
     
-    <div class="bg-cover pd-header about-cover">
-    <div class="container">
-    <div class="row">
-    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-        <div class="brand">
-            <div class="title center-align">
-                
-                Ron
-                
-            </div>
 
-            <div class="description center-align">
-                
-                <span id="subtitle"></span>
-                <script src="/libs/typed/typed.js"></script>
-                <script>
-                    var typed = new Typed("#subtitle", {
-                        strings: [ 
-                            
-                                "莫听穿林打叶声，何妨吟啸且徐行。竹杖芒鞋轻胜马，谁怕？一蓑烟雨任平生。料峭春风吹酒醒，微冷，山头斜照却相迎。回首向来萧瑟处，归去，也无风雨也无晴。",
-                            
-                        ],
-                        startDelay: 300,
-                        typeSpeed: 100,
-                        loop: false,
-                        backSpeed: 50,
-                        showCursor: true
-                    });
-                </script>
-                
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Raspberry pi</h1>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
 
-<script>
-    $('.bg-cover').css('background-image', 'url(/medias/banner/0.jpg)');
-</script>
 
 
-    </div>
-</div>
-
-
-<main class="content">
+<main class="post-container content">
 
     
-
-    
-
-    <!-- 所有文章卡片 -->
-    <article id="articles" class="container articles">
-        <div class="row article-row">
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2024/05/01/raspberry-pi/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Raspberry pi">
-                            
-                            <span class="card-title">Raspberry pi</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                关于Raspberry 初次使用注意以及基本内容，持续完善中…
-系统烧录    1. 解压下载的系统压缩文件，得到img镜像文件
-    2. 将SD使用卡托或者读卡器后，连上电脑
-    3. 解压并运行win32diskimager工具
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-05-01
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                Ron.
-                                
-                            </span>
-                        </div>
-                    </div>
-
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
+                    
+                </div>
+                <div class="col s5 right-align">
                     
                 </div>
             </div>
-              <!-- 隐藏某个文章 -->
-            
-        </div>
-    </article>
 
-</main>
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-05-01
+                </div>
+                
+
+                
+                <!--添加作者信息-->
+                <div class="info-break-policy">
+                    
+                        <i class="fa fa-pencil"></i> 作者: Ron.
+                    
+                </div>
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>关于Raspberry 初次使用注意以及基本内容，持续完善中…</p>
+<h2 id="系统烧录"><a href="#系统烧录" class="headerlink" title="系统烧录"></a>系统烧录</h2><pre><code>    1. 解压下载的系统压缩文件，得到img镜像文件
+    2. 将SD使用卡托或者读卡器后，连上电脑
+    3. 解压并运行win32diskimager工具（需要先格式化SD卡）
+    4. 在软件中选择img（镜像）文件，“Device”下选择SD的盘符，然后选择“Write”
+    # 然后就开始安装系统了，根据你的SD速度，安装过程有快有慢。
+
+    ps：树莓派官网提供的烧录工具选择更多点 https://www.raspberrypi.com/software/
+</code></pre>
+<h2 id="首次开机"><a href="#首次开机" class="headerlink" title="首次开机"></a>首次开机</h2><h3 id="关于账号"><a href="#关于账号" class="headerlink" title="关于账号"></a>关于账号</h3><pre><code class="shell">    # 用户名：pi
+    # 密码：yahboom / raspberry
+
+    # root用户原始系统是没有开启的，自己设置密码就可以
+    sudo passwd root # 输入两次密码确认
+    sudo passwd --unlock root # 解锁root用户
+
+    # 切换root：
+    su # 确认后输入密码
+</code></pre>
+<h3 id="进入后界面操作"><a href="#进入后界面操作" class="headerlink" title="进入后界面操作"></a>进入后界面操作</h3><pre><code class="shell">    # 打开树莓派系统下的命令行终端（Ctrl+Alt+T）
+    
+    ifconfig # 查看我们的ip地址
+
+    sudo raspi-config # 进入到树莓派系统配置界面
+</code></pre>
+<h3 id="关于几个常用命令"><a href="#关于几个常用命令" class="headerlink" title="关于几个常用命令"></a>关于几个常用命令</h3><pre><code class="shell">    # 查看操作系统版本
+    cat /proc/version
+
+    # 查看主板版本
+    cat /proc/cpuinfo
+
+    # 查看SD存储卡剩余空间
+    df -h
+
+    # 查看ip地址
+    ifconfig
+
+    # 压缩
+    tar –zcvf  filename.tar.gz dirname
+    # 解压
+    tar –zxvf filename.tar.gz
+
+    # Linux更改文件权限（递归子集）
+    chmod -R 777 /home/test
+</code></pre>
+<h2 id="关机注意"><a href="#关机注意" class="headerlink" title="关机注意"></a>关机注意</h2><pre><code class="shell">    # 不能直接拔掉电源，会造成树莓派数据无法及时保存而丢失
+    # 可以按需选择相关的终端命令操作
+    sudo poweroff # 关闭电源
+    sudo shutdown -h now # 立刻关机
+    sudo shutdown -r now # 立刻重启
+    sudo reboot # 重启
+    sudo shutdown -h +2 # 2分钟之后关机
+</code></pre>
+<h2 id="关于pi安装问题"><a href="#关于pi安装问题" class="headerlink" title="关于pi安装问题"></a>关于pi安装问题</h2><h3 id="apt-get基本命令"><a href="#apt-get基本命令" class="headerlink" title="apt-get基本命令"></a>apt-get基本命令</h3><pre><code class="shell"># apt-get可简写apt
+    # 更新源文件
+    sudo apt-get update
+    # 升级所有已安装的包
+    sudo apt-get upgrade
+    # 清理无用的包
+    sudo apt-get autoclean
+    # 检查是否有损坏的依赖
+    sudo apt-get check
+    # 安装 
+    sudo apt-get install _name_
+    # 移除
+    sudo apt-get remove _name_
+    # 删除包，包括配置文件
+    sudo apt-get remove _name_ --purge
+    # 删除包，包括包及其依赖的软件、配置文件
+    sudo apt-get autoremove _name_ --purge
+</code></pre>
+<h3 id="换源"><a href="#换源" class="headerlink" title="换源"></a>换源</h3><pre><code class="shell">    # 下面两个源都可使用
+    # deb https://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ buster main contrib non-free rpi
+    # deb https://mirrors.ustc.edu.cn/raspbian/raspbian/ buster main contrib non-free rpi
+
+    sudo nano /etc/apt/sources.list # 进入该配置文件更换源
+
+    sudo apt update # 配置完成后执行该命令使生效
+</code></pre>
+<h3 id="安装mysql"><a href="#安装mysql" class="headerlink" title="安装mysql"></a>安装mysql</h3><pre><code class="shell">    # 树莓派无法直接安装mysql，建议使用 mariadb-server-10.0 ，用法一致
+    sudo apt-get install mariadb-server-10.0
+</code></pre>
+<h3 id="解决无密码可登录mysql的问题"><a href="#解决无密码可登录mysql的问题" class="headerlink" title="解决无密码可登录mysql的问题"></a>解决无密码可登录mysql的问题</h3><pre><code class="shell">    # 进入mysql后执行
+    SET password for &#39;root&#39;@&#39;localhost&#39;=password(&#39;123456&#39;); # 设置密码
+    UPDATE user SET plugin=&#39;mysql_native_password&#39; WHERE user=&#39;root&#39;; # 修改root用户为校验密码
+    exit;
+    # 退出MySQL执行
+    systemctl restart mysql # 重启mysql，执行后选择账户输入密码即可
+
+    cd /etc/mysql # 配置文件下的bind-host改为0.0.0.0，允许任意远程登录
+
+    # mysql内执行
+    create user &#39;example&#39;@&#39;%&#39; identified by &#39;example123&#39;; # 创建用户
+    grant all on example.* to &#39;example&#39;@&#39;%&#39;; # 指定访问数据库
+    flush privileges; # 更新配置信息
+</code></pre>
+<h3 id="安装node"><a href="#安装node" class="headerlink" title="安装node"></a>安装node</h3><pre><code class="shell">    # 下载nvm的包放入/home/pi(也就是~的指向路径)
+    sudo nano ~/.bashrc
+
+    # 修改.bashrc文件在后面写入以下内容
+        export NVM_DIR=&quot;$HOME/.nvm/nvm-0.38.0&quot;
+        [ -s &quot;$NVM_DIR/nvm.sh&quot; ] &amp;&amp; \. &quot;$NVM_DIR/nvm.sh&quot;  # This loads nvm
+        [ -s &quot;$NVM_DIR/bash_completion&quot; ] &amp;&amp; \. &quot;$NVM_DIR/bash_completion&quot;  # This loads nvm bash_completion
+
+    # 执行命令更新配置
+    source ~/.bashrc
+
+    nvm install 16.19.0
+    nvm install 14.21.2
+    nvm install 8.17.0
+</code></pre>
+<h2 id="部署node项目（pm2）"><a href="#部署node项目（pm2）" class="headerlink" title="部署node项目（pm2）"></a>部署node项目（pm2）</h2><pre><code class="shell">    # 安装pm2
+    npm install pm2 -g
+    # 查看版本
+    pm2 --version
+    # 启动服务
+    pm2 start app.js
+    # 停止服务
+    pm2 stop app.js
+    # 查看服务状态
+    pm2 monit
+    pm2 list
+    # 同步进程
+    pm2 save
+</code></pre>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Ron.</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://github.zzp0322.cn/2024/05/01/raspberry-pi/">https://github.zzp0322.cn/2024/05/01/raspberry-pi/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Ron.</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
 
 
-<div class="container paging">
-    <div class="row">
-        <div class="col s6 m4 l4">
-            
-            <a href="/"
-               class="left btn-floating btn-large waves-effect waves-light bg-color">
-                <i class="fas fa-angle-left"></i>
-            </a>
-            
-        </div>
-        <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">2 / 2</div>
-        </div>
-        <div class="col s6 m4 l4">
-            
-            <a class="right btn-floating btn-large disabled">
-                <i class="fas fa-angle-right"></i>
-            </a>
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
             
         </div>
     </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2024/05/01/treesql/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="树状表Sql">
+                        
+                        <span class="card-title">树状表Sql</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-05-01
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Ron.
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                本篇&nbsp;<i class="far fa-dot-circle"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/05/01/raspberry-pi/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Raspberry pi">
+                        
+                        <span class="card-title">Raspberry pi</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-05-01
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Ron.
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
 </div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
 
 
 

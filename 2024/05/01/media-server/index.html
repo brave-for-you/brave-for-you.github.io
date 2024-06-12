@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Ron">
-    <meta name="description" content="Welcome to Ron&#39;s Notes.">
+    <meta name="keywords" content="Media Server, Ron">
+    <meta name="description" content="关于推流、拉流命令行控制及开发依赖&amp;#x2F;&amp;#x2F; 后管地址 127.0.0.1:8000&amp;#x2F;admin&amp;#x2F;&amp;#x2F;&amp;#x2F; 接口：http://127.0.0.1:8000/api/server &amp;#x2F">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Ron</title>
+    <title>Media Server | Ron</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
     <style>
@@ -52,6 +52,8 @@
 
 
 
+
+    
 
 
 
@@ -336,129 +338,420 @@
 </header>
 
     
-    <div class="bg-cover pd-header about-cover">
-    <div class="container">
-    <div class="row">
-    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-        <div class="brand">
-            <div class="title center-align">
-                
-                Ron
-                
-            </div>
 
-            <div class="description center-align">
-                
-                <span id="subtitle"></span>
-                <script src="/libs/typed/typed.js"></script>
-                <script>
-                    var typed = new Typed("#subtitle", {
-                        strings: [ 
-                            
-                                "莫听穿林打叶声，何妨吟啸且徐行。竹杖芒鞋轻胜马，谁怕？一蓑烟雨任平生。料峭春风吹酒醒，微冷，山头斜照却相迎。回首向来萧瑟处，归去，也无风雨也无晴。",
-                            
-                        ],
-                        startDelay: 300,
-                        typeSpeed: 100,
-                        loop: false,
-                        backSpeed: 50,
-                        showCursor: true
-                    });
-                </script>
-                
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Media Server</h1>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
 
-<script>
-    $('.bg-cover').css('background-image', 'url(/medias/banner/0.jpg)');
-</script>
 
 
-    </div>
-</div>
-
-
-<main class="content">
+<main class="post-container content">
 
     
-
-    
-
-    <!-- 所有文章卡片 -->
-    <article id="articles" class="container articles">
-        <div class="row article-row">
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2024/05/01/raspberry-pi/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Raspberry pi">
-                            
-                            <span class="card-title">Raspberry pi</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                关于Raspberry 初次使用注意以及基本内容，持续完善中…
-系统烧录    1. 解压下载的系统压缩文件，得到img镜像文件
-    2. 将SD使用卡托或者读卡器后，连上电脑
-    3. 解压并运行win32diskimager工具
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-05-01
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                Ron.
-                                
-                            </span>
-                        </div>
-                    </div>
-
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
+                    
+                </div>
+                <div class="col s5 right-align">
                     
                 </div>
             </div>
-              <!-- 隐藏某个文章 -->
-            
-        </div>
-    </article>
 
-</main>
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-05-01
+                </div>
+                
+
+                
+                <!--添加作者信息-->
+                <div class="info-break-policy">
+                    
+                        <i class="fa fa-pencil"></i> 作者: Ron.
+                    
+                </div>
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>关于推流、拉流命令行控制及开发依赖<br>&#x2F;&#x2F; 后管地址 127.0.0.1:8000&#x2F;admin&#x2F;<br>&#x2F;&#x2F; 接口：<a target="_blank" rel="noopener" href="http://127.0.0.1:8000/api/server">http://127.0.0.1:8000/api/server</a> &#x2F;&#x2F; 性能线程监控<br>&#x2F;&#x2F; 接口：<a target="_blank" rel="noopener" href="http://127.0.0.1:8000/api/streams">http://127.0.0.1:8000/api/streams</a> &#x2F;&#x2F; 查询推流列表</p>
+<h2 id="ffmpeg-shell-x2F-cmd"><a href="#ffmpeg-shell-x2F-cmd" class="headerlink" title="ffmpeg(shell&#x2F;cmd)"></a>ffmpeg(shell&#x2F;cmd)</h2><h3 id="基础命令"><a href="#基础命令" class="headerlink" title="基础命令"></a>基础命令</h3><pre><code class="shell">    # dshow可以用来抓取摄像头、采集卡、麦克风等，vfwcap主要用来采集摄像头类设备，gdigrab则是抓取Windows窗口程序
+    ffmpeg -list_devices true -f dshow -i dummy # 查询可用dshow设备
+
+    -f vfwcap -i &quot;0&quot; # 启用摄像头
+    -f gdigrab -i desktop 启用桌面录制 -f gdigrab -i title=&quot;&quot; # 启用应用录制
+    -f dshow -i video=&quot;&quot; 指定video设备 -f dshow -i audio=&quot;&quot; # 指定audio设备
+    -re -stream_loop -1 # 重复
+    -vcodec libx264 -preset ultrafast # video指定解码配置
+    -acodec libmp3lame -ar 44100 -ac 1 # audio指定解码配置
+    -c:v libx264 -preset ultrafast  # vfwcap摄像头使用video配置
+</code></pre>
+<h3 id="RTMP协议推流"><a href="#RTMP协议推流" class="headerlink" title="RTMP协议推流"></a>RTMP协议推流</h3><pre><code class="shell">    # 重复推流test.mp4至rtmp接口
+    ffmpeg -re -stream_loop -1 -i test.mp4 -vcodec libx264 -preset ultrafast -f flv rtmp://localhost:1935/stream/test
+
+    # 摄像头推流至rtmp接口（不包含acodec）
+    ffmpeg -f vfwcap  -i &quot;0&quot; -c:v libx264 -preset ultrafast -f flv rtmp://localhost:1935/media/home
+
+    # 桌面desktop推流至rtmp接口（不包含acodec）
+    ffmpeg -f gdigrab -i desktop -vcodec libx264 -preset ultrafast -f flv rtmp://192.168.52.51:1935/media/home
+</code></pre>
+<h3 id="ffmpeg本地"><a href="#ffmpeg本地" class="headerlink" title="ffmpeg本地"></a>ffmpeg本地</h3><pre><code class="shell">    # 从视频中提取音频
+    ffmpeg.exe -i aa.mp4 -vn -c:a copy output.aac
+    # -vn 表示去掉视频， -c:a copy表示不改变音频编码，直接拷贝。
+
+    # 进行指定时间截图
+    ffmpeg.exe -ss 0:8:34 -i aa.mp4 -vframes 1 -q:v 2 output.jpg
+    # -vframes1表示只截取一帧， -q:v2表示输出的图片质量，通常范围在1到5之间（1 为最高质量）
+
+    # 为音频添加封面
+    ffmpeg -loop 1 -i cover.jpg -i input.mp3 -c:v libx264 -c:a aac -b:a 192k -shortest output.mp4
+    # 以上命令中，有两个输入文件，一个是封面图片 cover.jpg，另一个是音频文件 input.mp3。-loop1参数表示图片无限循环，  -shortest参数表示音频文件结束时，输出视频也随之结束。
+
+    # MP4 转 M3U8
+    ffmpeg -i input.mp4 -c:v libx264 -c:a aac -strict -2 -f hls -hlslistsize 2 -hls_time 15 output.m3u8
+    # 该命令将 input.mp4 视频文件每15秒生成一个 ts 文件，并最后生成一个 m3u8 文件，m3u8 文件则作为 ts 的索引文件。
+
+    # 屏幕录制并保存成文件
+    ffmpeg -f gdigrab -i desktop eguid.mp4
+
+    # 转流（rtsp转rtmp为例）
+    ffmpeg -i rtsp://184.72.239.149/vod/mp4://BigBuckBunny_175k.mov -rtsp_transport tcp -vcodec h264 -acodec aac -f flv rtmp://localhost:1935/rtmp/eguid
+
+    # 拉流
+    ffmpeg -i rtmp://eguid.cc:1935/rtmp/eguid -vcodec h264 -f flv -acodec aac -ac 2 eguid.flv
+</code></pre>
+<h2 id="win命令控制"><a href="#win命令控制" class="headerlink" title="win命令控制"></a>win命令控制</h2><pre><code class="shell">    # 命令前+start新开命令窗口执行
+    tasklist # 查询所有进程
+    tasklist /fi &quot;imagename eq ffmpeg.exe&quot; # 根据名字查询进程
+    taskkill /f /im ffmpeg.exe # 根据进程名结束进程
+    taskkill /pid 13044 -f # 根据pid值结束进程
+</code></pre>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Ron.</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://github.zzp0322.cn/2024/05/01/media-server/">https://github.zzp0322.cn/2024/05/01/media-server/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Ron.</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
 
 
-<div class="container paging">
-    <div class="row">
-        <div class="col s6 m4 l4">
-            
-            <a href="/"
-               class="left btn-floating btn-large waves-effect waves-light bg-color">
-                <i class="fas fa-angle-left"></i>
-            </a>
-            
-        </div>
-        <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">2 / 2</div>
-        </div>
-        <div class="col s6 m4 l4">
-            
-            <a class="right btn-floating btn-large disabled">
-                <i class="fas fa-angle-right"></i>
-            </a>
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
             
         </div>
     </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2024/05/01/dev-memos/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Dev-Memos">
+                        
+                        <span class="card-title">Dev-Memos</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-05-01
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Ron.
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/05/01/django/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Django">
+                        
+                        <span class="card-title">Django</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-05-01
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Ron.
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
 </div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
 
 
 
