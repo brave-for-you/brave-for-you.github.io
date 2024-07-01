@@ -5,10 +5,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="树状表Sql, Ron">
-    <meta name="description" content="只记录了左右值和路径值的树型结构，个人感觉路径值更好用一点
-左右值(lft, rgt)查询很好用，但是新增删除时需要操作执行整个表的内容，存储失败时难以回滚，还会有并发冲突的问题，只适合内容稳定修改较少的表类型
+    <meta name="description" content="
+只记录了左右值和路径值的树型结构，个人感觉路径值更好用一点
 
-新增// +----+--">
+左右值(lft, rgt)
+查询很好用，但是新增删除时需要操作执行整个表的内容，存储失败时难以回滚，还会有并发冲突的问题，只适合内容稳定修改较少的表类型
+
+新增// +----">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -412,9 +415,12 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>只记录了左右值和路径值的树型结构，个人感觉路径值更好用一点</p>
-<h2 id="左右值-lft-rgt"><a href="#左右值-lft-rgt" class="headerlink" title="左右值(lft, rgt)"></a>左右值(lft, rgt)</h2><pre><code>查询很好用，但是新增删除时需要操作执行整个表的内容，存储失败时难以回滚，还会有并发冲突的问题，只适合内容稳定修改较少的表类型
-</code></pre>
+                <blockquote>
+<p>只记录了左右值和路径值的树型结构，个人感觉路径值更好用一点</p>
+</blockquote>
+<h2 id="左右值-lft-rgt"><a href="#左右值-lft-rgt" class="headerlink" title="左右值(lft, rgt)"></a>左右值(lft, rgt)</h2><blockquote>
+<p>查询很好用，但是新增删除时需要操作执行整个表的内容，存储失败时难以回滚，还会有并发冲突的问题，只适合内容稳定修改较少的表类型</p>
+</blockquote>
 <h3 id="新增"><a href="#新增" class="headerlink" title="新增"></a>新增</h3><pre><code class="java">// +----+-------------+-------+--------+-----+-----+----------+-------------+
 // | id | name        | value | type   | lft | rgt | parentId | valuePrefix |
 // +----+-------------+-------+--------+-----+-----+----------+-------------+
@@ -517,8 +523,9 @@ let recursive = (_list, parent_id = null) =&gt; &#123;
 &#125;
 console.log(recursive(list))
 </code></pre>
-<h2 id="路径值（1-x2F-2-x2F-3-x2F-4-x2F-5-x2F-6-x2F-…）"><a href="#路径值（1-x2F-2-x2F-3-x2F-4-x2F-5-x2F-6-x2F-…）" class="headerlink" title="路径值（1&#x2F;2&#x2F;3&#x2F;4&#x2F;5&#x2F;6&#x2F;…）"></a>路径值（1&#x2F;2&#x2F;3&#x2F;4&#x2F;5&#x2F;6&#x2F;…）</h2><pre><code>查询难度低，需要拼接path内容，存储基本不会出现并发冲突
-</code></pre>
+<h2 id="路径值（1-x2F-2-x2F-3-x2F-4-x2F-5-x2F-6-x2F-…）"><a href="#路径值（1-x2F-2-x2F-3-x2F-4-x2F-5-x2F-6-x2F-…）" class="headerlink" title="路径值（1&#x2F;2&#x2F;3&#x2F;4&#x2F;5&#x2F;6&#x2F;…）"></a>路径值（1&#x2F;2&#x2F;3&#x2F;4&#x2F;5&#x2F;6&#x2F;…）</h2><blockquote>
+<p>查询难度低，需要拼接path内容，存储基本不会出现并发冲突</p>
+</blockquote>
 <h3 id="查询-1"><a href="#查询-1" class="headerlink" title="查询"></a>查询</h3><pre><code class="java">// +----+----------+------------+
 // | id | userName | path       |
 // +----+----------+------------+
