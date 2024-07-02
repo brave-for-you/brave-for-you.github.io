@@ -553,10 +553,11 @@ dateFormat(new Date(), &#39;yyyy-MM-dd HH:mm:ss&#39;)
     const zeroPadding = (i) =&gt; &#123;
         return (i &lt; 10 ? &#39;0&#39; : &#39;&#39;) + i
     &#125;
+    date.setFullYear(date.getFullYear() - 1)
     return format.replace(/yyyy|MM|dd|HH|mm|ss/g, function (item) &#123;
         switch (item) &#123;
             case &#39;yyyy&#39;:
-                return zeroPadding(date.getFullYear() - 1)
+                return zeroPadding(date.getFullYear())
             case &#39;MM&#39;:
                 return zeroPadding(date.getMonth() + 1)
             case &#39;dd&#39;:
@@ -570,7 +571,7 @@ dateFormat(new Date(), &#39;yyyy-MM-dd HH:mm:ss&#39;)
         &#125;
     &#125;)
 &#125;
-dateFormat(new Date(), &#39;yyyy-MM-dd HH:mm:ss&#39;)
+oldDateFormat(new Date(), &#39;yyyy-MM-dd HH:mm:ss&#39;)
 </code></pre>
 <h3 id="ElementUi日期组件"><a href="#ElementUi日期组件" class="headerlink" title="ElementUi日期组件"></a>ElementUi日期组件</h3><pre><code class="javascript">    // ElementUi组件禁用当前时间前2天后5天以外的内容
     disabledDate: (date) =&gt; &#123;
@@ -1360,7 +1361,7 @@ aa|bb - 匹配 aa 或 bb。
             
             <a href="/about" target="_blank">Ron.</a>
             |&nbsp;Powered by&nbsp;<a href="https://github.com/" target="_blank">Ron</a>
-            |&nbsp;Theme&nbsp;<a href="https://github.com/" target="_blank">Ron</a>
+            |&nbsp;<a href="https://beian.miit.gov.cn/" target="_blank">晋ICP备2022006345号</a>
             
             <br>
             
