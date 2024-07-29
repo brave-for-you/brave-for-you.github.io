@@ -227,6 +227,56 @@
     </entry>
     
     
+    
+    <entry>
+      <title>Bugs</title>
+      <link href="/2024/05/01/bugs/"/>
+      <url>/2024/05/01/bugs/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>前端项目开发过程中碰到的有意思的问题记录，持续更新…</p></blockquote><h2 id="项目安装依赖"><a href="#项目安装依赖" class="headerlink" title="项目安装依赖"></a>项目安装依赖</h2><h3 id="问题一"><a href="#问题一" class="headerlink" title="问题一"></a>问题一</h3><ol><li>报错内容</li></ol><pre><code class="shell">git .EXE ls-remote -h -t ssh://git@github.com/************.git</code></pre><ol start="2"><li>解决方案</li></ol><pre><code class="shell"># 全局配置 将使用到的依赖仓库的地址git更改为httpsgit config --global url.&quot;https://&quot;.insteadOf git://npm cache clean --forcenpm config set registry https://registry.npmmirror.com/npm install</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Bugs </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Django-Models</title>
+      <link href="/2024/05/01/django-models/"/>
+      <url>/2024/05/01/django-models/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>关于Django的模型类的数据增删改查</p></blockquote><pre><code class="python">from user import models</code></pre><h2 id="增"><a href="#增" class="headerlink" title="增"></a>增</h2><h3 id="save"><a href="#save" class="headerlink" title="save()"></a>save()</h3><pre><code class="python">book = models.Book(title=&quot;教程&quot;, price=300, publish=&quot;出版社&quot;, pub_date=&quot;2008-8-8&quot;) book.save()</code></pre><h3 id="create"><a href="#create" class="headerlink" title="create()"></a>create()</h3><pre><code class="python">books = models.Book.objects.create(title=&quot;如来神掌&quot;, price=200, publish=&quot;功夫出版社&quot;, pub_date=&quot;2010-10-10&quot;)</code></pre><h2 id="删"><a href="#删" class="headerlink" title="删"></a>删</h2><h3 id="符合条件的第一个"><a href="#符合条件的第一个" class="headerlink" title="符合条件的第一个"></a>符合条件的第一个</h3><pre><code class="python">books=models.Book.objects.filter(pk=8).first().delete()</code></pre><h3 id="符合条件的"><a href="#符合条件的" class="headerlink" title="符合条件的"></a>符合条件的</h3><pre><code class="python">books=models.Book.objects.filter(pk__in=[1, 2]).first().delete()</code></pre><h3 id="符合条件的最后一个"><a href="#符合条件的最后一个" class="headerlink" title="符合条件的最后一个"></a>符合条件的最后一个</h3><pre><code class="python">books=models.Book.objects.filter(pk=8).last().delete()</code></pre><h2 id="改"><a href="#改" class="headerlink" title="改"></a>改</h2><h3 id="save-1"><a href="#save-1" class="headerlink" title="save()"></a>save()</h3><pre><code class="python">books = models.Book.objects.filter(pk=7).first()books.price = 400books.save()</code></pre><h3 id="update"><a href="#update" class="headerlink" title="update()"></a>update()</h3><pre><code class="python">books = models.Book.objects.filter(pk__in=[7, 8]).update(price=888)</code></pre><h2 id="查"><a href="#查" class="headerlink" title="查"></a>查</h2><blockquote><p>查询建议：使用values()配合filter()、exclude()等方法处理表查询，values()返回的是字典的集合，处理方便</p></blockquote><h3 id="所有"><a href="#所有" class="headerlink" title="所有"></a>所有</h3><pre><code class="python"># all(): 类似于 list，里面放的是一个个模型类的对象，可用索引下标取出模型类的对象 比如def就是一个模型类books = models.Book.objects.all()</code></pre><h3 id="第一条"><a href="#第一条" class="headerlink" title="第一条"></a>第一条</h3><pre><code class="python">books = models.Book.objects.first()</code></pre><h3 id="最后一条"><a href="#最后一条" class="headerlink" title="最后一条"></a>最后一条</h3><pre><code class="python">books = models.Book.objects.last()</code></pre><h3 id="部分字段"><a href="#部分字段" class="headerlink" title="部分字段"></a>部分字段</h3><pre><code class="python"># 返回内容键对值 values(): 类似于 list，里面不是模型类的对象，而是一个可迭代的字典序列 比如&#123;name：123&#125;就是字典books = models.Book.objects.values(&quot;pk&quot;, &quot;price&quot;)# 返回内容只有值books = models.Book.objects.values_list(&quot;price&quot;, &quot;publish&quot;)</code></pre><h3 id="单字段并去重"><a href="#单字段并去重" class="headerlink" title="单字段并去重"></a>单字段并去重</h3><pre><code class="python">books = models.Book.objects.values(&quot;price&quot;).distinct()</code></pre><h3 id="符合条件"><a href="#符合条件" class="headerlink" title="符合条件"></a>符合条件</h3><pre><code class="python"># filter(): 类似于 list，里面放的是一个个模型类的对象，可用索引下标取出模型类的对象 比如def就是一个模型类books=models.Book.objects.filter(pk=8)# 查（符合条件-日期单查年）books=models.Book.objects.filter(pub_date__year=2023) # pub_date: 2023-10-15# 查（符合条件-日期单查月）books=models.Book.objects.filter(pub_date__month=10) # pub_date: 2023-10-15# 查（符合条件-日期单查日）books=models.Book.objects.filter(pub_date__day=1) # pub_date: 2023-10-1# 查（__contains 包含，= 号后面为字符串 区分大小写）books=models.Book.objects.filter(title__contains=&quot;菜&quot;)# 查（__icontains 包含 不区分大小写）books=models.Book.objects.filter(title__icontains=&quot;python&quot;)# 查（title__startswith 指定内容开头）books=models.Book.objects.filter(title__startswith=&quot;菜&quot;)# 查（title__endswith 指定内容结尾）books=models.Book.objects.filter(title__endswith=&quot;教程&quot;)# 查（条件in查询）books = models.Book.objects.filter(price__in=[200,300])# 查（区间range查询）books = models.Book.objects.filter(price__range=[200,300])# 查（大于）books = models.Book.objects.filter(price__gt=200)# 查（大于等于）books = models.Book.objects.filter(price__gte=200)# 查（小于）books=models.Book.objects.filter(price__lt=300)# 查（小于等于）books=models.Book.objects.filter(price__lte=300)</code></pre><h3 id="不符合条件"><a href="#不符合条件" class="headerlink" title="不符合条件"></a>不符合条件</h3><pre><code class="python">books = models.Book.objects.exclude(publish=&#39;出版社&#39;, price=300)</code></pre><h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><pre><code class="python"># 查询所有，按照价格升序排列 books = models.Book.objects.order_by(&quot;price&quot;)# 查询所有，按照价格降序排列books = models.Book.objects.order_by(&quot;-price&quot;)</code></pre><h3 id="数量"><a href="#数量" class="headerlink" title="数量"></a>数量</h3><pre><code class="python"># 查（符合条件数量）books = models.Book.objects.filter(price=200).count() </code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> Python </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Django </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
   
   
 </search>

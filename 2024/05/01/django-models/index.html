@@ -4,8 +4,13 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="标签: DrissionPage, Ron">
-    <meta name="description" content="Welcome to Ron&#39;s Notes.">
+    <meta name="keywords" content="Django-Models, Ron">
+    <meta name="description" content="
+关于Django的模型类的数据增删改查
+
+from user import models
+
+增save()book = models.Book(title=&amp;quot;教程&amp;quot;, price=300, publish=&amp;quot;">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +22,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>标签: DrissionPage | Ron</title>
+    <title>Django-Models | Ron</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
     <style>
@@ -337,196 +342,489 @@
 
 </header>
 
-    <div class="bg-cover pd-header about-cover">
-    <div class="container">
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Django-Models</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
     <div class="row">
-    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-        <div class="brand">
-            <div class="title center-align">
-                
-                Ron
-                
-            </div>
-
-            <div class="description center-align">
-                
-                <span id="subtitle"></span>
-                <script src="/libs/typed/typed.js"></script>
-                <script>
-                    var typed = new Typed("#subtitle", {
-                        strings: [ 
-                            
-                                "莫听穿林打叶声，何妨吟啸且徐行。竹杖芒鞋轻胜马，谁怕？一蓑烟雨任平生。料峭春风吹酒醒，微冷，山头斜照却相迎。回首向来萧瑟处，归去，也无风雨也无晴。",
-                            
-                        ],
-                        startDelay: 300,
-                        typeSpeed: 100,
-                        loop: false,
-                        backSpeed: 50,
-                        showCursor: true
-                    });
-                </script>
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<script>
-    $('.bg-cover').css('background-image', 'url(/medias/banner/0.jpg)');
-</script>
-
-
-    </div>
-</div>
-
-<main class="content">
-
-    
-
-<div id="tags" class="container chip-container">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
     <div class="card">
-        <div class="card-content">
-            <div class="tag-title center-align">
-                <i class="fas fa-tags"></i>&nbsp;&nbsp;文章标签
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Django/">
+                                <span class="chip bg-color">Django</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Python/" class="post-category">
+                                Python
+                            </a>
+                        
+                    </div>
+                    
+                </div>
             </div>
-            <div class="tag-chips">
+
+            <div class="post-info">
                 
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-05-01
+                </div>
                 
-                <a href="/tags/mysql/" title="mysql: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="mysql" style="background-color: #F9EBEA;">mysql
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
+
                 
+                <!--添加作者信息-->
+                <div class="info-break-policy">
+                    
+                        <i class="fa fa-pencil"></i> 作者: Ron.
+                    
+                </div>
+
                 
-                <a href="/tags/Raspberry-pi/" title="Raspberry pi: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="Raspberry pi" style="background-color: #F5EEF8;">Raspberry pi
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
+
                 
-                
-                <a href="/tags/DrissionPage/" title="DrissionPage: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-active "
-                            data-tagname="DrissionPage" style="background-color: #D5F5E3;">DrissionPage
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Git/" title="Git: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="Git" style="background-color: #E8F8F5;">Git
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/CentOs/" title="CentOs: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="CentOs" style="background-color: #FEF9E7;">CentOs
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/WebRTC/" title="WebRTC: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="WebRTC" style="background-color: #F8F9F9;">WebRTC
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Django/" title="Django: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="Django" style="background-color: #82E0AA;">Django
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/ffmpeg/" title="ffmpeg: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="ffmpeg" style="background-color: #D7BDE2;">ffmpeg
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/JavaScript/" title="JavaScript: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="JavaScript" style="background-color: #A3E4D7;">JavaScript
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Bugs/" title="Bugs: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="Bugs" style="background-color: #85C1E9;">Bugs
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
+
                 
             </div>
         </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <blockquote>
+<p>关于Django的模型类的数据增删改查</p>
+</blockquote>
+<pre><code class="python">from user import models
+</code></pre>
+<h2 id="增"><a href="#增" class="headerlink" title="增"></a>增</h2><h3 id="save"><a href="#save" class="headerlink" title="save()"></a>save()</h3><pre><code class="python">book = models.Book(title=&quot;教程&quot;, price=300, publish=&quot;出版社&quot;, pub_date=&quot;2008-8-8&quot;) 
+book.save()
+</code></pre>
+<h3 id="create"><a href="#create" class="headerlink" title="create()"></a>create()</h3><pre><code class="python">books = models.Book.objects.create(title=&quot;如来神掌&quot;, price=200, publish=&quot;功夫出版社&quot;, pub_date=&quot;2010-10-10&quot;)
+</code></pre>
+<h2 id="删"><a href="#删" class="headerlink" title="删"></a>删</h2><h3 id="符合条件的第一个"><a href="#符合条件的第一个" class="headerlink" title="符合条件的第一个"></a>符合条件的第一个</h3><pre><code class="python">books=models.Book.objects.filter(pk=8).first().delete()
+</code></pre>
+<h3 id="符合条件的"><a href="#符合条件的" class="headerlink" title="符合条件的"></a>符合条件的</h3><pre><code class="python">books=models.Book.objects.filter(pk__in=[1, 2]).first().delete()
+</code></pre>
+<h3 id="符合条件的最后一个"><a href="#符合条件的最后一个" class="headerlink" title="符合条件的最后一个"></a>符合条件的最后一个</h3><pre><code class="python">books=models.Book.objects.filter(pk=8).last().delete()
+</code></pre>
+<h2 id="改"><a href="#改" class="headerlink" title="改"></a>改</h2><h3 id="save-1"><a href="#save-1" class="headerlink" title="save()"></a>save()</h3><pre><code class="python">books = models.Book.objects.filter(pk=7).first()
+books.price = 400
+books.save()
+</code></pre>
+<h3 id="update"><a href="#update" class="headerlink" title="update()"></a>update()</h3><pre><code class="python">books = models.Book.objects.filter(pk__in=[7, 8]).update(price=888)
+</code></pre>
+<h2 id="查"><a href="#查" class="headerlink" title="查"></a>查</h2><blockquote>
+<p>查询建议：使用values()配合filter()、exclude()等方法处理表查询，values()返回的是字典的集合，处理方便</p>
+</blockquote>
+<h3 id="所有"><a href="#所有" class="headerlink" title="所有"></a>所有</h3><pre><code class="python"># all(): 类似于 list，里面放的是一个个模型类的对象，可用索引下标取出模型类的对象 比如def就是一个模型类
+books = models.Book.objects.all()
+</code></pre>
+<h3 id="第一条"><a href="#第一条" class="headerlink" title="第一条"></a>第一条</h3><pre><code class="python">books = models.Book.objects.first()
+</code></pre>
+<h3 id="最后一条"><a href="#最后一条" class="headerlink" title="最后一条"></a>最后一条</h3><pre><code class="python">books = models.Book.objects.last()
+</code></pre>
+<h3 id="部分字段"><a href="#部分字段" class="headerlink" title="部分字段"></a>部分字段</h3><pre><code class="python"># 返回内容键对值 values(): 类似于 list，里面不是模型类的对象，而是一个可迭代的字典序列 比如&#123;name：123&#125;就是字典
+books = models.Book.objects.values(&quot;pk&quot;, &quot;price&quot;)
+# 返回内容只有值
+books = models.Book.objects.values_list(&quot;price&quot;, &quot;publish&quot;)
+</code></pre>
+<h3 id="单字段并去重"><a href="#单字段并去重" class="headerlink" title="单字段并去重"></a>单字段并去重</h3><pre><code class="python">books = models.Book.objects.values(&quot;price&quot;).distinct()
+</code></pre>
+<h3 id="符合条件"><a href="#符合条件" class="headerlink" title="符合条件"></a>符合条件</h3><pre><code class="python"># filter(): 类似于 list，里面放的是一个个模型类的对象，可用索引下标取出模型类的对象 比如def就是一个模型类
+books=models.Book.objects.filter(pk=8)
+
+# 查（符合条件-日期单查年）
+books=models.Book.objects.filter(pub_date__year=2023) # pub_date: 2023-10-15
+# 查（符合条件-日期单查月）
+books=models.Book.objects.filter(pub_date__month=10) # pub_date: 2023-10-15
+# 查（符合条件-日期单查日）
+books=models.Book.objects.filter(pub_date__day=1) # pub_date: 2023-10-1
+# 查（__contains 包含，= 号后面为字符串 区分大小写）
+books=models.Book.objects.filter(title__contains=&quot;菜&quot;)
+# 查（__icontains 包含 不区分大小写）
+books=models.Book.objects.filter(title__icontains=&quot;python&quot;)
+# 查（title__startswith 指定内容开头）
+books=models.Book.objects.filter(title__startswith=&quot;菜&quot;)
+# 查（title__endswith 指定内容结尾）
+books=models.Book.objects.filter(title__endswith=&quot;教程&quot;)
+# 查（条件in查询）
+books = models.Book.objects.filter(price__in=[200,300])
+# 查（区间range查询）
+books = models.Book.objects.filter(price__range=[200,300])
+# 查（大于）
+books = models.Book.objects.filter(price__gt=200)
+# 查（大于等于）
+books = models.Book.objects.filter(price__gte=200)
+# 查（小于）
+books=models.Book.objects.filter(price__lt=300)
+# 查（小于等于）
+books=models.Book.objects.filter(price__lte=300)
+</code></pre>
+<h3 id="不符合条件"><a href="#不符合条件" class="headerlink" title="不符合条件"></a>不符合条件</h3><pre><code class="python">books = models.Book.objects.exclude(publish=&#39;出版社&#39;, price=300)
+</code></pre>
+<h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><pre><code class="python"># 查询所有，按照价格升序排列 
+books = models.Book.objects.order_by(&quot;price&quot;)
+# 查询所有，按照价格降序排列
+books = models.Book.objects.order_by(&quot;-price&quot;)
+</code></pre>
+<h3 id="数量"><a href="#数量" class="headerlink" title="数量"></a>数量</h3><pre><code class="python"># 查（符合条件数量）
+books = models.Book.objects.filter(price=200).count() 
+</code></pre>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Ron.</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://github.zzp0322.cn/2024/05/01/django-models/">https://github.zzp0322.cn/2024/05/01/django-models/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Ron.</a>
+                    !
+                </span>
+            </div>
+        
     </div>
-</div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Django/">
+                                    <span class="chip bg-color">Django</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
 
     
 
-    <article id="articles" class="container articles">
-        <div class="row tags-posts">
-            
-            
-            <div class="article tag-post col s12 m6 l4" data-tags="DrissionPage" data-aos="fade-up">
-                <div class="card">
-                    <a href="/2024/05/01/drissionpage/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="DrissionPage">
-                            
-                            <span class="card-title">DrissionPage</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-05-01
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Python/" class="post-category">
-                                Python
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
+</div>
+
                 </div>
             </div>
             
         </div>
-    </article>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2024/05/01/bugs/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Bugs">
+                        
+                        <span class="card-title">Bugs</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-05-01
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Bugs/">
+                        <span class="chip bg-color">Bugs</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                本篇&nbsp;<i class="far fa-dot-circle"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/05/01/django-models/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Django-Models">
+                        
+                        <span class="card-title">Django-Models</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-05-01
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Python/" class="post-category">
+                                    Python
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Django/">
+                        <span class="chip bg-color">Django</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
 </main>
 
 
