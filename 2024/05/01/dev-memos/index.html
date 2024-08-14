@@ -5,10 +5,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="Dev-Memos, Ron">
-    <meta name="description" content="一些感觉有意思的代码片段记录，持续更新记录…
-加解密加密compileStr(code) &amp;#123;
-    let c = String.fromCharCode(code.charCodeAt(0) + code.length)
-  ">
+    <meta name="description" content="一些代码片段记录，持续更新…
+时间内容时分秒倒计时（09:59:20）// timeStamp为毫秒
+handleToSetTimerFn(timeStamp) &amp;#123;
+    let timer = null
+    let t =">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -425,24 +426,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>一些感觉有意思的代码片段记录，持续更新记录…</p>
-<h2 id="加解密"><a href="#加解密" class="headerlink" title="加解密"></a>加解密</h2><h3 id="加密"><a href="#加密" class="headerlink" title="加密"></a>加密</h3><pre><code class="javascript">compileStr(code) &#123;
-    let c = String.fromCharCode(code.charCodeAt(0) + code.length)
-    for(let i = 1; i &lt; code.length; i++) &#123;
-        c += String.fromCharCode(code.charCodeAt(i) + code.charCodeAt(i - 1))
-    &#125;
-    return escape(c)
-&#125;
-</code></pre>
-<h3 id="解密"><a href="#解密" class="headerlink" title="解密"></a>解密</h3><pre><code class="javascript">unCompileStr(str) &#123;
-    const code = unescape(str)
-    let c = String.fromCharCode(code.charCodeAt(0) - code.length)
-    for(let i = 1; i &lt; code.length; i++) &#123;
-        c += String.fromCharCode(code.charCodeAt(i) - c.charCodeAt(i - 1))
-    &#125;
-    return c
-&#125;
-</code></pre>
+                <p>一些代码片段记录，持续更新…</p>
 <h2 id="时间内容"><a href="#时间内容" class="headerlink" title="时间内容"></a>时间内容</h2><h3 id="时分秒倒计时（09-59-20）"><a href="#时分秒倒计时（09-59-20）" class="headerlink" title="时分秒倒计时（09:59:20）"></a>时分秒倒计时（09:59:20）</h3><pre><code class="javascript">// timeStamp为毫秒
 handleToSetTimerFn(timeStamp) &#123;
     let timer = null
@@ -573,6 +557,17 @@ dateFormat(new Date(), &#39;yyyy-MM-dd HH:mm:ss&#39;)
 &#125;
 oldDateFormat(new Date(), &#39;yyyy-MM-dd HH:mm:ss&#39;)
 </code></pre>
+<h3 id="3个月前的时间"><a href="#3个月前的时间" class="headerlink" title="3个月前的时间"></a>3个月前的时间</h3><pre><code class="javascript">export const getDateBefore3MonthFn = (tempDate) =&gt; &#123;
+    const beforeDateNum = tempDate.getDate()
+    tempDate.setMonth(tempDate.getDate() - 3)
+    const afterDateNum = tempDate.getDate()
+    if (beforeDateNum !== afterDateNum) &#123;
+        tempDate.setDate(0)
+    &#125;
+    tempDate.setDate(Number(tempDate.getDate()) + 1)
+    return tempDate
+&#125;
+</code></pre>
 <h3 id="ElementUi日期组件"><a href="#ElementUi日期组件" class="headerlink" title="ElementUi日期组件"></a>ElementUi日期组件</h3><pre><code class="javascript">    // ElementUi组件禁用当前时间前2天后5天以外的内容
     disabledDate: (date) =&gt; &#123;
         return date.getTime() &lt; Date.now() - 2 * 24 * 60 * 60 * 1000 || date.getTime() &gt; Date.now() + 5 * 24 * 60 * 60 * 1000
@@ -632,7 +627,7 @@ oldDateFormat(new Date(), &#39;yyyy-MM-dd HH:mm:ss&#39;)
     &#125;)
 &#125;
 </code></pre>
-<h3 id="获取图片"><a href="#获取图片" class="headerlink" title="获取图片"></a>获取图片</h3><pre><code class="javascript">export function chooseImage(option) &#123;
+<h3 id="获取图片"><a href="#获取图片" class="headerlink" title="获取图片"></a>获取图片</h3><pre><code class="javascript">export const chooseImage = (option) =&gt; &#123;
     try &#123;
         const imageInput = document.createElement(&#39;input&#39;)
         imageInput.type = &#39;file&#39;
@@ -894,21 +889,7 @@ const validateIdCard = (rule, value, callback = () =&gt; &#123;&#125;) =&gt; &#1
     &#125;
 &#125;
 </code></pre>
-<h2 id="VUE加载自动触发元素点击事件"><a href="#VUE加载自动触发元素点击事件" class="headerlink" title="VUE加载自动触发元素点击事件"></a>VUE加载自动触发元素点击事件</h2><h3 id="SubTemplate"><a href="#SubTemplate" class="headerlink" title="SubTemplate"></a>SubTemplate</h3><pre><code class="javascript">directives: &#123;
-    trigger: &#123;
-        triggerFlag: false,
-        inserted(el,binging) &#123;
-            if(binging.def.triggerFlag) &#123;
-                return
-            &#125;
-            el.click()
-            binging.def.triggerFlag = true
-        &#125;
-    &#125;
-&#125;,
-methods: &#123;&#125;,
-</code></pre>
-<h2 id="Javascript数组内容"><a href="#Javascript数组内容" class="headerlink" title="Javascript数组内容"></a>Javascript数组内容</h2><h3 id="filter"><a href="#filter" class="headerlink" title="filter()"></a>filter()</h3><pre><code class="javascript">// 过滤
+<h2 id="数组内容"><a href="#数组内容" class="headerlink" title="数组内容"></a>数组内容</h2><h3 id="filter"><a href="#filter" class="headerlink" title="filter()"></a>filter()</h3><pre><code class="javascript">// 过滤
 let numArr = [0, 1, 2, 3, 4, 5, 6, 7]
 let res = numArr.filter(num =&gt; num &gt;= 5)
 console.log(res) // [5, 6, 7]
@@ -922,6 +903,35 @@ this.tempArr[index] = this.tempArr.splice(index - 1, 1, this.tempArr[index])[0]
 // 下移
 this.tempArr[index] = this.tempArr.splice(index + 1, 1, this.tempArr[index])[0]
 </code></pre>
+<h3 id="数组内容随机抽取（不重复）"><a href="#数组内容随机抽取（不重复）" class="headerlink" title="数组内容随机抽取（不重复）"></a>数组内容随机抽取（不重复）</h3><pre><code class="javascript">export const sample = (arr, count) =&gt; &#123;
+    const result = new Set()
+    while (result.size &lt; count) &#123;
+        const index = Math.floor(Math.random() * arr.length)
+        result.add(arr[index])
+    &#125;
+    return Array.from(result)
+&#125;
+</code></pre>
+<h2 id="Css内容"><a href="#Css内容" class="headerlink" title="Css内容"></a>Css内容</h2><h3 id="线性渐变背景颜色"><a href="#线性渐变背景颜色" class="headerlink" title="线性渐变背景颜色"></a>线性渐变背景颜色</h3><pre><code class="css">/* css线性渐变背景颜色 */
+background: linear-gradient(to right , #ffce7b, #ff6609);
+</code></pre>
+<h3 id="右上角三角标"><a href="#右上角三角标" class="headerlink" title="右上角三角标"></a>右上角三角标</h3><pre><code class="css">/* css右上角三角标 */
+background-image: linear-gradient(225deg, #f44336 20%, #00dd00 20%);
+</code></pre>
+<h2 id="VUE"><a href="#VUE" class="headerlink" title="VUE"></a>VUE</h2><h3 id="加载自动触发元素点击事件"><a href="#加载自动触发元素点击事件" class="headerlink" title="加载自动触发元素点击事件"></a>加载自动触发元素点击事件</h3><pre><code class="javascript">directives: &#123;
+    trigger: &#123;
+        triggerFlag: false,
+        inserted(el,binging) &#123;
+            if(binging.def.triggerFlag) &#123;
+                return
+            &#125;
+            el.click()
+            binging.def.triggerFlag = true
+        &#125;
+    &#125;
+&#125;,
+methods: &#123;&#125;,
+</code></pre>
 <h2 id="页面事件监听"><a href="#页面事件监听" class="headerlink" title="页面事件监听"></a>页面事件监听</h2><h3 id="监听离开"><a href="#监听离开" class="headerlink" title="监听离开"></a>监听离开</h3><pre><code class="javascript">fn() &#123;
     // 离开时监听触发
 &#125;
@@ -932,25 +942,28 @@ window.removeEventListener(&#39;blur&#39;, this.fn)
 window.addEventListener(&#39;visibilitychange&#39;, this.fn)
 window.removeEventListener(&#39;visibilitychange&#39;, this.fn)
 </code></pre>
-<h2 id="Css内容"><a href="#Css内容" class="headerlink" title="Css内容"></a>Css内容</h2><h3 id="线性渐变背景颜色"><a href="#线性渐变背景颜色" class="headerlink" title="线性渐变背景颜色"></a>线性渐变背景颜色</h3><pre><code class="css">/* css线性渐变背景颜色 */
-background: linear-gradient(to right , #ffce7b, #ff6609);
-</code></pre>
-<h3 id="右上角三角标"><a href="#右上角三角标" class="headerlink" title="右上角三角标"></a>右上角三角标</h3><pre><code class="css">/* css右上角三角标 */
-background-image: linear-gradient(225deg, #f44336 20%, #00dd00 20%);
-</code></pre>
 <h2 id="移动端Debug"><a href="#移动端Debug" class="headerlink" title="移动端Debug"></a>移动端Debug</h2><pre><code class="html">&lt;script src=&quot;https://unpkg.com/vconsole@latest/dist/vconsole.min.js&quot;&gt;&lt;/script&gt;
 &lt;script&gt;
      // VConsole 默认会挂载到 `window.VConsole` 上
     var vConsole = new window.VConsole();
 &lt;/script&gt;
 </code></pre>
-<h2 id="ssh"><a href="#ssh" class="headerlink" title="ssh"></a>ssh</h2><pre><code class="sh">    # 生成公钥私钥配对
-    $ ssh-keygen -t ed25519 -C &quot;邮箱&quot;
-    # git基础信息设置
-    $ git config --global user.name &quot;&quot;
-    $ git config --global user.email &quot;&quot;
+<h2 id="ssh"><a href="#ssh" class="headerlink" title="ssh"></a>ssh</h2><h3 id="git配置"><a href="#git配置" class="headerlink" title="git配置"></a>git配置</h3><pre><code class="sh"># 生成公钥私钥配对
+$ ssh-keygen -t ed25519 -C &quot;邮箱&quot;
+# git基础信息设置
+$ git config --global user.name &quot;&quot;
+$ git config --global user.email &quot;&quot;
 </code></pre>
-<h2 id="正则"><a href="#正则" class="headerlink" title="正则"></a>正则</h2><hr>
+<h3 id="连接服务器"><a href="#连接服务器" class="headerlink" title="连接服务器"></a>连接服务器</h3><pre><code class="sh"># 密码直接连接
+$ ssh userName@ip
+# 通过密钥证书连接
+$ ssh -i certName.pem userName@ip
+# 查看证书安装列表
+$ ssh-add -l
+# 安装证书（苹果电脑可能存在文件权限问题，可加sudo来跑命令）
+$ ssh-add certName.pem
+</code></pre>
+<h2 id="正则"><a href="#正则" class="headerlink" title="正则"></a>正则</h2><h3 id="正则基础"><a href="#正则基础" class="headerlink" title="正则基础"></a>正则基础</h3><hr>
 <pre><code>. - 除换行符以外的所有字符。
 ^ - 字符串开头。
 $ - 字符串结尾。
@@ -972,6 +985,23 @@ aa|bb - 匹配 aa 或 bb。
 (?!expr) - 负向预查模式 expr。
 </code></pre>
 <hr>
+<h2 id="加解密"><a href="#加解密" class="headerlink" title="加解密"></a>加解密</h2><h3 id="加密"><a href="#加密" class="headerlink" title="加密"></a>加密</h3><pre><code class="javascript">compileStr(code) &#123;
+    let c = String.fromCharCode(code.charCodeAt(0) + code.length)
+    for(let i = 1; i &lt; code.length; i++) &#123;
+        c += String.fromCharCode(code.charCodeAt(i) + code.charCodeAt(i - 1))
+    &#125;
+    return escape(c)
+&#125;
+</code></pre>
+<h3 id="解密"><a href="#解密" class="headerlink" title="解密"></a>解密</h3><pre><code class="javascript">unCompileStr(str) &#123;
+    const code = unescape(str)
+    let c = String.fromCharCode(code.charCodeAt(0) - code.length)
+    for(let i = 1; i &lt; code.length; i++) &#123;
+        c += String.fromCharCode(code.charCodeAt(i) - c.charCodeAt(i - 1))
+    &#125;
+    return c
+&#125;
+</code></pre>
 
                 
             </div>

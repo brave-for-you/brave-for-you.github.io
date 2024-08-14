@@ -506,6 +506,9 @@ books = models.Book.objects.order_by(&quot;-price&quot;)
 <h3 id="数量"><a href="#数量" class="headerlink" title="数量"></a>数量</h3><pre><code class="python"># 查（符合条件数量）
 books = models.Book.objects.filter(price=200).count() 
 </code></pre>
+<h3 id="限制数量"><a href="#限制数量" class="headerlink" title="限制数量"></a>限制数量</h3><pre><code class="python"># 查询限制15条
+books = models.Book.objects.all()[:15]
+</code></pre>
 
                 
             </div>
