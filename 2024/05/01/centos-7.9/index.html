@@ -6,11 +6,11 @@
     <meta charset="utf-8">
     <meta name="keywords" content="CentOs@7.9, Ron">
     <meta name="description" content="
-关于&amp;#x43;&amp;#101;&amp;#110;&amp;#x74;&amp;#x4f;&amp;#x73;&amp;#x40;&amp;#55;&amp;#x2e;&amp;#57; 初次使用注意以及基本内容，持续完善中…
+关于&amp;#x43;&amp;#101;&amp;#110;&amp;#116;&amp;#x4f;&amp;#x73;&amp;#x40;&amp;#x37;&amp;#x2e;&amp;#x39; 初次使用注意以及基本内容，持续完善中…
 
 首次启动创建文件夹&amp;amp;文件cd /
 makedir myApp
-cd">
+">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -428,7 +428,7 @@ cd">
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <blockquote>
-<p>关于<a href="mailto:&#x43;&#101;&#110;&#x74;&#x4f;&#x73;&#x40;&#55;&#x2e;&#57;">&#x43;&#101;&#110;&#x74;&#x4f;&#x73;&#x40;&#55;&#x2e;&#57;</a> 初次使用注意以及基本内容，持续完善中…</p>
+<p>关于<a href="mailto:&#x43;&#101;&#110;&#116;&#x4f;&#x73;&#x40;&#x37;&#x2e;&#x39;">&#x43;&#101;&#110;&#116;&#x4f;&#x73;&#x40;&#x37;&#x2e;&#x39;</a> 初次使用注意以及基本内容，持续完善中…</p>
 </blockquote>
 <h2 id="首次启动"><a href="#首次启动" class="headerlink" title="首次启动"></a>首次启动</h2><h3 id="创建文件夹-amp-文件"><a href="#创建文件夹-amp-文件" class="headerlink" title="创建文件夹&amp;文件"></a>创建文件夹&amp;文件</h3><pre><code class="shell">cd /
 makedir myApp
@@ -470,7 +470,7 @@ echo &#39;追加&#39; &gt;&gt; myApp.txt
     sudo rm -rf /usr/bin/python
     sudo ln -s /usr/bin/python3 /usr/bin/python
 </code></pre>
-<h3 id="x43-x65-110-x74-79-x73-x40-55-46-x39-安装mysql"><a href="#x43-x65-110-x74-79-x73-x40-55-46-x39-安装mysql" class="headerlink" title="&#x43;&#x65;&#110;&#x74;&#79;&#x73;&#x40;&#55;&#46;&#x39; 安装mysql"></a><a href="mailto:&#x43;&#x65;&#110;&#x74;&#79;&#x73;&#x40;&#55;&#46;&#x39;">&#x43;&#x65;&#110;&#x74;&#79;&#x73;&#x40;&#55;&#46;&#x39;</a> 安装mysql</h3><pre><code class="shell">    # 检查历史版本
+<h3 id="x43-x65-110-116-79-115-x40-x37-x2e-x39-安装mysql"><a href="#x43-x65-110-116-79-115-x40-x37-x2e-x39-安装mysql" class="headerlink" title="&#x43;&#x65;&#110;&#116;&#79;&#115;&#x40;&#x37;&#x2e;&#x39; 安装mysql"></a><a href="mailto:&#x43;&#x65;&#110;&#116;&#79;&#115;&#x40;&#x37;&#x2e;&#x39;">&#x43;&#x65;&#110;&#116;&#79;&#115;&#x40;&#x37;&#x2e;&#x39;</a> 安装mysql</h3><pre><code class="shell">    # 检查历史版本
     rpm -qa | grep -i mysql
     rpm -qa | grep -i mariadb
     # 卸载历史版本（如已安装过）
@@ -508,6 +508,38 @@ echo &#39;追加&#39; &gt;&gt; myApp.txt
     mysql -V
     # 查看临时初始密码
     grep &#39;temporary password&#39; /var/log/mysqld.log
+</code></pre>
+<h2 id="日志查询跟踪"><a href="#日志查询跟踪" class="headerlink" title="日志查询跟踪"></a>日志查询跟踪</h2><h3 id="grep"><a href="#grep" class="headerlink" title="grep"></a>grep</h3><p>grep 命令是一个全局查找正则表达式并且打印结果行的命令。</p>
+<pre><code class="shell"># 输出查询到的包含 test 的行内容
+grep &#39;test&#39; test.log
+# 输出查询到的包含 test 的行内容(不区分大小写)
+grep -i &#39;test&#39; test.log
+# 输出查询到的包含 test 的行内容并向下查20行
+grep -A 20 &#39;test&#39; test.log
+</code></pre>
+<h3 id="tail"><a href="#tail" class="headerlink" title="tail"></a>tail</h3><p>tail 命令可以将文件指定位置到文件结束的内容写到标准输出。</p>
+<pre><code class="shell"># 1、输出最后200个字符
+tail -c 200 test.log
+# 2、从第900个字符开始输出，一直到最后
+tail -c +900 test.log
+# 3、输出最后20行
+tail -n 20 test.log
+# 4、从第36行开始输出，一直到最后
+tail -n +36 test.log
+# 5、输出指定文件的最后十行，同时继续监视文件内容有无变化，新增内容会继续输出，直到按下 [Ctrl-C] 组合键退出 || 文件改名或被删除
+tail -f test.log
+# 6、输出指定文件的最后十行，同时继续监视文件内容有无变化，新增内容会继续输出，直到按下 [Ctrl-C] 组合键退出
+tail -F test.log
+# 7、输出指定文件的最后20行，同时继续监视文件内容有无变化，新增内容会继续输出，直到按下 [Ctrl-C] 组合键退出 || 文件改名或被删除
+tail -f -n 20 test.log
+# 8、指定多个文件并输出文件名
+tail -v test1.log test2.log
+# 9、指定多个文件不输出文件名
+tail -q test1.log test2.log
+
+# 【Ctrl】+【S】 暂停刷新。
+# 【Ctrl】+【Q】继续刷新。
+# 【Ctrl】+【C】退出 tail 命令。
 </code></pre>
 
                 

@@ -4,8 +4,13 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="微信公众号开发, Ron">
-    <meta name="description" content="为了识别用户，每个用户针对每个公众号会产生一个安全的OpenID，如果需要在多公众号、移动应用之间做用户共通，则需前往微信开放平台，将这些公众号和应用绑定到一个开放平台账号下，绑定后，一个用户虽然对多个公众号和应用有多个不同的OpenID，">
+    <meta name="keywords" content="Eslint+Husky, Ron">
+    <meta name="description" content="
+前端项目工程配置，强制校验代码格式统一规范
+
+依赖包&amp;#123;
+    &amp;quot;devDependencies&amp;quot;: &amp;#123;
+        &amp;quot;@vitejs/plugin-vue&amp;quot;: &amp;quot;">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +22,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>微信公众号开发 | Ron</title>
+    <title>Eslint+Husky | Ron</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
     <style>
@@ -341,12 +346,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">微信公众号开发</h1>
+                    <h1 class="description center-align post-title">Eslint+Husky</h1>
                 </div>
             </div>
         </div>
@@ -370,8 +375,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7/">
-                                <span class="chip bg-color">公众号</span>
+                            <a href="/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B/">
+                                <span class="chip bg-color">前端工程</span>
                             </a>
                         
                     </div>
@@ -382,8 +387,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%BE%AE%E4%BF%A1/" class="post-category">
-                                微信
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                前端
                             </a>
                         
                     </div>
@@ -395,7 +400,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2024-08-15
+                    2024-09-01
                 </div>
                 
 
@@ -422,367 +427,270 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>为了识别用户，每个用户针对每个公众号会产生一个安全的OpenID，如果需要在多公众号、移动应用之间做用户共通，则需前往微信开放平台，将这些公众号和应用绑定到一个开放平台账号下，绑定后，一个用户虽然对多个公众号和应用有多个不同的OpenID，但他对所有这些同一开放平台账号下的公众号和应用，只有一个UnionID，可以在用户管理-获取用户基本信息（UnionID机制）文档了解详情。</p>
-<h2 id="公众号后台配置"><a href="#公众号后台配置" class="headerlink" title="公众号后台配置"></a>公众号后台配置</h2><h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><blockquote>
-<p>登录微信公众平台官网后，在公众平台官网的开发-基本设置页面，勾选协议成为开发者，点击“修改配置”按钮，填写服务器地址（URL）、Token和EncodingAESKey，其中URL是开发者用来接收微信消息和事件的接口URL。Token可由开发者可以任意填写，用作生成签名（该Token会和接口URL中包含的Token进行比对，从而验证安全性）。EncodingAESKey由开发者手动填写或随机生成，将用作消息体加解密密钥。</p>
+                <blockquote>
+<p>前端项目工程配置，强制校验代码格式统一规范</p>
 </blockquote>
-<h3 id="验证示例"><a href="#验证示例" class="headerlink" title="验证示例"></a>验证示例</h3><pre><code class="php">private function checkSignature()
-&#123;
-    $signature = $_GET[&quot;signature&quot;];
-    $timestamp = $_GET[&quot;timestamp&quot;];
-    $nonce = $_GET[&quot;nonce&quot;];
-    
-    $token = TOKEN;
-    $tmpArr = array($token, $timestamp, $nonce);
-    sort($tmpArr, SORT_STRING);
-    $tmpStr = implode( $tmpArr );
-    $tmpStr = sha1( $tmpStr );
-    
-    if( $tmpStr == $signature )&#123;
-        return true;
-    &#125;else&#123;
-        return false;
+<h2 id="依赖包"><a href="#依赖包" class="headerlink" title="依赖包"></a>依赖包</h2><pre><code class="javascript">&#123;
+    &quot;devDependencies&quot;: &#123;
+        &quot;@vitejs/plugin-vue&quot;: &quot;^3.0.2&quot;,
+        &quot;eslint&quot;: &quot;^8.57.0&quot;,
+        &quot;eslint-plugin-vue&quot;: &quot;^9.28.0&quot;,
+        &quot;husky&quot;: &quot;^8.0.3&quot;,
+        &quot;sass&quot;: &quot;^1.78.0&quot;,
+        &quot;vite&quot;: &quot;^3.0.6&quot;
     &#125;
 &#125;
 </code></pre>
-<h2 id="获取-Access-token"><a href="#获取-Access-token" class="headerlink" title="获取 Access token"></a>获取 Access token</h2><h3 id="请求地址"><a href="#请求地址" class="headerlink" title="请求地址"></a>请求地址</h3><blockquote>
-<p>GET <a target="_blank" rel="noopener" href="https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=APPID&secret=APPSECRET">https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=APPID&amp;secret=APPSECRET</a></p>
-</blockquote>
-<h3 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h3><table>
-<thead>
-<tr>
-<th>参数</th>
-<th>是否必须</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>grant_type</td>
-<td>是</td>
-<td>获取access_token填写client_credential</td>
-</tr>
-<tr>
-<td>appid</td>
-<td>是</td>
-<td>第三方用户唯一凭证</td>
-</tr>
-<tr>
-<td>secret</td>
-<td>是</td>
-<td>第三方用户唯一凭证密钥，即appsecret</td>
-</tr>
-</tbody></table>
-<h2 id="自定义菜单"><a href="#自定义菜单" class="headerlink" title="自定义菜单"></a>自定义菜单</h2><h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><ol>
-<li>自定义菜单最多包括3个一级菜单，每个一级菜单最多包含5个二级菜单。</li>
-<li>一级菜单最多4个汉字，二级菜单最多8个汉字，多出来的部分将会以“…”代替。</li>
-<li>创建自定义菜单后，菜单的刷新策略是，在用户进入公众号会话页或公众号profile页时，如果发现上一次拉取菜单的请求在5分钟以前，就会拉取一下菜单，如果菜单有更新，就会刷新客户端的菜单。测试时可以尝试取消关注公众账号后再次关注，则可以看到创建后的效果。​</li>
-</ol>
-<h3 id="菜单类型"><a href="#菜单类型" class="headerlink" title="菜单类型"></a>菜单类型</h3><ol>
-<li>click：点击推事件用户点击click类型按钮后，微信服务器会通过消息接口推送消息类型为event的结构给开发者（参考消息接口指南），并且带上按钮中开发者填写的key值，开发者可以通过自定义的key值与用户进行交互；</li>
-<li>view：跳转URL用户点击view类型按钮后，微信客户端将会打开开发者在按钮中填写的网页URL，可与网页授权获取用户基本信息接口结合，获得用户基本信息。</li>
-<li>scancode_push：扫码推事件用户点击按钮后，微信客户端将调起扫一扫工具，完成扫码操作后显示扫描结果（如果是URL，将进入URL），且会将扫码的结果传给开发者，开发者可以下发消息。</li>
-<li>scancode_waitmsg：扫码推事件且弹出“消息接收中”提示框用户点击按钮后，微信客户端将调起扫一扫工具，完成扫码操作后，将扫码的结果传给开发者，同时收起扫一扫工具，然后弹出“消息接收中”提示框，随后可能会收到开发者下发的消息。</li>
-<li>pic_sysphoto：弹出系统拍照发图用户点击按钮后，微信客户端将调起系统相机，完成拍照操作后，会将拍摄的相片发送给开发者，并推送事件给开发者，同时收起系统相机，随后可能会收到开发者下发的消息。</li>
-<li>pic_photo_or_album：弹出拍照或者相册发图用户点击按钮后，微信客户端将弹出选择器供用户选择“拍照”或者“从手机相册选择”。用户选择后即走其他两种流程。</li>
-<li>pic_weixin：弹出微信相册发图器用户点击按钮后，微信客户端将调起微信相册，完成选择操作后，将选择的相片发送给开发者的服务器，并推送事件给开发者，同时收起相册，随后可能会收到开发者下发的消息。</li>
-<li>location_select：弹出地理位置选择器用户点击按钮后，微信客户端将调起地理位置选择工具，完成选择操作后，将选择的地理位置发送给开发者的服务器，同时收起位置选择工具，随后可能会收到开发者下发的消息。</li>
-<li>media_id：下发消息（除文本消息）用户点击media_id类型按钮后，微信服务器会将开发者填写的永久素材id对应的素材下发给用户，永久素材类型可以是图片、音频、视频 、图文消息。请注意：永久素材id必须是在“素材管理&#x2F;新增永久素材”接口上传后获得的合法id。</li>
-<li>article_id：用户点击 article_id 类型按钮后，微信客户端将会以卡片形式，下发开发者在按钮中填写的图文消息</li>
-<li>article_view_limited：类似 view_limited，但不使用 media_id 而使用 article_id</li>
-</ol>
-<h3 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h3><blockquote>
-<p>POST <a target="_blank" rel="noopener" href="https://api.weixin.qq.com/cgi-bin/menu/create?access_token=ACCESS_TOKEN">https://api.weixin.qq.com/cgi-bin/menu/create?access_token=ACCESS_TOKEN</a></p>
-</blockquote>
-<pre><code class="javascript"> &#123;
-     &quot;button&quot;:[
-     &#123;	
-          &quot;type&quot;:&quot;click&quot;,
-          &quot;name&quot;:&quot;今日歌曲&quot;,
-          &quot;key&quot;:&quot;V1001_TODAY_MUSIC&quot;
-      &#125;,
-      &#123;
-           &quot;name&quot;:&quot;菜单&quot;,
-           &quot;sub_button&quot;:[
-           &#123;	
-               &quot;type&quot;:&quot;view&quot;,
-               &quot;name&quot;:&quot;搜索&quot;,
-               &quot;url&quot;:&quot;http://www.soso.com/&quot;
+<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><pre><code class="javascript">&#123;
+    &quot;scripts&quot;: &#123;
+        &quot;eslint&quot;: &quot;eslint --ext .js,.vue .&quot;,
+        &quot;husky-init&quot;: &quot;husky install&quot;,
+        &quot;husky-add&quot;: &quot;husky add .husky/pre-commit&quot;
+    &#125;,
+&#125;
+</code></pre>
+<h2 id="Eslint规则"><a href="#Eslint规则" class="headerlink" title="Eslint规则"></a>Eslint规则</h2><pre><code class="javascript">module.exports = &#123;
+    env: &#123;
+        browser: true,
+        es2021: true
+    &#125;,
+    extends: [
+        &#39;eslint:recommended&#39;,
+        &#39;plugin:vue/vue3-essential&#39;
+    ],
+    overrides: [
+        &#123;
+            env: &#123;
+                node: true
             &#125;,
-            &#123;
-                 &quot;type&quot;:&quot;miniprogram&quot;,
-                 &quot;name&quot;:&quot;wxa&quot;,
-                 &quot;url&quot;:&quot;http://mp.weixin.qq.com&quot;,
-                 &quot;appid&quot;:&quot;wx286b93c14bbf93aa&quot;,
-                 &quot;pagepath&quot;:&quot;pages/lunar/index&quot;
-             &#125;,
-            &#123;
-               &quot;type&quot;:&quot;click&quot;,
-               &quot;name&quot;:&quot;赞一下我们&quot;,
-               &quot;key&quot;:&quot;V1001_GOOD&quot;
-            &#125;]
-       &#125;]
- &#125;
-</code></pre>
-<h3 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h3><blockquote>
-<p>GET <a target="_blank" rel="noopener" href="https://api.weixin.qq.com/cgi-bin/get_current_selfmenu_info?access_token=ACCESS_TOKEN">https://api.weixin.qq.com/cgi-bin/get_current_selfmenu_info?access_token=ACCESS_TOKEN</a></p>
-</blockquote>
-<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><blockquote>
-<p>GET <a target="_blank" rel="noopener" href="https://api.weixin.qq.com/cgi-bin/menu/delete?access_token=ACCESS_TOKEN">https://api.weixin.qq.com/cgi-bin/menu/delete?access_token=ACCESS_TOKEN</a></p>
-</blockquote>
-<h2 id="消息能力"><a href="#消息能力" class="headerlink" title="消息能力"></a>消息能力</h2><h3 id="模板消息"><a href="#模板消息" class="headerlink" title="模板消息"></a>模板消息</h3><ol>
-<li>设置所属行业<blockquote>
-<p> POST <a target="_blank" rel="noopener" href="https://api.weixin.qq.com/cgi-bin/template/api_set_industry?access_token=ACCESS_TOKEN">https://api.weixin.qq.com/cgi-bin/template/api_set_industry?access_token=ACCESS_TOKEN</a></p>
-</blockquote>
-</li>
-</ol>
-<pre><code class="javascript">// 公众号模板消息所属行业编号设置参数
-&#123;
-    &quot;industry_id1&quot;: &quot;1&quot;,
-    &quot;industry_id2&quot;: &quot;4&quot;
+            files: [
+                &#39;.eslintrc.&#123;js,cjs&#125;&#39;
+            ],
+            parserOptions: &#123;
+                sourceType: &#39;script&#39;
+            &#125;
+        &#125;
+    ],
+    parserOptions: &#123;
+        ecmaVersion: &#39;latest&#39;,
+        sourceType: &#39;module&#39;
+    &#125;,
+    plugins: [
+        &#39;vue&#39;
+    ],
+    rules: &#123;
+        &#39;vue/multi-word-component-names&#39;: &#39;off&#39;,
+        // 这条规则不允许在循环体中使用 await。
+        &#39;no-await-in-loop&#39;: 2,
+        //禁止使用alert confirm prompt
+        &#39;no-alert&#39;: 0,
+        //禁止使用数组构造器
+        &#39;no-array-constructor&#39;: 2,
+        //禁止使用按位运算符
+        &#39;no-bitwise&#39;: 0,
+        //禁止使用arguments.caller或arguments.callee
+        &#39;no-caller&#39;: 2,
+        //禁止给class赋值
+        &#39;no-class-assign&#39;: 2,
+        //禁止在条件表达式中使用赋值语句
+        &#39;no-cond-assign&#39;: 2,
+        //禁止修改const声明的变量
+        &#39;no-const-assign&#39;: 2,
+        //禁止在条件中使用常量表达式 if (true) if (1)
+        &#39;no-constant-condition&#39;: 2,
+        //禁止使用continue
+        &#39;no-continue&#39;: 0,
+        //禁止在正则表达式中使用控制字符
+        &#39;no-control-regex&#39;: 2,
+        //不能对var声明的变量使用delete操作符
+        &#39;no-delete-var&#39;: 2,
+        //不允许将 Math、JSON、Reflect、Atomics 和 Intl 对象作为函数调用  var math = Math();
+        &#39;no-obj-calls&#39;: 2,
+        //不允许两边完全相同的赋值  foo = foo;
+        &#39;no-self-assign&#39;: 2,
+        //不允许无意义的代码
+        // var x = 10;
+        // if (x === x) &#123;x = 20&#125;
+        &#39;no-self-compare&#39;: 2,
+        //禁止稀疏数组， [1,,2]
+        &#39;no-sparse-arrays&#39;: 2,
+        //在调用super()之前不能使用this或super
+        &#39;no-this-before-super&#39;: 2,
+        //不能有未定义的变量
+        &#39;no-undef&#39;: 2,
+        //不能有无法执行的代码  因为 return、throw、break 和 continue 语句无条件地退出一个代码块
+        &#39;no-unreachable&#39;: 2,
+        //不能有声明后未被使用的变量或参数
+        &#39;no-unused-vars&#39;: [2, &#123;&#39;vars&#39;: &#39;all&#39;, &#39;args&#39;: &#39;after-used&#39;&#125;],
+        //未定义前不能使用
+        &#39;no-use-before-define&#39;: 2,
+        //禁止比较时使用NaN，只能用isNaN()
+        &#39;use-isnan&#39;: 2,
+        //强制驼峰法命名myFavoriteColor 、_myFavoriteColor、MY_FAVORITE_COLOR
+        &#39;camelcase&#39;: 2,
+        //return 后面是否允许省略
+        &#39;consistent-return&#39;: 0,
+        //必须使用 if ()&#123;&#125; 中的&#123;&#125;
+        &#39;curly&#39;: [2, &#39;all&#39;],
+        //switch语句最后必须有default
+        &#39;default-case&#39;: 1,
+        //default 必须放在最后
+        &#39;default-case-last&#39;: 2,
+        //避免不必要的方括号
+        &#39;dot-notation&#39;: [0, &#123;&#39;allowKeywords&#39;: true&#125;],
+        //必须使用全等   === and !==
+        &#39;eqeqeq&#39;: 2,
+        //函数表达式必须有名字
+        &#39;func-names&#39;: 0,
+        //函数风格，规定只能使用函数声明/函数表达式
+        &#39;func-style&#39;: [0, &#39;declaration&#39;],
+        //变量名长度
+        &#39;id-length&#39;: 0,
+        //声明时必须赋初值
+        &#39;init-declarations&#39;: 0,
+        //代码块的嵌套块深度
+        &#39;max-depth&#39;: [2, 5],
+        //强制每个文件的最大行数
+        &#39;max-lines&#39;: [1, 9999],
+        //回调嵌套深度
+        &#39;max-nested-callbacks&#39;: [0, 5],
+        //函数最多只能有10个参数
+        &#39;max-params&#39;: [0, 10],
+        //函数内最多有几个声明
+        &#39;max-statements&#39;: [0, 10],
+        //函数名首行大写必须使用new方式调用，首行小写必须用不带new方式调用  var friend = new Person();
+        &#39;new-cap&#39;: 2,
+        //不允许在正则表达式的开头显式使用除法运算符     /=foo/
+        &#39;no-div-regex&#39;: 1,
+        //如果if语句里面有return,后面不能跟else语句
+        &#39;no-else-return&#39;: 2,
+        //块语句中的内容不能为空
+        &#39;no-empty&#39;: 2,
+        //禁止对null使用==或!=运算符
+        &#39;no-eq-null&#39;: 2,
+        //禁止多余的冒号
+        &#39;no-extra-semi&#39;: 2,
+        //小数点之前之后必须要有数字  不能省略0
+        &#39;no-floating-decimal&#39;: 2,
+        //禁止隐式转换
+        &#39;no-implicit-coercion&#39;: 2,
+        //禁止行内备注
+        &#39;no-inline-comments&#39;: 0,
+        //禁止使用__iterator__ 属性
+        &#39;no-iterator&#39;: 2,
+        //禁止不必要的嵌套块
+        &#39;no-lone-blocks&#39;: 2,
+        //禁止在循环中使用函数（如果没有引用外部变量不形成闭包就可以）
+        &#39;no-loop-func&#39;: 0,
+        //禁止链式赋值  var a = b = c = 5;
+        &#39;no-multi-assign&#39;: 0,
+        //字符串不能用\换行
+        &#39;no-multi-str&#39;: 2,
+        //禁止使用嵌套的三目运算
+        &#39;no-nested-ternary&#39;: 0,
+        //禁止在使用new构造一个实例后不赋值
+        &#39;no-new&#39;: 2,
+        //禁止使用new Function
+        &#39;no-new-func&#39;: 2,
+        //禁止使用new Object()
+        &#39;no-new-object&#39;: 2,
+        //禁止使用new创建包装实例，new String new Boolean new Number
+        &#39;no-new-wrappers&#39;: 2,
+        //禁止使用八进制数字（零开头的数字）
+        &#39;no-octal&#39;: 2,
+        //禁止使用++，--
+        &#39;no-plusplus&#39;: 0,
+        //禁止使用__proto__属性
+        &#39;no-proto&#39;: 2,
+        //禁止重复声明变量
+        &#39;no-redeclare&#39;: 2,
+        //return 语句中不能有赋值表达式  return foo = bar + 2;
+        &#39;no-return-assign&#39;: 0,
+        //禁止使用javascript:void(0)
+        &#39;no-script-url&#39;: 0,
+        //外部作用域中的变量不能与它所包含的作用域中的变量或参数同名
+        &#39;no-shadow&#39;: 2,
+        //严格模式中规定的限制标识符不能作为声明时的变量名使用  NaN、Infinity、undefined
+        &#39;no-shadow-restricted-names&#39;: 2,
+        //禁止使用三目运算符
+        &#39;no-ternary&#39;: 0,
+        //变量初始化时不能直接给它赋值为undefined
+        &#39;no-undef-init&#39;: 2,
+        //标识符不能以_开头或结尾
+        &#39;no-underscore-dangle&#39;: 0,
+        //禁止不必要的嵌套 var isYes = answer === 1 ? true : false;
+        &#39;no-unneeded-ternary&#39;: 1,
+        //禁用var，用let和const代替
+        &#39;no-var&#39;: 2,
+        //禁用with
+        &#39;no-with&#39;: 2,
+        //强制对象字面量缩写语法
+        &#39;object-shorthand&#39;: 0,
+        //连续声明  var bar; var baz; =&gt; var bar,baz;
+        &#39;one-var&#39;: 0,
+        //赋值运算符 += -=什么的
+        &#39;operator-assignment&#39;: [0, &#39;always&#39;],
+        //首选const
+        &#39;prefer-const&#39;: 0,
+        //对象字面量中的属性必须加上双引号
+        &#39;quote-props&#39;: 0,
+        //注释风格要不要有空格什么的
+        &#39;spaced-comment&#39;: 0,
+        //使用严格模式
+        &#39;strict&#39;: 0,
+        //箭头函数用小括号括起来
+        &#39;arrow-parens&#39;: 0,
+        //=&gt;的前/后括号
+        &#39;arrow-spacing&#39;: 0,
+        //逗号风格，换行时在行首还是行尾  last 在行尾
+        &#39;comma-style&#39;: [2, &#39;last&#39;],
+        //缩进风格  2个tab
+        &#39;indent&#39;: [2, 4],
+        //对象字面量中冒号的前后空格
+        &#39;key-spacing&#39;: [0, &#123;&#39;beforeColon&#39;: false, &#39;afterColon&#39;: true&#125;],
+        //new时必须加小括号
+        &#39;new-parens&#39;: 2,
+        //禁止非必要的括号
+        &#39;no-extra-parens&#39;: 1,
+        //空行最多不能超过3行
+        &#39;no-multiple-empty-lines&#39;: [1, &#123;&#39;max&#39;: 3&#125;],
+        //一行结束后面不要有空格
+        &#39;no-trailing-spaces&#39;: 1,
+        //换行时运算符在行尾还是行首
+        // foo = 1 +
+        //       2;
+        &#39;operator-linebreak&#39;: [1, &#39;after&#39;],
+        //块语句内行首行尾是否要空行
+        &#39;padded-blocks&#39;: 0,
+        //引号类型 `` &#39;&#39; &#39;&#39;
+        &#39;quotes&#39;: [1, &#39;single&#39;],
+        //语句强制分号结尾
+        &#39;semi&#39;: [0, &#39;always&#39;],
+        //分号前后空格
+        &#39;semi-spacing&#39;: [0, &#123;&#39;before&#39;: false, &#39;after&#39;: true&#125;],
+        //函数定义时括号前面要不要有空格
+        &#39;space-before-function-paren&#39;: [0, &#39;always&#39;],
+        //中缀操作符周围要不要有空格   a + b
+        &#39;space-infix-ops&#39;: 0,
+        //正则表达式字面量用小括号包起来
+        &#39;wrap-regex&#39;: 0,
+    &#125;
 &#125;
 </code></pre>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>是否必须</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>access_token</td>
-<td>是</td>
-<td>接口调用凭证</td>
-</tr>
-<tr>
-<td>industry_id1</td>
-<td>是</td>
-<td>公众号模板消息所属行业编号</td>
-</tr>
-<tr>
-<td>industry_id2</td>
-<td>是</td>
-<td>公众号模板消息所属行业编号</td>
-</tr>
-<tr>
-<td>2. 获取模板列表</td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<blockquote>
-<p>GET <a target="_blank" rel="noopener" href="https://api.weixin.qq.com/cgi-bin/template/get_all_private_template?access_token=ACCESS_TOKEN">https://api.weixin.qq.com/cgi-bin/template/get_all_private_template?access_token=ACCESS_TOKEN</a><br>3. 获取模板id<br>POST <a target="_blank" rel="noopener" href="https://api.weixin.qq.com/cgi-bin/template/api_add_template?access_token=ACCESS_TOKEN">https://api.weixin.qq.com/cgi-bin/template/api_add_template?access_token=ACCESS_TOKEN</a></p>
-</blockquote>
-<pre><code class="javascript">// 获取模板id
-&#123;
-    &quot;template_id_short&quot;: &quot;47123&quot;,
-    &quot;keyword_name_list&quot;: [&quot;时间&quot;,&quot;地点&quot;,&quot;金额&quot;]
-&#125;
+<h2 id="eslintignore"><a href="#eslintignore" class="headerlink" title=".eslintignore"></a>.eslintignore</h2><pre><code class="txt">build/*.js
+node_modules
+public
+src/config/*
+dist
+vite.config.js
 </code></pre>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>是否必须</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>access_token</td>
-<td>是</td>
-<td>接口调用凭证</td>
-</tr>
-<tr>
-<td>template_id_short</td>
-<td>是</td>
-<td>模板库中模板的编号，有“TM<strong>”和“OPENTMTM</strong>”等形式,对于类目模板，为纯数字ID</td>
-</tr>
-<tr>
-<td>keyword_name_list</td>
-<td>是</td>
-<td>选用的类目模板的关键词,按顺序传入,如果为空，或者关键词不在模板库中，会返回40246错误码</td>
-</tr>
-<tr>
-<td>4. 删除模板</td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<blockquote>
-<p>POST <a target="_blank" rel="noopener" href="https://api.weixin.qq.com/cgi-bin/template/del_private_template?access_token=ACCESS_TOKEN">https://api.weixin.qq.com/cgi-bin/template/del_private_template?access_token=ACCESS_TOKEN</a></p>
+<h2 id="pre-commit"><a href="#pre-commit" class="headerlink" title="pre-commit"></a>pre-commit</h2><blockquote>
+<p>注意：husky使用前必须先初始化git仓库，然后再依次初始新增husky文件</p>
 </blockquote>
-<pre><code class="javascript">&#123;
-     &quot;template_id&quot; : &quot;Dyvp3-Ff0cnail_CDSzk1fIc6-9lOkxsQE7exTJbwUE&quot; // 公众账号下模板消息ID, 包括类目模板ID
-&#125;
-</code></pre>
-<ol start="5">
-<li>发送模板消息<blockquote>
-<p>POST <a target="_blank" rel="noopener" href="https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=ACCESS_TOKEN">https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=ACCESS_TOKEN</a></p>
-</blockquote>
-</li>
-</ol>
-<pre><code class="javascript">&#123;
-     &quot;touser&quot;:&quot;OPENID&quot;,
-     &quot;template_id&quot;:&quot;ngqIpbwh8bUfcSsECmogfXcV14J0tQlEpBO27izEYtY&quot;,
-     &quot;url&quot;:&quot;http://weixin.qq.com/download&quot;,  
-     &quot;miniprogram&quot;:&#123;
-       &quot;appid&quot;:&quot;xiaochengxuappid12345&quot;,
-       &quot;pagepath&quot;:&quot;index?foo=bar&quot;
-     &#125;,
-     &quot;client_msg_id&quot;:&quot;MSG_000001&quot;,
-     &quot;data&quot;:&#123;
-             &quot;keyword1&quot;:&#123;
-                 &quot;value&quot;:&quot;巧克力&quot;
-             &#125;,
-             &quot;keyword2&quot;: &#123;
-                 &quot;value&quot;:&quot;39.8元&quot;
-             &#125;,
-             &quot;keyword3&quot;: &#123;
-                 &quot;value&quot;:&quot;2014年9月22日&quot;
-             &#125;
-     &#125;
-&#125;
-</code></pre>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>是否必须</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>touser</td>
-<td>是</td>
-<td>接收者openid</td>
-</tr>
-<tr>
-<td>template_id</td>
-<td>是</td>
-<td>模板ID</td>
-</tr>
-<tr>
-<td>url</td>
-<td>否</td>
-<td>模板跳转链接（海外账号没有跳转能力）</td>
-</tr>
-<tr>
-<td>miniprogram</td>
-<td>否</td>
-<td>跳小程序所需数据，不需跳小程序可不用传该数据</td>
-</tr>
-<tr>
-<td>appid</td>
-<td>是</td>
-<td>所需跳转到的小程序appid（该小程序appid必须与发模板消息的公众号是绑定关联关系，暂不支持小游戏）</td>
-</tr>
-<tr>
-<td>pagepath</td>
-<td>否</td>
-<td>所需跳转到小程序的具体页面路径，支持带参数,（示例index?foo&#x3D;bar），要求该小程序已发布，暂不支持小游戏</td>
-</tr>
-<tr>
-<td>data</td>
-<td>是</td>
-<td>模板数据</td>
-</tr>
-<tr>
-<td>client_msg_id</td>
-<td>否</td>
-<td>防重入id。对于同一个openid + client_msg_id, 只发送一条消息,10分钟有效,超过10分钟不保证效果。若无防重入需求，可不填</td>
-</tr>
-</tbody></table>
-<p>注：url和miniprogram都是非必填字段，若都不传则模板无跳转；若都传，会优先跳转至小程序。开发者可根据实际需要选择其中一种跳转方式即可。当用户的微信客户端版本不支持跳小程序时，将会跳转至url。</p>
-<h2 id="微信网页开发"><a href="#微信网页开发" class="headerlink" title="微信网页开发"></a>微信网页开发</h2><h3 id="网页授权"><a href="#网页授权" class="headerlink" title="网页授权"></a>网页授权</h3><ol>
-<li><p>第一步：用户同意授权，获取code</p>
-<blockquote>
-<p>  在确保微信公众账号拥有授权作用域（scope参数）的权限的前提下（已认证服务号，默认拥有scope参数中的snsapi_base和snsapi_userinfo 权限），引导关注者打开如下页面：<a target="_blank" rel="noopener" href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=APPID&redirect_uri=REDIRECT_URI&response_type=code&scope=SCOPE&state=STATE#wechat_redirect">https://open.weixin.qq.com/connect/oauth2/authorize?appid=APPID&amp;redirect_uri=REDIRECT_URI&amp;response_type=code&amp;scope=SCOPE&amp;state=STATE#wechat_redirect</a><br> 若提示“该链接无法访问”，请检查参数是否填写错误，是否拥有scope参数对应的授权作用域权限。<br> 尤其注意：由于授权操作安全等级较高，所以在发起授权请求时，微信会对授权链接做正则强匹配校验，如果链接的参数顺序不对，授权页面将无法正常访问,<br> 用户同意授权后<br> 如果用户同意授权，页面将跳转至 redirect_uri&#x2F;?code&#x3D;CODE&amp;state&#x3D;STATE。</p>
-</blockquote>
-</li>
-<li><p>第二步：通过code换取网页授权access_token</p>
-<blockquote>
-<p>  首先请注意，这里通过code换取的是一个特殊的网页授权access_token,与基础支持中的access_token（该access_token用于调用其他接口）不同。公众号可通过下述接口来获取网页授权access_token。如果网页授权的作用域为snsapi_base，则本步骤中获取到网页授权access_token的同时，也获取到了openid，snsapi_base式的网页授权流程即到此为止。<br> 尤其注意：由于公众号的secret和获取到的access_token安全级别都非常高，必须只保存在服务器，不允许传给客户端。后续刷新access_token、通过access_token获取用户信息等步骤，也必须从服务器发起<br> <a target="_blank" rel="noopener" href="https://api.weixin.qq.com/sns/oauth2/access_token?appid=APPID&secret=SECRET&code=CODE&grant_type=authorization_code">https://api.weixin.qq.com/sns/oauth2/access_token?appid=APPID&amp;secret=SECRET&amp;code=CODE&amp;grant_type=authorization_code</a></p>
-</blockquote>
-</li>
-<li><p>刷新access_token（如果需要）</p>
-<blockquote>
-<p>  由于access_token拥有较短的有效期，当access_token超时后，可以使用refresh_token进行刷新，refresh_token有效期为30天，当refresh_token失效之后，需要用户重新授权。<br> <a target="_blank" rel="noopener" href="https://api.weixin.qq.com/sns/oauth2/refresh_token?appid=APPID&grant_type=refresh_token&refresh_token=REFRESH_TOKEN">https://api.weixin.qq.com/sns/oauth2/refresh_token?appid=APPID&amp;grant_type=refresh_token&amp;refresh_token=REFRESH_TOKEN</a></p>
-</blockquote>
-</li>
-<li><p>拉取用户信息(需scope为 snsapi_userinfo)</p>
-<blockquote>
-<p>  如果网页授权作用域为snsapi_userinfo，则此时开发者可以通过access_token和openid拉取用户信息了。<br> <a target="_blank" rel="noopener" href="https://api.weixin.qq.com/sns/userinfo?access_token=ACCESS_TOKEN&openid=OPENID&lang=zh_CN">https://api.weixin.qq.com/sns/userinfo?access_token=ACCESS_TOKEN&amp;openid=OPENID&amp;lang=zh_CN</a></p>
-</blockquote>
-</li>
-<li><p>附：检验授权凭证（access_token）是否有效</p>
-<blockquote>
-<p>  <a target="_blank" rel="noopener" href="https://api.weixin.qq.com/sns/auth?access_token=ACCESS_TOKEN&openid=OPENID">https://api.weixin.qq.com/sns/auth?access_token=ACCESS_TOKEN&amp;openid=OPENID</a></p>
-</blockquote>
-</li>
-</ol>
-<h3 id="签名算法"><a href="#签名算法" class="headerlink" title="签名算法"></a>签名算法</h3><ol>
-<li>jsapi_ticket获取<blockquote>
-<p>GET <a target="_blank" rel="noopener" href="https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=ACCESS_TOKEN&type=jsapi">https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=ACCESS_TOKEN&amp;type=jsapi</a></p>
-</blockquote>
-</li>
-<li>signature签名算法<blockquote>
-<p>签名生成规则如下：参与签名的字段包括noncestr（随机字符串）, 有效的jsapi_ticket, timestamp（时间戳）, url（当前网页的URL，不包含#及其后面部分） 。对所有待签名参数按照字段名的ASCII 码从小到大排序（字典序）后，使用URL键值对的格式（即key1&#x3D;value1&amp;key2&#x3D;value2…）拼接成字符串string1。这里需要注意的是所有参数名均为小写字符。对string1作sha1加密，字段名和字段值都采用原始值，不进行URL 转义。</p>
-</blockquote>
-</li>
-</ol>
-<h3 id="引入sdk初始化配置"><a href="#引入sdk初始化配置" class="headerlink" title="引入sdk初始化配置"></a>引入sdk初始化配置</h3><pre><code class="javascript">&lt;script src=&quot;http://res.wx.qq.com/open/js/jweixin-1.6.0.js&quot;&gt;&lt;/script&gt;
-// 所有需要使用JS-SDK的页面必须先注入配置信息
-initFn() &#123;
-    wx.config(&#123;
-        debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-        appId: &#39;&#39;, // 必填，公众号的唯一标识
-        timestamp: , // 必填，生成签名的时间戳
-        nonceStr: &#39;&#39;, // 必填，生成签名的随机串
-        signature: &#39;&#39;,// 必填，签名
-        jsApiList: [] // 必填，需要使用的JS接口列表
-    &#125;)
-    wx.ready(() =&gt;&#123;
-        // config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
-    &#125;)
-    wx.error(function(res)&#123;
-        // config信息验证失败会执行error函数，如签名过期导致验证失败，具体错误信息可以打开config的debug模式查看，也可以在返回的res参数中查看，对于SPA可以在这里更新签名。
-    &#125;)
-&#125;
-</code></pre>
-<h3 id="所有JS接口列表"><a href="#所有JS接口列表" class="headerlink" title="所有JS接口列表"></a>所有JS接口列表</h3><p>版本 1.6.0 接口</p>
-<pre><code class="javascript">[updateAppMessageShareData,
-updateTimelineShareData,
-onMenuShareWeibo,
-onMenuShareQZone,
-startRecord,
-stopRecord,
-onVoiceRecordEnd,
-playVoice,
-pauseVoice,
-stopVoice,
-onVoicePlayEnd,
-uploadVoice,
-downloadVoice,
-chooseImage,
-previewImage,
-uploadImage,
-downloadImage,
-translateVoice,
-getNetworkType,
-openLocation,
-getLocation,
-hideOptionMenu,
-showOptionMenu,
-hideMenuItems,
-showMenuItems,
-hideAllNonBaseMenuItem,
-showAllNonBaseMenuItem,
-closeWindow,
-scanQRCode,
-openProductSpecificView,
-addCard,
-chooseCard,
-openCard,]
+<pre><code class="shell">#!/usr/bin/env sh
+. &quot;$(dirname -- &quot;$0&quot;)/_/husky.sh&quot;
+
+npm run eslint
 </code></pre>
 
                 
@@ -810,7 +718,7 @@ openCard,]
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://github.zzp0322.cn/2024/08/15/wechat-h5/">https://github.zzp0322.cn/2024/08/15/wechat-h5/</a>
+                    <a href="https://github.zzp0322.cn/2024/09/01/eslint-husky/">https://github.zzp0322.cn/2024/09/01/eslint-husky/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -848,8 +756,8 @@ openCard,]
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7/">
-                                    <span class="chip bg-color">公众号</span>
+                                <a href="/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B/">
+                                    <span class="chip bg-color">前端工程</span>
                                 </a>
                             
                         </div>
@@ -895,9 +803,60 @@ openCard,]
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2024/09/01/eslint-husky/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Eslint+Husky">
+                        
+                        <span class="card-title">Eslint+Husky</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-09-01
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B/">
+                        <span class="chip bg-color">前端工程</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2024/08/30/win-bat/">
                     <div class="card-image">
@@ -915,9 +874,9 @@ openCard,]
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2024-08-30
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-08-30
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -935,55 +894,6 @@ openCard,]
                     
                     <a href="/tags/Win/">
                         <span class="chip bg-color">Win</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2024/08/01/tiao-zhuan-xiao-cheng-xu/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="跳转小程序">
-                        
-                        <span class="card-title">跳转小程序</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-08-01
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E5%BE%AE%E4%BF%A1/" class="post-category">
-                                    微信
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
-                        <span class="chip bg-color">小程序</span>
                     </a>
                     
                 </div>
