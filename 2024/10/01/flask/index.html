@@ -4,13 +4,16 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Eslint+Husky, Ron">
+    <meta name="keywords" content="Flask, Ron">
     <meta name="description" content="
-前端项目工程配置，强制校验代码格式统一规范
+Flask是一个Python编写的Web微框架，让我们可以使用Python语言快速实现一个网站或Web服务。
 
-依赖包&amp;#123;
-    &amp;quot;devDependencies&amp;quot;: &amp;#123;
-        &amp;quot;@vitejs/plugin-vue&amp;quot;: &amp;quot;">
+安装pip install flask
+
+基本使用入口文件
+server.py
+
+from flask import Flas">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -22,7 +25,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Eslint+Husky | Ron</title>
+    <title>Flask | Ron</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
     <style>
@@ -346,12 +349,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Eslint+Husky</h1>
+                    <h1 class="description center-align post-title">Flask</h1>
                 </div>
             </div>
         </div>
@@ -375,8 +378,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B/">
-                                <span class="chip bg-color">前端工程</span>
+                            <a href="/tags/Flask/">
+                                <span class="chip bg-color">Flask</span>
                             </a>
                         
                     </div>
@@ -387,8 +390,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
-                                前端
+                            <a href="/categories/Python/" class="post-category">
+                                Python
                             </a>
                         
                     </div>
@@ -400,7 +403,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2024-09-01
+                    2024-10-01
                 </div>
                 
 
@@ -428,269 +431,244 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <blockquote>
-<p>前端项目工程配置，强制校验代码格式统一规范</p>
+<p>Flask是一个Python编写的Web微框架，让我们可以使用Python语言快速实现一个网站或Web服务。</p>
 </blockquote>
-<h2 id="依赖包"><a href="#依赖包" class="headerlink" title="依赖包"></a>依赖包</h2><pre><code class="javascript">&#123;
-    &quot;devDependencies&quot;: &#123;
-        &quot;@vitejs/plugin-vue&quot;: &quot;^3.0.2&quot;,
-        &quot;eslint&quot;: &quot;^8.57.0&quot;,
-        &quot;eslint-plugin-vue&quot;: &quot;^9.28.0&quot;,
-        &quot;husky&quot;: &quot;^8.0.3&quot;,
-        &quot;sass&quot;: &quot;^1.60.0&quot;,
-        &quot;vite&quot;: &quot;^3.0.6&quot;
-    &#125;
-&#125;
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><pre><code class="shell">pip install flask
 </code></pre>
-<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><pre><code class="javascript">&#123;
-    &quot;scripts&quot;: &#123;
-        &quot;eslint&quot;: &quot;eslint --ext .js,.vue .&quot;,
-        &quot;husky-init&quot;: &quot;husky install&quot;,
-        &quot;husky-add&quot;: &quot;husky add .husky/pre-commit&quot;
-    &#125;,
-&#125;
-</code></pre>
-<h2 id="Eslint规则"><a href="#Eslint规则" class="headerlink" title="Eslint规则"></a>Eslint规则</h2><pre><code class="javascript">module.exports = &#123;
-    env: &#123;
-        browser: true,
-        es2021: true
-    &#125;,
-    extends: [
-        &#39;eslint:recommended&#39;,
-        &#39;plugin:vue/vue3-essential&#39;
-    ],
-    overrides: [
-        &#123;
-            env: &#123;
-                node: true
-            &#125;,
-            files: [
-                &#39;.eslintrc.&#123;js,cjs&#125;&#39;
-            ],
-            parserOptions: &#123;
-                sourceType: &#39;script&#39;
-            &#125;
-        &#125;
-    ],
-    parserOptions: &#123;
-        ecmaVersion: &#39;latest&#39;,
-        sourceType: &#39;module&#39;
-    &#125;,
-    plugins: [
-        &#39;vue&#39;
-    ],
-    rules: &#123;
-        &#39;vue/multi-word-component-names&#39;: &#39;off&#39;,
-        // 这条规则不允许在循环体中使用 await。
-        &#39;no-await-in-loop&#39;: 2,
-        //禁止使用alert confirm prompt
-        &#39;no-alert&#39;: 0,
-        //禁止使用数组构造器
-        &#39;no-array-constructor&#39;: 2,
-        //禁止使用按位运算符
-        &#39;no-bitwise&#39;: 0,
-        //禁止使用arguments.caller或arguments.callee
-        &#39;no-caller&#39;: 2,
-        //禁止给class赋值
-        &#39;no-class-assign&#39;: 2,
-        //禁止在条件表达式中使用赋值语句
-        &#39;no-cond-assign&#39;: 2,
-        //禁止修改const声明的变量
-        &#39;no-const-assign&#39;: 2,
-        //禁止在条件中使用常量表达式 if (true) if (1)
-        &#39;no-constant-condition&#39;: 2,
-        //禁止使用continue
-        &#39;no-continue&#39;: 0,
-        //禁止在正则表达式中使用控制字符
-        &#39;no-control-regex&#39;: 2,
-        //不能对var声明的变量使用delete操作符
-        &#39;no-delete-var&#39;: 2,
-        //不允许将 Math、JSON、Reflect、Atomics 和 Intl 对象作为函数调用  var math = Math();
-        &#39;no-obj-calls&#39;: 2,
-        //不允许两边完全相同的赋值  foo = foo;
-        &#39;no-self-assign&#39;: 2,
-        //不允许无意义的代码
-        // var x = 10;
-        // if (x === x) &#123;x = 20&#125;
-        &#39;no-self-compare&#39;: 2,
-        //禁止稀疏数组， [1,,2]
-        &#39;no-sparse-arrays&#39;: 2,
-        //在调用super()之前不能使用this或super
-        &#39;no-this-before-super&#39;: 2,
-        //不能有未定义的变量
-        &#39;no-undef&#39;: 2,
-        //不能有无法执行的代码  因为 return、throw、break 和 continue 语句无条件地退出一个代码块
-        &#39;no-unreachable&#39;: 2,
-        //不能有声明后未被使用的变量或参数
-        &#39;no-unused-vars&#39;: [2, &#123;&#39;vars&#39;: &#39;all&#39;, &#39;args&#39;: &#39;after-used&#39;&#125;],
-        //未定义前不能使用
-        &#39;no-use-before-define&#39;: 2,
-        //禁止比较时使用NaN，只能用isNaN()
-        &#39;use-isnan&#39;: 2,
-        //强制驼峰法命名myFavoriteColor 、_myFavoriteColor、MY_FAVORITE_COLOR
-        &#39;camelcase&#39;: 2,
-        //return 后面是否允许省略
-        &#39;consistent-return&#39;: 0,
-        //必须使用 if ()&#123;&#125; 中的&#123;&#125;
-        &#39;curly&#39;: [2, &#39;all&#39;],
-        //switch语句最后必须有default
-        &#39;default-case&#39;: 1,
-        //default 必须放在最后
-        &#39;default-case-last&#39;: 2,
-        //避免不必要的方括号
-        &#39;dot-notation&#39;: [0, &#123;&#39;allowKeywords&#39;: true&#125;],
-        //必须使用全等   === and !==
-        &#39;eqeqeq&#39;: 2,
-        //函数表达式必须有名字
-        &#39;func-names&#39;: 0,
-        //函数风格，规定只能使用函数声明/函数表达式
-        &#39;func-style&#39;: [0, &#39;declaration&#39;],
-        //变量名长度
-        &#39;id-length&#39;: 0,
-        //声明时必须赋初值
-        &#39;init-declarations&#39;: 0,
-        //代码块的嵌套块深度
-        &#39;max-depth&#39;: [2, 5],
-        //强制每个文件的最大行数
-        &#39;max-lines&#39;: [1, 9999],
-        //回调嵌套深度
-        &#39;max-nested-callbacks&#39;: [0, 5],
-        //函数最多只能有10个参数
-        &#39;max-params&#39;: [0, 10],
-        //函数内最多有几个声明
-        &#39;max-statements&#39;: [0, 10],
-        //函数名首行大写必须使用new方式调用，首行小写必须用不带new方式调用  var friend = new Person();
-        &#39;new-cap&#39;: 2,
-        //不允许在正则表达式的开头显式使用除法运算符     /=foo/
-        &#39;no-div-regex&#39;: 1,
-        //如果if语句里面有return,后面不能跟else语句
-        &#39;no-else-return&#39;: 2,
-        //块语句中的内容不能为空
-        &#39;no-empty&#39;: 2,
-        //禁止对null使用==或!=运算符
-        &#39;no-eq-null&#39;: 2,
-        //禁止多余的冒号
-        &#39;no-extra-semi&#39;: 2,
-        //小数点之前之后必须要有数字  不能省略0
-        &#39;no-floating-decimal&#39;: 2,
-        //禁止隐式转换
-        &#39;no-implicit-coercion&#39;: 2,
-        //禁止行内备注
-        &#39;no-inline-comments&#39;: 0,
-        //禁止使用__iterator__ 属性
-        &#39;no-iterator&#39;: 2,
-        //禁止不必要的嵌套块
-        &#39;no-lone-blocks&#39;: 2,
-        //禁止在循环中使用函数（如果没有引用外部变量不形成闭包就可以）
-        &#39;no-loop-func&#39;: 0,
-        //禁止链式赋值  var a = b = c = 5;
-        &#39;no-multi-assign&#39;: 0,
-        //字符串不能用\换行
-        &#39;no-multi-str&#39;: 2,
-        //禁止使用嵌套的三目运算
-        &#39;no-nested-ternary&#39;: 0,
-        //禁止在使用new构造一个实例后不赋值
-        &#39;no-new&#39;: 2,
-        //禁止使用new Function
-        &#39;no-new-func&#39;: 2,
-        //禁止使用new Object()
-        &#39;no-new-object&#39;: 2,
-        //禁止使用new创建包装实例，new String new Boolean new Number
-        &#39;no-new-wrappers&#39;: 2,
-        //禁止使用八进制数字（零开头的数字）
-        &#39;no-octal&#39;: 2,
-        //禁止使用++，--
-        &#39;no-plusplus&#39;: 0,
-        //禁止使用__proto__属性
-        &#39;no-proto&#39;: 2,
-        //禁止重复声明变量
-        &#39;no-redeclare&#39;: 2,
-        //return 语句中不能有赋值表达式  return foo = bar + 2;
-        &#39;no-return-assign&#39;: 0,
-        //禁止使用javascript:void(0)
-        &#39;no-script-url&#39;: 0,
-        //外部作用域中的变量不能与它所包含的作用域中的变量或参数同名
-        &#39;no-shadow&#39;: 2,
-        //严格模式中规定的限制标识符不能作为声明时的变量名使用  NaN、Infinity、undefined
-        &#39;no-shadow-restricted-names&#39;: 2,
-        //禁止使用三目运算符
-        &#39;no-ternary&#39;: 0,
-        //变量初始化时不能直接给它赋值为undefined
-        &#39;no-undef-init&#39;: 2,
-        //标识符不能以_开头或结尾
-        &#39;no-underscore-dangle&#39;: 0,
-        //禁止不必要的嵌套 var isYes = answer === 1 ? true : false;
-        &#39;no-unneeded-ternary&#39;: 1,
-        //禁用var，用let和const代替
-        &#39;no-var&#39;: 2,
-        //禁用with
-        &#39;no-with&#39;: 2,
-        //强制对象字面量缩写语法
-        &#39;object-shorthand&#39;: 0,
-        //连续声明  var bar; var baz; =&gt; var bar,baz;
-        &#39;one-var&#39;: 0,
-        //赋值运算符 += -=什么的
-        &#39;operator-assignment&#39;: [0, &#39;always&#39;],
-        //首选const
-        &#39;prefer-const&#39;: 0,
-        //对象字面量中的属性必须加上双引号
-        &#39;quote-props&#39;: 0,
-        //注释风格要不要有空格什么的
-        &#39;spaced-comment&#39;: 0,
-        //使用严格模式
-        &#39;strict&#39;: 0,
-        //箭头函数用小括号括起来
-        &#39;arrow-parens&#39;: 0,
-        //=&gt;的前/后括号
-        &#39;arrow-spacing&#39;: 0,
-        //逗号风格，换行时在行首还是行尾  last 在行尾
-        &#39;comma-style&#39;: [2, &#39;last&#39;],
-        //缩进风格  2个tab
-        &#39;indent&#39;: [2, 4],
-        //对象字面量中冒号的前后空格
-        &#39;key-spacing&#39;: [0, &#123;&#39;beforeColon&#39;: false, &#39;afterColon&#39;: true&#125;],
-        //new时必须加小括号
-        &#39;new-parens&#39;: 2,
-        //禁止非必要的括号
-        &#39;no-extra-parens&#39;: 1,
-        //空行最多不能超过3行
-        &#39;no-multiple-empty-lines&#39;: [1, &#123;&#39;max&#39;: 3&#125;],
-        //一行结束后面不要有空格
-        &#39;no-trailing-spaces&#39;: 1,
-        //换行时运算符在行尾还是行首
-        // foo = 1 +
-        //       2;
-        &#39;operator-linebreak&#39;: [1, &#39;after&#39;],
-        //块语句内行首行尾是否要空行
-        &#39;padded-blocks&#39;: 0,
-        //引号类型 `` &#39;&#39; &#39;&#39;
-        &#39;quotes&#39;: [1, &#39;single&#39;],
-        //语句强制分号结尾
-        &#39;semi&#39;: [0, &#39;always&#39;],
-        //分号前后空格
-        &#39;semi-spacing&#39;: [0, &#123;&#39;before&#39;: false, &#39;after&#39;: true&#125;],
-        //函数定义时括号前面要不要有空格
-        &#39;space-before-function-paren&#39;: [0, &#39;always&#39;],
-        //中缀操作符周围要不要有空格   a + b
-        &#39;space-infix-ops&#39;: 0,
-        //正则表达式字面量用小括号包起来
-        &#39;wrap-regex&#39;: 0,
-    &#125;
-&#125;
-</code></pre>
-<h2 id="eslintignore"><a href="#eslintignore" class="headerlink" title=".eslintignore"></a>.eslintignore</h2><pre><code class="txt">build/*.js
-node_modules
-public
-src/config/*
-dist
-vite.config.js
-</code></pre>
-<h2 id="pre-commit"><a href="#pre-commit" class="headerlink" title="pre-commit"></a>pre-commit</h2><blockquote>
-<p>注意：husky使用前必须先初始化git仓库，然后再依次初始新增husky文件</p>
-</blockquote>
-<pre><code class="shell">#!/usr/bin/env sh
-. &quot;$(dirname -- &quot;$0&quot;)/_/husky.sh&quot;
+<h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2><h3 id="入口文件"><a href="#入口文件" class="headerlink" title="入口文件"></a>入口文件</h3><ol>
+<li>server.py</li>
+</ol>
+<pre><code class="python">from flask import Flask
+app = Flask(__name__)
+# 是否启用调试模式
+app.debug=False
 
-npm run eslint
+@app.route(&#39;/&#39;)
+def hello_world():
+    return &#39;hello world&#39;
+
+if __name__ == &#39;__main__&#39;:
+    app.run(host=&#39;127.0.0.1&#39;,port=5000)
+</code></pre>
+<ol start="2">
+<li>启动</li>
+</ol>
+<pre><code class="shell">python server.py
+</code></pre>
+<h3 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h3><pre><code class="python">@app.route(&#39;/&#39;)
+def index():
+    return &#39;Index Page&#39;
+
+@app.route(&#39;/hello&#39;)
+def hello():
+    return &#39;Hello, World&#39;
+</code></pre>
+<h3 id="路径变量"><a href="#路径变量" class="headerlink" title="路径变量"></a>路径变量</h3><p>如果希望获取&#x2F;article&#x2F;1这样的路径参数，就需要使用路径变量。路径变量的语法是&#x2F;path&#x2F;<a href="converter:varname">converter:varname</a>。在路径变量前还可以使用可选的转换器，有以下几种转换器。</p>
+<table>
+<thead>
+<tr>
+<th>转换器</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>string</td>
+<td>默认选项，接受除了斜杠之外的字符串</td>
+</tr>
+<tr>
+<td>int</td>
+<td>接受整数</td>
+</tr>
+<tr>
+<td>float</td>
+<td>接受浮点数</td>
+</tr>
+<tr>
+<td>path</td>
+<td>和string类似，不过可以接受带斜杠的字符串</td>
+</tr>
+<tr>
+<td>any</td>
+<td>匹配任何一种转换器</td>
+</tr>
+<tr>
+<td>uuid</td>
+<td>接受UUID字符串</td>
+</tr>
+</tbody></table>
+<p>下面是Flask官方的例子：</p>
+<pre><code class="python">@app.route(&#39;/user/&lt;username&gt;&#39;)
+def show_user_profile(username):
+    # show the user profile for that user
+    return &#39;User %s&#39; % username
+
+@app.route(&#39;/post/&lt;int:post_id&gt;&#39;)
+def show_post(post_id):
+    # show the post with the given id, the id is an integer
+    return &#39;Post %d&#39; % post_id
+</code></pre>
+<h3 id="构造URL"><a href="#构造URL" class="headerlink" title="构造URL"></a>构造URL</h3><p>在Web程序中常常需要获取某个页面的URL，在Flask中需要使用url_for(‘方法名’)来构造对应方法的URL。下面是Flask官方的例子。</p>
+<p>&#x2F;login<br>&#x2F;login?next&#x3D;&#x2F;<br>&#x2F;user&#x2F;John%20Doe</p>
+<pre><code class="python">from flask import Flask, url_for
+app = Flask(__name__)
+@app.route(&#39;/&#39;)
+def index(): pass
+
+@app.route(&#39;/login&#39;)
+def login(): pass
+
+@app.route(&#39;/user/&lt;username&gt;&#39;)
+def profile(username): pass
+
+with app.test_request_context():
+    print url_for(&#39;index&#39;)
+    print url_for(&#39;login&#39;)
+    print url_for(&#39;login&#39;, next=&#39;/&#39;)
+    print url_for(&#39;profile&#39;, username=&#39;John Doe&#39;)
+</code></pre>
+<h3 id="HTTP方法"><a href="#HTTP方法" class="headerlink" title="HTTP方法"></a>HTTP方法</h3><p>如果需要处理具体的HTTP方法，在Flask中也很容易，使用route装饰器的methods参数设置即可。</p>
+<pre><code class="python">from flask import request
+
+@app.route(&#39;/login&#39;, methods=[&#39;GET&#39;, &#39;POST&#39;])
+def login():
+    if request.method == &#39;POST&#39;:
+        do_the_login()
+    else:
+        show_the_login_form()
+</code></pre>
+<h3 id="静态文件"><a href="#静态文件" class="headerlink" title="静态文件"></a>静态文件</h3><p>Web程序中常常需要处理静态文件，在Flask中需要使用url_for函数并指定static端点名和文件名。在下面的例子中，实际的文件应放在static&#x2F;文件夹下。</p>
+<pre><code class="python">url_for(&#39;static&#39;, filename=&#39;style.css&#39;)
+</code></pre>
+<h3 id="模板生成"><a href="#模板生成" class="headerlink" title="模板生成"></a>模板生成</h3><p>Flask默认使用Jinja2作为模板，Flask会自动配置Jinja 模板，所以我们不需要其他配置了。默认情况下，模板文件需要放在templates文件夹下。<br>使用 Jinja 模板，只需要使用render_template函数并传入模板文件名和参数名即可。</p>
+<pre><code class="python">from flask import render_template
+
+@app.route(&#39;/hello/&#39;)
+@app.route(&#39;/hello/&lt;name&gt;&#39;)
+def hello(name=None):
+    return render_template(&#39;hello.html&#39;, name=name)
+</code></pre>
+<p>相应的模板文件如下：</p>
+<pre><code class="txt">&lt;!doctype html&gt;
+&lt;title&gt;Hello from Flask&lt;/title&gt;
+&#123;% if name %&#125;
+  <h1>Hello &#123;&#123; name &#125;&#125;!</h1>
+&#123;% else %&#125;
+  <h1>Hello, World!</h1>
+&#123;% endif %&#125;
+</code></pre>
+<h3 id="日志输出"><a href="#日志输出" class="headerlink" title="日志输出"></a>日志输出</h3><p>Flask 为我们预配置了一个 Logger，我们可以直接在程序中使用。这个Logger是一个标准的Python Logger，所以我们可以向标准Logger那样配置它，详情可以参考官方文档或者我的文章Python 日志输出。</p>
+<pre><code class="python">app.logger.debug(&#39;A value for debugging&#39;)
+app.logger.warning(&#39;A warning occurred (%d apples)&#39;, 42)
+app.logger.error(&#39;An error occurred&#39;)
+</code></pre>
+<h2 id="处理请求"><a href="#处理请求" class="headerlink" title="处理请求"></a>处理请求</h2><p>在 Flask 中获取请求参数需要使用request等几个全局对象，但是这几个全局对象比较特殊，它们是 Context Locals ，其实就是 Web 上下文中局部变量的代理。虽然我们在程序中使用的是全局变量，但是对于每个请求作用域，它们都是互不相同的变量。理解了这一点，后面就非常简单了。</p>
+<h3 id="Request对象"><a href="#Request对象" class="headerlink" title="Request对象"></a>Request对象</h3><ol>
+<li>Request 对象是一个全局对象，利用它的属性和方法，我们可以方便的获取从页面传递过来的参数。</li>
+<li>method属性会返回HTTP方法的类似，例如post和get。form属性是一个字典，如果数据是POST类型的表单，就可以从form属性中获取。下面是 Flask 官方的例子，演示了 Request 对象的method和form属性。</li>
+</ol>
+<pre><code class="python">from flask import request
+
+@app.route(&#39;/login&#39;, methods=[&#39;POST&#39;, &#39;GET&#39;])
+def login():
+    error = None
+    if request.method == &#39;POST&#39;:
+        if valid_login(request.form[&#39;username&#39;],
+                       request.form[&#39;password&#39;]):
+            return log_the_user_in(request.form[&#39;username&#39;])
+        else:
+            error = &#39;Invalid username/password&#39;
+    # the code below is executed if the request method
+    # was GET or the credentials were invalid
+    return render_template(&#39;login.html&#39;, error=error)
+</code></pre>
+<p>如果数据是由GET方法传送过来的，可以使用args属性获取，这个属性也是一个字典。</p>
+<pre><code class="python">searchword = request.args.get(&#39;key&#39;, &#39;&#39;)
+</code></pre>
+<h3 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h3><p>利用Flask也可以方便的获取表单中上传的文件，只需要利用 request 的files属性即可，这也是一个字典，包含了被上传的文件。如果想获取上传的文件名，可以使用filename属性，不过需要注意这个属性可以被客户端更改，所以并不可靠。更好的办法是利用werkzeug提供的secure_filename方法来获取安全的文件名。</p>
+<pre><code class="python">from flask import request
+from werkzeug.utils import secure_filename
+
+@app.route(&#39;/upload&#39;, methods=[&#39;GET&#39;, &#39;POST&#39;])
+def upload_file():
+    if request.method == &#39;POST&#39;:
+        f = request.files[&#39;the_file&#39;]
+        f.save(&#39;/var/www/uploads/&#39; + secure_filename(f.filename))
+</code></pre>
+<h3 id="Cookies"><a href="#Cookies" class="headerlink" title="Cookies"></a>Cookies</h3><p>Flask也可以方便的处理Cookie。使用方法很简单，直接看官方的例子就行了。下面的例子是如何获取cookie。</p>
+<pre><code class="python">from flask import request
+
+@app.route(&#39;/&#39;)
+def index():
+    username = request.cookies.get(&#39;username&#39;)
+    # 使用 cookies.get(key) 代替 cookies[key] 避免
+    # 得到 KeyError 如果cookie不存在
+</code></pre>
+<p>如果需要发送cookie给客户端，参考下面的例子。</p>
+<pre><code class="python">from flask import make_response
+
+@app.route(&#39;/&#39;)
+def index():
+    resp = make_response(render_template(...))
+    resp.set_cookie(&#39;username&#39;, &#39;the username&#39;)
+    return resp
+</code></pre>
+<h3 id="重定向和错误"><a href="#重定向和错误" class="headerlink" title="重定向和错误"></a>重定向和错误</h3><p>redirect和abort函数用于重定向和返回错误页面。</p>
+<pre><code class="python">from flask import abort, redirect, url_for
+
+@app.route(&#39;/&#39;)
+def index():
+    return redirect(url_for(&#39;login&#39;))
+
+@app.route(&#39;/login&#39;)
+def login():
+    abort(401)
+    this_is_never_executed()
+</code></pre>
+<p>默认的错误页面是一个空页面，如果需要自定义错误页面，可以使用errorhandler装饰器。</p>
+<pre><code class="python">from flask import render_template
+
+@app.errorhandler(404)
+def page_not_found(error):
+    return render_template(&#39;page_not_found.html&#39;), 404
+</code></pre>
+<h3 id="响应处理"><a href="#响应处理" class="headerlink" title="响应处理"></a>响应处理</h3><p>默认情况下，Flask会根据函数的返回值自动决定如何处理响应：如果返回值是响应对象，则直接传递给客户端；如果返回值是字符串，那么就会将字符串转换为合适的响应对象。我们也可以自己决定如何设置响应对象，方法也很简单，使用make_response函数即可。</p>
+<pre><code class="python">@app.errorhandler(404)
+def not_found(error):
+    resp = make_response(render_template(&#39;error.html&#39;), 404)
+    resp.headers[&#39;X-Something&#39;] = &#39;A value&#39;
+    return resp
+</code></pre>
+<h3 id="Sessions"><a href="#Sessions" class="headerlink" title="Sessions"></a>Sessions</h3><p>我们可以使用全局对象session来管理用户会话。Sesison 是建立在 Cookie 技术上的，不过在 Flask 中，我们还可以为 Session 指定密钥，这样存储在 Cookie 中的信息就会被加密，从而更加安全。直接看 Flask 官方的例子吧。</p>
+<pre><code class="python">from flask import Flask, session, redirect, url_for, escape, request
+
+app = Flask(__name__)
+
+@app.route(&#39;/&#39;)
+def index():
+    if &#39;username&#39; in session:
+        return &#39;Logged in as %s&#39; % escape(session[&#39;username&#39;])
+    return &#39;You are not logged in&#39;
+
+@app.route(&#39;/login&#39;, methods=[&#39;GET&#39;, &#39;POST&#39;])
+def login():
+    if request.method == &#39;POST&#39;:
+        session[&#39;username&#39;] = request.form[&#39;username&#39;]
+        return redirect(url_for(&#39;index&#39;))
+    return &#39;&#39;&#39;
+        &lt;form method=&quot;post&quot;&gt;
+            &lt;p&gt;&lt;input type=text name=username&gt;
+            &lt;p&gt;&lt;input type=submit value=Login&gt;
+        &lt;/form&gt;
+    &#39;&#39;&#39;
+
+@app.route(&#39;/logout&#39;)
+def logout():
+    # remove the username from the session if it&#39;s there
+    session.pop(&#39;username&#39;, None)
+    return redirect(url_for(&#39;index&#39;))
+
+# set the secret key.  keep this really secret:
+app.secret_key = &#39;A0Zr98j/3yX R~XHH!jmN]LWX/,?RT&#39;
 </code></pre>
 
                 
@@ -718,7 +696,7 @@ npm run eslint
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://github.zzp0322.cn/2024/09/01/eslint-husky/">https://github.zzp0322.cn/2024/09/01/eslint-husky/</a>
+                    <a href="https://github.zzp0322.cn/2024/10/01/flask/">https://github.zzp0322.cn/2024/10/01/flask/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -756,8 +734,8 @@ npm run eslint
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B/">
-                                    <span class="chip bg-color">前端工程</span>
+                                <a href="/tags/Flask/">
+                                    <span class="chip bg-color">Flask</span>
                                 </a>
                             
                         </div>
@@ -807,13 +785,13 @@ npm run eslint
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2024/10/01/flask/">
+                <a href="/2024/10/01/conda/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Flask">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Conda">
                         
-                        <span class="card-title">Flask</span>
+                        <span class="card-title">Conda</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -841,8 +819,8 @@ npm run eslint
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Flask/">
-                        <span class="chip bg-color">Flask</span>
+                    <a href="/tags/Conda/">
+                        <span class="chip bg-color">Conda</span>
                     </a>
                     
                 </div>
@@ -856,13 +834,13 @@ npm run eslint
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2024/08/30/win-bat/">
+                <a href="/2024/09/01/eslint-husky/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Win-bat">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Eslint+Husky">
                         
-                        <span class="card-title">Win-bat</span>
+                        <span class="card-title">Eslint+Husky</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -873,14 +851,14 @@ npm run eslint
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-08-30
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-09-01
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Win/" class="post-category">
-                                    Win
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
                                 </a>
                             
                             
@@ -890,8 +868,8 @@ npm run eslint
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Win/">
-                        <span class="chip bg-color">Win</span>
+                    <a href="/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B/">
+                        <span class="chip bg-color">前端工程</span>
                     </a>
                     
                 </div>
