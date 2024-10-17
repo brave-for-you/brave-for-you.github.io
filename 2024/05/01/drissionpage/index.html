@@ -431,67 +431,43 @@ DrissionPage 是一个基于 python 的网页自动化工具。它既能控制�
 pip install DrissionPage --upgrade # pip升级DrissionPage
 </code></pre>
 <h2 id="3-基本内容"><a href="#3-基本内容" class="headerlink" title="3. 基本内容"></a>3. 基本内容</h2><p>页面类用于控制浏览器，或收发数据包，是最主要的工具。DrissionPage 包含三种主要页面类。根据须要在其中选择使用。</p>
-<h3 id="3-1-WebPage"><a href="#3-1-WebPage" class="headerlink" title="3.1 WebPage"></a>3.1 WebPage</h3><pre><code>功能最全面的页面类，既可控制浏览器，也可收发数据包(包含了ChromiumPage和SessionPage)
-通过change_mode()方法切换模式(ChromiumPage: &#39;d&#39;, SessionPage: &#39;s&#39;)
-```python
-from DrissionPage import WebPage
-```
+<h3 id="3-1-WebPage"><a href="#3-1-WebPage" class="headerlink" title="3.1 WebPage"></a>3.1 WebPage</h3><p>功能最全面的页面类，既可控制浏览器，也可收发数据包(包含了ChromiumPage和SessionPage)<br>通过change_mode()方法切换模式(ChromiumPage: ‘d’, SessionPage: ‘s’)</p>
+<pre><code class="python">from DrissionPage import WebPage
 </code></pre>
 <h3 id="3-2-ChromiumPage"><a href="#3-2-ChromiumPage" class="headerlink" title="3.2 ChromiumPage"></a>3.2 ChromiumPage</h3><pre><code>用于只控制浏览器
-```python
-from DrissionPage import ChromiumPage
-```
 </code></pre>
-<h3 id="3-3-SessionPage"><a href="#3-3-SessionPage" class="headerlink" title="3.3 SessionPage"></a>3.3 SessionPage</h3><pre><code>用于只收发数据包
-```python
-from DrissionPage import SessionPage
-```
+<pre><code class="python">from DrissionPage import ChromiumPage
+</code></pre>
+<h3 id="3-3-SessionPage"><a href="#3-3-SessionPage" class="headerlink" title="3.3 SessionPage"></a>3.3 SessionPage</h3><p>用于只收发数据包</p>
+<pre><code class="python">from DrissionPage import SessionPage
 </code></pre>
 <h2 id="4-配置工具"><a href="#4-配置工具" class="headerlink" title="4. 配置工具"></a>4. 配置工具</h2><p>很多时候我们须要设置启动参数，可导入以下两个类，但不是必须的。</p>
-<h3 id="4-1-ChromiumOptions类"><a href="#4-1-ChromiumOptions类" class="headerlink" title="4.1 ChromiumOptions类"></a>4.1 ChromiumOptions类</h3><pre><code>用于设置浏览器启动参数
-```python
-from DrissionPage import ChromiumOptions
-```
+<h3 id="4-1-ChromiumOptions类"><a href="#4-1-ChromiumOptions类" class="headerlink" title="4.1 ChromiumOptions类"></a>4.1 ChromiumOptions类</h3><p>用于设置浏览器启动参数</p>
+<pre><code class="python">from DrissionPage import ChromiumOptions
 </code></pre>
-<h3 id="4-2-SessionOptions类"><a href="#4-2-SessionOptions类" class="headerlink" title="4.2 SessionOptions类"></a>4.2 SessionOptions类</h3><pre><code>用于设置Session对象启动参数
-```python
-from DrissionPage import SessionOptions
-```
+<h3 id="4-2-SessionOptions类"><a href="#4-2-SessionOptions类" class="headerlink" title="4.2 SessionOptions类"></a>4.2 SessionOptions类</h3><p>用于设置Session对象启动参数</p>
+<pre><code class="python">from DrissionPage import SessionOptions
 </code></pre>
-<h3 id="4-3-Settings"><a href="#4-3-Settings" class="headerlink" title="4.3 Settings"></a>4.3 Settings</h3><pre><code>用于设置全局配置
-```python
-from DrissionPage.common import Settings
-```
+<h3 id="4-3-Settings"><a href="#4-3-Settings" class="headerlink" title="4.3 Settings"></a>4.3 Settings</h3><p>用于设置全局配置</p>
+<pre><code class="python">from DrissionPage.common import Settings
 </code></pre>
 <h2 id="5-其他工具"><a href="#5-其他工具" class="headerlink" title="5. 其他工具"></a>5. 其他工具</h2><p>可能需要用到的工具，需要时可以导入。</p>
-<h3 id="5-1-动作链"><a href="#5-1-动作链" class="headerlink" title="5.1 动作链"></a>5.1 动作链</h3><pre><code>用于模拟一系列键盘和鼠标的操作
-```python
-from DrissionPage.common import ActionChains
-```
+<h3 id="5-1-动作链"><a href="#5-1-动作链" class="headerlink" title="5.1 动作链"></a>5.1 动作链</h3><p>用于模拟一系列键盘和鼠标的操作</p>
+<pre><code class="python">from DrissionPage.common import ActionChains
 </code></pre>
-<h3 id="5-2-键盘按键类"><a href="#5-2-键盘按键类" class="headerlink" title="5.2 键盘按键类"></a>5.2 键盘按键类</h3><pre><code>用于键入 ctrl、alt 等按键
-```python
-from DrissionPage.common import Keys
-```
+<h3 id="5-2-键盘按键类"><a href="#5-2-键盘按键类" class="headerlink" title="5.2 键盘按键类"></a>5.2 键盘按键类</h3><p>用于键入 ctrl、alt 等按键</p>
+<pre><code class="python">from DrissionPage.common import Keys
 </code></pre>
-<h3 id="5-3-By类"><a href="#5-3-By类" class="headerlink" title="5.3 By类"></a>5.3 By类</h3><pre><code>便于项目迁移
-```python
-from DrissionPage.common import By
-```
+<h3 id="5-3-By类"><a href="#5-3-By类" class="headerlink" title="5.3 By类"></a>5.3 By类</h3><p>便于项目迁移</p>
+<pre><code class="python">from DrissionPage.common import By
 </code></pre>
-<h3 id="5-4-浏览器数据包监听器"><a href="#5-4-浏览器数据包监听器" class="headerlink" title="5.4 浏览器数据包监听器"></a>5.4 浏览器数据包监听器</h3><pre><code>```python
-from DrissionPage.common import Listener, RequestMan
-```
+<h3 id="5-4-浏览器数据包监听器"><a href="#5-4-浏览器数据包监听器" class="headerlink" title="5.4 浏览器数据包监听器"></a>5.4 浏览器数据包监听器</h3><pre><code class="python">from DrissionPage.common import Listener, RequestMan
 </code></pre>
-<h3 id="5-5-easy-set"><a href="#5-5-easy-set" class="headerlink" title="5.5 easy_set"></a>5.5 easy_set</h3><pre><code>保存了一些便捷的 ini 文件设置方法，可选择使用
-```python
-from DrissionPage.easy_set import *
-```
+<h3 id="5-5-easy-set"><a href="#5-5-easy-set" class="headerlink" title="5.5 easy_set"></a>5.5 easy_set</h3><p>保存了一些便捷的 ini 文件设置方法，可选择使用</p>
+<pre><code class="python">from DrissionPage.easy_set import *
 </code></pre>
-<h2 id="6-导入异常"><a href="#6-导入异常" class="headerlink" title="6. 导入异常"></a>6. 导入异常</h2><pre><code>异常放在以下路径
-```python
-from DrissionPage.errors import ElementNotFoundError
-```
+<h2 id="6-导入异常"><a href="#6-导入异常" class="headerlink" title="6. 导入异常"></a>6. 导入异常</h2><p>异常放在以下路径</p>
+<pre><code class="python">from DrissionPage.errors import ElementNotFoundError
 </code></pre>
 
                 

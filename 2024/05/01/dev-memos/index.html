@@ -482,7 +482,7 @@ handleToSetTimerFn(timeStamp) &#123;
     return result
 &#125;
 </code></pre>
-<h3 id="时间范围与当前时间前后对比"><a href="#时间范围与当前时间前后对比" class="headerlink" title="时间范围与当前时间前后对比"></a>时间范围与当前时间前后对比</h3><pre><code class="javascript">_handleToCompareTime(tempStartTimeStr, tempEndTimeStr) &#123;
+<h3 id="时间范围与当前时间对比"><a href="#时间范围与当前时间对比" class="headerlink" title="时间范围与当前时间对比"></a>时间范围与当前时间对比</h3><pre><code class="javascript">_handleToCompareTime(tempStartTimeStr, tempEndTimeStr) &#123;
     const tempStartTime = new Date(tempStartTimeStr).getTime()
     const tempEndTime = new Date(tempEndTimeStr).getTime()
     const thisTempTime = new Date().getTime()
@@ -497,7 +497,7 @@ handleToSetTimerFn(timeStamp) &#123;
     &#125;
 &#125;
 </code></pre>
-<h3 id="判断对比输入日期与当前日期"><a href="#判断对比输入日期与当前日期" class="headerlink" title="判断对比输入日期与当前日期"></a>判断对比输入日期与当前日期</h3><pre><code class="javascript">_handleToCompareTime(dateString) &#123;
+<h3 id="对比输入日期与当前日期"><a href="#对比输入日期与当前日期" class="headerlink" title="对比输入日期与当前日期"></a>对比输入日期与当前日期</h3><pre><code class="javascript">_handleToCompareTime(dateString) &#123;
     if (!dateString) &#123;
         return false
     &#125;

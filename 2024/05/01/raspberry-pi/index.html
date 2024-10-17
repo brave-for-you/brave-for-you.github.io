@@ -8,9 +8,11 @@
     <meta name="description" content="
 关于Raspberry 初次使用注意以及基本内容，持续完善中…
 
-系统烧录    1. 解压下载的系统压缩文件，得到img镜像文件
-    2. 将SD使用卡托或者读卡器后，连上电脑
-    3. 解压并运行win32diskimager">
+系统烧录
+解压下载的系统压缩文件，得到img镜像文件
+将SD使用卡托或者读卡器后，连上电脑
+解压并运行win32diskimager工具（需要先格式化SD卡）
+在软件中选择">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -430,129 +432,128 @@
                 <blockquote>
 <p>关于Raspberry 初次使用注意以及基本内容，持续完善中…</p>
 </blockquote>
-<h2 id="系统烧录"><a href="#系统烧录" class="headerlink" title="系统烧录"></a>系统烧录</h2><pre><code>    1. 解压下载的系统压缩文件，得到img镜像文件
-    2. 将SD使用卡托或者读卡器后，连上电脑
-    3. 解压并运行win32diskimager工具（需要先格式化SD卡）
-    4. 在软件中选择img（镜像）文件，“Device”下选择SD的盘符，然后选择“Write”
-    # 然后就开始安装系统了，根据你的SD速度，安装过程有快有慢。
+<h2 id="系统烧录"><a href="#系统烧录" class="headerlink" title="系统烧录"></a>系统烧录</h2><ol>
+<li>解压下载的系统压缩文件，得到img镜像文件</li>
+<li>将SD使用卡托或者读卡器后，连上电脑</li>
+<li>解压并运行win32diskimager工具（需要先格式化SD卡）</li>
+<li>在软件中选择img（镜像）文件，“Device”下选择SD的盘符，然后选择“Write”<br>然后就开始安装系统了，根据你的SD速度，安装过程有快有慢。</li>
+</ol>
+<p>ps：树莓派官网提供的烧录工具选择更多点 <a target="_blank" rel="noopener" href="https://www.raspberrypi.com/software/">https://www.raspberrypi.com/software/</a></p>
+<h2 id="首次开机"><a href="#首次开机" class="headerlink" title="首次开机"></a>首次开机</h2><h3 id="关于账号"><a href="#关于账号" class="headerlink" title="关于账号"></a>关于账号</h3><pre><code class="shell"># 用户名：pi
+# 密码：yahboom / raspberry
 
-    ps：树莓派官网提供的烧录工具选择更多点 https://www.raspberrypi.com/software/
+# root用户原始系统是没有开启的，自己设置密码就可以
+sudo passwd root # 输入两次密码确认
+sudo passwd --unlock root # 解锁root用户
+
+# 切换root：
+su # 确认后输入密码
 </code></pre>
-<h2 id="首次开机"><a href="#首次开机" class="headerlink" title="首次开机"></a>首次开机</h2><h3 id="关于账号"><a href="#关于账号" class="headerlink" title="关于账号"></a>关于账号</h3><pre><code class="shell">    # 用户名：pi
-    # 密码：yahboom / raspberry
+<h3 id="进入后界面操作"><a href="#进入后界面操作" class="headerlink" title="进入后界面操作"></a>进入后界面操作</h3><pre><code class="shell"># 打开树莓派系统下的命令行终端（Ctrl+Alt+T）
 
-    # root用户原始系统是没有开启的，自己设置密码就可以
-    sudo passwd root # 输入两次密码确认
-    sudo passwd --unlock root # 解锁root用户
+ifconfig # 查看我们的ip地址
 
-    # 切换root：
-    su # 确认后输入密码
+sudo raspi-config # 进入到树莓派系统配置界面
 </code></pre>
-<h3 id="进入后界面操作"><a href="#进入后界面操作" class="headerlink" title="进入后界面操作"></a>进入后界面操作</h3><pre><code class="shell">    # 打开树莓派系统下的命令行终端（Ctrl+Alt+T）
-    
-    ifconfig # 查看我们的ip地址
+<h3 id="关于几个常用命令"><a href="#关于几个常用命令" class="headerlink" title="关于几个常用命令"></a>关于几个常用命令</h3><pre><code class="shell"># 查看操作系统版本
+cat /proc/version
 
-    sudo raspi-config # 进入到树莓派系统配置界面
+# 查看主板版本
+cat /proc/cpuinfo
+
+# 查看SD存储卡剩余空间
+df -h
+
+# 查看ip地址
+ifconfig
+
+# 压缩
+tar –zcvf  filename.tar.gz dirname
+# 解压
+tar –zxvf filename.tar.gz
+
+# Linux更改文件权限（递归子集）
+chmod -R 777 /home/test
 </code></pre>
-<h3 id="关于几个常用命令"><a href="#关于几个常用命令" class="headerlink" title="关于几个常用命令"></a>关于几个常用命令</h3><pre><code class="shell">    # 查看操作系统版本
-    cat /proc/version
-
-    # 查看主板版本
-    cat /proc/cpuinfo
-
-    # 查看SD存储卡剩余空间
-    df -h
-
-    # 查看ip地址
-    ifconfig
-
-    # 压缩
-    tar –zcvf  filename.tar.gz dirname
-    # 解压
-    tar –zxvf filename.tar.gz
-
-    # Linux更改文件权限（递归子集）
-    chmod -R 777 /home/test
-</code></pre>
-<h2 id="关机注意"><a href="#关机注意" class="headerlink" title="关机注意"></a>关机注意</h2><pre><code class="shell">    # 不能直接拔掉电源，会造成树莓派数据无法及时保存而丢失
-    # 可以按需选择相关的终端命令操作
-    sudo poweroff # 关闭电源
-    sudo shutdown -h now # 立刻关机
-    sudo shutdown -r now # 立刻重启
-    sudo reboot # 重启
-    sudo shutdown -h +2 # 2分钟之后关机
+<h2 id="关机注意"><a href="#关机注意" class="headerlink" title="关机注意"></a>关机注意</h2><pre><code class="shell"># 不能直接拔掉电源，会造成树莓派数据无法及时保存而丢失
+# 可以按需选择相关的终端命令操作
+sudo poweroff # 关闭电源
+sudo shutdown -h now # 立刻关机
+sudo shutdown -r now # 立刻重启
+sudo reboot # 重启
+sudo shutdown -h +2 # 2分钟之后关机
 </code></pre>
 <h2 id="关于pi安装问题"><a href="#关于pi安装问题" class="headerlink" title="关于pi安装问题"></a>关于pi安装问题</h2><h3 id="apt-get基本命令"><a href="#apt-get基本命令" class="headerlink" title="apt-get基本命令"></a>apt-get基本命令</h3><pre><code class="shell"># apt-get可简写apt
-    # 更新源文件
-    sudo apt-get update
-    # 升级所有已安装的包
-    sudo apt-get upgrade
-    # 清理无用的包
-    sudo apt-get autoclean
-    # 检查是否有损坏的依赖
-    sudo apt-get check
-    # 安装 
-    sudo apt-get install _name_
-    # 移除
-    sudo apt-get remove _name_
-    # 删除包，包括配置文件
-    sudo apt-get remove _name_ --purge
-    # 删除包，包括包及其依赖的软件、配置文件
-    sudo apt-get autoremove _name_ --purge
+# 更新源文件
+sudo apt-get update
+# 升级所有已安装的包
+sudo apt-get upgrade
+# 清理无用的包
+sudo apt-get autoclean
+# 检查是否有损坏的依赖
+sudo apt-get check
+# 安装 
+sudo apt-get install _name_
+# 移除
+sudo apt-get remove _name_
+# 删除包，包括配置文件
+sudo apt-get remove _name_ --purge
+# 删除包，包括包及其依赖的软件、配置文件
+sudo apt-get autoremove _name_ --purge
 </code></pre>
-<h3 id="换源"><a href="#换源" class="headerlink" title="换源"></a>换源</h3><pre><code class="shell">    # 下面两个源都可使用
-    # deb https://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ buster main contrib non-free rpi
-    # deb https://mirrors.ustc.edu.cn/raspbian/raspbian/ buster main contrib non-free rpi
+<h3 id="换源"><a href="#换源" class="headerlink" title="换源"></a>换源</h3><pre><code class="shell"># 下面两个源都可使用
+# deb https://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ buster main contrib non-free rpi
+# deb https://mirrors.ustc.edu.cn/raspbian/raspbian/ buster main contrib non-free rpi
 
-    sudo nano /etc/apt/sources.list # 进入该配置文件更换源
+sudo nano /etc/apt/sources.list # 进入该配置文件更换源
 
-    sudo apt update # 配置完成后执行该命令使生效
+sudo apt update # 配置完成后执行该命令使生效
 </code></pre>
-<h3 id="安装mysql"><a href="#安装mysql" class="headerlink" title="安装mysql"></a>安装mysql</h3><pre><code class="shell">    # 树莓派无法直接安装mysql，建议使用 mariadb-server-10.0 ，用法一致
-    sudo apt-get install mariadb-server-10.0
+<h3 id="安装mysql"><a href="#安装mysql" class="headerlink" title="安装mysql"></a>安装mysql</h3><pre><code class="shell"># 树莓派无法直接安装mysql，建议使用 mariadb-server-10.0 ，用法一致
+sudo apt-get install mariadb-server-10.0
 </code></pre>
-<h3 id="解决无密码可登录mysql的问题"><a href="#解决无密码可登录mysql的问题" class="headerlink" title="解决无密码可登录mysql的问题"></a>解决无密码可登录mysql的问题</h3><pre><code class="shell">    # 进入mysql后执行
-    SET password for &#39;root&#39;@&#39;localhost&#39;=password(&#39;123456&#39;); # 设置密码
-    UPDATE user SET plugin=&#39;mysql_native_password&#39; WHERE user=&#39;root&#39;; # 修改root用户为校验密码
-    exit;
-    # 退出MySQL执行
-    systemctl restart mysql # 重启mysql，执行后选择账户输入密码即可
+<h3 id="解决无密码可登录mysql的问题"><a href="#解决无密码可登录mysql的问题" class="headerlink" title="解决无密码可登录mysql的问题"></a>解决无密码可登录mysql的问题</h3><pre><code class="shell"># 进入mysql后执行
+SET password for &#39;root&#39;@&#39;localhost&#39;=password(&#39;123456&#39;); # 设置密码
+UPDATE user SET plugin=&#39;mysql_native_password&#39; WHERE user=&#39;root&#39;; # 修改root用户为校验密码
+exit;
+# 退出MySQL执行
+systemctl restart mysql # 重启mysql，执行后选择账户输入密码即可
 
-    cd /etc/mysql # 配置文件下的bind-host改为0.0.0.0，允许任意远程登录
+cd /etc/mysql # 配置文件下的bind-host改为0.0.0.0，允许任意远程登录
 
-    # mysql内执行
-    create user &#39;example&#39;@&#39;%&#39; identified by &#39;example123&#39;; # 创建用户
-    grant all on example.* to &#39;example&#39;@&#39;%&#39;; # 指定访问数据库
-    flush privileges; # 更新配置信息
+# mysql内执行
+create user &#39;example&#39;@&#39;%&#39; identified by &#39;example123&#39;; # 创建用户
+grant all on example.* to &#39;example&#39;@&#39;%&#39;; # 指定访问数据库
+flush privileges; # 更新配置信息
 </code></pre>
-<h3 id="安装node"><a href="#安装node" class="headerlink" title="安装node"></a>安装node</h3><pre><code class="shell">    # 下载nvm的包放入/home/pi(也就是~的指向路径)
-    sudo nano ~/.bashrc
+<h3 id="安装node"><a href="#安装node" class="headerlink" title="安装node"></a>安装node</h3><pre><code class="shell"># 下载nvm的包放入/home/pi(也就是~的指向路径)
+sudo nano ~/.bashrc
 
-    # 修改.bashrc文件在后面写入以下内容
-        export NVM_DIR=&quot;$HOME/.nvm/nvm-0.38.0&quot;
-        [ -s &quot;$NVM_DIR/nvm.sh&quot; ] &amp;&amp; \. &quot;$NVM_DIR/nvm.sh&quot;  # This loads nvm
-        [ -s &quot;$NVM_DIR/bash_completion&quot; ] &amp;&amp; \. &quot;$NVM_DIR/bash_completion&quot;  # This loads nvm bash_completion
+# 修改.bashrc文件在后面写入以下内容
+export NVM_DIR=&quot;$HOME/.nvm/nvm-0.38.0&quot;
+[ -s &quot;$NVM_DIR/nvm.sh&quot; ] &amp;&amp; \. &quot;$NVM_DIR/nvm.sh&quot;  # This loads nvm
+[ -s &quot;$NVM_DIR/bash_completion&quot; ] &amp;&amp; \. &quot;$NVM_DIR/bash_completion&quot;  # This loads nvm bash_completion
 
-    # 执行命令更新配置
-    source ~/.bashrc
+# 执行命令更新配置
+source ~/.bashrc
 
-    nvm install 16.19.0
-    nvm install 14.21.2
-    nvm install 8.17.0
+nvm install 16.19.0
+nvm install 14.21.2
+nvm install 8.17.0
 </code></pre>
-<h2 id="部署node项目（pm2）"><a href="#部署node项目（pm2）" class="headerlink" title="部署node项目（pm2）"></a>部署node项目（pm2）</h2><pre><code class="shell">    # 安装pm2
-    npm install pm2 -g
-    # 查看版本
-    pm2 --version
-    # 启动服务
-    pm2 start app.js
-    # 停止服务
-    pm2 stop app.js
-    # 查看服务状态
-    pm2 monit
-    pm2 list
-    # 同步进程
-    pm2 save
+<h2 id="部署node项目（pm2）"><a href="#部署node项目（pm2）" class="headerlink" title="部署node项目（pm2）"></a>部署node项目（pm2）</h2><pre><code class="shell"># 安装pm2
+npm install pm2 -g
+# 查看版本
+pm2 --version
+# 启动服务
+pm2 start app.js
+# 停止服务
+pm2 stop app.js
+# 查看服务状态
+pm2 monit
+pm2 list
+# 同步进程
+pm2 save
 </code></pre>
 
                 

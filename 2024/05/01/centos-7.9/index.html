@@ -6,11 +6,11 @@
     <meta charset="utf-8">
     <meta name="keywords" content="CentOs@7.9, Ron">
     <meta name="description" content="
-关于&amp;#x43;&amp;#101;&amp;#110;&amp;#116;&amp;#x4f;&amp;#x73;&amp;#x40;&amp;#x37;&amp;#x2e;&amp;#x39; 初次使用注意以及基本内容，持续完善中…
+关于&amp;#x43;&amp;#101;&amp;#x6e;&amp;#116;&amp;#x4f;&amp;#115;&amp;#64;&amp;#x37;&amp;#x2e;&amp;#57; 初次使用注意以及基本内容，持续完善中…
 
 首次启动创建文件夹&amp;amp;文件cd /
 makedir myApp
-">
+cd">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -428,7 +428,7 @@ makedir myApp
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <blockquote>
-<p>关于<a href="mailto:&#x43;&#101;&#110;&#116;&#x4f;&#x73;&#x40;&#x37;&#x2e;&#x39;">&#x43;&#101;&#110;&#116;&#x4f;&#x73;&#x40;&#x37;&#x2e;&#x39;</a> 初次使用注意以及基本内容，持续完善中…</p>
+<p>关于<a href="mailto:&#x43;&#101;&#x6e;&#116;&#x4f;&#115;&#64;&#x37;&#x2e;&#57;">&#x43;&#101;&#x6e;&#116;&#x4f;&#115;&#64;&#x37;&#x2e;&#57;</a> 初次使用注意以及基本内容，持续完善中…</p>
 </blockquote>
 <h2 id="首次启动"><a href="#首次启动" class="headerlink" title="首次启动"></a>首次启动</h2><h3 id="创建文件夹-amp-文件"><a href="#创建文件夹-amp-文件" class="headerlink" title="创建文件夹&amp;文件"></a>创建文件夹&amp;文件</h3><pre><code class="shell">cd /
 makedir myApp
@@ -436,78 +436,78 @@ cd /myApp
 echo &gt; myApp.txt
 echo &#39;追加&#39; &gt;&gt; myApp.txt
 </code></pre>
-<h3 id="新增用户"><a href="#新增用户" class="headerlink" title="新增用户"></a>新增用户</h3><pre><code class="shell">    adduser username
-    passwd username
+<h3 id="新增用户"><a href="#新增用户" class="headerlink" title="新增用户"></a>新增用户</h3><pre><code class="shell">adduser username
+passwd username
 </code></pre>
-<h3 id="关于yum、rpm基本命令"><a href="#关于yum、rpm基本命令" class="headerlink" title="关于yum、rpm基本命令"></a>关于yum、rpm基本命令</h3><pre><code class="shell">    yum install -y name
-    yum remove name
-    yum clean
-    yum localinstall rpm包地址
-    # 查询所有rpm包，grep筛选出包含mysql的内容
-    rpm -qa | grep mysql
+<h3 id="关于yum、rpm基本命令"><a href="#关于yum、rpm基本命令" class="headerlink" title="关于yum、rpm基本命令"></a>关于yum、rpm基本命令</h3><pre><code class="shell">yum install -y name
+yum remove name
+yum clean
+yum localinstall rpm包地址
+# 查询所有rpm包，grep筛选出包含mysql的内容
+rpm -qa | grep mysql
 </code></pre>
-<h3 id="python3-11-1安装"><a href="#python3-11-1安装" class="headerlink" title="python3.11.1安装"></a>python3.11.1安装</h3><pre><code class="shell">    # 下载文件到临时目录
-    cd /temp
-    wget https://www.python.org/ftp/python/3.11.1/Python-3.11.1.tgz
-    tar -xzf Python-3.11.1.tgz
-    # 安装依赖环境
-    yum -y install gcc zlib zlib-devel libffi libffi-devel
-    yum install readline-devel
-    yum install openssl-devel openssl11 openssl11-devel
-    export CFLAGS=$(pkg-config --cflags openssl11)
-    export LDFLAGS=$(pkg-config --libs openssl11)
-    # 进入下载文件解压地址
-    cd Python-3.11.1
-    # 指定安装路径
-    ./configure --prefix=/usr/bin/python3.11 --with-ssl
-    make
-    make install
-    # 软链指向
-    ln -s /usr/bin/python3.11/bin/python3 /usr/bin/python3
-    ln -s /usr/bin/python3.11/bin/pip3 /usr/bin/pip3
+<h3 id="python3-11-1安装"><a href="#python3-11-1安装" class="headerlink" title="python3.11.1安装"></a>python3.11.1安装</h3><pre><code class="shell"># 下载文件到临时目录
+cd /temp
+wget https://www.python.org/ftp/python/3.11.1/Python-3.11.1.tgz
+tar -xzf Python-3.11.1.tgz
+# 安装依赖环境
+yum -y install gcc zlib zlib-devel libffi libffi-devel
+yum install readline-devel
+yum install openssl-devel openssl11 openssl11-devel
+export CFLAGS=$(pkg-config --cflags openssl11)
+export LDFLAGS=$(pkg-config --libs openssl11)
+# 进入下载文件解压地址
+cd Python-3.11.1
+# 指定安装路径
+./configure --prefix=/usr/bin/python3.11 --with-ssl
+make
+make install
+# 软链指向
+ln -s /usr/bin/python3.11/bin/python3 /usr/bin/python3
+ln -s /usr/bin/python3.11/bin/pip3 /usr/bin/pip3
 </code></pre>
-<h3 id="修改python默认版本软链指向"><a href="#修改python默认版本软链指向" class="headerlink" title="修改python默认版本软链指向"></a>修改python默认版本软链指向</h3><pre><code class="shell">    # 慎重修改， 部分系统安装是默认依赖版本是python2
-    sudo rm -rf /usr/bin/python
-    sudo ln -s /usr/bin/python3 /usr/bin/python
+<h3 id="修改python默认版本软链指向"><a href="#修改python默认版本软链指向" class="headerlink" title="修改python默认版本软链指向"></a>修改python默认版本软链指向</h3><pre><code class="shell"># 慎重修改， 部分系统安装是默认依赖版本是python2
+sudo rm -rf /usr/bin/python
+sudo ln -s /usr/bin/python3 /usr/bin/python
 </code></pre>
-<h3 id="x43-x65-110-116-79-115-x40-x37-x2e-x39-安装mysql"><a href="#x43-x65-110-116-79-115-x40-x37-x2e-x39-安装mysql" class="headerlink" title="&#x43;&#x65;&#110;&#116;&#79;&#115;&#x40;&#x37;&#x2e;&#x39; 安装mysql"></a><a href="mailto:&#x43;&#x65;&#110;&#116;&#79;&#115;&#x40;&#x37;&#x2e;&#x39;">&#x43;&#x65;&#110;&#116;&#79;&#115;&#x40;&#x37;&#x2e;&#x39;</a> 安装mysql</h3><pre><code class="shell">    # 检查历史版本
-    rpm -qa | grep -i mysql
-    rpm -qa | grep -i mariadb
-    # 卸载历史版本（如已安装过）
-    yum remove -y mysql安装包名称
-    yum remove -y mariadb安装包名称
-    # 清理残留数据目录及文件-示例
-    # 删除安装目录
-    whereis mysql
-    rm -rf /usr/lib64/mysql /usr/share/mysql
-    # 删除数据目录
-    rm -rf /var/lib/mysql
-    # 删除配置文件
-    rm -rf /etc/my.cnf
-    # 删除日志文件
-    rm -rf /var/log/mysql
-    rm -rf /var/log/mysqld.log
-    # 删除临时文件
-    rm -rf /tmp/mysql*
-    # 删除服务和启动脚本
-    rm -rf /etc/init.d/mysql
-    rm -rf /usr/lib/systemd/system/mysql.service
+<h3 id="67-x65-x6e-116-79-115-x40-55-x2e-x39-安装mysql"><a href="#67-x65-x6e-116-79-115-x40-55-x2e-x39-安装mysql" class="headerlink" title="&#67;&#x65;&#x6e;&#116;&#79;&#115;&#x40;&#55;&#x2e;&#x39; 安装mysql"></a><a href="mailto:&#67;&#x65;&#x6e;&#116;&#79;&#115;&#x40;&#55;&#x2e;&#x39;">&#67;&#x65;&#x6e;&#116;&#79;&#115;&#x40;&#55;&#x2e;&#x39;</a> 安装mysql</h3><pre><code class="shell"># 检查历史版本
+rpm -qa | grep -i mysql
+rpm -qa | grep -i mariadb
+# 卸载历史版本（如已安装过）
+yum remove -y mysql安装包名称
+yum remove -y mariadb安装包名称
+# 清理残留数据目录及文件-示例
+# 删除安装目录
+whereis mysql
+rm -rf /usr/lib64/mysql /usr/share/mysql
+# 删除数据目录
+rm -rf /var/lib/mysql
+# 删除配置文件
+rm -rf /etc/my.cnf
+# 删除日志文件
+rm -rf /var/log/mysql
+rm -rf /var/log/mysqld.log
+# 删除临时文件
+rm -rf /tmp/mysql*
+# 删除服务和启动脚本
+rm -rf /etc/init.d/mysql
+rm -rf /usr/lib/systemd/system/mysql.service
 
-    # 下载mysql官方yum源
-    wget  https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm
-    # 安装官方yum源
-    rpm -ivh mysql80-community-release-el7-3.noarch.rpm
-    # 清理yum缓存目录
-    yum clean all
-    # 重新上传yum缓存
-    yum makecache
-    # 导入GPG密钥（查看官方最新源https://repo.mysql.com/）
-    rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2023
-    # 安装mysql
-    yum install -y mysql-community-server mysql-community
-    mysql -V
-    # 查看临时初始密码
-    grep &#39;temporary password&#39; /var/log/mysqld.log
+# 下载mysql官方yum源
+wget  https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm
+# 安装官方yum源
+rpm -ivh mysql80-community-release-el7-3.noarch.rpm
+# 清理yum缓存目录
+yum clean all
+# 重新上传yum缓存
+yum makecache
+# 导入GPG密钥（查看官方最新源https://repo.mysql.com/）
+rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2023
+# 安装mysql
+yum install -y mysql-community-server mysql-community
+mysql -V
+# 查看临时初始密码
+grep &#39;temporary password&#39; /var/log/mysqld.log
 </code></pre>
 <h2 id="日志查询跟踪"><a href="#日志查询跟踪" class="headerlink" title="日志查询跟踪"></a>日志查询跟踪</h2><h3 id="grep"><a href="#grep" class="headerlink" title="grep"></a>grep</h3><p>grep 命令是一个全局查找正则表达式并且打印结果行的命令。</p>
 <pre><code class="shell"># 输出查询到的包含 test 的行内容
