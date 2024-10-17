@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Win-cmd</title>
+      <link href="/2024/10/15/win-cmd/"/>
+      <url>/2024/10/15/win-cmd/</url>
+      
+        <content type="html"><![CDATA[<p>记录学习一些Windows系统下用到的命令</p><h2 id="查询信息"><a href="#查询信息" class="headerlink" title="查询信息"></a>查询信息</h2><h3 id="系统信息"><a href="#系统信息" class="headerlink" title="系统信息"></a>系统信息</h3><pre><code class="shell">msinfo32</code></pre><h3 id="详细硬件信息"><a href="#详细硬件信息" class="headerlink" title="详细硬件信息"></a>详细硬件信息</h3><pre><code class="shell">dxdiag</code></pre><h3 id="mac地址"><a href="#mac地址" class="headerlink" title="mac地址"></a>mac地址</h3><pre><code class="shell">getmac</code></pre><h3 id="ip和物理地址"><a href="#ip和物理地址" class="headerlink" title="ip和物理地址"></a>ip和物理地址</h3><pre><code class="shell">arp -a</code></pre><h3 id="TCP-x2F-IP配置信息"><a href="#TCP-x2F-IP配置信息" class="headerlink" title="TCP&#x2F;IP配置信息"></a>TCP&#x2F;IP配置信息</h3><pre><code class="shell"># 显示信息ipconfig# 显示详细信息ipconfig /all# 显示有关所有隔离舱的信息ipconfig /allcompartments# 显示有关所有隔离舱的详细信息ipconfig /allcompartments /all</code></pre><h3 id="网络监听状况"><a href="#网络监听状况" class="headerlink" title="网络监听状况"></a>网络监听状况</h3><pre><code class="shell">netstat</code></pre><h3 id="检查网络连接或通信"><a href="#检查网络连接或通信" class="headerlink" title="检查网络连接或通信"></a>检查网络连接或通信</h3><pre><code class="shell"># 基本命令ping baidu.com## ping指定的主机，直到主动停止ping -t# 将地址解析为主机名ping -a# 要发送的回显请求数ping -n</code></pre><h3 id="route路由表"><a href="#route路由表" class="headerlink" title="route路由表"></a>route路由表</h3><pre><code class="shell"># 显示路由表IPv4route print -4# 显示路由表IPv6route print -6</code></pre><h3 id="跟踪网络跳转路径"><a href="#跟踪网络跳转路径" class="headerlink" title="跟踪网络跳转路径"></a>跟踪网络跳转路径</h3><pre><code class="shell">tracert -d www.baidu.com# -d 不将地址解析成主机名</code></pre><h2 id="修改信息"><a href="#修改信息" class="headerlink" title="修改信息"></a>修改信息</h2><h3 id="TCP-x2F-IP配置信息-1"><a href="#TCP-x2F-IP配置信息-1" class="headerlink" title="TCP&#x2F;IP配置信息"></a>TCP&#x2F;IP配置信息</h3><pre><code class="shell"># 释放指定适配器的IPv4地址ipconfig /release# 释放指定适配器的IPv6地址ipconfig /release6# 更新指定适配器的IPv4地址ipconfig /renew# 更新指定适配器的IPv6地址ipconfig /renew6# 清除 DNS 解析程序缓存ipconfig /flushdns# 刷新所有 DHCP 租用并重新注册 DNS 名称ipconfig /registerdns# 显示 DNS 解析程序缓存的内容ipconfig /displaydns</code></pre><h3 id="route路由表-1"><a href="#route路由表-1" class="headerlink" title="route路由表"></a>route路由表</h3><pre><code class="shell"># 添加路由route add# 删除路由route delete# 修改现有路由route change</code></pre><h2 id="操作命令"><a href="#操作命令" class="headerlink" title="操作命令"></a>操作命令</h2><h3 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h3><pre><code class="shell"></code></pre><h3 id="用户"><a href="#用户" class="headerlink" title="用户"></a>用户</h3><pre><code class="shell"></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> Win </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Win </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Conda</title>
       <link href="/2024/10/01/conda/"/>
       <url>/2024/10/01/conda/</url>
