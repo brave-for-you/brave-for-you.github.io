@@ -1,0 +1,22 @@
+{
+  "name": "brave-for-you.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "setCrlf": "prettier --write --end-of-line crlf ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brave-for-you/brave-for-you.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brave-for-you/brave-for-you.github.io/issues"
+  },
+  "homepage": "https://github.com/brave-for-you/brave-for-you.github.io#readme",
+  "devDependencies": {
+    "prettier": "^3.3.3"
+  }
+}
