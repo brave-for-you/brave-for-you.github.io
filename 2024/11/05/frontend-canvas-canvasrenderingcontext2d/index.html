@@ -1,0 +1,3093 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="CanvasRenderingContext2D, Ron">
+    <meta name="description" content="了解CanvasRenderingContext2DCanvasRenderingContext2D顾名思义就是“Canvas 2D渲染上下文”，可以理解为下面代码中的context。
+var canvas = document.query">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>CanvasRenderingContext2D | Ron</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+    <style>
+        body{
+            background-image: url(https://cdn.jsdelivr.net/gh/Tokisaki-Galaxy/res/site/medias/background.jpg);
+            background-repeat:no-repeat;
+            background-size: 100% 100%;
+            background-attachment:fixed;
+        }
+    </style>
+
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Ron</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Ron</div>
+        <div class="logo-desc">
+            
+            Welcome to Ron&#39;s Notes.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">CanvasRenderingContext2D</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Canvas/">
+                                <span class="chip bg-color">Canvas</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/FrontEnd/" class="post-category">
+                                FrontEnd
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-11-05
+                </div>
+                
+
+                
+                <!--添加作者信息-->
+                <div class="info-break-policy">
+                    
+                        <i class="fa fa-pencil"></i> 作者: Ron.
+                    
+                </div>
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="了解CanvasRenderingContext2D"><a href="#了解CanvasRenderingContext2D" class="headerlink" title="了解CanvasRenderingContext2D"></a>了解CanvasRenderingContext2D</h2><p>CanvasRenderingContext2D顾名思义就是“Canvas 2D渲染上下文”，可以理解为下面代码中的context。</p>
+<pre><code class="javascript">var canvas = document.querySelector(&#39;canvas&#39;);
+var context = canvas.getContext(&#39;2d&#39;);
+</code></pre>
+<p>context暴露了大量的API属性和方法，可以用来绘制文本，图形以及像素处理等，可以说是2D Canvas应用的核心所在。</p>
+<h2 id="绘制矩形"><a href="#绘制矩形" class="headerlink" title="绘制矩形"></a>绘制矩形</h2><h3 id="clearRect"><a href="#clearRect" class="headerlink" title=".clearRect()"></a>.clearRect()</h3><p>清除指定矩形区域内部所有的像素信息为初始色（通常为透明）。</p>
+<ol>
+<li>语法</li>
+</ol>
+<pre><code class="javascript">context.clearRect(x, y, width, height);
+</code></pre>
+<ul>
+<li>x  矩形左上角x坐标。</li>
+<li>y  矩形左上角y坐标。</li>
+<li>width  被清除的矩形区域的高度。</li>
+<li>height  被清除的矩形区域的宽度度。</li>
+</ul>
+<ol start="2">
+<li>案例<br>先把一张图片绘制在Canvas画布上，然后再把中间一块矩形区域的像素信息清除，JavaScript代码如下：</li>
+</ol>
+<pre><code class="javascript">// 先绘制图片
+var img = new Image();
+img.onload = function () &#123;
+    context.drawImage(img, 0, 0, 250, 167);
+    // 中间开个方形的洞
+    context.clearRect(50, 50, 100, 66);
+&#125;;
+img.src = &#39;./1.jpg&#39;;
+</code></pre>
+<p>一个圆球来回运动效果，不断clearRect清除，不断再绘制实现，本案例把时间放慢为每次刷新1000毫秒，便于我们肉眼也能感受Canvas中动画实现的基本原理。</p>
+<pre><code class="javascript">context.font = &#39;16px STHeiti, SimHei&#39;;
+// 圆球的水平位置和半径
+var x = 30, radius = 30;
+// 清除方法
+var clear = function () &#123;
+    // 清除画布
+    context.clearRect(0, 0, 250, 167);
+    context.fillText(&#39;清除&#39;, 20, 30);
+    setTimeout(draw, 500);
+&#125;;
+// 绘制球方法
+var draw = function () &#123;
+    x += 10;
+    if (x &gt; 220) &#123;
+        x = 30;
+    &#125;
+    // 清除提示文字
+    context.clearRect(0, 0, 250, 167);
+    // 新的文字提示，以及圆绘制
+    context.fillText(&#39;绘制&#39;, 20, 30);
+    context.beginPath();
+    context.arc(x, 84, radius, 0, Math.PI * 2);
+    context.fillStyle = &#39;#039&#39;;
+    context.fill();
+    // 清除
+    setTimeout(clear, 500);
+&#125;;
+// 初始触发
+draw();
+</code></pre>
+<h3 id="fillRect"><a href="#fillRect" class="headerlink" title=".fillRect()"></a>.fillRect()</h3><p>矩形填充，可以填充颜色，渐变，图案等。</p>
+<ol>
+<li>语法</li>
+</ol>
+<pre><code class="javascript">context.fillRect(x, y, width, height);
+</code></pre>
+<ul>
+<li>x  填充矩形的起点横坐标。</li>
+<li>y  填充矩形的起点纵坐标。</li>
+<li>width  填充矩形的宽度。</li>
+<li>height  填充矩形的高度。</li>
+</ul>
+<ol start="2">
+<li>案例<br>填充两个矩形，绘制一个十字图形，直接上代码：</li>
+</ol>
+<pre><code class="javascript">var canvas = document.querySelector(&#39;canvas&#39;);
+var context = canvas.getContext(&#39;2d&#39;);
+// 中心点坐标
+var centerX = canvas.width / 2;
+var centerY = canvas.height / 2;
+// 矩形填充
+context.fillRect(centerX - 30, centerY - 4, 60, 8);
+context.fillRect(centerX - 4, centerY - 30, 8, 60);
+</code></pre>
+<h3 id="strokeRect"><a href="#strokeRect" class="headerlink" title=".strokeRect()"></a>.strokeRect()</h3><p>矩形描边。</p>
+<ol>
+<li>语法</li>
+</ol>
+<pre><code class="javascript">context.strokeRect(x, y, width, height);
+</code></pre>
+<ul>
+<li>x  描边矩形的起点横坐标。</li>
+<li>y  描边矩形的起点纵坐标。</li>
+<li>width  描边矩形的宽度。</li>
+<li>height  描边矩形的高度。</li>
+</ul>
+<ol start="2">
+<li>案例</li>
+</ol>
+<pre><code class="javascript">// 2像素宽矩形描边
+context.lineWidth = 2;
+context.strokeRect(75, 25, 150, 100);
+</code></pre>
+<h2 id="绘制文本"><a href="#绘制文本" class="headerlink" title="绘制文本"></a>绘制文本</h2><h3 id="fillText"><a href="#fillText" class="headerlink" title=".fillText()"></a>.fillText()</h3><p>文字填充，可以填充纯色，渐变或者图案。</p>
+<ol>
+<li>语法</li>
+</ol>
+<pre><code class="javascript">context.fillText(text, x, y, maxWidth);
+</code></pre>
+<ul>
+<li>text  用来填充的文本信息。</li>
+<li>x  填充文本的起点横坐标。</li>
+<li>y  填充文本的起点纵坐标。</li>
+<li>maxWidth  （可选）填充文本占据的最大宽度，当文本占据宽度超过此最大宽度时候，通过压缩每个文本宽度进行渲染，而非换行。</li>
+</ul>
+<ol start="2">
+<li>案例<br>基本绘制</li>
+</ol>
+<pre><code class="javascript">context.font = &#39;24px STheiti, SimHei&#39;;
+context.fillText(&#39;Canvas API中文网&#39;, 24, 66);
+</code></pre>
+<p>maxWidth与文本缩放</p>
+<pre><code class="javascript">context.font = &#39;24px STheiti, SimHei&#39;;
+context.fillText(&#39;Canvas API中文网，不只是文档&#39;, 20, 66, 200);
+</code></pre>
+<p>Canvas中文本若想要自动换行，需要手动计算换行点，然后追行绘制。本案例借助这篇文章中扩展的wrapText()方法实现自动换行效果，</p>
+<pre><code class="javascript">context.font = &#39;24px STheiti, SimHei&#39;;
+context.wrapText(&#39;Canvas API中文网，不只是文档&#39;, 24, 56, 200);
+</code></pre>
+<h3 id="strokeText"><a href="#strokeText" class="headerlink" title=".strokeText()"></a>.strokeText()</h3><p>文字描边。</p>
+<ol>
+<li>语法</li>
+</ol>
+<pre><code class="javascript">context.strokeText(text, x, y, maxWidth);
+</code></pre>
+<ul>
+<li>text  用来描边的文本信息。</li>
+<li>x  描边文本的起点横坐标。</li>
+<li>y  描边文本的起点纵坐标。</li>
+<li>maxWidth  （可选）填充文本占据的最大宽度，当文本占据宽度超过此最大宽度时候，通过压缩每个文本宽度进行渲染，而非换行。</li>
+</ul>
+<ol start="2">
+<li>案例<br>基本绘制</li>
+</ol>
+<pre><code class="javascript">// 文字描边
+context.font = &#39;50px STHeiti, SimHei&#39;;
+context.strokeText(&#39;文字描边&#39;, 50, 90);
+</code></pre>
+<p>实色文字描边  实现方法就是叠加，文本描边效果上面叠加文本填充。因为文字描边是居中描边，如果文本描边效果在上，会使填充的文字变得很细。</p>
+<pre><code class="javascript">// 文字样式
+context.font = &#39;50px STHeiti, SimHei&#39;;
+// 文字先描边
+context.lineWidth = 3;
+context.strokeStyle = &#39;red&#39;;
+context.strokeText(&#39;文字描边&#39;, 50, 90);
+// 再填充
+context.fillText(&#39;文字描边&#39;, 50, 90);
+</code></pre>
+<h3 id="measureText"><a href="#measureText" class="headerlink" title=".measureText()"></a>.measureText()</h3><p>文字测量。返回TextMetrics对象，该对象的width属性值就是字符占据的宽度。</p>
+<ol>
+<li>语法</li>
+</ol>
+<pre><code class="javascript">context.measureText(text)
+</code></pre>
+<ul>
+<li>text  被测量的文本。</li>
+</ul>
+<ol start="2">
+<li>案例<br>示意输出一个中文字符宽度以及输出一个英文单词的宽度，宽度直接在Canvas文字右上方标记</li>
+</ol>
+<pre><code class="javascript">// 设置字体字号
+context.font = &#39;24px STHeiTi, SimHei&#39;;
+// 文本信息对象就有了
+var textZh = context.measureText(&#39;帅&#39;);
+var textEn = context.measureText(&#39;handsome&#39;);
+// 文字绘制
+context.fillText(&#39;帅&#39;, 60, 50);
+context.fillText(&#39;handsome&#39;, 60, 90);
+// 显示宽度
+context.font = &#39;12px Arial&#39;;
+context.fillStyle = &#39;red&#39;;
+context.fillText(&#39;宽&#39; + textZh.width, 62 + textZh.width, 40);
+context.fillText(&#39;宽&#39; + textEn.width, 62 + textEn.width, 80);
+</code></pre>
+<h2 id="线条样式"><a href="#线条样式" class="headerlink" title="线条样式"></a>线条样式</h2><h3 id="lineWidth"><a href="#lineWidth" class="headerlink" title=".lineWidth"></a>.lineWidth</h3><p>线条宽度，主使用场景是描边，默认宽度是1.0，支持小数。</p>
+<ol>
+<li>语法</li>
+</ol>
+<pre><code class="javascript">context.lineWidth = value;
+</code></pre>
+<ul>
+<li>value  表示线的宽度。数值类型，默认值是1.0。如果是负数，0，NaN，或者Infinity都会忽略。</li>
+</ul>
+<ol start="2">
+<li>案例<br>绘制一个1像素宽的随机三角形。</li>
+</ol>
+<pre><code class="html">&lt;canvas width=&quot;240&quot; height=&quot;120&quot;&gt;&lt;/canvas&gt;
+</code></pre>
+<pre><code class="javascript">// 随机三角形
+var canvas = document.querySelector(&#39;canvas&#39;);
+var context = canvas.getContext(&#39;2d&#39;);
+var width = canvas.width;
+var height = canvas.height;
+// 随机三个坐标点
+var positionA = [width * Math.random(), height / 2 * Math.random()];
+var positionB = [width / 2 * Math.random(), height / 2 + height / 2 * Math.random()];
+var positionC = [width / 2 + width / 2 * Math.random(), height / 2 + height / 2 * Math.random()];
+// 开始绘制
+context.beginPath();
+context.moveTo(positionA[0], positionA[1]);
+context.lineTo(positionB[0], positionB[1]);
+context.lineTo(positionC[0], positionC[1]);
+context.closePath();
+// 绘制，由于默认宽度就是1像素，因此
+// context.lineWidth设置缺省
+context.stroke();
+</code></pre>
+<h3 id="lineCap"><a href="#lineCap" class="headerlink" title=".lineCap"></a>.lineCap</h3><p>线条端点的样式。支持如下属性值：butt（默认值，断头，无端帽），round（圆形端帽），square（方形端帽）。</p>
+<ol>
+<li>语法</li>
+</ol>
+<pre><code class="javascript">context.lineCap = &#39;butt&#39;;
+context.lineCap = &#39;round&#39;;
+context.lineCap = &#39;square&#39;;
+</code></pre>
+<ul>
+<li>butt  默认值，线的端点就像是个断头台，例如一条横线，终点x坐标是100，则这条线的最右侧边缘就是100这个位置，没有超出。</li>
+<li>round  线的端点多出一个圆弧。</li>
+<li>square  线的端点多出一个方框，框框的宽度和线一样宽，高度是线厚度的一半</li>
+</ul>
+<ol start="2">
+<li>案例<br>绘制一个loading菊花效果，点击菊花可以旋转</li>
+</ol>
+<pre><code class="html">&lt;canvas width=&quot;40&quot; height=&quot;40&quot;&gt;&lt;/canvas&gt;
+</code></pre>
+<pre><code class="javascript">// 圆心坐标
+var center = [20, 20];
+// 线长度和距离圆心距离
+var length = 8, offset = 8;
+// 开始绘制
+context.lineWidth = 4;
+context.lineCap = &#39;round&#39;;
+for (var angle = 0; angle &lt; 360; angle += 45) &#123;
+  // 正余弦
+  var sin = Math.sin(angle / 180 * Math.PI);
+  var cos = Math.cos(angle / 180 * Math.PI);
+  // 开始绘制
+  context.beginPath();
+  context.moveTo(center[0] + offset * cos, center[1] + offset * sin);
+  context.lineTo(center[0] + (offset + length) * cos, center[1] + (offset + length) * sin);
+  context.strokeStyle = &#39;rgba(0,0,0,&#39;+ (0.25 + 0.75 * angle / 360) +&#39;)&#39;;
+  context.stroke();
+&#125;
+</code></pre>
+<h3 id="lineJoin"><a href="#lineJoin" class="headerlink" title=".lineJoin"></a>.lineJoin</h3><p>线条转角的样式。支持如下属性值：miter（默认值，尖角），round（圆角），bevel（平角）。</p>
+<ol>
+<li>语法</li>
+</ol>
+<pre><code class="javascript">context.lineJoin = &#39;miter&#39;;
+context.lineJoin = &#39;round&#39;;
+context.lineJoin = &#39;bevel&#39;;
+</code></pre>
+<ul>
+<li>miter  默认值，转角是尖头。如果折线角度比较小，则尖头会非常长，因此需要miterLimit进行限制。</li>
+<li>round  转角是圆头。</li>
+<li>bevel  转角是平头。</li>
+</ul>
+<ol start="2">
+<li>案例<br>绘制一个圆润的三角箭头。点击下面的单选选项，可以切换箭头类型是单箭头还是双箭头。</li>
+</ol>
+<pre><code class="html">&lt;canvas id=&quot;arrow&quot; width=&quot;210&quot; height=&quot;100&quot;&gt;&lt;/canvas&gt;
+</code></pre>
+<pre><code class="javascript">var canvas = document.getElementById(&#39;arrow&#39;);    
+var context = canvas.getContext(&#39;2d&#39;);
+// 起止点坐标，这里是示意
+var start = &#123; x: 20, y: 20 &#125;;
+var end = &#123; x: 190, y: 80 &#125;;
+// 计算两点距离，主要是为了计算斜率
+var distanceX = end.x - start.x, distanceY = end.y - start.y;
+var distance = Math.sqrt(distanceY * distanceY + distanceX * distanceX);
+// 箭头的尺寸
+var distanceArrow = 7, sharpeArrow = 3;
+// 先确定轴线与三角两个尖角点交汇坐标
+var arrowMoveTo = &#123;
+    x: start.x + distanceArrow * distanceX / distance,
+    y: start.y + distanceArrow * distanceY / distance
+&#125;;
+var arrowLineTo = &#123;
+    x: end.x - distanceArrow * distanceX / distance,
+    y: end.y - distanceArrow * distanceY / distance
+&#125;;
+// 4个对称点坐标
+var arrowTo1 = &#123;
+    x: arrowMoveTo.x - sharpeArrow * distanceY / distance,
+    y: arrowMoveTo.y + sharpeArrow * distanceX / distance
+&#125;;
+var arrowTo2 = &#123;
+    x: arrowMoveTo.x + sharpeArrow * distanceY / distance,
+    y: arrowMoveTo.y - sharpeArrow * distanceX / distance
+&#125;;
+var arrowTo3 = &#123;
+    x: arrowLineTo.x - sharpeArrow * distanceY / distance,
+    y: arrowLineTo.y + sharpeArrow * distanceX / distance
+&#125;;
+var arrowTo4 = &#123;
+    x: arrowLineTo.x + sharpeArrow * distanceY / distance,
+    y: arrowLineTo.y - sharpeArrow * distanceX / distance
+&#125;;
+// 设置线的粗细和断点，转角样式
+context.lineWidth = 2;
+context.lineCap = &#39;round&#39;;
+context.lineJoin = &#39;round&#39;;
+// 绘制方法
+var draw = function (arrow) &#123;
+    arrow = arrow || &#39;single&#39;;
+    // 清除画布
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    // 开始绘制
+    context.beginPath();
+    // 三种箭头类型
+    switch (arrow) &#123;
+        case &#39;single&#39;: &#123;
+            context.moveTo(start.x, start.y);
+            context.lineTo(end.x, end.y);
+            // 两个结束对称点
+            context.lineTo(arrowTo3.x, arrowTo3.y);
+            context.lineTo(arrowTo4.x, arrowTo4.y);
+            // 回到结束点
+            context.lineTo(end.x, end.y);
+            break;
+        &#125;
+        case &#39;both&#39;: &#123;
+            context.moveTo(start.x, start.y);
+            // 两个起始对称点
+            context.lineTo(arrowTo1.x, arrowTo1.y);
+            context.lineTo(arrowTo2.x, arrowTo2.y);
+            // 回到起始点
+            context.lineTo(start.x, start.y);
+            // 重复single的绘制
+            context.lineTo(end.x, end.y);
+            context.lineTo(arrowTo3.x, arrowTo3.y);
+            context.lineTo(arrowTo4.x, arrowTo4.y);
+            context.lineTo(end.x, end.y);
+            break;
+        &#125;
+        case &#39;part-both&#39;: &#123;
+            // 先绘制起止线
+            context.moveTo(start.x, start.y);
+            context.lineTo(end.x, end.y);
+            // 结束点位置的半个箭头
+            context.lineTo(arrowTo4.x, arrowTo4.y);
+            context.lineTo(arrowLineTo.x, arrowLineTo.y);
+            context.closePath();
+            // 另一端的半箭头
+            context.moveTo(start.x, start.y);
+            context.lineTo(arrowTo1.x, arrowTo1.y);
+            context.lineTo(arrowMoveTo.x, arrowMoveTo.y);
+            break;
+        &#125;
+    &#125;
+    // 闭合，描边与填充
+    context.closePath();
+    context.stroke();
+    context.fill();
+&#125;;
+// 绘制单箭头
+draw();
+// 绘制双箭头
+// draw(&#39;both&#39;);
+// 绘制双向单侧箭头
+// draw(&#39;part-both&#39;);
+</code></pre>
+<h3 id="miterLimit"><a href="#miterLimit" class="headerlink" title=".miterLimit"></a>.miterLimit</h3><p>尖角限制比率。线条的尖角如果没有限制，在线条粗角度小的情况下会很长很长，因此，需要一个限制比率。默认是10。</p>
+<ol>
+<li>语法</li>
+</ol>
+<pre><code class="javascript">context.miterLimit = value;
+</code></pre>
+<ul>
+<li>value  表示多大范围内转角表现为miter的宽度。数值类型，默认值是10.0。如果是负数，0，NaN，或者Infinity都会忽略。</li>
+</ul>
+<ol start="2">
+<li>案例<br>以最大斜接长度 5 绘制线条</li>
+</ol>
+<pre><code class="html">&lt;canvas id=&quot;myCanvas&quot;&gt;&lt;/canvas&gt;
+</code></pre>
+<pre><code class="javascript">var c=document.getElementById(&quot;myCanvas&quot;);
+var ctx=c.getContext(&quot;2d&quot;);
+ctx.lineWidth=10;
+ctx.lineJoin=&quot;miter&quot;;
+ctx.miterLimit=5;
+ctx.moveTo(20,20);
+ctx.lineTo(50,27);
+ctx.lineTo(20,34);
+ctx.stroke();
+</code></pre>
+<h3 id="getLineDash"><a href="#getLineDash" class="headerlink" title=".getLineDash()"></a>.getLineDash()</h3><p>返回当前虚线数值。返回值是一个偶数个数的数组。</p>
+<ol>
+<li>语法</li>
+</ol>
+<pre><code class="javascript">context.getLineDash();
+</code></pre>
+<ul>
+<li>返回值  返回值是一个数组，数组里面的值都是数字，称为数字列表。所谓虚线，就是一段实线一段空隙交替出现的条线，而这里的数字列表中的值表示的就是交替的实线和间隙的长度值。如果设置虚线时候的数字个数是奇数，则数组里面的数字会被复制和链接，这样数量就变成偶数，例如，虚线设置为[5, 10, 15]将返回[5, 10, 15, 5, 10, 15]。</li>
+</ul>
+<ol start="2">
+<li>案例<br>演示设置奇数个数的虚线，然后获取，看看值是多少。</li>
+</ol>
+<pre><code class="javascript">context.beginPath();
+context.moveTo(10, 60);
+context.lineTo(230, 60);
+context.setLineDash([5]);
+context.stroke();
+// 将getLineDash()结果绘制在画布上
+var dash = context.getLineDash();
+// 绘制文本
+context.font = &#39;16px arial&#39;;
+context.fillText(dash, 10, 48);
+// 控制台输出
+console.log(dash);
+</code></pre>
+<h3 id="setLineDash"><a href="#setLineDash" class="headerlink" title=".setLineDash()"></a>.setLineDash()</h3><p>设置线条为虚线。</p>
+<ol>
+<li>语法</li>
+</ol>
+<pre><code class="javascript">ctx.setLineDash(segments);
+</code></pre>
+<ul>
+<li>segments  数值列表数组。例如[5, 5]，表示虚线的实线和透明部分长度是5像素和5像素。如果此参数值适合空数组[]，则表示实线，常用来重置虚线设置。</li>
+</ul>
+<ol start="2">
+<li>案例<br>绘制一条虚线，只是虚线多尺寸并存</li>
+</ol>
+<pre><code class="javascript">context.beginPath();
+context.setLineDash([5, 10, 15, 30]);
+context.moveTo(20, 70);
+context.lineTo(280, 70);
+context.stroke();
+</code></pre>
+<h3 id="lineDashOffset"><a href="#lineDashOffset" class="headerlink" title=".lineDashOffset"></a>.lineDashOffset</h3><p>设置虚线的起始偏移。</p>
+<ol>
+<li>语法</li>
+</ol>
+<pre><code class="javascript">context.lineDashOffset = value;
+</code></pre>
+<ul>
+<li>value  表示虚线起始绘制的偏移距离，为浮点型，默认值是0.0。</li>
+</ul>
+<ol start="2">
+<li>案例<br>实现一个虚线边框不断旋转的效果</li>
+</ol>
+<pre><code class="html">&lt;canvas id=&quot;canvas&quot; width=&quot;240&quot; height=&quot;120&quot;&gt;&lt;/canvas&gt;
+</code></pre>
+<pre><code class="javascript">var canvas = document.getElementById(&#39;canvas&#39;);
+var context = canvas.getContext(&#39;2d&#39;);
+// 偏移大小
+var offset = 0;
+// 绘制
+var draw = function () &#123;
+  context.clearRect(0,0, canvas.width, canvas.height);
+  context.setLineDash([8, 4]);
+  context.lineDashOffset = offset;
+  context.strokeRect(2, 2, 236, 116);
+&#125;
+
+var run = function () &#123;
+  offset += 0.5;
+  if (offset &gt; 24) &#123;
+    offset = 0;
+  &#125;
+  draw();
+  // 继续绘制
+  requestAnimationFrame(run);
+&#125;
+
+run();
+</code></pre>
+<h2 id="文本样式"><a href="#文本样式" class="headerlink" title="文本样式"></a>文本样式</h2><h3 id="font"><a href="#font" class="headerlink" title=".font"></a>.font</h3><p>设置字体相关样式，包括字号，字体信息。默认值是10px sans-serif。(在Chrome浏览器中sans-serif不是默认字体，并且未能解析字体集关键字，从兼容性角度来说，在Canvas中sans-serif和serif尽量避免使用)</p>
+<ol>
+<li>语法</li>
+</ol>
+<pre><code class="javascript">context.font = value;
+</code></pre>
+<ul>
+<li>value  字号字体值，其规则和CSS的font很类似，除了一些很微小的细节差异，其他几乎没什么区别。</li>
+</ul>
+<ol start="2">
+<li>案例<br>一个简单的24px的宋体效果</li>
+</ol>
+<pre><code class="html">&lt;canvas width=&quot;240&quot; height=&quot;80&quot;&gt;&lt;/canvas&gt;
+</code></pre>
+<pre><code class="javascript">var canvas = document.querySelector(&#39;canvas&#39;);
+var context = canvas.getContext(&#39;2d&#39;);
+// 设置字体样式
+context.font = &#39;24px SimSun, Songti SC&#39;;
+context.fillText(&#39;24px的宋体呈现&#39;, 20, 50);
+</code></pre>
+<h3 id="textAlign"><a href="#textAlign" class="headerlink" title=".textAlign"></a>.textAlign</h3><p>设置文本水平对齐方式。支持属性值有：start（默认值），end，left，right以及center。</p>
+<ol>
+<li>语法</li>
+</ol>
+<pre><code class="javascript">context.textAlign = value;
+</code></pre>
+<p>value支持以下值：</p>
+<ul>
+<li>left  文本左对齐。也就是最终绘制的文本内容最左侧位置就是设定的x坐标值。</li>
+<li>right  文本右对齐。也就是最终绘制的文本内容最右侧位置就是设定的x坐标值。</li>
+<li>center  文本居中对齐。也就是最终绘制的文本内容的水平中心位置就是设定的x坐标值。</li>
+<li>start  文本起始方位对齐。如果文本是从左往右排列的，则表示左对齐；如果文本是从右往左排列的（例如设置context.direction为rtl），则表示右对齐。</li>
+<li>end  文本结束方位对齐。如果文本是从左往右排列的，则表示右对齐；如果文本是从右往左排列的（例如设置context.direction为rtl），则表示左对齐。</li>
+</ul>
+<ol start="2">
+<li>案例<br>置水平x坐标是画布的水平中心位置，然后选择不同的textAlign属性值，</li>
+</ol>
+<pre><code class="html">&lt;canvas width=&quot;240&quot; height=&quot;120&quot;&gt;&lt;/canvas&gt;
+</code></pre>
+<pre><code class="javascript">let align
+// 设置字体和字号
+context.font = &#39;48px STHeiti, SimHei&#39;;
+// 设置对齐方式
+context.textAlign = align || &#39;left&#39;;
+// 填充文字
+context.fillText(&#39;对齐&#39;, 120, 80);
+</code></pre>
+<h3 id="textBaseline"><a href="#textBaseline" class="headerlink" title=".textBaseline"></a>.textBaseline</h3><p>设置文本基线对齐方式。支持属性值有：top，hanging，middle，alphabetic（默认值），ideographic，bottom。</p>
+<ol>
+<li>语法</li>
+</ol>
+<pre><code class="javascript">context.textBaseline = value;
+</code></pre>
+<p>value支持以下值：</p>
+<ul>
+<li>top  设定的垂直y坐标作为文本em区域（em区域可以看成中文字符占据的区域）的顶部。</li>
+<li>hanging  hanging主要在藏文和其他印度文字中使用，我们了解即可。</li>
+<li>middle  设定的垂直y坐标作为文本em区域的垂直中心位置。</li>
+<li>alphabetic  默认值。表示的是正常文本的基线，可以看成是字母x的下边缘。也就是设定的垂直y坐标就是字母x的下边缘。</li>
+<li>ideographic  ideographic主要在汉语、日语和韩语中使用。字面直译是表意基线。含义为：如果字符的主体突出在字母基线之下，则这是字符主体的底部。例如汉字“中”比字母x位置更低，因此，底部是汉字主体的底部。</li>
+<li>bottom  设定的垂直y坐标作为文本em区域的底部。</li>
+</ul>
+<ol start="2">
+<li>案例<br>展示不同的textBaseline属性值和文本对应的垂直位置关系</li>
+</ol>
+<pre><code class="javascript">var context = canvas.getContext(&#39;2d&#39;);
+
+var baselines = [&#39;top&#39;, &#39;hanging&#39;, &#39;middle&#39;, &#39;alphabetic&#39;, &#39;ideographic&#39;, &#39;bottom&#39;];
+context.font = &#39;30px STHeiti, SimHei&#39;;
+context.strokeStyle = &#39;red&#39;;
+
+baselines.forEach(function (baseline, index) &#123;
+    context.textBaseline = baseline;
+    var y = 75 + index * 75;
+    // 绘制参考线
+    context.beginPath(); 
+    context.moveTo(0, y + 0.5); 
+    context.lineTo(550, y + 0.5); 
+    context.stroke();
+    // 填充文字
+    context.fillText(&#39;AaXx一中-&#39; + baseline, 0, y);
+&#125;);
+</code></pre>
+<h3 id="direction"><a href="#direction" class="headerlink" title=".direction"></a>.direction</h3><p>设置文本显示方向。支持属性值有：inherit（默认值），ltr和rtl。</p>
+<ol>
+<li>语法</li>
+</ol>
+<pre><code class="javascript">context.direction = value;
+</code></pre>
+<p>value支持以下值：</p>
+<ul>
+<li>inherit  （默认值）继承父级属性配置</li>
+<li>ltr  从左侧开始显示渲染</li>
+<li>rtl  从右侧开始显示渲染</li>
+</ul>
+<ol start="2">
+<li>案例</li>
+</ol>
+<pre><code class="javascript">let align
+// 设置字体和字号
+context.font = &#39;48px STHeiti, SimHei&#39;;
+// 设置对齐方式
+context.direction = align || &#39;inherit&#39;;
+// 填充文字
+context.fillText(&#39;测试文字内容&#39;, 120, 80);
+</code></pre>
+<h2 id="填充和描边"><a href="#填充和描边" class="headerlink" title="填充和描边"></a>填充和描边</h2><h3 id="fillStyle"><a href="#fillStyle" class="headerlink" title=".fillStyle"></a>.fillStyle</h3><p>填充样式。默认值是#000000纯黑色。</p>
+<ol>
+<li>语法</li>
+</ol>
+<pre><code class="javascript">context.fillStyle = color;
+context.fillStyle = gradient;
+context.fillStyle = pattern;
+</code></pre>
+<ul>
+<li>color  使用纯色填充，支持RGB，HSL，RGBA，HSLA以及HEX色值。</li>
+<li>gradient  使用渐变填充，可以是线性渐变或者径向渐变。</li>
+<li>pattern  使用纹理填充。由于图片也能作为纹理，因此fillStyle也能填充普通的位图，可参见下面的案例。</li>
+</ul>
+<ol start="2">
+<li>案例</li>
+</ol>
+<ul>
+<li>色值填充</li>
+</ul>
+<pre><code class="html">&lt;canvas id=&quot;canvasColor&quot;&gt;&lt;/canvas&gt;
+</code></pre>
+<pre><code class="javascript">var canvasColor = document.getElementById(&#39;canvasColor&#39;);
+var contextColor = canvasColor.getContext(&#39;2d&#39;);
+
+contextColor.fillStyle = &#39;RGB(255, 0, 0)&#39;;
+// RGB(255, 0, 0) // RGBA(255, 0, 0, .5)  // HSL(360, 100%, 50%) // HSLA(360, 100%, 50%, .5) // #FF0000
+contextColor.fillRect(10, 10, 100, 100);
+</code></pre>
+<ul>
+<li>渐变填充-线性</li>
+</ul>
+<pre><code class="html">&lt;canvas id=&quot;canvasLinear&quot;&gt;&lt;/canvas&gt;
+</code></pre>
+<pre><code class="javascript">var canvasLinear = document.getElementById(&#39;canvasLinear&#39;);
+var contextLinear = canvasLinear.getContext(&#39;2d&#39;);
+// 创建线性渐变对象
+var gradientLinear = contextLinear.createLinearGradient(0, 0, 0, 100);
+gradientLinear.addColorStop(0, &#39;red&#39;);
+gradientLinear.addColorStop(1, &#39;green&#39;);
+// 填充线性渐变
+contextLinear.fillStyle = gradientLinear;
+contextLinear.fillRect(10, 10, 100, 100);
+</code></pre>
+<ul>
+<li>渐变填充-径向</li>
+</ul>
+<pre><code class="html">&lt;canvas id=&quot;canvasRadial&quot;&gt;&lt;/canvas&gt;
+</code></pre>
+<pre><code class="javascript">var canvasRadial = document.getElementById(&#39;canvasRadial&#39;);
+var contextRadial = canvasRadial.getContext(&#39;2d&#39;);
+// 创建径向渐变对象，半径50
+var gradientRadial = contextRadial.createRadialGradient(60, 60, 0, 60, 60, 50);
+gradientRadial.addColorStop(0, &#39;red&#39;);
+gradientRadial.addColorStop(1, &#39;green&#39;);
+// 填充径向渐变
+contextLinear.fillStyle = gradientRadial;
+contextLinear.fillRect(10, 10, 100, 100);
+</code></pre>
+<ul>
+<li>图案填充</li>
+</ul>
+<pre><code class="html">&lt;canvas id=&quot;canvasPattern&quot;&gt;&lt;/canvas&gt;
+</code></pre>
+<pre><code class="javascript">var canvasPattern = document.getElementById(&#39;canvasPattern&#39;);
+var contextPattern = canvasPattern.getContext(&#39;2d&#39;);
+// 创建图案对象
+var imagePattern = document.createElement(&#39;img&#39;);
+imagePattern.onload = function () &#123;
+    // 缩放原始图片到50*50大小
+    var canvas = document.createElement(&#39;canvas&#39;);
+    canvas.width = canvas.height = 50;
+    var context = canvas.getContext(&#39;2d&#39;);
+    // 通过drawImage()方法缩放
+    context.drawImage(this, 0, 0, 50, 50);
+    // 把这个创建的canvas图形作为图案使用
+    var pattern = contextPattern.createPattern(canvas, &#39;repeat&#39;);
+    // 填充图案
+    contextPattern.fillStyle = pattern;
+    contextPattern.fillRect(10, 10, 100, 100);
+&#125;;
+imagePattern.src = &#39;./pattern.jpg&#39;;
+</code></pre>
+<h3 id="fill"><a href="#fill" class="headerlink" title=".fill()"></a>.fill()</h3><p>填充。</p>
+<ol>
+<li>语法</li>
+</ol>
+<pre><code class="javascript">context.fill();
+context.fill(fillRule);
+context.fill(path, fillRule);
+</code></pre>
+<ul>
+<li>fillRule  填充规则。用来确定一个点实在路径内还是路径外。可选值包括: nonzero：非零规则，此乃默认规则、evenodd：奇偶规则。</li>
+<li>path  指Path2D对象。</li>
+</ul>
+<ol start="2">
+<li>案例<br>“非零规则”和“奇偶规则”的不同表现</li>
+</ol>
+<pre><code class="html">&lt;canvas width=&quot;300&quot; height=&quot;300&quot; data-rule=&quot;nonzero&quot;&gt;&lt;/canvas&gt;
+&lt;canvas width=&quot;300&quot; height=&quot;300&quot; data-rule=&quot;evenodd&quot;&gt;&lt;/canvas&gt;
+</code></pre>
+<pre><code class="javascript">// 2个三角的点坐标
+var arrPoints = [[60,60], [240,100], [160,280], [60,60], [150,20], [260,260]];
+var canvases = document.querySelectorAll(&#39;canvas&#39;);
+// 遍历
+[].slice.call(canvases).forEach(function (canvas, index) &#123;
+    var rule = canvas.getAttribute(&#39;data-rule&#39;);
+    var context = canvas.getContext(&#39;2d&#39;);
+    // 开始绘制
+    context.beginPath();
+    context.moveTo(arrPoints[0][0], arrPoints[0][1]);
+    context.lineTo(arrPoints[1][0], arrPoints[1][1]);
+    context.lineTo(arrPoints[2][0], arrPoints[2][1]);    
+    context.lineTo(arrPoints[3][0], arrPoints[3][1]);
+    context.lineTo(arrPoints[4][0], arrPoints[4][1]);
+    context.lineTo(arrPoints[5][0], arrPoints[5][1]);
+    context.closePath();
+    context.fillStyle = &#39;#0e65c5&#39;;
+    context.fill(rule);
+&#125;);
+</code></pre>
+<h3 id="strokeStyle"><a href="#strokeStyle" class="headerlink" title=".strokeStyle"></a>.strokeStyle</h3><p>描边样式。默认值是#000000纯黑色。</p>
+<ol>
+<li>语法</li>
+</ol>
+<pre><code class="javascript">context.strokeStyle = color;
+context.strokeStyle = gradient;
+context.strokeStyle = pattern;
+</code></pre>
+<ul>
+<li>color  描边设置为颜色。</li>
+<li>gradient  描边设置为渐变。</li>
+<li>pattern  描边设置为图案。</li>
+</ul>
+<ol start="2">
+<li>案例</li>
+</ol>
+<ul>
+<li>描边设置为颜色</li>
+</ul>
+<pre><code class="javascript">// 红色描边
+context.strokeStyle = &#39;red&#39;;
+context.lineWidth = 10;
+context.strokeRect(40, 20, 160, 80);
+</code></pre>
+<ul>
+<li>描边设置为渐变色</li>
+</ul>
+<pre><code class="javascript">// 红绿渐变
+var gradient = context.createLinearGradient(0, 0, 0, 120);
+gradient.addColorStop(0, &#39;red&#39;);
+gradient.addColorStop(1, &#39;green&#39;);
+// 渐变描边
+context.strokeStyle = gradient;
+context.lineWidth = 10;
+context.strokeRect(40, 20, 160, 80);
+</code></pre>
+<ul>
+<li>描边设置为图案</li>
+</ul>
+<pre><code class="javascript">// 照片作为描边图案
+var image = new Image();
+image.onload = function () &#123;
+    var pattern = context.createPattern(this, &#39;repeat&#39;);
+    context.strokeStyle = pattern;
+    context.lineWidth = 10;
+    context.strokeRect(40, 20, 160, 80);
+&#125;;
+image.src = &#39;1.jpg&#39;;
+</code></pre>
+<h3 id="stroke"><a href="#stroke" class="headerlink" title=".stroke()"></a>.stroke()</h3><p>描边。</p>
+<ol>
+<li>语法</li>
+</ol>
+<pre><code class="javascript">context.stroke();
+context.stroke(path);
+</code></pre>
+<ul>
+<li>path  指Path2D对象。IE浏览器不支持。</li>
+</ul>
+<ol start="2">
+<li>案例<br>描边一条直线</li>
+</ol>
+<pre><code class="javascript">context.moveTo(50, 50);
+context.lineTo(250, 100);
+// 描边
+context.stroke();
+</code></pre>
+<h2 id="渐变相关"><a href="#渐变相关" class="headerlink" title="渐变相关"></a>渐变相关</h2><h3 id="createLinearGradient"><a href="#createLinearGradient" class="headerlink" title=".createLinearGradient()"></a>.createLinearGradient()</h3><p>创建线性渐变。</p>
+<ol>
+<li>语法</li>
+</ol>
+<pre><code class="javascript">context.createLinearGradient(x0, y0, x1, y1);
+</code></pre>
+<ul>
+<li>返回值 返回值是CanvasGradient对象。</li>
+<li>x0  渐变起始点横坐标。</li>
+<li>y0  渐变起始点纵坐标。</li>
+<li>x1  渐变结束点横坐标。</li>
+<li>y1  渐变结束点纵坐标。<br>线性渐变效果比较好脑补，就是从坐标点[x0, y0]到坐标点[x1, y1]的位置画一条线，然后整个渐变色带与与这条线垂直。</li>
+</ul>
+<ol start="2">
+<li>案例<br>头尾二色渐变，以及渐变坐标的全局特性</li>
+</ol>
+<pre><code class="javascript">var context = canvas.getContext(&#39;2d&#39;);
+// 创建渐变
+var gradient = context.createLinearGradient(0, 0, 300, 0);
+gradient.addColorStop(0, &#39;red&#39;);
+gradient.addColorStop(1, &#39;green&#39;);
+// 设置填充样式为渐变
+context.fillStyle = gradient;
+// 左上角和右下角分别填充2个矩形
+context.fillRect(10, 10, 160, 60);
+context.fillRect(120, 80, 160, 60);
+</code></pre>
+<h3 id="createRadialGradient"><a href="#createRadialGradient" class="headerlink" title=".createRadialGradient()"></a>.createRadialGradient()</h3><p>创建径向渐变。</p>
+<ol>
+<li>语法</li>
+</ol>
+<pre><code class="javascript">context.createRadialGradient(x0, y0, r0, x1, y1, r1);
+</code></pre>
+<ul>
+<li>返回值  返回值是CanvasPattern对象。</li>
+<li>x0  起始圆的横坐标。</li>
+<li>y0  起始圆的纵坐标。</li>
+<li>r0  起始圆的半径。</li>
+<li>x1  结束圆的横坐标。</li>
+<li>y1  结束圆的纵坐标。</li>
+<li>r1  结束圆的半径。</li>
+</ul>
+<ol start="2">
+<li>案例</li>
+</ol>
+<ul>
+<li>标准两色径向渐变</li>
+</ul>
+<pre><code class="html">&lt;canvas width=&quot;240&quot; height=&quot;120&quot;&gt;&lt;/canvas&gt;
+</code></pre>
+<pre><code class="javascript">var context = canvas.getContext(&#39;2d&#39;);
+// 创建一个起始圆半径为0的径向渐变对象
+var gradient = context.createRadialGradient(120, 60, 0, 120, 60, 60);
+// 设置起止颜色
+gradient.addColorStop(0, &#39;red&#39;);
+gradient.addColorStop(1, &#39;green&#39;);
+// 矩形填充
+context.fillStyle = gradient;
+context.fillRect(0, 0, 240, 120);
+</code></pre>
+<ul>
+<li>色带分隔明显的色环</li>
+</ul>
+<pre><code class="html">&lt;canvas width=&quot;150&quot; height=&quot;150&quot;&gt;&lt;/canvas&gt;
+</code></pre>
+<pre><code class="javascript">var context = canvas.getContext(&#39;2d&#39;);
+// 创建一个起始圆半径为0的径向渐变对象
+var gradient = context.createRadialGradient(75, 75, 0, 75, 75, 75);
+// 设置起止颜色
+gradient.addColorStop(0, &#39;red&#39;);
+gradient.addColorStop(0.2, &#39;red&#39;);
+gradient.addColorStop(0.2, &#39;orange&#39;);
+gradient.addColorStop(0.4, &#39;orange&#39;);
+gradient.addColorStop(0.4, &#39;yellow&#39;);
+gradient.addColorStop(0.6, &#39;yellow&#39;);
+gradient.addColorStop(0.6, &#39;green&#39;);
+gradient.addColorStop(0.8, &#39;green&#39;);
+gradient.addColorStop(0.8, &#39;purple&#39;);
+gradient.addColorStop(1, &#39;purple&#39;);
+gradient.addColorStop(1, &#39;transparent&#39;);
+// 矩形填充
+context.fillStyle = gradient;
+context.fillRect(0, 0, 150, 150);
+</code></pre>
+<h2 id="图案相关"><a href="#图案相关" class="headerlink" title="图案相关"></a>图案相关</h2><h3 id="createPattern"><a href="#createPattern" class="headerlink" title=".createPattern()"></a>.createPattern()</h3><p>创建图案。图案内容可以是图片，可以是canvas元素，也可以是渐变。此方法返回CanvasPattern对象。</p>
+<ol>
+<li>语法</li>
+</ol>
+<pre><code class="javascript">context.createPattern(image, repetition);
+</code></pre>
+<ul>
+<li>返回值  返回值是CanvasPattern对象。</li>
+<li>image 用来平铺的CanvasImageSource图像。可以是下面的类型</li>
+<li><ul>
+<li>HTMLImageElement，也就是<img>元素。</li>
+</ul>
+</li>
+<li><ul>
+<li>HTMLVideoElement，也就是<video>元素，例如捕获摄像头视频产生的图像信息。</li>
+</ul>
+</li>
+<li><ul>
+<li>HTMLCanvasElement</li>
+</ul>
+</li>
+<li><ul>
+<li>CanvasRenderingContext2D</li>
+</ul>
+</li>
+<li><ul>
+<li>ImageBitmap</li>
+</ul>
+</li>
+<li><ul>
+<li>ImageData</li>
+</ul>
+</li>
+<li><ul>
+<li>Blob</li>
+</ul>
+</li>
+<li>repetition  图案的平铺方式，可以是下面的值：</li>
+<li><ul>
+<li>‘repeat’，水平和垂直平铺。当repetition属性值为空字符串’’或者null，也会按照’repeat’进行渲染。</li>
+</ul>
+</li>
+<li><ul>
+<li>‘repeat-x’，仅水平平铺。</li>
+</ul>
+</li>
+<li><ul>
+<li>‘repeat-y’，仅垂直平铺。</li>
+</ul>
+</li>
+<li><ul>
+<li>‘no-repeat’，不平铺。</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li>案例<br>图片缩小，并作为纹理显示。我们直接把img元素作为纹理图案是无法控制其尺寸的，我们可以将img元素绘制在大小可控的Canvas元素上，然后把这个Canvas元素作为图案进行平铺即可。</li>
+</ol>
+<pre><code class="html">&lt;canvas id=&quot;canvas&quot; width=&quot;250&quot; height=&quot;167&quot;&gt;&lt;/canvas&gt;
+</code></pre>
+<pre><code class="javascript">// 先绘制图片
+var img = new Image();
+img.onload = function () &#123;
+    // 我们创建一个Canvas元素
+    var canvasCreated = document.createElement(&#39;canvas&#39;);
+    canvasCreated.width = 50;
+    canvasCreated.height = 34;
+    canvasCreated.getContext(&#39;2d&#39;).drawImage(this, 0, 0, 50, 34);
+    // 页面上需要呈现最终纹理的Canvas上下文
+    var context = canvas.getContext(&#39;2d&#39;);
+    // 创建纹理并填充，顺便测试null是否渲染为&#39;repeat&#39;
+    var pattern = context.createPattern(canvasCreated, null);
+    context.fillStyle = pattern;
+    context.fillRect(0, 0, 250, 167);
+&#125;;
+img.src = &#39;./1.jpg&#39;;
+</code></pre>
+<h2 id="阴影相关"><a href="#阴影相关" class="headerlink" title="阴影相关"></a>阴影相关</h2><h3 id="shadowBlur"><a href="#shadowBlur" class="headerlink" title=".shadowBlur"></a>.shadowBlur</h3><p>阴影模糊大小。默认值是0。</p>
+<ol>
+<li>语法</li>
+</ol>
+<pre><code class="javascript">context.shadowBlur = value;
+</code></pre>
+<ul>
+<li>value  表示阴影的模糊程度。数值类型，可以是小数。默认值是0.会忽略负数、NaN等</li>
+</ul>
+<ol start="2">
+<li>案例</li>
+</ol>
+<ul>
+<li>矩形块的阴影模糊</li>
+</ul>
+<pre><code class="javascript">// 设置阴影红色，同时模糊大小为10
+context.shadowColor = &#39;red&#39;;
+context.shadowBlur = 10;
+// 填充个淡淡的颜色，以示尊敬
+context.fillStyle = &#39;#f0f3f9&#39;;
+context.fillRect(40, 40, 160, 40);
+</code></pre>
+<ul>
+<li>文字的阴影模糊</li>
+</ul>
+<pre><code class="javascript">// 设置阴影红色，同时模糊大小为10
+context.shadowColor = &#39;red&#39;;
+context.shadowBlur = 10;
+// 文字80像素，黑体
+context.font = &#39;80px STheiti, simHei&#39;;
+context.fillText(&#39;模糊&#39;, 40, 90);
+</code></pre>
+<h3 id="shadowColor"><a href="#shadowColor" class="headerlink" title=".shadowColor"></a>.shadowColor</h3><p>阴影颜色。默认值是全透明黑色。</p>
+<ol>
+<li>语法</li>
+</ol>
+<pre><code class="javascript">context.shadowColor = color;
+</code></pre>
+<ul>
+<li>color  表示阴影的颜色。各种颜色值都支持，默认是透明黑：rgba(0, 0, 0, 0)</li>
+</ul>
+<ol start="2">
+<li>案例<br>文字阴影效果，深黑色，无模糊</li>
+</ol>
+<pre><code class="javascript">// 设置阴影深黑色，同时右下角偏移3像素
+context.shadowColor = &#39;rgb(50, 50, 50)&#39;;
+context.shadowOffsetY = 3;
+context.shadowOffsetX = 3;
+// 文字80像素，黑体，红色
+context.fillStyle = &#39;red&#39;;
+context.font = &#39;80px STheiti, simHei&#39;;
+context.fillText(&#39;颜色&#39;, 40, 88);
+</code></pre>
+<h3 id="shadowOffsetX"><a href="#shadowOffsetX" class="headerlink" title=".shadowOffsetX"></a>.shadowOffsetX</h3><p>阴影水平偏移大小。默认值是0。</p>
+<ol>
+<li>语法</li>
+</ol>
+<pre><code class="javascript">context.shadowOffsetX = offset;
+</code></pre>
+<ul>
+<li>offset  表示偏移的大小，数值，默认值是0。忽略Infinity或者NaN值。</li>
+</ul>
+<ol start="2">
+<li>案例<br>借助足够大的水平偏移，克隆一个相同的文字。</li>
+</ol>
+<pre><code class="javascript">// 设置阴影深黑色，同时右偏移1个字号大小
+context.shadowColor = &#39;rgb(50, 50, 50)&#39;;
+context.shadowOffsetX = 80;
+// 文字80像素，黑体，红色
+context.fillStyle = &#39;red&#39;;
+context.font = &#39;80px STheiti, simHei&#39;;
+context.fillText(&#39;变&#39;, 40, 88);
+</code></pre>
+<h3 id="shadowOffsetY"><a href="#shadowOffsetY" class="headerlink" title=".shadowOffsetY"></a>.shadowOffsetY</h3><p>阴影垂直偏移大小。默认值是0。</p>
+<ol>
+<li>语法</li>
+</ol>
+<pre><code class="javascript">context.shadowOffsetY = offset;
+</code></pre>
+<ul>
+<li>offset  表示偏移的大小，数值，默认值是0。忽略Infinity或者NaN值。</li>
+</ul>
+<ol start="2">
+<li>案例<br>借助足够大的水平偏移，克隆一个相同的文字。</li>
+</ol>
+<pre><code class="javascript">// 上阴影
+context.shadowColor = &#39;rgb(50, 50, 50)&#39;;
+context.shadowBlur = 5;
+context.shadowOffsetY = -5;
+// 文字80像素，黑体，红色
+context.fillStyle = &#39;red&#39;;
+context.font = &#39;70px STheiti, simHei&#39;;
+context.fillText(&#39;上偏移&#39;, 10, 88);
+</code></pre>
+<h2 id="绘制路径"><a href="#绘制路径" class="headerlink" title="绘制路径"></a>绘制路径</h2><h3 id="beginPath"><a href="#beginPath" class="headerlink" title=".beginPath()"></a>.beginPath()</h3><p>开始一个新路径。</p>
+<ol>
+<li>语法</li>
+</ol>
+<pre><code class="javascript">context.beginPath();
+</code></pre>
+<ol start="2">
+<li>案例<br>两个beginPath()的作用对比</li>
+</ol>
+<pre><code class="javascript">// 开始路径
+context.beginPath();
+context.strokeStyle = &#39;blue&#39;;
+context.moveTo(60, 20);
+context.lineTo(220, 20);
+context.stroke();
+// 开始路径 again
+context.beginPath();
+context.strokeStyle = &#39;green&#39;;
+context.moveTo(60, 20);
+context.lineTo(160, 120);
+context.stroke();
+</code></pre>
+<pre><code class="javascript">// 开始路径
+context.beginPath();
+context.strokeStyle = &#39;blue&#39;;
+context.moveTo(60, 20);
+context.lineTo(220, 20);
+context.stroke();
+
+context.strokeStyle = &#39;green&#39;;
+context.moveTo(60, 20);
+context.lineTo(160, 120);
+context.stroke();
+</code></pre>
+<p>只声明了一次beginPath()，结果两条折线全部的颜色都是绿色；而两次beginPath()则是一条蓝色，一条绿色。<br>因此，只要是非连续路径绘制，都要记得都要执行一句context.beginPath()。</p>
+<h3 id="closePath"><a href="#closePath" class="headerlink" title=".closePath()"></a>.closePath()</h3><p>闭合一个路径。</p>
+<ol>
+<li>语法</li>
+</ol>
+<pre><code class="javascript">context.closePath();
+</code></pre>
+<ol start="2">
+<li>案例<br>两个closePath()的作用对比</li>
+</ol>
+<pre><code class="javascript">// 绘制三角
+context.beginPath();
+context.moveTo(10, 10);
+context.lineTo(140, 70);
+context.lineTo(70, 140);
+// 不执行闭合，直接描边
+context.stroke();
+
+// 绘制另外一个三角
+context.beginPath();
+context.moveTo(160, 10);
+context.lineTo(290, 70);
+context.lineTo(220, 140);
+// 执行闭合，然后描边
+context.closePath();
+context.stroke();
+</code></pre>
+<h3 id="moveTo"><a href="#moveTo" class="headerlink" title=".moveTo()"></a>.moveTo()</h3><p>路径绘制起始点。</p>
+<ol>
+<li>语法</li>
+</ol>
+<pre><code class="javascript">context.moveTo(x, y);
+</code></pre>
+<ul>
+<li>x  落点的横坐标。</li>
+<li>y  落点的纵坐标。</li>
+</ul>
+<ol start="2">
+<li>案例<br>绘制直线一条</li>
+</ol>
+<pre><code class="javascript">context.beginPath();
+context.moveTo(50, 20);
+context.lineTo(200, 100);
+context.stroke();
+</code></pre>
+<h3 id="lineTo"><a href="#lineTo" class="headerlink" title=".lineTo()"></a>.lineTo()</h3><p>绘制直线到指定坐标点。</p>
+<ol>
+<li>语法</li>
+</ol>
+<pre><code class="javascript">context.lineTo(x, y);
+</code></pre>
+<ul>
+<li>x  绘制的直线的落点的横坐标。</li>
+<li>y  绘制的直线的落点的纵坐标。</li>
+</ul>
+<ol start="2">
+<li>案例<br>一个贝塞尔曲线然后执行lineTo()方法</li>
+</ol>
+<pre><code class="javascript">context.beginPath();
+context.moveTo(50, 20);
+context.bezierCurveTo(100, 100, 200, 40, 250, 120);
+context.lineTo(50, 120);
+context.stroke();
+</code></pre>
+<h3 id="bezierCurveTo"><a href="#bezierCurveTo" class="headerlink" title=".bezierCurveTo()"></a>.bezierCurveTo()</h3><p>绘制贝赛尔曲线到指定坐标点。</p>
+<ol>
+<li>语法</li>
+</ol>
+<pre><code class="javascript">context.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y);
+</code></pre>
+<ul>
+<li>cp1x  第1个控制点的横坐标。</li>
+<li>cp1y  第1个控制点的纵坐标。</li>
+<li>cp2x  第2个控制点的横坐标。</li>
+<li>cp2y  第2个控制点的纵坐标。</li>
+<li>x  结束点的横坐标。</li>
+<li>y  结束点的纵坐标。</li>
+</ul>
+<ol start="2">
+<li>案例</li>
+</ol>
+<pre><code class="javascript">// 开始绘制
+context.beginPath();
+context.moveTo(50, 50);
+context.bezierCurveTo(100, 100, 221, 24, 250, 100);
+context.stroke();
+</code></pre>
+<h3 id="quadraticCurveTo"><a href="#quadraticCurveTo" class="headerlink" title=".quadraticCurveTo()"></a>.quadraticCurveTo()</h3><p>绘制二次贝赛尔曲线到指定坐标点。</p>
+<ol>
+<li>语法</li>
+</ol>
+<pre><code class="javascript">context.quadraticCurveTo(cpx, cpy, x, y);
+</code></pre>
+<ul>
+<li>cpx  控制点的横坐标。</li>
+<li>cpy  控制点的纵坐标。</li>
+<li>x  结束点的横坐标。</li>
+<li>y  结束点的纵坐标。</li>
+</ul>
+<ol start="2">
+<li>案例</li>
+</ol>
+<pre><code class="javascript">// 开始绘制
+context.beginPath();
+context.moveTo(50, 50);
+context.quadraticCurveTo(72, 99, 243, 57);
+context.stroke();
+</code></pre>
+<h3 id="arc"><a href="#arc" class="headerlink" title=".arc()"></a>.arc()</h3><p>绘制圆弧（包括圆）。</p>
+<ol>
+<li>语法</li>
+</ol>
+<pre><code class="javascript">context.arc(x, y, radius, startAngle, endAngl, anticlockwise);
+</code></pre>
+<ul>
+<li>x  圆弧对应的圆心横坐标。</li>
+<li>y  圆弧对应的圆心纵坐标。</li>
+<li>radius  圆弧的半径大小。</li>
+<li>startAngle  圆弧开始的角度，单位是弧度。</li>
+<li>endAngl  圆弧结束的角度，单位是弧度。</li>
+<li>anticlockwise  （可选）弧度的开始到结束的绘制是按照顺时针来算，还是按时逆时针来算。如果设置为true，则表示按照逆时针方向从startAngle绘制到endAngle。</li>
+</ul>
+<ol start="2">
+<li>案例</li>
+</ol>
+<ul>
+<li>绘制1&#x2F;4弧度范围的圆弧</li>
+</ul>
+<pre><code class="javascript">// 顺时针绘制0到1/4弧度圆弧
+context.beginPath();
+context.arc(150, 75, 50, 0, Math.PI / 2);
+context.stroke();
+// 逆时针绘制0到1/4弧度圆弧
+context.beginPath();
+context.arc(150, 75, 50, 0, Math.PI / 2, true);
+context.stroke();
+</code></pre>
+<ul>
+<li>绘制一个圆</li>
+</ul>
+<pre><code class="javascript">// 绘制完整圆
+context.beginPath();
+context.arc(150, 75, 50, 0, Math.PI * 2);
+context.stroke();
+</code></pre>
+<h3 id="arcTo"><a href="#arcTo" class="headerlink" title=".arcTo()"></a>.arcTo()</h3><p>绘制圆弧，和之前的点以直线相连。</p>
+<ol>
+<li>语法</li>
+</ol>
+<pre><code class="javascript">context.arcTo(x1, y1, x2, y2, radius);
+</code></pre>
+<ul>
+<li>x1  第1个控制点的横坐标。</li>
+<li>y1  第1个控制点的纵坐标。</li>
+<li>x2  第2个控制点的横坐标。</li>
+<li>y2  第2个控制点的纵坐标。</li>
+<li>radius  圆弧的半径大小。</li>
+</ul>
+<ol start="2">
+<li>案例</li>
+</ol>
+<pre><code class="javascript">context.beginPath();
+context.moveTo(50, 50);
+context.arcTo(150, 100, 200, 40, 40);
+context.lineTo(200, 40);
+context.stroke();
+</code></pre>
+<h3 id="rect"><a href="#rect" class="headerlink" title=".rect()"></a>.rect()</h3><p>绘制矩形路径。</p>
+<ol>
+<li>语法</li>
+</ol>
+<pre><code class="javascript">context.rect(x, y, width, height);
+</code></pre>
+<ul>
+<li>x  矩形路径的起点横坐标。</li>
+<li>y  矩形路径的起点纵坐标。</li>
+<li>width  矩形的宽度。</li>
+<li>height  矩形的高度。</li>
+</ul>
+<ol start="2">
+<li>案例<br>中心位置绘制一个100*100大小的矩形，然后描边</li>
+</ol>
+<pre><code class="javascript">// 矩形
+context.rect(100, 25, 100, 100);
+context.stroke();
+</code></pre>
+<h3 id="ellipse"><a href="#ellipse" class="headerlink" title=".ellipse()"></a>.ellipse()</h3><p>绘制椭圆路径。</p>
+<ol>
+<li>语法</li>
+</ol>
+<pre><code class="javascript">context.ellipse(x, y, radiusX, radiusY, rotation, startAngle, endAngle, anticlockwise);
+</code></pre>
+<ul>
+<li>x  椭圆弧对应的圆心横坐标。</li>
+<li>y  椭圆弧对应的圆心纵坐标。</li>
+<li>radiusX  椭圆弧的长轴半径大小。</li>
+<li>radiusY  椭圆弧的短轴半径大小。</li>
+<li>rotation  椭圆弧的旋转角度，单位是弧度。</li>
+<li>startAngle  圆弧开始的角度，角度从横轴开始算，单位是弧度。</li>
+<li>endAngle  圆弧结束的角度，单位是弧度。</li>
+<li>anticlockwise  （可选）弧度的开始到结束的绘制是按照顺时针来算，还是按时逆时针来算。如何设置为true，则表示按照逆时针方向从startAngle绘制到endAngle。</li>
+</ul>
+<ol start="2">
+<li>案例<br>绘制一个长轴短轴比2:1，同时旋转45°的椭圆</li>
+</ol>
+<pre><code class="javascript">// 绘制椭圆
+context.ellipse(150, 75, 80, 40, Math.PI / 4, 0, 2 * Math.PI);
+context.stroke();
+</code></pre>
+<h3 id="clip"><a href="#clip" class="headerlink" title=".clip()"></a>.clip()</h3><p>创建剪裁路径，之后绘制的路径只有在里面的才会显示。</p>
+<ol>
+<li>语法</li>
+</ol>
+<pre><code class="javascript">context.clip();
+context.clip(fillRule);
+context.clip(path, fillRule);
+</code></pre>
+<ul>
+<li>fillRule  填充规则。用来确定一个点实在路径内还是路径外。可选值包括：</li>
+<li><ul>
+<li>nonzero：非零规则。此乃默认规则。</li>
+</ul>
+</li>
+<li><ul>
+<li>evenodd：奇偶规则。</li>
+</ul>
+</li>
+<li>path  指Path2D对象。</li>
+</ul>
+<ol start="2">
+<li>案例<br>利用剪裁实现一个图案填充效果。实现图案填充，标准用法是创建一个Pattern对象，然后作为fillStyle进行路径填充。这里，我们还可以使用clip()剪裁实现，这样就不用new一个Pattern对象了。例如，实现一个三角形，里面是人物照片图案。</li>
+</ol>
+<pre><code class="javascript">var context = canvas.getContext(&#39;2d&#39;);
+// 需要图片先加载完毕
+var img = new Image();
+img.onload = function () &#123;
+    // 剪裁路径是三角形
+    context.beginPath();
+    context.moveTo(20, 20);
+    context.lineTo(200, 80);
+    context.lineTo(110, 150);
+    // 剪裁
+    context.clip();
+    // 填充图片
+    context.drawImage(img, 0, 0, 250, 167);
+&#125;;
+img.src = &#39;./1.jpg&#39;;
+</code></pre>
+<h2 id="位置检测"><a href="#位置检测" class="headerlink" title="位置检测"></a>位置检测</h2><h3 id="isPointInPath"><a href="#isPointInPath" class="headerlink" title=".isPointInPath()"></a>.isPointInPath()</h3><p>当前点是否在指定路径内。</p>
+<ol>
+<li>语法</li>
+</ol>
+<pre><code class="javascript">context.isPointInPath(x, y);
+context.isPointInPath(x, y, fillRule);
+// 下面语法IE不支持
+context.isPointInPath(path, x, y);
+context.isPointInPath(path, x, y, fillRule);
+</code></pre>
+<ul>
+<li>返回值  返回Boolean值。</li>
+<li>x  用来检测的点的横坐标。</li>
+<li>y  用来检测的点的纵坐标。</li>
+<li>fillRule  填充规则。用来确定一个点实在路径内还是路径外。可选值包括：</li>
+<li><ul>
+<li>nonzero：非零规则，此乃默认规则。</li>
+</ul>
+</li>
+<li><ul>
+<li>evenodd：奇偶规则。</li>
+</ul>
+</li>
+<li>path  指Path2D对象。</li>
+</ul>
+<ol start="2">
+<li>案例<br>在Canvas画布上画两个圈圈，然后看看圈内圈外圈上这几个点的返回值是什么</li>
+</ol>
+<pre><code class="javascript">// 画一个圆
+context.arc(120, 120, 80, 0, Math.PI * 2);
+context.stroke();
+// 用来测试的点坐标们
+var arrPoints = [&#123;
+    x: 50,
+    y: 50
+&#125;, point2 = &#123;
+    x: 150,
+    y: 150
+&#125;, point3 = &#123;
+    x: 120,
+    y: 40
+&#125;];
+arrPoints.forEach(function (point) &#123;
+    // 检测点是否在路径内
+    point.isPointInPath = context.isPointInPath(point.x, point.y);
+&#125;);
+arrPoints.forEach(function (point) &#123;
+    // 标记这几个点
+    context.fillStyle = &#39;red&#39;;
+    context.beginPath();
+    context.arc(point.x, point.y, 3, 0, Math.PI * 2);
+    context.fill();
+    // 检测结果以文本方式绘制
+    context.font = &#39;14px arial&#39;;
+    context.fillText(point.isPointInPath, point.x + 5, point.y);
+&#125;);
+</code></pre>
+<h3 id="isPointInStroke"><a href="#isPointInStroke" class="headerlink" title=".isPointInStroke()"></a>.isPointInStroke()</h3><p>当前点是否在指定路径描边上。</p>
+<ol>
+<li>语法</li>
+</ol>
+<pre><code class="javascript">context.isPointInStroke(x, y);
+context.isPointInStroke(path, x, y);
+</code></pre>
+<ul>
+<li>返回值  返回Boolean值。</li>
+<li>x  用来检测的点的横坐标。</li>
+<li>y  用来检测的点的纵坐标。</li>
+<li>path  指Path2D对象。</li>
+</ul>
+<ol start="2">
+<li>案例<br>在Canvas画布上画两个圈圈，然后看看圈内圈外圈上这几个点的返回值是什么</li>
+</ol>
+<pre><code class="javascript">// 画一个圆
+context.arc(120, 120, 80, 0, Math.PI * 2);
+context.lineWidth = 5;
+context.stroke();
+// 用来测试的点坐标们
+var arrPoints = [&#123;
+    x: 40,
+    y: 40
+&#125;, point2 = &#123;
+    x: 120,
+    y: 180
+&#125;, point3 = &#123;
+    x: 120,
+    y: 38
+&#125;];
+arrPoints.forEach(function (point) &#123;
+    // 检测点是否在路径内
+    point.isPointInStroke = context.isPointInStroke(point.x, point.y);
+&#125;);
+arrPoints.forEach(function (point) &#123;
+    // 标记这几个点
+    context.fillStyle = &#39;red&#39;;
+    context.beginPath();
+    context.arc(point.x, point.y, 3, 0, Math.PI * 2);
+    context.fill();
+    // 检测结果以文本方式绘制
+    context.font = &#39;14px arial&#39;;
+    context.fillText(point.isPointInStroke, point.x + 5, point.y);
+&#125;);
+</code></pre>
+<h2 id="变换"><a href="#变换" class="headerlink" title="变换"></a>变换</h2><h3 id="rotate"><a href="#rotate" class="headerlink" title=".rotate()"></a>.rotate()</h3><p>旋转。</p>
+<ol>
+<li>语法</li>
+</ol>
+<pre><code class="javascript">context.rotate(angle);
+</code></pre>
+<ul>
+<li>angle  Canvas画布坐标系旋转的角度，单位是弧度。注意，此旋转和CSS3的旋转变换不一样，旋转的是坐标系，而非元素。因此，实际开发的时候，旋转完毕，需要将坐标系再还原。</li>
+</ul>
+<ol start="2">
+<li>案例</li>
+</ol>
+<ul>
+<li>基本旋转</li>
+</ul>
+<pre><code class="javascript">// 旋转45度
+context.rotate(45 * Math.PI / 180);
+// 字体填充
+context.font = &#39;20px STHeiti, SimHei&#39;;
+context.fillText(&#39;旋转，跳跃，我闭着眼&#39;, 60, -40, 188);
+// 重置当前的变换矩阵为初始态
+context.setTransform(1, 0, 0, 1, 0, 0);
+</code></pre>
+<ul>
+<li>画布和图片同步旋转</li>
+</ul>
+<pre><code class="html">&lt;canvas id=&quot;canvas2&quot; width=&quot;200&quot; height=&quot;300&quot;&gt;&lt;/canvas&gt;
+</code></pre>
+<pre><code class="javascript">var context = canvas2.getContext(&#39;2d&#39;);
+var width = canvas2.width;
+var height = canvas2.height;
+// 加载图片素材
+var img = new Image();
+img.onload = function () &#123;
+    // 先位移坐标到中心
+    context.translate(width / 2, height / 2);
+    // 旋转90度
+    context.rotate(90 * Math.PI / 180);
+    // 此时按照旋转后的尺寸
+    // 把定位中心移动到左上角
+    context.translate(-1 * height / 2, -1 * width / 2);
+    // 绘制图片
+    context.drawImage(this, 0, 0, height, width);
+    // 坐标系还原到初始
+    context.setTransform(1, 0, 0, 1, 0, 0);
+&#125;;
+img.src = &#39;./1.jpg&#39;;
+</code></pre>
+<h3 id="scale"><a href="#scale" class="headerlink" title=".scale()"></a>.scale()</h3><p>缩放。</p>
+<ol>
+<li>语法</li>
+</ol>
+<pre><code class="javascript">context.scale(x, y);
+</code></pre>
+<ul>
+<li>x  Canvas坐标系水平缩放的比例。支持小数，如果值是-1，表示水平翻转。</li>
+<li>y  Canvas坐标系垂直缩放的比例。支持小数，如果值是-1，表示垂直翻转。</li>
+</ul>
+<ol start="2">
+<li>案例</li>
+</ol>
+<ul>
+<li>基本使用</li>
+</ul>
+<pre><code class="javascript">// 显示绘制个正方形用来对比
+context.fillRect(10, 10, 10, 10);
+// 缩放
+context.scale(10, 3);
+// 再次绘制
+context.fillRect(10, 10, 10, 10);
+
+// 恢复坐标系
+context.setTransform(1, 0, 0, 1, 0, 0);
+</code></pre>
+<ul>
+<li>垂直翻转</li>
+</ul>
+<pre><code class="javascript">// 记住Canvas状态
+context.save();
+// 来来来，垂直翻转下
+context.scale(1, -1);
+// 填充文字
+context.font = &#39;32px STHeiti, SimHei&#39;;
+context.fillText(&#39;换个角度看世界&#39;, 36, -64);
+// 恢复状态，不要影响接下来的绘制
+context.restore();
+</code></pre>
+<h3 id="translate"><a href="#translate" class="headerlink" title=".translate()"></a>.translate()</h3><p>位移。</p>
+<ol>
+<li>语法</li>
+</ol>
+<pre><code class="javascript">context.translate(x, y);
+</code></pre>
+<ul>
+<li>x  坐标系水平位移的距离。</li>
+<li>y  坐标系垂直位移的距离。</li>
+</ul>
+<ol start="2">
+<li>案例<br>借助translate()方法，实现Canvas元素内容以Canvas画布的中心点为变换点进行旋转。</li>
+</ol>
+<pre><code class="html">&lt;canvas id=&quot;canvas&quot; width=&quot;300&quot; height=&quot;200&quot;&gt;&lt;/canvas&gt;
+</code></pre>
+<pre><code class="javascript">var img = new Image();
+img.onload = function () &#123;
+    var context = canvas.getContext(&#39;2d&#39;);
+    // 坐标位移
+    context.translate(150, 100);
+    // 旋转45度
+    context.rotate(45 * Math.PI / 180);
+    // 再位移回来
+    context.translate(-150, -100);
+    // 此时绘制图片就是中心旋转了
+    context.drawImage(this, 0, 0, 300, 200);
+
+    // 坐标系还原
+    context.setTransform(1, 0, 0, 1, 0, 0);
+&#125;;
+img.src = &#39;./1.jpg&#39;;
+</code></pre>
+<h3 id="transform"><a href="#transform" class="headerlink" title=".transform()"></a>.transform()</h3><p>当前矩阵变换基础上再次矩阵变换。</p>
+<ol>
+<li>语法</li>
+</ol>
+<pre><code class="javascript">context.transform(a, b, c, d, e, f);
+</code></pre>
+<ul>
+<li>a  水平缩放。</li>
+<li>b  水平斜切。</li>
+<li>c  垂直斜切。</li>
+<li>d  垂直缩放。</li>
+<li>e  水平位移。</li>
+<li>f  垂直位移。</li>
+</ul>
+<ol start="2">
+<li>案例<br>借助transform()方法绘制一个平行四边形</li>
+</ol>
+<pre><code class="javascript">context.transform(1, 0, 1, 1, 0, 0);
+context.fillRect(10, 20, 100, 100);
+</code></pre>
+<h3 id="setTransform"><a href="#setTransform" class="headerlink" title=".setTransform()"></a>.setTransform()</h3><p>直接重置为当前设置的矩阵变换。(此方法和transform()方法的区别在于，后者不会完全重置已有的变换，而是累加。)</p>
+<ol>
+<li>语法</li>
+</ol>
+<pre><code class="javascript">context.setTransform(a, b, c, d, e, f);
+</code></pre>
+<ul>
+<li>a  水平缩放。</li>
+<li>b  水平斜切。</li>
+<li>c  垂直斜切。</li>
+<li>d  垂直缩放。</li>
+<li>e  水平位移。</li>
+<li>f  垂直位移。</li>
+</ul>
+<ol start="2">
+<li>案例<br>借助setTransform()方法绘制一个平行四边形</li>
+</ol>
+<pre><code class="javascript">context.setTransform(1, 0, 1, 1, 0, 0);
+context.fillRect(10, 20, 100, 100);
+</code></pre>
+<h2 id="透明度和层级"><a href="#透明度和层级" class="headerlink" title="透明度和层级"></a>透明度和层级</h2><h3 id="globalAlpha"><a href="#globalAlpha" class="headerlink" title=".globalAlpha"></a>.globalAlpha</h3><p>全局透明度。</p>
+<blockquote>
+<p>对于纯色图形的绘制，如果需要用到半透明或者不透明，建议使用RGBA或者HSLA色值进行控制，比使用globalAlpha方便，因为按照我个人的使用经验，使用globalAlpha设置透明度之后都是需要再进行还原设置的，而直接使用RGBA或者HSLA色值则没有这样的重置操作。<br>但是，如果是绘制图片，借助globalAlpha属性是更好的选择</p>
+</blockquote>
+<ol>
+<li>语法</li>
+</ol>
+<pre><code class="javascript">context.globalAlpha = value;
+</code></pre>
+<ul>
+<li>value  value就是设置的全局透明度，范围是0到1，范围以外的值会被忽略。</li>
+</ul>
+<ol start="2">
+<li>案例<br>先绘制半透明图片，再绘制不透明文字</li>
+</ol>
+<pre><code class="javascript">// 先存储当前的上下文状态
+context.save();
+// 设置图片半透明
+context.globalAlpha = 0.5;
+// 绘制图片
+context.drawImage(img, 0, 0);
+// 透明度还原
+context.restore();
+// 然后绘制文字
+context.font = &#39;48px serif&#39;;
+context.fillText(&#39;标题&#39;, 96, 90);
+</code></pre>
+<p>这里globalAlpha的重置用的是Canvas独有的save()和restore()组合，这两个组合方法可以还原所有Canvas上下文状态，不只是透明度。在本例中，就只有透明度，因此，我们使用context.globalAlpha &#x3D; 1重置也是可以的。</p>
+<h3 id="globalCompositeOperation"><a href="#globalCompositeOperation" class="headerlink" title=".globalCompositeOperation"></a>.globalCompositeOperation</h3><p>设置图形叠加时候的混合方式，可以用来改变绘制元素上下叠加关系，也就是层级。</p>
+<ol>
+<li>语法</li>
+</ol>
+<pre><code class="javascript">context.globalCompositeOperation = type;
+</code></pre>
+<p>type有以下参数值：</p>
+<ul>
+<li>source-over  绘制图形的默认混合方式，直接在现有图形的上方绘制，纯视觉覆盖。</li>
+<li>source-in  仅在和原Canvas图形重叠的位置绘制新图形，否则处理为透明。如果重叠位置是半透明颜色，则也处理为半透明。此效果类似遮罩，新内容为显示层，原内容是遮罩层，遮罩层无论张什么样子，都不显示。</li>
+<li>source-out  和source-in相反，重叠的位置是透明的，不重叠的或者半透明的重叠区域反而显示新图形。同样，原内容无论性质如何，最终效果都不会出现。</li>
+<li>source-atop  尽在新内容与原内容重叠的位置进行类似遮罩的绘制，如果们没有重叠的位置，则原封不动，这个和source-in区别在于source-in就算与原内容不重叠，原内容也永远不会显示，但source-atop会保留。</li>
+<li>destination-over  destination- * 系列和source- * 系列的区别就是动作的主体是新内容还是原内容。source- * 系列是新内容，而destination- * 系列动作主体是元内容。例如这里的destination-over表示原内容在上方，也就是新内容在原内容的下方绘制。</li>
+<li>destination-in  显示原内容和新内容重叠的部分。</li>
+<li>destination-out  隐藏原内容和新内容重叠的部分。</li>
+<li>destination-atop  原内容只显示和新内容重叠的部分，同时新内容在下方显示。</li>
+<li>lighter  无论是哪种语言，哪种工具的混合模式，其实概念都类似的。如果这里的lighter等同于Adobe Photoshop中lighter color的话，则这个属性值可以理解为自然光混合效果。红绿蓝混合会成为白色。其色值混合原理如下，比较新内容和原内容颜色的所有通道值的总和，并显示更高值的颜色。例如，红色RGB(255,0,0)和蓝色RGB(0,0,255)进行混合，则最终颜色值是RGB(255,0,255)，也就是紫色。实际取色发现还是和PS还是有些出入的，并不是纯紫色。因此，这里的理解并不一定完全准确，仅供参考。</li>
+<li>copy  只显示新内容。</li>
+<li>xor  互相重叠的区域是透明的。</li>
+<li>multiply  正片叠底。顶层的像素与底层的对应像素相乘。结果是一幅更黑暗的图画。</li>
+<li>screen  滤色。像素反转，相乘，然后再反转。最终得到更淡的图形（和multiply相反）。</li>
+<li>overlay  叠加。multiply和screen组合效果。基础图层上暗的部分更暗，亮的部分更亮。</li>
+<li>darken  变暗。保留原内容和新内容中最暗的像素。</li>
+<li>lighten  变亮。保留原内容和新内容中最亮的像素。</li>
+<li>color-dodge  颜色减淡。底部图层色值除以顶部图层的反相色值。</li>
+<li>color-burn  颜色加深。底部图层的色值除以顶部图层色值，得到的结果再反相。</li>
+<li>hard-light  强光。类似overlay，是multiply和screen组合效果。只不过底层和顶层位置交换下。</li>
+<li>soft-light  柔光。hard-light的柔和版本。纯黑色或白色不会生成为纯黑色或白色。</li>
+<li>difference  差异。顶层色值减去底层色值的绝对值。如果都是白色，则最后是黑色，因为值为0；什么时候是白色呢，例如RGB(255,0,0)和RGB(0,255,255)，色值相减后绝对值是RGB(255,255,255)。</li>
+<li>exclusion  排除。类似difference，不过对比度较低。</li>
+<li>hue  色调。最终的颜色保留底层的亮度和色度，同时采用顶层的色调。</li>
+<li>saturation  饱和度。最终的颜色保留底层的亮度和色调，同时采用顶层的色度。</li>
+<li>color  色值。最终的颜色保留底层的亮度，同时采用顶层的色调和色度。</li>
+<li>luminosity  亮度。最终的颜色保留底层的色调和色度，同时采用顶层的亮度。</li>
+</ul>
+<ol start="2">
+<li>案例</li>
+</ol>
+<ul>
+<li>文字镂空效果</li>
+</ul>
+<pre><code class="javascript">// 绘制图片
+context.drawImage(img, 0, 0, 300, 200);
+// 改变混合方式
+context.globalCompositeOperation = &#39;destination-out&#39;;
+// 绘制文本
+context.font = &#39;bold 120px SimHei, STHeiti&#39;;
+context.fillText(&#39;镂空&#39;, 25, 140);
+</code></pre>
+<ul>
+<li>给图片增加装饰效果</li>
+</ul>
+<pre><code class="javascript">// 绘制底图
+context.drawImage(imgBase, 0, 0, 300, 200);
+// 设置混合模式为滤色
+context.globalCompositeOperation = &#39;screen&#39;;
+// 绘制装饰图
+context.drawImage(imgScreen, 0, 0, 300, 200);
+</code></pre>
+<h2 id="图片与像素"><a href="#图片与像素" class="headerlink" title="图片与像素"></a>图片与像素</h2><h3 id="drawImage"><a href="#drawImage" class="headerlink" title=".drawImage()"></a>.drawImage()</h3><p>图片绘制在画布上。</p>
+<ol>
+<li>语法</li>
+</ol>
+<pre><code class="javascript">context.drawImage(image, dx, dy);
+context.drawImage(image, dx, dy, dWidth, dHeight);
+context.drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight);
+</code></pre>
+<ul>
+<li>image  绘制在Canvas上的元素，可以是各类Canvas图片资源，如img图片，SVG图像，Canvas元素本身等。</li>
+<li>dx  在Canvas画布上规划一片区域用来放置图片，dx就是这片区域的左上角横坐标。</li>
+<li>dy  在Canvas画布上规划一片区域用来放置图片，dy就是这片区域的左上角纵坐标。</li>
+<li>dWidth  在Canvas画布上规划一片区域用来放置图片，dWidth就是这片区域的宽度。</li>
+<li>dHeight  在Canvas画布上规划一片区域用来放置图片，dHeight就是这片区域的高度。</li>
+<li>sx  表示图片元素绘制在Canvas画布上起始横坐标。</li>
+<li>sy  表示图片元素绘制在Canvas画布上起始纵坐标。</li>
+<li>sWidth  表示图片元素从坐标点开始算，多大的宽度内容绘制Canvas画布上。</li>
+<li>sHeight  表示图片元素从坐标点开始算，多大的高度内容绘制Canvas画布上。</li>
+</ul>
+<ol start="2">
+<li>案例</li>
+</ol>
+<ul>
+<li>保持原始图片尺寸和比例</li>
+</ul>
+<pre><code class="javascript">context.drawImage(image, 0, 0);
+</code></pre>
+<ul>
+<li>拉伸图片到指定大小和位置</li>
+</ul>
+<pre><code class="javascript">context.drawImage(image, 0, 0, 300, 150);
+</code></pre>
+<ul>
+<li>拉伸图片同时保持图片比例</li>
+</ul>
+<pre><code class="javascript">context.drawImage(image, 0, 42, 500, 250, 0, 0, 300, 150);
+</code></pre>
+<h3 id="createImageData"><a href="#createImageData" class="headerlink" title=".createImageData()"></a>.createImageData()</h3><p>创建一个新的空白的ImageData对象。</p>
+<ol>
+<li>语法</li>
+</ol>
+<pre><code class="javascript">context.createImageData(width, height); 
+context.createImageData(imagedata);
+</code></pre>
+<ul>
+<li>width  ImageData对象包含的width值。如果ImageData对象转换成图像，则此width也是最终图像呈现的宽度。</li>
+<li>height  ImageData对象包含的height值。如果ImageData对象转换成图像，则此height也是最终图像呈现的高度。</li>
+<li>imagedata  一个存在的ImageData对象，只会使用该ImageData对象中的width和height值，包含的像素信息会全部转换为透明黑。</li>
+</ul>
+<ol start="2">
+<li>案例<br>使用createImageData()方法创建一个图像，例如，所有位置是5的倍数的地方我们塞入一个绿色颜色值，这样可以得到一个点阵图效果</li>
+</ol>
+<pre><code class="html">&lt;canvas id=&quot;canvas&quot;&gt;&lt;/canvas&gt;
+</code></pre>
+<pre><code class="javascript">// 绘制在Canvas上
+var context = canvas.getContext(&#39;2d&#39;);
+var imagedata = context.createImageData(300, 150);
+// 给对应坐标位置的数据设置色值为绿色
+for (var x = 1; x &lt;= 300; x+=5) &#123;
+    for (var y = 1; y &lt;= 150; y+= 5) &#123;
+        var index = 4 * ((y - 1) * 300 + (x - 1));
+        // 变为绿色，色值依次是0, 128, 0, 256
+        imagedata.data[index] = 0;
+        imagedata.data[index + 1] = 128;
+        imagedata.data[index + 2] = 0;
+        imagedata.data[index + 3] = 256;
+    &#125;
+&#125;
+// 再重绘
+context.putImageData(imagedata, 0, 0);
+</code></pre>
+<h3 id="getImageData"><a href="#getImageData" class="headerlink" title=".getImageData()"></a>.getImageData()</h3><p>获取Canvas画布的设定区域的ImageData对象。</p>
+<ol>
+<li>语法</li>
+</ol>
+<pre><code class="javascript">context.getImageData(sx, sy, sWidth, sHeight);
+</code></pre>
+<ul>
+<li>sx  需要返回的图像数据区域的起始横坐标。</li>
+<li>sy  需要返回的图像数据区域的起始纵坐标。</li>
+<li>sWidth  需要返回的图像数据区域的宽度。</li>
+<li>sHeight  需要返回的图像数据区域的高度。</li>
+</ul>
+<ol start="2">
+<li>案例<br>绘制一张图片到Canvas画布上，然后把中间100*100区域变成灰色。</li>
+</ol>
+<pre><code class="html">&lt;canvas id=&quot;canvas&quot; width=&quot;250&quot; height=&quot;167&quot;&gt;&lt;/canvas&gt;
+</code></pre>
+<pre><code class="javascript">var img = new Image();
+img.onload = function () &#123;
+    var context = canvas.getContext(&#39;2d&#39;);
+    // 图片绘制
+    context.drawImage(this, 0, 0, 250, 167);
+    // 然后获取中间100*100区域数据
+    var imageData = context.getImageData(75, 34, 100, 100);
+    var length = imageData.data.length;
+    for (var index = 0; index &lt; length; index += 4) &#123;
+        var r = imageData.data[index];
+        var g = imageData.data[index + 1];
+        var b = imageData.data[index + 2];
+        // 计算灰度
+        var gray = r * 0.299 + g * 0.587 + b * 0.114;
+        imageData.data[index] = gray;
+        imageData.data[index + 1] = gray;
+        imageData.data[index + 2] = gray;
+    &#125;
+    // 更新新数据
+    context.putImageData(imageData, 75, 34);
+&#125;;
+img.src = &#39;./1.jpg&#39;;
+</code></pre>
+<h3 id="putImageData"><a href="#putImageData" class="headerlink" title=".putImageData()"></a>.putImageData()</h3><p>给定的ImageData对象应用在Canvas画布上。</p>
+<ol>
+<li>语法</li>
+</ol>
+<pre><code class="javascript">context.putImageData(imagedata, dx, dy);
+context.putImageData(imagedata, dx, dy, dirtyX, dirtyY, dirtyWidth, dirtyHeight);
+</code></pre>
+<ul>
+<li>imagedata  包含图像像素信息的ImageData对象。</li>
+<li>dx  目标Canvas中被图像数据替换的起点横坐标。</li>
+<li>dy  目标Canvas中被图像数据替换的起点纵坐标。</li>
+<li>dirtyX  （可选）图像数据渲染区域的左上角横坐标。默认值是0。</li>
+<li>dirtyY  （可选）图像数据渲染区域的左上角纵坐标。默认值是0。</li>
+<li>dirtyWidth  （可选）图像数据渲染区域的宽度。默认值是imagedata图像的宽度。</li>
+<li>dirtyHeight  （可选）图像数据渲染区域的高度。默认值是imagedata图像的高度。</li>
+<li></li>
+<li></li>
+</ul>
+<ol start="2">
+<li>案例<br>使用getImageData()方法获取imagedata数据源，然后仅中心100*100区域替换原始Canvas。</li>
+</ol>
+<pre><code class="html">&lt;img id=&quot;image1&quot; src=&quot;./1.jpg&quot; alt=&quot;目标图片&quot;&gt;
+&lt;img id=&quot;image2&quot; src=&quot;./1.jpg&quot; alt=&quot;数据源图片&quot;&gt;
+
+&lt;canvas id=&quot;canvas&quot; width=&quot;300&quot; height=&quot;200&quot;&gt;&lt;/canvas&gt;
+</code></pre>
+<pre><code class="javascript">// 尺寸
+var width = 300, height = 200;
+// 目标Canvas上下文
+var context = canvas.getContext(&#39;2d&#39;);
+// 目标Canvas绘制
+context.drawImage(image1, 0, 0, width, height);
+// 获取覆盖图数据
+var dirtyCanvas = document.createElement(&#39;canvas&#39;);
+var dirtyContext = dirtyCanvas.getContext(&#39;2d&#39;);
+// 设置屏幕外Canvas尺寸
+dirtyCanvas.width = width;
+dirtyCanvas.height = height;
+// 绘制替换图
+dirtyContext.drawImage(image2, 0, 0, width, height);
+// 此时可以得到imagedata数据
+var imagedata = dirtyContext.getImageData(0, 0, width, height);
+// 然后中间100*100区域替换目标Canvas
+context.putImageData(imagedata, 0, 0, 100, 50, 100, 100);
+</code></pre>
+<h2 id="Canvas状态"><a href="#Canvas状态" class="headerlink" title="Canvas状态"></a>Canvas状态</h2><h3 id="save"><a href="#save" class="headerlink" title=".save()"></a>.save()</h3><p>存储当前Canvas的状态。</p>
+<ol>
+<li>语法</li>
+</ol>
+<pre><code class="javascript">context.save();
+</code></pre>
+<ol start="2">
+<li>案例<br>先存储默认的Canvas状态，再还原，可以看到填充颜色变成了默认的黑色了。</li>
+</ol>
+<pre><code class="javascript">// 保存初始Canvas状态
+context.save();
+// 设置红色填充
+context.fillStyle = &#39;red&#39;;
+// 矩形填充
+context.fillRect(20, 20, 100, 60);
+// 还原在绘制
+context.restore();
+// 矩形填充again
+context.fillRect(180, 60, 100, 60);
+</code></pre>
+<h3 id="restore"><a href="#restore" class="headerlink" title=".restore()"></a>.restore()</h3><p>恢复Canvas到前一次存储的状态。</p>
+<ol>
+<li>语法</li>
+</ol>
+<pre><code class="javascript">context.restore();
+</code></pre>
+<ol start="2">
+<li>案例<br>点击“保存”按钮，我们不断递增改变Canvas上下文的font属性值，然后执行save()方法存储当前Canvas状态，然后点击“恢复”按钮执行restore()进行恢复。</li>
+</ol>
+<pre><code class="html">&lt;input id=&quot;save&quot; type=&quot;submit&quot; value=&quot;保存&quot;&gt;
+&lt;input id=&quot;restore&quot; type=&quot;reset&quot; value=&quot;恢复&quot;&gt;
+
+&lt;canvas id=&quot;canvas&quot;&gt;&lt;/canvas&gt;
+</code></pre>
+<pre><code class="javascript">var context = canvas.getContext(&#39;2d&#39;);
+// 初始字体大小
+var fontSize = 16;
+// 初始文字填充
+context.font = fontSize + &#39;px arial&#39;;
+context.fillText(&#39;观察字号大小&#39;, 10, 80);
+
+// 按钮事件
+save.addEventListener(&#39;click&#39;, function () &#123;
+    context.clearRect(0, 0, 300, 150);
+    // 状态继续存储
+    context.save();
+    // 字号递增
+    fontSize++;
+    context.font = fontSize + &#39;px arial&#39;;
+    context.fillText(&#39;观察字号大小&#39;, 10, 80);        
+&#125;);
+restore.addEventListener(&#39;click&#39;, function () &#123;
+    context.clearRect(0, 0, 300, 150);
+    // 字号递减
+    fontSize--;
+    // 恢复上一次状态
+    context.restore();
+    // 看看现在字号大小
+    context.fillText(&#39;观察字号大小&#39;, 10, 80);
+&#125;);
+</code></pre>
+<h3 id="canvas"><a href="#canvas" class="headerlink" title=".canvas"></a>.canvas</h3><p>反向识别当前上下文源自哪个HTMLCanvasElement。</p>
+<ol>
+<li>语法</li>
+</ol>
+<pre><code class="javascript">var canvas = context.canvas;
+</code></pre>
+<ol start="2">
+<li>案例<br>扩展一个名为fullCircle()按照最短边画圆的Canvas上下文方法，此时需要知道Canvas的尺寸，此时canvas属性就派上用场了：</li>
+</ol>
+<pre><code class="html">&lt;canvas&gt;&lt;/canvas&gt;
+</code></pre>
+<pre><code class="javascript">CanvasRenderingContext2D.prototype.fullCircle = function (style) &#123;
+    // 反向获取当前上下文源Canavs元素
+    var canvas = this.canvas;
+    // 获取最短边半径
+    var minRadius = Math.min(canvas.width, canvas.height) / 2;
+    // 使用arc() API绘制圆
+    this.fillStyle = style || &#39;#000&#39;;
+    // 绘制
+    this.beginPath();
+    this.arc(canvas.width / 2, canvas.height / 2, minRadius, 0, 2 * Math.PI);
+    this.fill();
+&#125;;
+
+// 调用
+document.querySelector(&#39;canvas&#39;).getContext(&#39;2d&#39;).fullCircle(&#39;red&#39;);
+</code></pre>
+<h2 id="其他方法"><a href="#其他方法" class="headerlink" title="其他方法"></a>其他方法</h2><p>其他一些不常用的API方法。</p>
+<h3 id="drawFocusIfNeeded"><a href="#drawFocusIfNeeded" class="headerlink" title=".drawFocusIfNeeded()"></a>.drawFocusIfNeeded()</h3><p>如果给定元素被聚焦，则该方法在当前路径周围绘制焦点环。</p>
+<ol>
+<li>语法</li>
+</ol>
+<pre><code class="javascript">context.drawFocusIfNeeded(element);
+context.drawFocusIfNeeded(path, element);
+</code></pre>
+<ul>
+<li>element  用来检测当前是否处于focus状态的元素。此元素需要原本就是可聚焦的元素，例如按钮或者链接或者输入框等。然后，还需要放置在canvas标签中才有用。</li>
+<li>path  指Path2D对象。</li>
+</ul>
+<ol start="2">
+<li>案例<br>点击画布中的2个圈圈元素，此时会触发canvas包裹的对应的button按钮的focus态，然后Canvas圈圈呈现高亮效果，此高亮效果为系统自动，可以描绘出各种曲线。</li>
+</ol>
+<pre><code class="html">&lt;canvas id=&quot;canvas&quot; width=&quot;240&quot; height=&quot;120&quot;&gt;
+    &lt;button id=&quot;button1&quot;&gt;按钮1&lt;/button&gt;
+    &lt;button id=&quot;button2&quot;&gt;按钮2&lt;/button&gt;
+&lt;/canvas&gt;
+</code></pre>
+<pre><code class="javascript">// 两个按钮元素
+var button1 = document.getElementById(&#39;button1&#39;);
+var button2 = document.getElementById(&#39;button2&#39;);
+// canvas元素和上下文
+var canvas = document.querySelector(&#39;#canvas&#39;);
+var context = canvas.getContext(&#39;2d&#39;);
+var draw = function () &#123;
+    context.clearRect(0, 0, 240, 120);
+    // 设置字体样式
+    context.font = &#39;16px STHeiti, SimHei&#39;;
+    context.textAlign = &#39;center&#39;;
+    context.textBaseline = &#39;middle&#39;;
+    // 绘制两个圆和文字
+    context.beginPath();
+    context.arc(60, 60, 50, 0, Math.PI * 2);
+    context.fillStyle = &#39;red&#39;;
+    context.fill();
+    context.fillStyle = &#39;white&#39;;
+    context.fillText(&#39;按钮1&#39;, 60, 60);
+    context.drawFocusIfNeeded(button1);
+
+    context.beginPath();
+    context.arc(180, 60, 50, 0, Math.PI * 2);
+    context.fillStyle = &#39;green&#39;;
+    context.fill();
+    context.fillStyle = &#39;white&#39;;
+    context.fillText(&#39;按钮2&#39;, 180, 60);
+    context.drawFocusIfNeeded(button2);
+&#125;;
+draw();
+
+// 点击canvas元素
+canvas.addEventListener(&#39;click&#39;, function (event) &#123;
+    // 通过点击位置判断点击是哪个圈圈
+    var x = event.clientX - canvas.getBoundingClientRect().left;
+    var y = event.clientY - canvas.getBoundingClientRect().top;
+    // 距离两个圈圈圆心的距离
+    var distance1 = Math.sqrt((60 - x) * (60 - x) + (60 - y) * (60 - y));
+    var distance2 = Math.sqrt((180 - x) * (180 - x) + (60 - y) * (60 - y));
+    // 根据距离和半径大小判断是否在圈内
+    if (distance1 &lt;= 50) &#123;
+        button1.focus();
+        draw();
+    &#125; else if (distance2 &lt; 50) &#123;
+        button2.focus();
+        draw();
+    &#125;
+&#125;);
+</code></pre>
+<h3 id="scrollPathIntoView"><a href="#scrollPathIntoView" class="headerlink" title=".scrollPathIntoView()"></a>.scrollPathIntoView()</h3><p>将当前路径或给定路径滚动到视图中。</p>
+<blockquote>
+<p>注意，这个功能在当前的浏览器标准中可能还未被广泛实现或支持。该方法旨在允许开发者将指定的路径（path）滚动到视口（viewport）内，使得该路径对用户可见。</p>
+</blockquote>
+<ol>
+<li>语法</li>
+</ol>
+<pre><code class="javascript">context.scrollPathIntoView();
+context.scrollPathIntoView(path);
+</code></pre>
+<ul>
+<li>path  指Path2D对象。</li>
+</ul>
+<ol start="2">
+<li>案例</li>
+</ol>
+<pre><code class="html">&lt;canvas id=&quot;canvas&quot;&gt;&lt;/canvas&gt;
+</code></pre>
+<pre><code class="javascript">const canvas = document.getElementById(&#39;canvas&#39;);
+const ctx = canvas.getContext(&#39;2d&#39;);
+
+ctx.beginPath();
+ctx.fillRect(10, 10, 30, 30);
+ctx.scrollPathIntoView();
+</code></pre>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Ron.</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://github.zzp0322.cn/2024/11/05/frontend-canvas-canvasrenderingcontext2d/">https://github.zzp0322.cn/2024/11/05/frontend-canvas-canvasrenderingcontext2d/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Ron.</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Canvas/">
+                                    <span class="chip bg-color">Canvas</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2024/11/05/frontend-canvas-canvasrenderingcontext2d/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="CanvasRenderingContext2D">
+                        
+                        <span class="card-title">CanvasRenderingContext2D</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-11-05
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/FrontEnd/" class="post-category">
+                                    FrontEnd
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Canvas/">
+                        <span class="chip bg-color">Canvas</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/11/01/frontend-canvas-htmlcanvaselement/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="HTMLCanvasElement">
+                        
+                        <span class="card-title">HTMLCanvasElement</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-11-01
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/FrontEnd/" class="post-category">
+                                    FrontEnd
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Canvas/">
+                        <span class="chip bg-color">Canvas</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2022-2024</span>
+            
+            <a href="/about" target="_blank">Ron.</a>
+            |&nbsp;Powered by&nbsp;<a href="https://github.com/" target="_blank">Ron</a>
+            |&nbsp;<a href="https://beian.miit.gov.cn/" target="_blank">晋ICP备2022006345号</a>
+            
+            <br>
+            
+            
+            
+            
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link ">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+    <!-- 烟花 -->
+    
+        <canvas class="fireworks" style="position: fixed; left: 0; top: 0; z-index: 1; pointer-events: none;" ></canvas>
+        <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+        <script type="text/javascript" src="/js/fireworks.js"></script>
+    
+
+    <!-- 博客标签动态提示 -->
+    <script type="text/javascript">
+        var OriginTitile = document.title,st;
+        document.addEventListener("visibilitychange", function () {
+            document.hidden ? (document.title = "看不见我🙈~ 看不见我🙈~", clearTimeout(st)) : (document.title = "(๑•̀ㅂ•́) ✧被发现了～", st = setTimeout(function () {
+                document.title = OriginTitile
+            }, 3e3))
+        })
+    </script>
+    
+    <!-- 屏蔽网页源码 -->
+    <script type="text/javascript">
+        window.onload = function(){
+            // 屏蔽键盘事件
+            document.onkeydown = function (){
+                var e = window.event || arguments[0];
+                //F12
+                if(e.keyCode == 123){
+                    return false;
+                //Ctrl+Shift+I
+                }else if((e.ctrlKey) && (e.shiftKey) && (e.keyCode == 73)){
+                    return false;
+                //Shift+F10
+                }else if((e.shiftKey) && (e.keyCode == 121)){
+                    return false;
+                //Ctrl+U
+                }else if((e.ctrlKey) && (e.keyCode == 85)){
+                    return false;
+                }
+            };
+            // 屏蔽鼠标右键
+            document.oncontextmenu = function (){
+                return false;
+            }
+        }
+    </script>
+</body>
+
+</html>

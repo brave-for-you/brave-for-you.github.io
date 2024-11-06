@@ -1,0 +1,1403 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="阿里云OSS对象存储接入, Ron">
+    <meta name="description" content="
+Python接入阿里云OSS对象存储基本内容，暂时只定了Windows和Linux下的接入处理，更多内容请参考阿里云OSS接入官方文档。
+
+环境支持环境OSS Python SDK适用于Python 2.6、2.7、3.3、3.4、3.5">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>阿里云OSS对象存储接入 | Ron</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+    <style>
+        body{
+            background-image: url(https://cdn.jsdelivr.net/gh/Tokisaki-Galaxy/res/site/medias/background.jpg);
+            background-repeat:no-repeat;
+            background-size: 100% 100%;
+            background-attachment:fixed;
+        }
+    </style>
+
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Ron</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Ron</div>
+        <div class="logo-desc">
+            
+            Welcome to Ron&#39;s Notes.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">阿里云OSS对象存储接入</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/OSS%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8/">
+                                <span class="chip bg-color">OSS对象存储</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Python/" class="post-category">
+                                Python
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-10-23
+                </div>
+                
+
+                
+                <!--添加作者信息-->
+                <div class="info-break-policy">
+                    
+                        <i class="fa fa-pencil"></i> 作者: Ron.
+                    
+                </div>
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <blockquote>
+<p>Python接入阿里云OSS对象存储基本内容，暂时只定了Windows和Linux下的接入处理，更多内容请参考阿里云OSS接入官方文档。</p>
+</blockquote>
+<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><h3 id="支持环境"><a href="#支持环境" class="headerlink" title="支持环境"></a>支持环境</h3><p>OSS Python SDK适用于Python 2.6、2.7、3.3、3.4、3.5、3.6、3.7、3.8及以上版本</p>
+<blockquote>
+<p>ps: windows系统下安装Python SDK时，需确保Visual C++版本为15.0或以上</p>
+</blockquote>
+<h3 id="当前使用环境"><a href="#当前使用环境" class="headerlink" title="当前使用环境"></a>当前使用环境</h3><p>名称 | 版本 | 备注<br>— | —<br>python | 3.11.1<br>pip | 24.0<br>python-devel | 3.11 | CentOS需要安装，Windows不需要</p>
+<h2 id="OSS-Python-SDK"><a href="#OSS-Python-SDK" class="headerlink" title="OSS Python SDK"></a>OSS Python SDK</h2><h3 id="SDK下载"><a href="#SDK下载" class="headerlink" title="SDK下载"></a>SDK下载</h3><p><a target="_blank" rel="noopener" href="https://github.com/aliyun/aliyun-oss-python-sdk">通过GitHub下载</a><br><a target="_blank" rel="noopener" href="https://github.com/aliyun/aliyun-oss-python-sdk/releases">历史版本下载</a></p>
+<h3 id="SDK安装"><a href="#SDK安装" class="headerlink" title="SDK安装"></a>SDK安装</h3><h4 id="pip"><a href="#pip" class="headerlink" title="pip"></a>pip</h4><pre><code class="shell">pip3 install oss2
+</code></pre>
+<h4 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h4><ol>
+<li>下载最新版本的OSS Python SDK，解压后进入目录，确认目录下有setup.py文件。</li>
+<li>执行以下命令安装OSS Python SDK。</li>
+</ol>
+<pre><code class="shell">python3 setup.py install
+</code></pre>
+<h3 id="验证SDK"><a href="#验证SDK" class="headerlink" title="验证SDK"></a>验证SDK</h3><ol>
+<li>执行以下命进入Python环境。</li>
+</ol>
+<pre><code class="shell">python3
+</code></pre>
+<ol start="2">
+<li>执行以下命令查看OSS Python SDK版本。</li>
+</ol>
+<pre><code class="shell">import oss2
+oss2.__version__
+</code></pre>
+<ol start="3">
+<li>成功返回示例</li>
+</ol>
+<pre><code class="shell">&#39;2.18.3&#39;
+</code></pre>
+<h2 id="上传文件"><a href="#上传文件" class="headerlink" title="上传文件"></a>上传文件</h2><h3 id="简单上传"><a href="#简单上传" class="headerlink" title="简单上传"></a>简单上传</h3><p>简单上传默认会覆盖同名Object</p>
+<pre><code class="python"># -*- coding: utf-8 -*-
+import oss2
+import os
+from oss2.credentials import EnvironmentVariableCredentialsProvider
+
+# 从环境变量中获取访问凭证。运行本代码示例之前，请确保已设置环境变量OSS_ACCESS_KEY_ID和OSS_ACCESS_KEY_SECRET。
+auth = oss2.ProviderAuth(EnvironmentVariableCredentialsProvider())
+# yourEndpoint填写Bucket所在地域对应的Endpoint。以华东1（杭州）为例，Endpoint填写为https://oss-cn-hangzhou.aliyuncs.com。
+# 填写Bucket名称。
+bucket = oss2.Bucket(auth, &#39;https://oss-cn-hangzhou.aliyuncs.com&#39;, &#39;examplebucket&#39;)
+
+# 必须以二进制的方式打开文件。
+# 填写本地文件的完整路径。如果未指定本地路径，则默认从示例程序所属项目对应本地路径中上传文件。
+with open(&#39;D:\\localpath\\examplefile.txt&#39;, &#39;rb&#39;) as fileobj:
+    # Seek方法用于指定从第1000个字节位置开始读写。上传时会从您指定的第1000个字节位置开始上传，直到文件结束。
+    fileobj.seek(1000, os.SEEK_SET)
+    # Tell方法用于返回当前位置。
+    current = fileobj.tell()
+    # 填写Object完整路径。Object完整路径中不能包含Bucket名称。
+    bucket.put_object(&#39;exampleobject.txt&#39;, fileobj)
+</code></pre>
+<h3 id="表单上传"><a href="#表单上传" class="headerlink" title="表单上传"></a>表单上传</h3><p>通过表单上传的方式上传的Object大小不能超过5 GB。</p>
+<pre><code class="python">import os
+from hashlib import sha1 as sha
+import json
+import base64
+import hmac
+import datetime
+import time
+
+# 配置环境变量OSS_ACCESS_KEY_ID。
+access_key_id = os.environ.get(&#39;OSS_ACCESS_KEY_ID&#39;)
+# 配置环境变量OSS_ACCESS_KEY_SECRET。
+access_key_secret = os.environ.get(&#39;OSS_ACCESS_KEY_SECRET&#39;)
+# 将&lt;YOUR_BUCKET&gt;替换为Bucket名称。
+bucket = &#39;&lt;YOUR_BUCKET&gt;&#39;
+# host的格式为bucketname.endpoint。将&lt;YOUR_BUCKET&gt;替换为Bucket名称。将&lt;YOUR_ENDPOINT&gt;替换为OSS Endpoint，例如oss-cn-hangzhou.aliyuncs.com。
+host = &#39;https://&lt;YOUR_BUCKET&gt;.&lt;YOUR_ENDPOINT&gt;&#39;
+# 指定上传到OSS的文件前缀。
+upload_dir = &#39;user-dir-prefix/&#39;
+# 指定过期时间，单位为秒。
+expire_time = 3600
+
+
+def generate_expiration(seconds):
+    &quot;&quot;&quot;
+    通过指定有效的时长（秒）生成过期时间。
+    :param seconds: 有效时长（秒）。
+    :return: ISO8601 时间字符串，如：&quot;2014-12-01T12:00:00.000Z&quot;。
+    &quot;&quot;&quot;
+    now = int(time.time())
+    expiration_time = now + seconds
+    gmt = datetime.datetime.utcfromtimestamp(expiration_time).isoformat()
+    gmt += &#39;Z&#39;
+    return gmt
+
+
+def generate_signature(access_key_secret, expiration, conditions, policy_extra_props=None):
+    &quot;&quot;&quot;
+    生成签名字符串Signature。
+    :param access_key_secret: 有权限访问目标Bucket的AccessKeySecret。
+    :param expiration: 签名过期时间，按照ISO8601标准表示，并需要使用UTC时间，格式为yyyy-MM-ddTHH:mm:ssZ。示例值：&quot;2014-12-01T12:00:00.000Z&quot;。
+    :param conditions: 策略条件，用于限制上传表单时允许设置的值。
+    :param policy_extra_props: 额外的policy参数，后续如果policy新增参数支持，可以在通过dict传入额外的参数。
+    :return: signature，签名字符串。
+    &quot;&quot;&quot;
+    policy_dict = &#123;
+        &#39;expiration&#39;: expiration,
+        &#39;conditions&#39;: conditions
+    &#125;
+    if policy_extra_props is not None:
+        policy_dict.update(policy_extra_props)
+    policy = json.dumps(policy_dict).strip()
+    policy_encode = base64.b64encode(policy.encode())
+    h = hmac.new(access_key_secret.encode(), policy_encode, sha)
+    sign_result = base64.b64encode(h.digest()).strip()
+    return sign_result.decode()
+
+def generate_upload_params():
+    policy = &#123;
+        # 有效期。
+        &quot;expiration&quot;: generate_expiration(expire_time),
+        # 约束条件。
+        &quot;conditions&quot;: [
+            # 未指定success_action_redirect时，上传成功后的返回状态码，默认为 204。
+            [&quot;eq&quot;, &quot;$success_action_status&quot;, &quot;200&quot;],
+            # 表单域的值必须以指定前缀开始。例如指定key的值以user/user1开始，则可以写为[&quot;starts-with&quot;, &quot;$key&quot;, &quot;user/user1&quot;]。
+            [&quot;starts-with&quot;, &quot;$key&quot;, upload_dir],
+            # 限制上传Object的最小和最大允许大小，单位为字节。
+            [&quot;content-length-range&quot;, 1, 1000000],
+            # 限制上传的文件为指定的图片类型
+            [&quot;in&quot;, &quot;$content-type&quot;, [&quot;image/jpg&quot;, &quot;image/png&quot;]]
+        ]
+    &#125;
+    signature = generate_signature(access_key_secret, policy.get(&#39;expiration&#39;), policy.get(&#39;conditions&#39;))
+    response = &#123;
+        &#39;policy&#39;: base64.b64encode(json.dumps(policy).encode(&#39;utf-8&#39;)).decode(),
+        &#39;ossAccessKeyId&#39;: access_key_id,
+        &#39;signature&#39;: signature,
+        &#39;host&#39;: host,
+        &#39;dir&#39;: upload_dir
+        # 可以在这里再自行追加其他参数
+    &#125;
+    return json.dumps(response)
+</code></pre>
+<h3 id="上传回调"><a href="#上传回调" class="headerlink" title="上传回调"></a>上传回调</h3><ul>
+<li>目前仅简单上传（PutObject）、表单上传（PostObject）、完成分片上传（CompleteMultipartUpload）操作支持使用上传回调。</li>
+<li>上传回调旨在实现文件上传至OSS后，自动触发通知至业务服务器，以执行数据更新或发送通知等后续步骤。回调成功或失败不影响文件上传并保存至OSS。</li>
+</ul>
+<pre><code class="python"># -*- coding: utf-8 -*-
+import json
+import base64
+import oss2
+from oss2.credentials import EnvironmentVariableCredentialsProvider
+
+# 从环境变量中获取访问凭证。运行本代码示例之前，请确保已设置环境变量OSS_ACCESS_KEY_ID和OSS_ACCESS_KEY_SECRET。
+auth = oss2.ProviderAuth(EnvironmentVariableCredentialsProvider())
+# yourEndpoint填写Bucket所在地域对应的Endpoint。以华东1（杭州）为例，Endpoint填写为https://oss-cn-hangzhou.aliyuncs.com。
+# 填写Bucket名称。
+bucket = oss2.Bucket(auth, &#39;https://oss-cn-hangzhou.aliyuncs.com&#39;, &#39;examplebucket&#39;)
+
+# 定义回调参数Base64编码函数。
+def encode_callback(callback_params):
+    cb_str = json.dumps(callback_params).strip()
+    return oss2.compat.to_string(base64.b64encode(oss2.compat.to_bytes(cb_str)))
+
+# 设置上传回调参数。
+callback_params = &#123;&#125;
+# 设置回调请求的服务器地址，例如http://oss-demo.aliyuncs.com:23450。
+callback_params[&#39;callbackUrl&#39;] = &#39;http://oss-demo.aliyuncs.com:23450&#39;
+#（可选）设置回调请求消息头中Host的值，即您的服务器配置Host的值。
+#callback_params[&#39;callbackHost&#39;] = &#39;yourCallbackHost&#39;
+# 设置发起回调时请求body的值。
+callback_params[&#39;callbackBody&#39;] = &#39;bucket=$&#123;bucket&#125;&amp;object=$&#123;object&#125;&#39;
+# 设置发起回调请求的Content-Type。
+callback_params[&#39;callbackBodyType&#39;] = &#39;application/x-www-form-urlencoded&#39;
+encoded_callback = encode_callback(callback_params)
+# 设置发起回调请求的自定义参数，由Key和Value组成，Key必须以x:开始。
+callback_var_params = &#123;&#39;x:my_var1&#39;: &#39;my_val1&#39;, &#39;x:my_var2&#39;: &#39;my_val2&#39;&#125;
+encoded_callback_var = encode_callback(callback_var_params)
+
+# 上传回调。
+params = &#123;&#39;x-oss-callback&#39;: encoded_callback, &#39;x-oss-callback-var&#39;: encoded_callback_var&#125;
+# 填写Object完整路径和字符串。Object完整路径中不能包含Bucket名称。
+result = bucket.put_object(&#39;examplefiles/exampleobject.txt&#39;, &#39;a&#39;*1024*1024, params)
+</code></pre>
+<h3 id="上传进度条"><a href="#上传进度条" class="headerlink" title="上传进度条"></a>上传进度条</h3><pre><code class="python"># -*- coding: utf-8 -*-
+from __future__ import print_function
+import os, sys
+import oss2
+from oss2.credentials import EnvironmentVariableCredentialsProvider
+# 从环境变量中获取访问凭证。运行本代码示例之前，请确保已设置环境变量OSS_ACCESS_KEY_ID和OSS_ACCESS_KEY_SECRET。
+auth = oss2.ProviderAuth(EnvironmentVariableCredentialsProvider())
+# 填写Bucket所在地域对应的Endpoint。以华东1（杭州）为例，Endpoint填写为https://oss-cn-hangzhou.aliyuncs.com。
+# yourBucketName填写存储空间名称。
+bucket = oss2.Bucket(auth, &#39;https://oss-cn-hangzhou.aliyuncs.com&#39;, &#39;yourBucketName&#39;)
+# consumed_bytes表示已上传的数据量。
+# total_bytes表示待上传的总数据量。当无法确定待上传的数据长度时，total_bytes的值为None。
+def percentage(consumed_bytes, total_bytes):
+    if total_bytes:
+        rate = int(100 * (float(consumed_bytes) / float(total_bytes)))
+        print(&#39;\r&#123;0&#125;% &#39;.format(rate), end=&#39;&#39;)
+        sys.stdout.flush()
+# progress_callback为可选参数，用于实现进度条功能。
+bucket.put_object(&#39;yourObjectName&#39;, &#39;a&#39;*1024*1024, progress_callback=percentage)
+</code></pre>
+<h3 id="推流上传"><a href="#推流上传" class="headerlink" title="推流上传"></a>推流上传</h3><ol>
+<li>获取推流地址</li>
+</ol>
+<pre><code class="python"># -*- coding: utf-8 -*-
+import oss2
+from oss2.credentials import EnvironmentVariableCredentialsProvider
+
+# 从环境变量中获取访问凭证。运行本代码示例之前，请确保已设置环境变量OSS_ACCESS_KEY_ID和OSS_ACCESS_KEY_SECRET。
+auth = oss2.ProviderAuth(EnvironmentVariableCredentialsProvider())
+# 填写Bucket所在地域对应的Endpoint。以华东1（杭州）为例，Endpoint填写为https://oss-cn-hangzhou.aliyuncs.com。
+# 填写存储空间名称，例如examplebucket。
+bucket = oss2.Bucket(auth, &#39;https://oss-cn-hangzhou.aliyuncs.com&#39;, &#39;examplebucket&#39;)
+# 填写LiveChannel名称，例如test-channel。
+channel_name = &quot;test-channel&quot;
+channel_cfg = oss2.models.LiveChannelInfo(target = oss2.models.LiveChannelInfoTarget())
+channel = bucket.create_live_channel(channel_name, channel_cfg)
+publish_url = channel.publish_url
+# 生成RTMP推流的签名URL，并设置过期时间为3600秒。
+signed_publish_url = bucket.sign_rtmp_url(channel_name, &quot;playlist.m3u8&quot;, 3600)
+# 打印未签名推流地址。
+print(&#39;publish_url=&#39;+publish_url)
+# 打印签名推流地址。
+print(&#39;signed_publish_url=&#39;+signed_publish_url)
+</code></pre>
+<ol start="2">
+<li>使用推流地址向OSS推送音视频数据。(ffmpeg示例)</li>
+</ol>
+<pre><code class="shell">ffmpeg -i 1.flv -c copy -f flv &quot;rtmp://examplebucket.oss-cn-hangzhou.aliyuncs.com/live/test-channel?playlistName=playlist.m3u8&amp;OSSAccessKeyId=LTAI********&amp;Expires=1688543369&amp;Signature=eqK8z0ZTSwznP7fkELy0ckt0Iv***&quot;
+</code></pre>
+<h2 id="下载文件"><a href="#下载文件" class="headerlink" title="下载文件"></a>下载文件</h2><h3 id="简单下载"><a href="#简单下载" class="headerlink" title="简单下载"></a>简单下载</h3><p>简单下载指的是使用OSS API的GetObject接口，下载已上传的文件（Object），适用于一次HTTP请求交互即可完成下载的场景。</p>
+<pre><code class="python"># -*- coding: utf-8 -*-
+import oss2
+from oss2.credentials import EnvironmentVariableCredentialsProvider
+
+# 阿里云账号AccessKey拥有所有API的访问权限，风险很高。强烈建议您创建并使用RAM账号进行API访问或日常运维，请登录RAM控制台创建RAM账号。
+auth = oss2.ProviderAuth(EnvironmentVariableCredentialsProvider())
+# Endpoint以杭州为例，其它Region请按实际情况填写。
+# 填写Bucket名称，例如examplebucket。
+bucket = oss2.Bucket(auth, &#39;http://oss-cn-hangzhou.aliyuncs.com&#39;, &#39;examplebucket&#39;)
+
+# 填写Object完整路径，完整路径中不包含Bucket名称，例如testfolder/exampleobject.txt。
+# 下载Object到本地文件，并保存到指定的本地路径D:\\localpath\\examplefile.txt。如果指定的本地文件存在会覆盖，不存在则新建。
+bucket.get_object_to_file(&#39;testfolder/exampleobject.txt&#39;, &#39;D:\\localpath\\examplefile.txt&#39;)
+</code></pre>
+<h2 id="管理文件"><a href="#管理文件" class="headerlink" title="管理文件"></a>管理文件</h2><h3 id="列举文件"><a href="#列举文件" class="headerlink" title="列举文件"></a>列举文件</h3><p>存储空间（Bucket）内的文件（Object）默认按照字母序排列。您可以结合实际场景列举当前Bucket的所有Object、指定前缀的Object、指定个数的Object等。</p>
+<pre><code class="python"># -*- coding: utf-8 -*-
+import oss2
+from oss2.credentials import EnvironmentVariableCredentialsProvider
+# 从环境变量中获取访问凭证。运行本代码示例之前，请确保已设置环境变量OSS_ACCESS_KEY_ID和OSS_ACCESS_KEY_SECRET。
+auth = oss2.ProviderAuth(EnvironmentVariableCredentialsProvider())
+# 填写Bucket所在地域对应的Endpoint。以华东1（杭州）为例，Endpoint填写为https://oss-cn-hangzhou.aliyuncs.com。
+# 填写Bucket名称，例如examplebucket。
+bucket = oss2.Bucket(auth, &#39;https://oss-cn-hangzhou.aliyuncs.com&#39;, &#39;examplebucket&#39;)
+
+# 列举Bucket下的所有文件。
+for obj in oss2.ObjectIteratorV2(bucket):
+    print(obj.key)
+</code></pre>
+<h3 id="重命名文件"><a href="#重命名文件" class="headerlink" title="重命名文件"></a>重命名文件</h3><p>在OSS数据迁移或重组过程中，您可以通过重命名文件满足新的组织标准，确保命名一致性和结构准确性。</p>
+<pre><code class="python"># -*- coding: utf-8 -*-
+import oss2
+from oss2.credentials import EnvironmentVariableCredentialsProvider
+
+# 从环境变量中获取访问凭证。运行本代码示例之前，请确保已设置环境变量OSS_ACCESS_KEY_ID和OSS_ACCESS_KEY_SECRET。
+auth = oss2.ProviderAuth(EnvironmentVariableCredentialsProvider())
+# yourEndpoint填写Bucket所在地域对应的Endpoint。以华东1（杭州）为例，Endpoint填写为https://oss-cn-hangzhou.aliyuncs.com。
+endpoint = &#39;https://oss-cn-hangzhou.aliyuncs.com&#39;
+# 填写Bucket名称，例如examplebucket。
+bucket_name = &#39;examplebucket&#39;
+bucket = oss2.Bucket(auth, endpoint, bucket_name)
+
+# 填写不包含Bucket名称在内源Object的完整路径，例如srcobject.txt。
+src_object_name = &#39;srcobject.txt&#39;
+# 填写不包含Bucket名称在内目标Object的完整路径，例如destobject.txt。
+dest_object_name = &#39;destobject.txt&#39;
+
+# 将examplebucket下的srcobject.txt拷贝至同一Bucket下的destobject.txt。
+result = bucket.copy_object(bucket_name, src_object_name, dest_object_name)
+
+# 查看返回结果的状态。如果返回值为200，表示执行成功。
+print(&#39;result.status:&#39;, result.status)
+
+# 删除srcobject.txt。
+result_del = bucket.delete_object(src_object_name)
+
+# 查看返回结果的状态。如果返回值为204，表示执行成功。
+print(&#39;result.status:&#39;, result_del.status)
+</code></pre>
+<h3 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h3><p>以下仅列举常见SDK的删除单个文件的代码示例。关于其他SDK删除单个文件以及多个文件的代码示例，请参见官方SDK简介。</p>
+<pre><code class="python"># -*- coding: utf-8 -*-
+import oss2
+from oss2.credentials import EnvironmentVariableCredentialsProvider
+
+# 从环境变量中获取访问凭证。运行本代码示例之前，请确保已设置环境变量OSS_ACCESS_KEY_ID和OSS_ACCESS_KEY_SECRET。
+auth = oss2.ProviderAuth(EnvironmentVariableCredentialsProvider())
+# yourEndpoint填写Bucket所在地域对应的Endpoint。以华东1（杭州）为例，Endpoint填写为https://oss-cn-hangzhou.aliyuncs.com。
+# 填写Bucket名称，例如examplebucket。
+bucket = oss2.Bucket(auth, &#39;https://oss-cn-hangzhou.aliyuncs.com&#39;, &#39;examplebucket&#39;)
+
+# 删除文件。
+# yourObjectName填写待删除文件的完整路径，完整路径中不包含Bucket名称，例如exampledir/exampleobject.txt。
+# 如需删除文件夹，请将yourObjectName设置为对应的文件夹名称。如果文件夹非空，则需要将文件夹下的所有文件删除后才能删除该文件夹。
+bucket.delete_object(&#39;exampledir/exampleobject.txt&#39;)
+</code></pre>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Ron.</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://github.zzp0322.cn/2024/10/23/python-alioss/">https://github.zzp0322.cn/2024/10/23/python-alioss/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Ron.</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/OSS%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8/">
+                                    <span class="chip bg-color">OSS对象存储</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2024/10/28/frontend-node-fs/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Node fs文件系统模块">
+                        
+                        <span class="card-title">Node fs文件系统模块</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-10-28
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/FrontEnd/" class="post-category">
+                                    FrontEnd
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Node/">
+                        <span class="chip bg-color">Node</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/10/20/python-imagetostr/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="图片转字符画">
+                        
+                        <span class="card-title">图片转字符画</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-10-20
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Python/" class="post-category">
+                                    Python
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/pillow/">
+                        <span class="chip bg-color">pillow</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2022-2024</span>
+            
+            <a href="/about" target="_blank">Ron.</a>
+            |&nbsp;Powered by&nbsp;<a href="https://github.com/" target="_blank">Ron</a>
+            |&nbsp;<a href="https://beian.miit.gov.cn/" target="_blank">晋ICP备2022006345号</a>
+            
+            <br>
+            
+            
+            
+            
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link ">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+    <!-- 烟花 -->
+    
+        <canvas class="fireworks" style="position: fixed; left: 0; top: 0; z-index: 1; pointer-events: none;" ></canvas>
+        <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+        <script type="text/javascript" src="/js/fireworks.js"></script>
+    
+
+    <!-- 博客标签动态提示 -->
+    <script type="text/javascript">
+        var OriginTitile = document.title,st;
+        document.addEventListener("visibilitychange", function () {
+            document.hidden ? (document.title = "看不见我🙈~ 看不见我🙈~", clearTimeout(st)) : (document.title = "(๑•̀ㅂ•́) ✧被发现了～", st = setTimeout(function () {
+                document.title = OriginTitile
+            }, 3e3))
+        })
+    </script>
+    
+    <!-- 屏蔽网页源码 -->
+    <script type="text/javascript">
+        window.onload = function(){
+            // 屏蔽键盘事件
+            document.onkeydown = function (){
+                var e = window.event || arguments[0];
+                //F12
+                if(e.keyCode == 123){
+                    return false;
+                //Ctrl+Shift+I
+                }else if((e.ctrlKey) && (e.shiftKey) && (e.keyCode == 73)){
+                    return false;
+                //Shift+F10
+                }else if((e.shiftKey) && (e.keyCode == 121)){
+                    return false;
+                //Ctrl+U
+                }else if((e.ctrlKey) && (e.keyCode == 85)){
+                    return false;
+                }
+            };
+            // 屏蔽鼠标右键
+            document.oncontextmenu = function (){
+                return false;
+            }
+        }
+    </script>
+</body>
+
+</html>
